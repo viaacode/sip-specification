@@ -1,6 +1,6 @@
 ---
 layout:       default
-title:        SIP Structure
+title:        Structure
 parent:       SIP Specification
 nav_order:    4
 nav_exclude:  false
@@ -20,13 +20,13 @@ The meemoo SIP consists of a hierarchical directory structure with 3 levels:
   <figcaption>The directory structure of a meemoo SIP.</figcaption>
 </figure>
 
-The [_bag level_](./4_structure_bag.html) is a transport layer and contains essential information for checking the integrity of all files in the SIP.
+The [_bag level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/4_structure_bag.md %}) is a transport layer and contains essential information for checking the integrity of all files in the SIP.
 It uses a manifest file listing every file in the SIP together with its checksum.
 
-The [_package level_](./5_structure_package.html) contains descriptive and preservation information about the SIP's main subject, namely the different (sub-)IE(s) of which digital representations are being delivered, and preservation information about the SIP as a whole (e.g. the software used to create the SIP).
+The [_package level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}) contains descriptive and preservation information about the SIP's main subject, namely the different (sub-)IE(s) of which digital representations are being delivered, and preservation information about the SIP as a whole (e.g. the software used to create the SIP).
 In addition, a `mets.xml` file supplies information about the SIP's structure and administrative information about the SIP's submission (e.g. the organization that submits the SIP).
 
-The [_representation level_](./6_structure_representation.html) contains the media files, grouped in representation folders.
+The [_representation level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/6_structure_representation.md %}) contains the media files, grouped in representation folders.
 Each representation folder also contains its own `mets.xml` file, together with descriptive and preservation information about a specific representation of the (sub-)IE(s) of the SIP situated at the _package level_ and preservation information about the media files.
 
 ## Running example
@@ -44,5 +44,5 @@ This approach results in one main IE (i.e. the Felis Catus Flamens), two sub-IEs
 One representation then consists of two pictures, while the other consists of one picture.
 
 <small>
-Continue to [Bag Level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/4_structure_bag.md %}).
+Continue to [bag level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/4_structure_bag.md %}).
 </small>

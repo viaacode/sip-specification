@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Representation level
-parent:       SIP Structure
+parent:       Structure
 nav_order:    7
 nav_exclude:  false
 ---
@@ -31,7 +31,7 @@ root_directory
    └──representations
       │
       └──representation_1
-      │  │   mets.xml
+      │  │── mets.xml
       │  │
       │  └──data
       │  │  │   ...
@@ -424,5 +424,5 @@ More detailed preservation information can be described using PREMIS events and 
 - The `preservation.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the representation and the media files.
 
 <small>
-Continue to [Content Profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
+Continue to [Content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
 </small>

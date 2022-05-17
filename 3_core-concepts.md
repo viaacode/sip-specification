@@ -22,7 +22,7 @@ These concepts are used throughout the remainder of this specification, and are 
   <figcaption>The PREMIS Object data model as adopted by the meemoo SIP.</figcaption>
 </figure>
 
-## Intellectual Entities, Representations and Files
+## Intellectual Entities, Representations and Files {#dfn-ie}
 
 The [PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf) defines an **Intellectual Entity** (henceforth IE) as 'a distinct intellectual or artistic creation that is considered to be relevant to a designated community in the context of digital preservation'.
 At meemoo, the IE embodies the intangible subject matter of the digital content; it is what users search for on the meemoo dissemination platforms.

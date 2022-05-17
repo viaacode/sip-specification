@@ -10,8 +10,7 @@ Status: WIP
 {: .label .label-yellow }
 # Use Case: a single image
 
-**Content profile:** [Basic]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/basic.md %})
-
+**SIP profile:** [Basic]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/basic.md %})
 
 The [minimal sip sample](https://github.com/viaacode/documentation/tree/master/assets/sip_samples/cbee2999-1db5-4a69-9260-f216dee75623) is created purely for illustration purposes.
 It shows a minimal implementation that conforms to meemoo's SIP specification.

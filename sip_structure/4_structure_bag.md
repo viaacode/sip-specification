@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Bag level
-parent:       SIP Structure
+parent:       Structure
 nav_order:    5
 nav_exclude:  false
 ---
@@ -99,7 +99,7 @@ Tag-File-Character-Encoding: UTF-8
 
 The `/data` directory contains the content of the bag divided across a number of different files and directories.
 Each `/data` directory MUST contain exactly one package, consisting of the combination of a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
-See the [package level](./5_structure_package.html) for more information and the requirements of the `/data` directory.
+See the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}) for more information and the requirements of the `/data` directory.
 
 ***Example***
 
@@ -117,5 +117,5 @@ root_directory
 ```
 
 <small>
-Continue to [Package Level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}).
+Continue to [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}).
 </small>

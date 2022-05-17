@@ -1,10 +1,10 @@
 ---
 layout:       default
 title:        Newspaper
-parent:       Content profiles
+parent:       Profiles
 nav_order:    2
 nav_exclude:  true
 ---
 Status: WIP
 {: .label .label-yellow }
-# Newspaper Content Profile
+# Profile: Newspaper 

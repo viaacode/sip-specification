@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Package level
-parent:       SIP Structure
+parent:       Structure
 nav_order:    6
 nav_exclude:  false
 ---
@@ -145,10 +145,10 @@ The various requirements are listed in the table below.
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE` |
+| <a id="OTHERCONTENTINFORMATIONTYPE"></a>Attribute | `mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Other content information type specification |
-| Description | The `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute SHOULD be used to further declare the content information type.<br>Meemoo investigates the use of a controlled vocabulary containing all of the allowed content types (corresponding to the different content [profiles](./../profiles/index.html)) for ingest.|
+| Description | The `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute SHOULD be used to further declare the content information type.<br>Meemoo investigates the use of a controlled vocabulary containing all of the allowed content types (corresponding to the different content [profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %})) for ingest.|
 | Datatype | String |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
@@ -1691,5 +1691,5 @@ The `/representations` directory contains a separate `/representation_*` (where 
 - The different subdirectories in the `/representations` directory MUST be named `/representation_*`, with `*` being a positive integer that is incremented by 1 for each additional representation in the `/representations` directory.
 
 <small>
-Continue to [Representation Level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/6_structure_representation.md %}).
+Continue to [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/6_structure_representation.md %}).
 </small>
