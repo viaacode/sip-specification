@@ -8,6 +8,6 @@ has_children: false
 ---
 Status: WIP
 {: .label .label-yellow }
-# Use Case: a single video file with caption
+# Use Case: a video file with caption
 
 **SIP profile:** [Basic]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/basic.md %})
