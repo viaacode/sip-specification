@@ -60,8 +60,11 @@ This case uses in the Basic profile because:
 
 ## Directory structure
 
+We package the above in a meemoo SIP named `broadcaster_news_20220516_sip.zip`.
+It has the following directory structure:
+
 ```plaintext
-root_directory
+broadcaster_news_20220516_sip.zip
 │── manifest-md5.txt
 │── bagit.txt
 │
@@ -85,4 +88,78 @@ root_directory
                  └── preservation.xml
 ```
 
+## The metadata
 
+In total, the SIP contains 3 metadata files:
+ 
+| `/data/metadata/descriptive/descriptive.xml` | Descriptive metadata about the IE residing on _Package level_. |
+| `/data/metadata/preservation/preservation.xml` | Preservation metadata about the IE residing on _Package level_. |
+| `/data/representations/representation_1/metadata/preservation/preservation.xml` | Preservation metadata about the representation and files residing on _Representation level_. |
+
+
+### `/data/metadata/descriptive/descriptive.xml`
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<premis:premis xmlns:dcterms="http://purl.org/dc/terms/" xmlns:premis="http://www.loc.gov/premis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+  <premis:object>
+      <premis:objectIdentifier>
+         <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+         <premis:objectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:objectIdentifierValue>
+      </premis:objectIdentifier>
+
+      <dcterms:title>the title of the episode</dcterms:title>
+      <dcterms:publisher>the title of the episode</dcterms:publisher>
+      <dcterms:description>the description of the episode</dcterms:description>
+      <dcterms:created xsi:type="edtf:EDTF">the date the episode was aired</dcterms:created>
+      <dcterms:issued xsi:type="edtf:EDTF">XXXX</dcterms:issued>
+      <!-- list of keywords -->
+      <dcterms:subject>Keyword 1</dcterms:subject>
+      <dcterms:subject>Keyword 2</dcterms:subject>
+      <!-- VIAA licenses -->
+      <dcterms:license>VIAA-PUBLIEK-METADATA-LTD<dcterms:license>
+      <dcterms:rightsHolder schema:roleName="auteursrechthouder">the rights owner</dcterms:rightsHolder>
+      <!-- This is not part of basic profile? -->
+      <schema:transcript>
+         the audio transcript of the episode
+      </schema:transcript>
+  </premis:object>
+</premis:premis>  
+```
+
+### `/data/metadata/preservation/preservation.xml`
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<premis:premis xmlns:dcterms="http://purl.org/dc/terms/" xmlns:premis="http://www.loc.gov/premis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+
+   <premis:object>
+      <premis:objectIdentifier>
+         <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+         <premis:objectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:objectIdentifierValue>
+      </premis:objectIdentifier>
+      <premis:objectIdentifier>
+         <premis:objectIdentifierType>local_id</premis:objectIdentifierType>
+         <premis:objectIdentifierValue>a custom identifier by the CP</premis:objectIdentifierValue>
+      </premis:objectIdentifier>
+   </premis:object>
+</premis:premis>  
+```
+
+
+### `/data/representations/representation_1/metadata/preservation/preservation.xml`
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<premis:premis xmlns:dcterms="http://purl.org/dc/terms/" xmlns:premis="http://www.loc.gov/premis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+   <premis:object>
+      <premis:originalName>the original filename</premis:originalName>
+      <premis:objectCharacteristics>
+         <premis:fixity>
+            <premis:messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5">MD5</premis:messageDigestAlgorithm>
+            <premis:messageDigest>the md5 checksum of the essence</premis:messageDigest>
+         </premis:fixity>
+      </premis:objectCharacteristics>
+   </premis:object>
+</premis:premis>
+```
