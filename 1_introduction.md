@@ -24,7 +24,7 @@ One level higher, the _package_ directory _level_, embodies the represented cont
 Finally, the _bag_ directory _level_ bundles everything together for transport.
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
-Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a reprentation.
+Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
 Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), and [PREMIS](https://www.loc.gov/standards/premis/).
 
 ## How to Read this Specification
