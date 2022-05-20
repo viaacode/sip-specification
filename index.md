@@ -14,5 +14,4 @@ Status: WIP
 ## Abstract
 
 The meemoo Submission Information Package (henceforth SIP) specification describes how data and metadata should be packaged when delivered to meemoo for ingest.
-It can be used to create SIPs consisting of a single media file and accompanying metadata files.
-Furthermore, it serves as a generic base for content-specific subprofiles for the ingest of specific use-cases (e.g. newspapers, 3D objects etc.).
+It serves as a generic base for content-specific subprofiles for the ingest of specific use-cases (e.g. a single media file with accompanying metadata, newspapers, 3D objects etc.).
