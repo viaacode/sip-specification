@@ -27,11 +27,17 @@ These concepts are used throughout the remainder of this specification, and are 
 The [PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf) defines an **Intellectual Entity** (henceforth IE) as 'a distinct intellectual or artistic creation that is considered to be relevant to a designated community in the context of digital preservation'.
 At meemoo, the IE embodies the intangible subject matter of the digital content; it is what users search for on the meemoo dissemination platforms.
 
-An IE can be represented by one or more (digital) **representations**, defined by PREMIS as 'a set of files (including metadata) needed for a complete rendition of an intellectual entity'.
+An IE can be represented by one or more (digital) **Representations**, defined by PREMIS as 'a set of files (including metadata) needed for a complete rendition of an intellectual entity'.
 At meemoo, a representation is a logical grouping of files that belong together and are needed to correctly read or display a digital reproduction.
+Examples of such a logical grouping include (but are not limited to):
 
-The **files** that are included in a representation are the actual bits and bytes of the delivered content. 
-They do not only consist in the metadata and have a specific media format.
+- a colour representation (e.g. photographs printed in colour);
+- a black-and-white representation (e.g. black-and-white photographs);
+- a representation from a certain perspective/angle (e.g. photographs shot from a one point perspective);
+- ...
+
+The **Files** that are included in a representation are the actual bits and bytes of the delivered content.
+They have a specific media format and are not solely defined in/by the metadata.
 
 This three-way distinction also allows including metadata about different aspects of the SIP's content.
 For example, metadata about the content represented in a digital reproduction (which would be situated at the package level, since it covers the IE) can be separated from metadata purely about the digital reproduction itself (which would be situated at the representation level, since it covers (one of) the representation(s) of the IE).
@@ -41,7 +47,7 @@ Examples of these three concepts are given in the table below.
 | Intellectual Entity | Representation | File |
 |:------------------- | -------------- | ---- |
 | a painting | the stitched high-resolution archive master of the painting | the `.tiff` files that compose the stiched archive master |
-| an episode of a certain TV series | a browse copy of the episode | the `.mov` file and accompagnying `.srt` subtitle file | 
+| an episode of a certain TV series | a browse copy of the episode | the `.mov` file and accompagnying `.srt` subtitle file |
 | a newspaper edition of a certain date | an OCR rendition of the newspaper edition | the ALTO `.xml` files containing the newspaper's edition's textual content |
 
 ## Content profiles
@@ -68,9 +74,9 @@ Typically, something that has individual descriptive metadata at the source (e.g
 Consider a digitised newspaper edition with 10 pages.
 Each page is digitised separately as a TIFF file and a JPEG file, resulting in 20 digital reproductions.
 Finally, OCR is applied to each TIFF file, resulting in yet another 10 ALTO XML files (containing the textual representation of each newspaper page).
-Using the concepts defined above, it is possible to approach this example from two perspectives: either we view the newspaper edition as a whole as the IE, or we view each separate newspaper page as a separate IE.
+Using the concepts defined above, we view the newspaper edition as a whole as the IE.
 
-Using the [Newspaper Content Profile]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/newspaper.md %}), we have one IE (i.e. the newspaper edition) and we can discern between three representations of that IE: a high-resolution representation containing the TIFF files for e.g. reproduction, a low-resolution representation containing the JPEG files for e.g. browse copies on the web and a textual representation containing the ALTO XML files for e.g. searching through the actual textual content of the newspaper pages.
+We have one IE (i.e. the newspaper edition) and we can discern between three representations of that IE: a high-resolution representation containing the TIFF files for e.g. reproduction, a low-resolution representation containing the JPEG files for e.g. browse copies on the web and a textual representation containing the ALTO XML files for e.g. searching through the actual textual content of the newspaper pages.
 
 <figure class="mx-auto">
   <img src="../../../../../assets/images_spec/newspaper_situation_1.png" alt="Newspaper example" /> 
