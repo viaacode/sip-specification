@@ -28,13 +28,13 @@ The [PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/stand
 At meemoo, the IE embodies the intangible subject matter of the digital content; it is what users search for on the meemoo dissemination platforms.
 
 An IE can be represented by one or more (digital) **representations**, defined by PREMIS as 'a set of files (including metadata) needed for a complete rendition of an intellectual entity'.
-At meemoo, a representation is a logical grouping of files that belong together and are needed to correctly read or display a digital reproduction. 
+At meemoo, a representation is a logical grouping of files that belong together and are needed to correctly read or display a digital reproduction.
 
 The **files** that are included in a representation are the actual bits and bytes of the delivered content. 
 They do not only consist in the metadata and have a specific media format.
 
 This three-way distinction also allows including metadata about different aspects of the SIP's content.
-For example, metadata about the content represented in a digital reproduction (which would be situated at the package level, since it covers the IE) can be separated from metadata purely about the digital reprodution itself (which would be situated at the representation level, since it covers (one of) the representation(s) of the IE).
+For example, metadata about the content represented in a digital reproduction (which would be situated at the package level, since it covers the IE) can be separated from metadata purely about the digital reproduction itself (which would be situated at the representation level, since it covers (one of) the representation(s) of the IE).
 
 Examples of these three concepts are given in the table below.
 
