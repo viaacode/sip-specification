@@ -131,6 +131,7 @@ In total, the SIP contains 3 metadata files:
 <?xml version='1.0' encoding='UTF-8'?>
 <premis:premis xmlns:premis="http://www.loc.gov/premis/v3">
    <premis:object>
+      <premis:objectCategory>intellectual entity</premis:objectCategory>
       <premis:objectIdentifier>
          <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
          <premis:objectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:objectIdentifierValue>
@@ -140,7 +141,7 @@ In total, the SIP contains 3 metadata files:
          <premis:objectIdentifierValue>a custom identifier by the CP</premis:objectIdentifierValue>
       </premis:objectIdentifier>
    </premis:object>
-</premis:premis>  
+</premis:premis>
 ```
 
 
