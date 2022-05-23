@@ -9,7 +9,7 @@ Status: WIP
 {: .label .label-yellow }
 # Profile: Basic 
 
-The basic profile supports simple cases consisting of a single digital object accompanied by limited metadata.
+The basic profile supports simple cases consisting of a single media file accompanied by limited metadata.
 
 **Content information type:** <https://data.hetarchief.be/id/sip-profile/basic>
 
