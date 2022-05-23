@@ -17,7 +17,7 @@ Status: WIP
 {:toc}
 
 The package level is stored in the `/data` directory of the [bag](./4_structure_bag.html) and consists of at least a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
-It contains information about the (sub-)IE(s) of the SIP and the SIP as a whole.
+It contains information about the IE(s) of the SIP and the SIP as a whole.
 
 The package level may contain a `/documentation` and a `/schemas` directory.
 The former may contain additional information aiding the interpretation of the SIP, while the latter may contain XML Schema Definition (XSD) files of the metadata schemas used in the SIP.
@@ -510,7 +510,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 
 ### \<dmdSec\> section
 
-The `dmdSec` element (short for 'descriptive metadata section') contains descriptive metadata about the (sub-)IE(s) in the SIP.
+The `dmdSec` element (short for 'descriptive metadata section') contains descriptive metadata about the IE(s) in the SIP.
 Descriptive metadata in the meemoo SIP MUST be contained in dedicated metadata files located in the `/metadata/descriptive` directory of the package level.
 This means that the `dmdSec` MUST use `<mdRef>` elements to reference the external metadata files.
 
@@ -648,7 +648,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 
 ### \<amdSec\> section
 
-The `amdSec` element (short for 'administrative metadata section') contains preservation metadata about the (sub-)IE(s) in the SIP and about the SIP as a whole.
+The `amdSec` element (short for 'administrative metadata section') contains preservation metadata about the IE(s) of the SIP and about the SIP as a whole.
 Preservation data in the meemoo SIP MUST be contained in dedicated metadata files located in the `metadata/preservation` directory of the package-level.
 
 ***Example***
@@ -1411,7 +1411,7 @@ It provides links between elements and metadata files located elsewhere in the p
 
 ## /metadata (directory)
 
-The `/metadata` directory contains both descriptive and preservation metadata about the (sub-)IE(s) at the package level.
+The `/metadata` directory contains both descriptive and preservation metadata about the IE(s) at the package level.
 It also contains preservation metadata about the SIP as a whole.
 
 ***Requirements***
@@ -1420,17 +1420,17 @@ It also contains preservation metadata about the SIP as a whole.
 
 ### /descriptive (directory)
 
-The `/descriptive` directory contains descriptive metadata about the (sub-)IE(s) at the package level.
+The `/descriptive` directory contains descriptive metadata about the IE(s) at the package level.
 
 ***Requirements***
 
 - The `/descriptive` directory MUST contain exactly one file: `descriptive.xml`.
 
-The `descriptive.xml` file at the package-level contains descriptive metadata about the (sub-)IE(s) of the SIP.
+The `descriptive.xml` file at the package-level contains descriptive metadata about the IE(s) of the SIP.
 It relies on the [PREMIS](https://www.loc.gov/standards/premis/v3/) schema and the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
 
-Descriptive metadata about one or more (sub-)IEs is divided into separate `<premis:object>` elements with unique identifiers.
-This allows for describing all (sub-)IEs in one and the same descriptive metadata file, using multiple `<premis:object>` elements.
+Descriptive metadata about one or more IEs is divided into separate `<premis:object>` elements with unique identifiers.
+This allows for describing all IEs in one and the same descriptive metadata file, using multiple `<premis:object>` elements.
 The link between the `<premis:object>` elements in the descriptive metadata and the `<premis:object>` elements in the preservation metadata (in the `preservation.xml` in `/data/metadata/preservation`) is made using shared UUIDs in the `<premis:objectIdentifier>` elements of both files.
 
 ***Example***
@@ -1515,7 +1515,7 @@ The link between the `<premis:object>` elements in the descriptive metadata and 
 - The `descriptive.xml` file MUST only use the [PREMIS](https://www.loc.gov/standards/premis/v3/) and [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schemas and MUST NOT use any other metadata schemas.
 - The `descriptive.xml` file MUST declare the PREMIS and DCTERMS namespaces in its root element.
 - The `descriptive.xml` file MUST use the `<premis:premis/>` tag as its root element.
-- The `descriptive.xml` file MUST use `<premis:object/>` elements for each separate (sub-)IE that is described.
+- The `descriptive.xml` file MUST use `<premis:object/>` elements for each separate IE that occurs in the package.
 - All descriptive metadata in the `descriptive.xml` file MUST be embedded in `<premis:object/>` elements.
 - The `descriptive.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
 - The `descriptive.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
@@ -1569,13 +1569,13 @@ The link between the `<premis:object>` elements in the descriptive metadata and 
 
 ### /preservation (directory)
 
-The `/preservation` directory contains preservation metadata about the (sub-)IE(s) at package level.
+The `/preservation` directory contains preservation metadata about the IE(s) at the package level.
 
 ***Requirements***
 
 - The `/preservation` directory MUST contain exactly one file: `preservation.xml`.
 
-The `preservation.xml` file at the package-level contains preservation metadata about the (sub-)IE(s) of the SIP, and about the SIP as a whole.
+The `preservation.xml` file at the package-level contains preservation metadata about the IE(s) of the SIP, and about the SIP as a whole.
 It relies on the [Preservation Metadata: Implementation Strategies (PREMIS)](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information.
 More detailed preservation information can be described using PREMIS events and PREMIS agents.
 
@@ -1677,13 +1677,13 @@ More detailed preservation information can be described using PREMIS events and 
 
 ***Requirements***
 
-- The `preservation.xml` file MUST contain a PREMIS object for each IE and sub-IE in the SIP.
+- The `preservation.xml` file MUST contain a PREMIS object for each IE in the SIP.
 - Each PREMIS object in the `preservation.xml` MUST contain a unique identifier.
 - The `preservation.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the SIP as a whole.
 
 ## /representations (directory)
 
-The `/representations` directory contains a separate `/representation_*` (where `*` is a positive integer) directory for each representation of the (sub-)IE(s) of the package level.
+The `/representations` directory contains a separate `/representation_*` (where `*` is a positive integer) directory for each representation of (the) IE(s) of the package level.
 
 ***Requirements***
 

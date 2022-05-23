@@ -57,8 +57,8 @@ However, not every utilization of this model is allowed at ingest in the meemoo 
 Depending on the type of content, a specific mapping is required, which is captured in the different [Content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
 A content profile determines
 
-- whether an IE is subdivided further into sub-IEs;
-- what the representations of any IE or sub-IEs are;
+- whether an IE is subdivided further into other IEs (i.e. nesting of IEs);
+- what the representations of any IE are;
 - which files should be included in each representation;
 - what metadata schemas can be used and where.
 

@@ -17,7 +17,7 @@ Status: WIP
 {:toc}
 
 The representation level consists of at least one `/representation_*` directory (where `*` is a positive integer).
-Each `/representation_*` directory contains information about the representation of (one of) the (sub-)IE(s) of the package level, together with the media files making up the representation.
+Each `/representation_*` directory contains information about the representation of (one of) the IE(s) of the package level, together with the media files making up the representation.
 
 ***Example***
 
@@ -53,7 +53,7 @@ root_directory
 ## /representation_* (directory)
 
 A `/representation_*` directory consists of at least a `mets.xml` file, a `/data` directory and a `/metadata` directory.
-It contains both descriptive and preservation metadata, as well as the actual media files making up a certain representation of the (sub-)IE(s) of the SIP.
+It contains both descriptive and preservation metadata, as well as the actual media files making up a certain representation of the IE(s) of the SIP.
 
 Each `/representation_*` directory contains its own `mets.xml` file which acts similarly as the package `mets.xml` and serves as an inventory of the files and directories of the representation level.
 

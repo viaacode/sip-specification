@@ -23,11 +23,11 @@ The meemoo SIP consists of a hierarchical directory structure with 3 levels:
 The [_bag level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/4_structure_bag.md %}) is a transport layer and contains essential information for checking the integrity of all files in the SIP.
 It uses a manifest file listing every file in the SIP together with its checksum.
 
-The [_package level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}) contains descriptive and preservation information about the SIP's main subject, namely the different (sub-)IE(s) of which digital representations are being delivered, and preservation information about the SIP as a whole (e.g. the software used to create the SIP).
+The [_package level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}) contains descriptive and preservation information about the SIP's main subject, namely the different IE(s) of which digital representations are being delivered, and preservation information about the SIP as a whole (e.g. the software used to create the SIP).
 In addition, a `mets.xml` file supplies information about the SIP's structure and administrative information about the SIP's submission (e.g. the organization that submits the SIP).
 
 The [_representation level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/6_structure_representation.md %}) contains the media files, grouped in representation folders.
-Each representation folder also contains its own `mets.xml` file, together with descriptive and preservation information about a specific representation of the (sub-)IE(s) of the SIP situated at the _package level_ and preservation information about the media files.
+Each representation folder also contains its own `mets.xml` file, together with descriptive and preservation information about a specific representation of the IE(s) of the SIP situated at the _package level_ and preservation information about the media files.
 
 ## Running example
 
@@ -39,8 +39,8 @@ One of meemoo's content partners, the (fictional) Flemish Cat Museum (henceforth
 More specifically, the FCM owns two pictures of the Felis Catus Flamens lying on a sofa and one picture of the Felis Catus Flamens on its cat tree.
 
 The FCM views the Felis Catus Flamens itself as the IE of the SIP.
-They consider the two different environments in which the cat appears, as two separate representations of subIEs (i.e. lying on a sofa and sitting on a cat tree) since they have different metadata about both environments available.
-This approach results in one main IE (i.e. the Felis Catus Flamens), two sub-IEs (i.e. the cat lying on a sofa and sitting on a cat tree) and two representations, each representing one of the sub-IEs.
+They consider the two different environments in which the cat appears, as two separate representations of the main IE and decide to nest that main IE into two separate IEs (i.e. lying on a sofa and sitting on a cat tree) since they have different metadata about both environments available.
+This approach results in one main IE (i.e. the Felis Catus Flamens), further subdivided into two other IEs (i.e. the cat lying on a sofa and sitting on a cat tree) and two representations, each representing one of the IEs.
 One representation then consists of two pictures, while the other consists of one picture.
 
 <small>
