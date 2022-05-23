@@ -60,10 +60,10 @@ root_directory
 Some use cases that implement this profile are:
 
 {% for page in site.pages %}
-   {% if page.sip_profile == "basic" %}
-   - [{{ page.title }}]({{ page.url }})
-   {% endif %}   <!-- resource-p -->
-{% endfor %}  <!-- page -->
+{% if page.sip_profile == "basic" %}
+- [{{ page.title }}]({{ page.url }})
+{% endif %}
+{% endfor %}
 
 
  
