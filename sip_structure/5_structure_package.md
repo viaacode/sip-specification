@@ -1427,7 +1427,7 @@ The `/descriptive` directory contains descriptive metadata about the (sub-)IE(s)
 - The `/descriptive` directory MUST contain exactly one file: `descriptive.xml`.
 
 The `descriptive.xml` file at the package-level contains descriptive metadata about the (sub-)IE(s) of the SIP.
-It relies on the [PREMIS for Preservation Metadata](https://www.loc.gov/standards/premis/v3/) schema and the [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
+It relies on the [PREMIS](https://www.loc.gov/standards/premis/v3/) schema and the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
 
 Descriptive metadata about one or more (sub-)IEs is divided into separate `<premis:object>` elements with unique identifiers.
 This allows for describing all (sub-)IEs in one and the same descriptive metadata file, using multiple `<premis:object>` elements.
@@ -1512,18 +1512,18 @@ The link between the `<premis:object>` elements in the descriptive metadata and 
 
 ***Requirements***
 
-- The `descriptive.xml` file MUST only use the [PREMIS for Preservation Metadata](https://www.loc.gov/standards/premis/v3/) and [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schemas and MUST NOT use any other metadata schemas.
-- The `descriptive.xml` file MUST declare the PREMIS and DC Terms namespaces in its root element.
+- The `descriptive.xml` file MUST only use the [PREMIS](https://www.loc.gov/standards/premis/v3/) and [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schemas and MUST NOT use any other metadata schemas.
+- The `descriptive.xml` file MUST declare the PREMIS and DCTERMS namespaces in its root element.
 - The `descriptive.xml` file MUST use the `<premis:premis/>` tag as its root element.
 - The `descriptive.xml` file MUST use `<premis:object/>` elements for each separate (sub-)IE that is described.
 - All descriptive metadata in the `descriptive.xml` file MUST be embedded in `<premis:object/>` elements.
-- The `descriptive.xml` file MUST include the DC Terms elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DC Terms schema.
+- The `descriptive.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
 - The `descriptive.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 
 | Element | `premis:premis` |
 |-----------------------|-----------|
 | Name | DC root element |
-| Description | This root element MUST contain [the XML schema namespace of DCMI Metadata Terms](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd).<br>It MUST NOT contain any other XML schema namespaces besides DCMI Metadata Terms.<br>It MUST NOT contain any attributes. |
+| Description | This root element MUST contain the XML schema namespace of [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd).<br>It MUST NOT contain any other XML schema namespaces besides DCTERMS.<br>It MUST NOT contain any attributes. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
