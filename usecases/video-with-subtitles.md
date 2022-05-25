@@ -18,7 +18,7 @@ The following use case describes how to package
 
 It uses the [**Basic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/basic.md %}).
 
-A full sample SIP can be found [here](#sample).
+A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip %}).
 
 ## The content
 
