@@ -52,9 +52,9 @@ Examples of these three concepts are given in the table below.
 
 ## Content profiles
 
-A generic data model is necessary to ensure a scalable SIP design to current and future use cases. 
+A generic data model is necessary to ensure a scalable SIP design to current and future use cases.
 However, not every utilization of this model is allowed at ingest in the meemoo archive.
-Depending on the type of content, a specific mapping is required, which is captured in the different [Content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
+Depending on the type of content, a specific mapping is required, which is captured in the different [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
 A content profile determines
 
 - whether an IE is subdivided further into other IEs (i.e. nesting of IEs);
@@ -62,7 +62,7 @@ A content profile determines
 - which files should be included in each representation;
 - what metadata schemas can be used and where.
 
-Content that is delivered to meemoo must therefore always be packaged in a meemoo SIP that adheres to a specific Content profile.
+Content that is delivered to meemoo must therefore always be packaged in a meemoo SIP that adheres to a specific content profile.
 
 {: .important }
 Generally speaking, it is up to the content partner to decide what aspect of its collection is considered as an IE and what profile to use.
@@ -84,5 +84,5 @@ We have one IE (i.e. the newspaper edition) and we can discern between three rep
 </figure>
 
 <small>
-Continue to [SIP Structure]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/index.md %}).
+Continue to [Structure]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/index.md %}).
 </small>
