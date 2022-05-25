@@ -27,6 +27,11 @@ Metadata can occur at every SIP level to add administrative, structural, descrip
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
 Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), and [PREMIS](https://www.loc.gov/standards/premis/).
 
+The meemoo SIP specification itself cannot be used for actual ingest in the meemoo archive.
+Depending on the type of content, specific mappings are required for ingest.
+These mappings consist of additional requirements on top of the current meemoo SIP specification and are captured in th different content profiles.
+In summar, content that is delivered to meemoo for ingest must always be packaged in a meemoo SIP that adheres to a specific content profile.
+
 ## How to Read this Specification
 
 This document is primarily intended for the following audiences:
