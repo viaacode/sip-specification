@@ -88,11 +88,10 @@ The various requirements are listed in the table below.
       xmlns:sip="https://DILCIS.eu/XML/METS/SIPExtensionMETS"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      OBJID="uuid-cbee2999-1db5-4a69-9260-f216dee75623"
+      OBJID="uuid-fae4ef8f-5954-4602-9a1e-0d6eb83f3727"
       TYPE="Photographs – Digital"
       PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml"
-      csip:CONTENTINFORMATIONTYPE="OTHER"
-      csip:OTHERCONTENTINFORMATIONTYPE="">
+      csip:CONTENTINFORMATIONTYPE="">
 
   <metsHdr>...</metsHdr>
   <dmdSec>...</dmdSec>
@@ -140,15 +139,15 @@ The various requirements are listed in the table below.
 | Attribute | `mets/@csip:CONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Content information type specification |
-| Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP. Its value MUST be set to `OTHER`. |
-| Datatype | String |
+| Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.0/basic` for the basic content profile which can be found on [its content profile page]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/basic.md %}).<br>Note that this attribute is left empty in the example above, since this is part of a dummy sample. |
+| Datatype | URI |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | <a id="OTHERCONTENTINFORMATIONTYPE"></a>Attribute | `mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Other content information type specification |
-| Description | The `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute SHOULD be used to further declare the content information type.<br>Meemoo investigates the use of a controlled vocabulary containing all of the allowed content types (corresponding to the different content [profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %})) for ingest.|
+| Description | The `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute MAY be used to further declare the content information type/content profile.|
 | Datatype | String |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
@@ -517,18 +516,18 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 ***Example***
 
 ```xml
-<!-- ref to descriptive metadata about IE -->
 <dmdSec ID="uuid-786829da-2ad8-4d77-8cf7-157f63227e6b">
-  <mdRef  ID="uuid-88191f66-f7ae-42c7-9427-8af2a8e7557f"
-          LOCTYPE="URL"
-          MDTYPE="OTHER"
-          xlink:type="simple"
-          xlink:href="./metadata/descriptive/descriptive.xml"
-          MIMETYPE="text/xml"
-          SIZE="2655"
-          CREATED="2022-02-16T10:01:15.014+02:00"
-          CHECKSUM="7c513b9cb8848860ddcb4d4b680171bc"
-          CHECKSUMTYPE="MD5" />
+  <mdRef ID="uuid-88191f66-f7ae-42c7-9427-8af2a8e7557f" LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="./metadata/descriptive/dc_1.xml" MIMETYPE="text/xml" SIZE="663" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="cd17cbb2153946c8462e10b337e0e9c1" CHECKSUMTYPE="MD5" />
+</dmdSec>
+
+<!-- ref to descriptive metadata about IE1 -->
+<dmdSec ID="uuid-786829da-2ad8-4d77-8cf7-157f63227e6b">
+    <mdRef ID="uuid-dcbb5eec-7cd0-4647-8258-5fad9b08f7c8" LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="./metadata/descriptive/dc_2.xml" MIMETYPE="text/xml" SIZE="738" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="fbab574560f2d548fd84c6c1fd1cb7f2" CHECKSUMTYPE="MD5" />
+</dmdSec>
+
+<!-- ref to descriptive metadata about IE2 -->
+<dmdSec ID="uuid-786829da-2ad8-4d77-8cf7-157f63227e6b">
+    <mdRef ID="uuid-6461efa1-311d-4aec-8188-da666464838d" LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="./metadata/descriptive/dc_3.xml" MIMETYPE="text/xml" SIZE="748" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="9d55815152e83db76a32f74990d79cd3" CHECKSUMTYPE="MD5" />
 </dmdSec>
 ```
 
@@ -537,9 +536,9 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 | Element | `mets/dmdSec` |
 |-----------------------|-----------|
 | Name | Descriptive metadata section |
-| Description | Wrapper element that contains a reference to a separate descriptive metadata file in the directory `/metadata/descriptive`.<br>It MUST be used if descriptive metadata for the package content is available. <br>Each `dmdsec` contains a single description and MUST be repeated for multiple descriptions, when available. |
+| Description | Wrapper element that contains a reference to a separate descriptive metadata file in the directory `/metadata/descriptive`.<br>It MUST be used if descriptive metadata for the package content is available. <br>Each `dmdsec` contains a single reference to a descriptive metadata file and MUST be repeated for multiple metadata files, when available. |
 | Cardinality | 0..* |
-| Obligation | MUST |
+| Obligation | SHOULD |
 
 | Attribute | `mets/dmdSec/@ID` |
 |-----------------------|-----------|
@@ -552,7 +551,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 | Attribute | `mets/dmdSec/@CREATED` |
 |-----------------------|-----------|
 | Name | Descriptive metadata creation datetime |
-| Description | Creation date and time of the descriptive metadata in this section. |
+| Description | Creation date and time of the descriptive metadata referenced in this section. |
 | Datatype | EDTF |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -568,10 +567,10 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 
 | Element | `mets/dmdSec/mdRef`
 |-----------------------|-----------|
-| Name | Reference to the document with the descriptive metadata (when not embedded within the `dmdSec`) |
-| Description | Reference to the descriptive metadata file(s) when located in the `/metadata/descriptive directory`. |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
+| Name | Reference to the document with the descriptive metadata |
+| Description | Reference to the descriptive metadata file(s) located in the `/metadata/descriptive directory`. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `mets/dmdSec/mdRef[@LOCTYPE='URL']` |
 |-----------------------|-----------|
@@ -650,23 +649,15 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 
 The `amdSec` element (short for 'administrative metadata section') contains preservation metadata about the IE(s) of the SIP and about the SIP as a whole.
 Preservation data in the meemoo SIP MUST be contained in dedicated metadata files located in the `metadata/preservation` directory of the package-level.
+This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digiprovMD>` elements, to reference the external metadata files.
 
 ***Example***
 
 ```xml
-<!-- ref to the PREMIS metadata about IE/subIE(s)/package -->
+<!-- ref to the PREMIS metadata about IE(s)/package -->
 <amdSec ID="b9143f83-2567-4122-a55c-87389e6263ec">
   <digiprovMD ID="uuid-3f8709ad-2c02-48a2-9fb4-871df03cb929">
-    <mdRef  ID="uuid-bf966b2c-c1a2-4c75-aae6-18877d2f58cc"
-            LOCTYPE="URL"
-            MDTYPE="PREMIS"
-            xlink:type="simple"
-            xlink:href="./metadata/preservation/preservation.xml"
-            MIMETYPE="text/xml"
-            SIZE="6277"
-            CREATED="2022-02-16T10:01:15.014+02:00"
-            CHECKSUM="8c2914e1df1e2827c9c4059804075120"
-            CHECKSUMTYPE="MD5" />
+    <mdRef ID="uuid-bf966b2c-c1a2-4c75-aae6-18877d2f58cc" LOCTYPE="URL" MDTYPE="PREMIS" xlink:type="simple" xlink:href="./metadata/preservation/premis.xml" MIMETYPE="text/xml" SIZE="6295" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="01de8b0a874407472a183aeece47505d" CHECKSUMTYPE="MD5" />
   </digiprovMD>
 </amdSec>
 ```
@@ -678,13 +669,13 @@ Preservation data in the meemoo SIP MUST be contained in dedicated metadata file
 | Name | Administrative metadata section |
 | Description | Wrapper element that contains a reference to a separate preservation metadata file in the directory `/metadata/preservation`.<br>It MUST be used if preservation metadata for the package content is available.<br>All preservation metadata MUST be present in a single metadata file, resulting in a single `amdSec` element. |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | SHOULD |
 
 | Element | `mets/amdSec/digiprovMD` |
 |-----------------------|-----------|
 | Name | Digital provenance metadata |
-| Description | Wrapper element for including preservation information using the PREMIS standard.<br>Each piece of PREMIS metadata MUST be included in a separate `digiprovMD` element.|
-| Cardinality | 0..* |
+| Description | Wrapper element for including preservation information using the PREMIS standard.|
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `mets/amdSec/digiprovMD/@ID` |
@@ -707,8 +698,8 @@ Preservation data in the meemoo SIP MUST be contained in dedicated metadata file
 | Element | `mets/amdSec/digiprovMD/mdRef` |
 |-----------------------|-----------|
 | Name | Reference to the file with the preservation metadata. |
-| Description | Reference to the preservation metadata file(s) when located in the `/metadata/preservation` directory. |
-| Cardinality | 0..1 |
+| Description | Reference to the preservation metadata file located in the `/metadata/preservation` directory. |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `mets/amdSec/digiprovMD/mdRef[@LOCTYPE='URL']` |
@@ -812,7 +803,7 @@ Preservation data in the meemoo SIP MUST be contained in dedicated metadata file
 |-----------------------|-----------|
 | Name | Reference to the document with the rights metadata (when not embedded within the mets.xml file). |
 | Description | Reference to the rights metadata file(s) when located in the `/metadata/preservation` directory. |
-| Cardinality | 0..1 |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `mets/amdSec/rightsMD/mdRef[@LOCTYPE='URL']` |
@@ -897,28 +888,35 @@ The listing of other representation files (i.e. metadata files and media files) 
 ***Example***
 
 ```xml
+<!-- file section -->
 <fileSec ID="uuid-0c53fd9b-f640-4def-a872-2e4622f691d9">
     <fileGrp USE="root" ID="uuid-6c78980c-bdfc-4e2e-b19a-579e5b285055">
         <fileGrp USE="metadata" ID="uuid-bd087c44-ee3f-48e9-9031-9190a60c8e13">
             <fileGrp USE="metadata/descriptive" ID="uuid-5194aca6-97b6-448c-b385-b892bc0c362c">
-                <file ID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911" MIMETYPE="text/xml" SIZE="2655" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="7c513b9cb8848860ddcb4d4b680171bc" CHECKSUMTYPE="MD5">
-                    <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./metadata/descriptive/descriptive.xml" />
+                <file ID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911" MIMETYPE="text/xml" SIZE="663" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="cd17cbb2153946c8462e10b337e0e9c1" CHECKSUMTYPE="MD5">
+                    <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./metadata/descriptive/dc_1.xml" />
+                </file>
+                <file ID="uuid-7a3443ed-9925-414b-819f-fc4830475e22" MIMETYPE="text/xml" SIZE="738" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="fbab574560f2d548fd84c6c1fd1cb7f2" CHECKSUMTYPE="MD5">
+                    <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./metadata/descriptive/dc_2.xml" />
+                </file>
+                <file ID="uuid-dff9e2ad-ab58-490a-9d80-df6c812404d2" MIMETYPE="text/xml" SIZE="748" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="fbab574560f2d548fd84c6c1fd1cb7f2" CHECKSUMTYPE="MD5">
+                    <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./metadata/descriptive/dc_3.xml" />
                 </file>
             </fileGrp>
             <fileGrp USE="metadata/preservation" ID="uuid-caea98b8-ae09-412d-8f25-dd50ba6a30cd">
-                <file ID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0" MIMETYPE="text/xml" SIZE="6277" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="8c2914e1df1e2827c9c4059804075120" CHECKSUMTYPE="MD5">
-                    <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./metadata/preservation/preservation.xml" />
+                <file ID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0" MIMETYPE="text/xml" SIZE="6295" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="01de8b0a874407472a183aeece47505d" CHECKSUMTYPE="MD5">
+                    <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./metadata/preservation/premis.xml" />
                 </file>
             </fileGrp>
         </fileGrp>
         <fileGrp USE="representations" ID="uuid-779319d9-cc1f-41b3-a49e-28d169e0d066">
             <fileGrp USE="representations/representation_1" ID="uuid-700c97da-3164-4863-9e58-d6d62156052e">
-                <file ID="uuid-0fe40ffc-b5f3-465e-af3a-d266d94453b7" MIMETYPE="text/xml" SIZE="4295" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="b31b2224cef22b22d29f62a03f30aaa3" CHECKSUMTYPE="MD5">
+                <file ID="uuid-0fe40ffc-b5f3-465e-af3a-d266d94453b7" MIMETYPE="text/xml" SIZE="4264" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="297f0482f32b2836d2ac7e2ff0a5884d" CHECKSUMTYPE="MD5">
                     <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_1/mets.xml" />
                 </file>
             </fileGrp>
             <fileGrp USE="representations/representation_2" ID="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c">
-                <file ID="uuid-625629a4-e5f8-4087-9114-66e4a943bf50" MIMETYPE="text/xml" SIZE="3896" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="2f3f71fadf038f86ba512c16702af864" CHECKSUMTYPE="MD5">
+                <file ID="uuid-625629a4-e5f8-4087-9114-66e4a943bf50" MIMETYPE="text/xml" SIZE="3865" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="95cd90cad81c9227f76d5f584182b308" CHECKSUMTYPE="MD5">
                     <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_2/mets.xml" />
                 </file>
             </fileGrp>
@@ -1121,11 +1119,14 @@ It provides links between elements and metadata files located elsewhere in the p
 ***Example***
 
 ```xml
+<!-- structural map -->
 <structMap ID="uuid-1ce2cef4-cb9a-4649-8983-c916870cf2b4" TYPE="PHYSICAL" LABEL="CSIP">
     <div ID="uuid-33cd69c8-b297-40e1-9491-1b5db58890bd" LABEL="">
         <div ID="uuid-c0a73bbc-d6f3-42a0-b5e1-f53a4601101b" LABEL="metadata">
             <div ID="uuid-9aae35c0-9d17-43c7-824a-4722ef3039cd" LABEL="descriptive">
                 <fptr FILEID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911" />
+                <fptr FILEID="uuid-7a3443ed-9925-414b-819f-fc4830475e22" />
+                <fptr FILEID="uuid-dff9e2ad-ab58-490a-9d80-df6c812404d2" />
             </div>
             <div ID="uuid-ee9ce21e-8264-45cc-b877-7e266647a335" LABEL="preservation">
                 <fptr FILEID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0" />
@@ -1421,121 +1422,70 @@ It also contains preservation metadata about the SIP as a whole.
 ### /descriptive (directory)
 
 The `/descriptive` directory contains descriptive metadata about the IE(s) at the package level.
+This descriptive metadata is stored in different XML files, depending on the number of IE(s) present in the SIP.
+Each XML file follows the naming convention `dc_*.xml` (where `*` is a positive integer increasing by one for each additional IE with descriptive metadata present).
 
 ***Requirements***
 
-- The `/descriptive` directory MUST contain exactly one file: `descriptive.xml`.
+- The `/descriptive` directory SHOULD minimally contain exactly one file: `dc_1.xml`.
+- The metadata files in the `/descriptive` directory SHOULD follow the `dc_*.xml` naming convention.
 
 The `descriptive.xml` file at the package-level contains descriptive metadata about the IE(s) of the SIP.
-It relies on the [PREMIS](https://www.loc.gov/standards/premis/v3/) schema and the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
+It relies on the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
 
-Descriptive metadata about one or more IEs is divided into separate `<premis:object>` elements with unique identifiers.
-This allows for describing all IEs in one and the same descriptive metadata file, using multiple `<premis:object>` elements.
-The link between the `<premis:object>` elements in the descriptive metadata and the `<premis:object>` elements in the preservation metadata (in the `preservation.xml` in `/data/metadata/preservation`) is made using shared UUIDs in the `<premis:objectIdentifier>` elements of both files.
+Descriptive metadata about multiple IEs is divided into different descriptive metadata files.
+There is a link present between each `dc_*.xml` file and the different PREMIS objects in the `preservation/premis.xml` file via a shared UUID.
+This shared UUID is stored in the `<dcterms:identifier>` element of each `dc_*.xml` file and in a `<premis:objectIdentifier>` element of each PREMIS object in the `preservation/premis.xml` file.
 
 ***Example***
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<premis:premis xmlns:dcterms="http://purl.org/dc/terms/" xmlns:premis="http://www.loc.gov/premis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
 
-  <premis:object>
 
-    <premis:objectIdentifier>
-      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-      <premis:objectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:objectIdentifierValue>
-    </premis:objectIdentifier>
+  <!-- general title for the resource -->
+  <dcterms:title>Felis Catus Flamens</dcterms:title>
 
-    <!-- general title for the resource -->
-    <dcterms:title>Felis Catus Flamens</dcterms:title>
+  <!-- linking id between dc and premis -->
+  <dcterms:identifier>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</dcterms:identifier>
 
-    <!-- id for the FCF in an imaginary cat database -->
-    <dcterms:identifier>FCatus_FelisCatusFlamens_01</dcterms:identifier>
+  <!-- date unknown -->
+  <dcterms:created xsi:type="edtf">XXXX</dcterms:created>
 
-    <!-- date unknown -->
-    <dcterms:created xsi:type="edtf">XXXX</dcterms:created>
+  <!-- multiple keywords about the resource -->
+  <dcterms:subject>Cat</dcterms:subject>
+  <dcterms:subject>Felis Catus Flamens</dcterms:subject>
 
-    <!-- multiple keywords about the resource -->
-    <dcterms:subject>Cat</dcterms:subject>
-    <dcterms:subject>Felis Catus Flamens</dcterms:subject>
 
-  </premis:object>
-
-  <premis:object>
-
-    <premis:objectIdentifier>
-      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-      <premis:objectIdentifierValue>uuid-948e2213-ca54-459c-8c87-5818adeb9444</premis:objectIdentifierValue>
-    </premis:objectIdentifier>
-
-    <!-- general title for the resource -->
-    <dcterms:title>Felis Catus Flamens lying on a sofa</dcterms:title>
-
-    <!-- id for the FCF in an imaginary cat database -->
-    <dcterms:identifier>FCatus_FelisCatusFlamens_Sofa_01</dcterms:identifier>
-
-    <!-- date unknown -->
-    <dcterms:created xsi:type="edtf">XXXX</dcterms:created>
-
-    <!-- multiple keywords about the resource -->
-    <dcterms:subject>Cat</dcterms:subject>
-    <dcterms:subject>Felis Catus Flamens</dcterms:subject>
-    <dcterms:subject>Sofa</dcterms:subject>
-
-  </premis:object>
-
-  <premis:object>
-
-    <premis:objectIdentifier>
-      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-      <premis:objectIdentifierValue>uuid-01d59d41-f523-4d06-a549-4bf6f7cef853</premis:objectIdentifierValue>
-    </premis:objectIdentifier>
-
-    <!-- general title for the resource -->
-    <dcterms:title>Felis Catus Flamens sitting on a cat tree</dcterms:title>
-
-    <!-- id for the FCF in an imaginary cat database -->
-    <dcterms:identifier>FCatus_FelisCatusFlamens_CatTree_01</dcterms:identifier>
-
-    <!-- date unknown -->
-    <dcterms:created xsi:type="edtf">XXXX</dcterms:created>
-
-    <!-- multiple keywords about the resource -->
-    <dcterms:subject>Cat</dcterms:subject>
-    <dcterms:subject>Felis Catus Flamens</dcterms:subject>
-    <dcterms:subject>Cat tree</dcterms:subject>
-
-  </premis:object>
-
-</premis:premis>  
+</metadata>   
 ```
 
 ***Requirements***
 
-- The `descriptive.xml` file MUST only use the [PREMIS](https://www.loc.gov/standards/premis/v3/) and [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schemas and MUST NOT use any other metadata schemas.
-- The `descriptive.xml` file MUST declare the PREMIS and DCTERMS namespaces in its root element.
-- The `descriptive.xml` file MUST use the `<premis:premis/>` tag as its root element.
-- The `descriptive.xml` file MUST use `<premis:object/>` elements for each separate IE that occurs in the package.
-- All descriptive metadata in the `descriptive.xml` file MUST be embedded in `<premis:object/>` elements.
-- The `descriptive.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
-- The `descriptive.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
+- Each `dc_*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
+- Each `dc_*.xml` file MUST declare the DCTERMS namespaces in its root element.
+- Each `dc_*.xml` file MUST contain a shared UUID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element.
+- Each `dc_*.xml` file MUST use the `<metadata/>` tag as its root element.
+- Each `dc_*.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
+- Each `dc_*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 
-| Element | `premis:premis` |
+| Element | `metadata` |
 |-----------------------|-----------|
 | Name | DC root element |
-| Description | This root element MUST contain the XML schema namespace of [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd).<br>It MUST NOT contain any other XML schema namespaces besides DCTERMS.<br>It MUST NOT contain any attributes. |
+| Description | This root element MUST contain the XML schema namespace of [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd).<br>It MUST NOT contain any other XML schema namespaces besides DCTERMS.<br>It MUST NOT contain any attributes besides namespaces. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `premis:premis/premis:object/dcterms:identifier` |
+| Element | `metadata/dcterms:identifier` |
 |-----------------------|-----------|
 | Name | Identifier |
-| Description | An unambiguous and unique reference to the Intellectual Entity/Entities and/or Representation(s) present in the SIP.<br>This identifier stems from the local identification system of the content partner. |
+| Description | An unambiguous and unique reference to the Intellectual Entity/Entities present in the SIP.<br>This identifier MUST be used to establish a link between the `dc_*.xml` file and the relevant PREMIS object in the `preservation/premis.xml` file. |
 | Datatype | String |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `premis:premis/premis:object/dcterms:created` |
+| Element | `metadata/dcterms:created` |
 |-----------------------|-----------|
 | Name | Creation date |
 | Description | Creation date of the resource. |
@@ -1543,7 +1493,7 @@ The link between the `<premis:object>` elements in the descriptive metadata and 
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `premis:premis/premis:object/dcterms:description` |
+| Element | `metadata/dcterms:description` |
 |-----------------------|-----------|
 | Name | Description |
 | Description | An account of the resource.<br>The `description` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@XML:LANG` attribute. This attribute MUST use a controlled vocabulary such as [ISO 639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php) or [ISO 639-3](https://www.iso.org/standard/39534.html). |
@@ -1551,7 +1501,7 @@ The link between the `<premis:object>` elements in the descriptive metadata and 
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `premis:premis/premis:object/dcterms:issued` |
+| Element | `metadata/dcterms:issued` |
 |-----------------------|-----------|
 | Name | Date issued |
 | Description | Date of formal issuance of the resource. |
@@ -1559,7 +1509,7 @@ The link between the `<premis:object>` elements in the descriptive metadata and 
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `premis:premis/premis:object/dcterms:title` |
+| Element | `metadata/dcterms:title` |
 |-----------------------|-----------|
 | Name | Title |
 | Description | A name given to the resource. |
@@ -1573,11 +1523,14 @@ The `/preservation` directory contains preservation metadata about the IE(s) at 
 
 ***Requirements***
 
-- The `/preservation` directory MUST contain exactly one file: `preservation.xml`.
+- The `/preservation` directory MUST contain exactly one file: `premis.xml`.
 
-The `preservation.xml` file at the package-level contains preservation metadata about the IE(s) of the SIP, and about the SIP as a whole.
+The `premis.xml` file at the package-level contains preservation metadata about the IE(s) of the SIP, and about the SIP as a whole.
 It relies on the [Preservation Metadata: Implementation Strategies (PREMIS)](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information.
 More detailed preservation information can be described using PREMIS events and PREMIS agents.
+
+If descriptive metadata is available for a given IE, a link is established via a shared UUID between the relevant PREMIS object in the `premis.xml` file and the corresponding `descriptive/dc_*.xml` file.
+This UUID is stored in the `<premis:objectidentifier>` element of the relevant PREMIS object and in the `<dcterms:identifier>` element of the corresponding `dc_*.xml` file in the `/descriptive` directory. 
 
 ***Example***
 
@@ -1594,7 +1547,7 @@ More detailed preservation information can be described using PREMIS events and 
       <premis:objectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:objectIdentifierValue>
     </premis:objectIdentifier>
 
-    <!-- relationship between the main IE and its subIEs -->
+    <!-- relationship between the main IE and the nested IEs -->
     <premis:relationship>
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/log">logical</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen">generalizes</premis:relationshipSubType>
@@ -1610,7 +1563,7 @@ More detailed preservation information can be described using PREMIS events and 
 
   </premis:object>
 
-  <!-- subIE about the Felis Catus Flamens lying on the sofa -->
+  <!-- nested IE1 about the Felis Catus Flamens lying on the sofa -->
   <premis:object>
     <premis:objectCategory>intellectual entity</premis:objectCategory>
 
@@ -1619,7 +1572,7 @@ More detailed preservation information can be described using PREMIS events and 
       <premis:objectIdentifierValue>uuid-948e2213-ca54-459c-8c87-5818adeb9444</premis:objectIdentifierValue>
     </premis:objectIdentifier>
 
-    <!-- relationship between the subIE and the main IE -->
+    <!-- relationship between nested IE1 and the main IE -->
     <premis:relationship>
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/log">logical</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe">specializes</premis:relationshipSubType>
@@ -1629,7 +1582,7 @@ More detailed preservation information can be described using PREMIS events and 
       </premis:relatedObjectIdentifier>
     </premis:relationship>
 
-    <!-- relationship between the subIE and its representation -->
+    <!-- relationship between nested IE1 and its representation -->
     <premis:relationship>
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
@@ -1641,7 +1594,7 @@ More detailed preservation information can be described using PREMIS events and 
 
   </premis:object>
 
-  <!-- subIE about the Felis Catus Flamens sitting on its cat tree -->
+  <!-- nested IE2 about the Felis Catus Flamens sitting on its cat tree -->
   <premis:object>
     <premis:objectCategory>intellectual entity</premis:objectCategory>
 
@@ -1650,7 +1603,7 @@ More detailed preservation information can be described using PREMIS events and 
       <premis:objectIdentifierValue>uuid-01d59d41-f523-4d06-a549-4bf6f7cef853</premis:objectIdentifierValue>
     </premis:objectIdentifier>
 
-    <!-- relationship between the subIE and the main IE -->
+    <!-- relationship between nested IE2 and the main IE -->
     <premis:relationship>
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/log">logical</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe">specializes</premis:relationshipSubType>
@@ -1660,7 +1613,7 @@ More detailed preservation information can be described using PREMIS events and 
       </premis:relatedObjectIdentifier>
     </premis:relationship>
 
-    <!-- relationship between the subIE and its representation -->
+    <!-- relationship between nested IE2 and its representation -->
     <premis:relationship>
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
@@ -1677,13 +1630,13 @@ More detailed preservation information can be described using PREMIS events and 
 
 ***Requirements***
 
-- The `preservation.xml` file MUST contain a PREMIS object for each IE in the SIP.
-- Each PREMIS object in the `preservation.xml` MUST contain a unique identifier.
+- The `premis.xml` file MUST contain a PREMIS object for each IE in the SIP.
+- Each PREMIS object in the `premis.xml` MUST contain a unique identifier, shared with the corresponding `dc_*.xml` file in the `/descriptive` directory.
 - The `preservation.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the SIP as a whole.
 
 ## /representations (directory)
 
-The `/representations` directory contains a separate `/representation_*` (where `*` is a positive integer) directory for each representation of (the) IE(s) of the package level.
+The `/representations` directory contains a separate `/representation_*` (where `*` is a positive integer increasing by 1 for each additional representation) directory for each representation of (the) IE(s) of the package level.
 
 ***Requirements***
 
