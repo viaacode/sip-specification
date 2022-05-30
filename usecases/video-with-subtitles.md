@@ -40,10 +40,9 @@ The metadata record can contain the following information:
 - a list of meemoo licenses;
 - the date the episode was created;
 - the date the episode was aired;
-- the rights owner;
 - the md5 checksum of the media file.
 
-Please note that one should use the future broadcaster profile if one wants to include more detailed information such as the series the episode is part of, the audio transcript of the episode etc.
+Please note that one should use the future broadcaster profile (currently still in development) if one wants to include more detailed information such as the series the episode is part of, the audio transcript of the episode etc.
 
 ## Applying the core concepts
 
