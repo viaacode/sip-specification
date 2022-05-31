@@ -99,6 +99,11 @@ In total, the SIP contains 3 metadata files:
 
 ### /data/metadata/descriptive/dc_1.xml
 
+The `dc_1.xml` of the package level describes the IE using the DCTERMS metadata schema.
+It contains minimal metadata such as a title, an identifier, a creation and an issued datetime...
+
+Note that the identifier is used to link the `dc_1.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
@@ -125,6 +130,11 @@ In total, the SIP contains 3 metadata files:
 ```
 
 ### /data/metadata/preservation/premis.xml
+
+The `premis.xml` of the package level describes the IE and its relationship with its representation.
+It also contains an example of an additional identifier added by the CP.
+
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier>` in the `descriptive/dc_1.xml` file in order to link the two files together.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
