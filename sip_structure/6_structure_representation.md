@@ -16,7 +16,7 @@ Status: WIP
 1. TOC
 {:toc}
 
-The representation level consists of at least one `/representation_*` directory (where `*` is a positive integer).
+The representation level consists of at least one `/representation_*` directory (where `*` is a positive integer increasing by 1 for each additional representation).
 Each `/representation_*` directory contains information about the representation of (one of) the IE(s) of the package level, together with the media files making up the representation.
 
 ***Example***
@@ -85,7 +85,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
       xmlns:sip="https://DILCIS.eu/XML/METS/SIPExtensionMETS"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      OBJID="uuid-08dd6a01-19a3-44e2-88fa-702a97f8b83f"
+      OBJID="uuid-b4e6213d-7a32-482c-8631-7dcc5f0a7681"
       TYPE="Photographs – Digital"
       PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml">
 
@@ -256,48 +256,36 @@ The `/descriptive` directory contains descriptive metadata about the representat
 
 ***Requirements***
 
-- The `/descriptive` directory MAY contain exactly one file: `descriptive.xml`.
+- The `/descriptive` directory MAY contain exactly one file: `dc_1.xml`.
 
-The `descriptive.xml` file at the representation level contains descriptive metadata about a specific representation of the SIP.
-
-Descriptive metadata about the representation is put into a separate `<premis:object>` element with a unique identifier.
-The link between the `<premis:object>` element in the descriptive metadata and the `<premis:object>` element in the preservation metadata (in the `preservation.xml` in `/data/representations/representation_*/metadata/preservation`) is made using a shared UUID in the `<premis:objectIdentifier>` elements of both files.
+The `dc_1.xml` file at the representation level contains descriptive metadata about a specific representation of the SIP.
 
 ***Example***
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<premis:premis xmlns:dcterms="http://purl.org/dc/terms/" xmlns:premis="http://www.loc.gov/premis/v3" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
 
-  <premis:object>
-    <premis:objectIdentifier>
-      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-      <premis:objectIdentifierValue>uuid-541292c3-223a-4b80-b747-66bc86ff4a89</premis:objectIdentifierValue>
-    </premis:objectIdentifier>
-    <!-- general title for the representation -->
-    <dcterms:title>Colour representation of the Felis Catus Flamens lying on a sofa</dcterms:title>
+  <!-- general title for the representation -->
+  <dcterms:title>Colour representation of the Felis Catus Flamens lying on a sofa</dcterms:title>
 
-    <!-- id for the FCF in an imaginary cat database -->
-    <dcterms:identifier>FCatus_FelisCatusFlamens_Sofa_01_001</dcterms:identifier>
+  <!-- linking id between dc and premis -->
+  <dcterms:identifier>uuid-541292c3-223a-4b80-b747-66bc86ff4a89</dcterms:identifier>
 
-    <!-- date when representation was created -->
-    <dcterms:created xsi:type="edtf">2022-01~</dcterms:created>
+  <!-- date when representation was created -->
+  <dcterms:created xsi:type="edtf">2022-01~</dcterms:created>
 
-    <!-- multiple keywords about the representation -->
-    <dcterms:subject>Cat</dcterms:subject>
-    <dcterms:subject>Felis Catus Flamens</dcterms:subject>
-    <dcterms:subject>Sofa</dcterms:subject>
-  </premis:object>
+  <!-- multiple keywords about the representation -->
+  <dcterms:subject>Cat</dcterms:subject>
+  <dcterms:subject>Felis Catus Flamens</dcterms:subject>
+  <dcterms:subject>Sofa</dcterms:subject>
 
-</premis:premis> 
+</metadata> 
 ```
 
 ***Requirements***
 
-The `descriptive.xml` of the representation level follows the same requirements regarding metadata elements of the `descriptive.xml` file discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
-Additional requirements are discussed below:
-
-- The `descriptive.xml` file MUST embed the descriptive metadata about the representation in a `<premis:object/>` element.
+The `dc_1.xml` of the representation level follows the same requirements regarding metadata elements of the `dc_1.xml` file discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
 
 ### /preservation (directory)
 
@@ -305,10 +293,10 @@ The `/preservation` directory contains preservation metadata about the represent
 
 ***Requirements***
 
-- The `/preservation` directory MUST contain exactly one file: `preservation.xml`.
+- The `/preservation` directory MUST contain exactly one file: `premis.xml`.
 
-The `preservation.xml` file of the representation level contains preservation metadata about the representation and the media files of the representation level.
-It relies on the [Preservation Metadata: Implementation Strategies (PREMIS)](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information such as checksums.
+The `premis.xml` file of the representation level contains preservation metadata about the representation and the media files of the representation level.
+It relies on the [PREMIS](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information such as checksums.
 More detailed preservation information can be described using PREMIS events and PREMIS agents.
 
 ***Example***
@@ -339,7 +327,7 @@ More detailed preservation information can be described using PREMIS events and 
       </premis:relatedObjectIdentifier>
     </premis:relationship>
 
-    <!-- relationship between representation and its IE/subIE -->
+    <!-- relationship between representation and its IE -->
     <premis:relationship>
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
@@ -353,7 +341,7 @@ More detailed preservation information can be described using PREMIS events and 
   <premis:object>
     <premis:objectCategory>file</premis:objectCategory>
 
-    <premis:originalName>data/1445.jpeg</premis:originalName>
+    <premis:originalName>1445.jpeg</premis:originalName>
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -384,7 +372,7 @@ More detailed preservation information can be described using PREMIS events and 
   <premis:object>
     <premis:objectCategory>file</premis:objectCategory>
 
-    <premis:originalName>data/1450.jpeg</premis:originalName>
+    <premis:originalName>1450.jpeg</premis:originalName>
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -417,12 +405,12 @@ More detailed preservation information can be described using PREMIS events and 
 
 ***Requirements***
 
-- The `preservation.xml` file MUST contain a PREMIS object for the representation.
-- The `preservation.xml` file MUST contain a PREMIS object for each media file in the `/data` directory.
+- The `premis.xml` file MUST contain a PREMIS object for the representation.
+- The `premis.xml` file MUST contain a PREMIS object for each media file in the `/data` directory.
 - Each PREMIS object MUST contain a unique identifier.
-- Each PREMIS object with the value set to `FILE` MUST contain a checksum.
-- The `preservation.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the representation and the media files.
+- Each PREMIS object with the `<premis:objectCategory>` element's value set to `FILE` MUST contain a checksum.
+- The `premis.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the representation and the media files.
 
 <small>
-Continue to [Content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
+Continue to [Profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
 </small>
