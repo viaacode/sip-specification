@@ -11,7 +11,7 @@ Status: WIP
 
 The basic profile supports simple cases consisting of a single media file accompanied by limited metadata.
 
-**Content information type:** <https://data.hetarchief.be/id/sip-profile/basic>
+**Content information type:** <https://data.hetarchief.be/id/sip/1.0/basic>
 
 **Directory structure:**
 
@@ -43,17 +43,15 @@ root_directory
 
 ## Requirements
 
-- The `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip-profile/basic`.
-- There MUST only be exactly one [_Intellectual Entity (IE)_](#dfn-ie).
-- An _IE_ MUST contain exactly one [_Representation_](#dfn-ie).
-- There MUST NOT be any descriptive metadata at [_representation level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/6_structure_representation.md %}). 
-- Descriptive metadata file `descriptive/descriptive.xml` MAY be present at [_package level_]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}), but MUST be limited to the [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema.
-
-
-## Metadata
-
-- licenses
-- local ids
+- The `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.0/basic`.
+- There MUST be exactly one IE.
+- The IE MUST be represented by exactly one representation.
+- There MUST NOT be any descriptive metadata at the representation level.
+- A descriptive metadata file `descriptive/dc_1.xml` MUST be present at the package level.
+- Descriptive metadata MUST be limited to the DCTERMS metadata schema.
+- Preservation metadata MUST be limited to the PREMIS metadata schema.
+- There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
+- There MUST be preservation metadata at the representation level in the `preservation/premis.xml` file.
 
 ## Use Cases
 
@@ -64,6 +62,3 @@ Some use cases that implement this profile are:
 - [{{ page.title }}]({{ page.url }})
 {% endif %}
 {% endfor %}
-
-
- 
