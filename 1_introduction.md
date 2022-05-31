@@ -29,8 +29,8 @@ Metadata are written down in XML files using the common vocabularies [METS](http
 
 The meemoo SIP specification itself cannot be used for actual ingest in the meemoo archive.
 Depending on the type of content, specific mappings are required for ingest.
-These mappings consist of additional requirements on top of the current meemoo SIP specification and are captured in th different content profiles.
-In summar, content that is delivered to meemoo for ingest must always be packaged in a meemoo SIP that adheres to a specific content profile.
+These mappings consist of additional requirements on top of the current meemoo SIP specification and are captured in the different content profiles.
+In summary, content that is delivered to meemoo for ingest must always be packaged in a meemoo SIP that adheres to a specific content profile.
 
 ## How to Read this Specification
 
