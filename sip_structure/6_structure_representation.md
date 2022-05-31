@@ -111,7 +111,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Representation identifier |
 | Description | This is an identifier for the METS document. For the representation METS, this MUST be the same name as the one used for the corresponding representation directory. |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -119,7 +119,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Content category |
 | Description | This attribute MUST be set to declare the category of the content held in the representation directory. |
-| Datatype | String; fixed vocabulary |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `Textual works - Print`<br>`Textual works - Digital`<br>`Textual works - Electronic Serials`<br>`Photographs - Print`<br>`Photographs - Digital`<br>`Other Graphic Images - Print`<br>`Other Graphic Images - Digital`<br>`Audio - On Tangible Medium (digital or analog)`<br>`Audio - Media-independent (digital)`<br>`Motion Pictures – Digital and Physical Media`<br>`Video – File-based and Physical Media`<br>`Collection`<br>`Physical object`<br>`Mixed`<br>`OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -128,7 +128,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Other content category |
 | Description | When the `mets/@TYPE` attribute is set to `OTHER`, the `mets/@csip:OTHERTYPE` attribute SHOULD be used to declare the content category of the representation not contained in the fixed vocabulary of the `@TYPE` attribute. |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -136,7 +136,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | METS profile |
 | Description | The URL of the E-ARK METS profile that the SIP conforms with.<br>This URL MUST be set to [`https://earksip.dilcis.eu/profile/E-ARK-SIP.xml`](https://earksip.dilcis.eu/profile/E-ARK-SIP.xml) to indicate conformance with the E-ARK specification. |
-| Datatype | URL |
+| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -144,7 +144,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Package name |
 | Description | An optional short text describing the contents of the representation. |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -169,7 +169,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Representation creation datetime |
 | Description | This attribute records the date and time the representation was created. |
-| Datatype | EDTF |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -177,7 +177,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Representation last modification datetime |
 | Description | In case the representation was modified since its creation, this attribute records the date and time of that modification.<br>This attribute MUST be present and used when the representation has been modified since its creation datetime. |
-| Datatype | EDTF |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -185,7 +185,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Representation status |
 | Description | A way of indicating the status of the representation and to instruct meemoo on how to properly handle it.<br>If not set, the expected value is `NEW`.<br>Meemoo investigates the use of the `@RECORDSTATUS` attribute for future use cases such as e.g. a metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
-| Datatype | String; fixed vocabulary |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `NEW`<br>`SUPPLEMENT`<br>`REPLACEMENT`<br>`TEST`<br>`VERSION`<br>`DELETE`<br>`OTHER` |
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -199,14 +199,14 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 | Attribute | `mets/metsHdr/agent/@ROLE` |
 |-----------------------|-----------|
 | Name | Agent role |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `mets/metsHdr/agent/@TYPE` |
 |-----------------------|-----------|
 | Name | Agent type |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -214,21 +214,21 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Agent other type |
 | Description | This attribute MUST be used if the attribute `agent/@TYPE` is set to `OTHER`. It is used to specify the exact other type that is being used. |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `mets/metsHdr/agent/name` |
 |-----------------------|-----------|
 | Name | Agent name |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `mets/metsHdr/agent/note` |
 |-----------------------|-----------|
 | Name | Agent additional information |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -256,9 +256,9 @@ The `/descriptive` directory contains descriptive metadata about the representat
 
 ***Requirements***
 
-- The `/descriptive` directory MAY contain exactly one file: `dc_1.xml`.
+- The `/descriptive` directory MAY contain zero or more `dc*.xml` metadata files.
 
-The `dc_1.xml` file at the representation level contains descriptive metadata about a specific representation of the SIP.
+The `dc*.xml` files at the representation level contains descriptive metadata about a specific representation of the SIP.
 
 ***Example***
 
@@ -285,7 +285,7 @@ The `dc_1.xml` file at the representation level contains descriptive metadata ab
 
 ***Requirements***
 
-The `dc_1.xml` of the representation level follows the same requirements regarding metadata elements of the `dc_1.xml` file discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
+The `dc*.xml` files of the representation level follows the same requirements regarding metadata elements of the `dc*.xml` files discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
 
 ### /preservation (directory)
 

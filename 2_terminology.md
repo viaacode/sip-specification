@@ -59,14 +59,14 @@ In the context of noting metadata values, the following datatypes are mentioned 
 
 | Datatype       | Definition |
 | -------------- | ---------- |
-| EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) level 0 and 1. |
-| IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
-| Integer        | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
-| IRI            | An Internationalized Resource Identifier as defined in [RFC3987](https://datatracker.ietf.org/doc/html/rfc3987). |
-| OR-id            | Organisation ID; a unique sequence of 10 Unicode ([UTF-8](https://datatracker.ietf.org/doc/html/rfc3629)) characters attributed by meemoo to each of its Content Partners. |
-| String         | A sequence of zero or more Unicode (UTF-8) characters, usually wrapped in double quotes, using backslash escapes (if necessary). A character is represented as a single character string. |
-| URL            | A Uniform Resource Locator as defined in [RFC1738](https://datatracker.ietf.org/doc/html/rfc1738). |
-| UUID           | A Universally Unique Identifier as defined in [RFC4122](https://datatracker.ietf.org/doc/html/rfc4122). |
+| <a id="edtf"></a>EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) up to level 1 plus the value `XXXX` to indicate an unknown date. |
+| <a id="mimetype"></a>IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
+| <a id="integer"></a>Integer        | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
+| <a id="url"></a>URL            | A Uniform Resource Locator as defined in [RFC1738](https://datatracker.ietf.org/doc/html/rfc1738). |
+| <a id="uri"></a>URI            | A Uniform Resource Identifier as defined in [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986), which extends the URL. |
+| <a id="or-id"></a>OR-id            | Organisation ID; a unique sequence of 10 Unicode ([UTF-8](https://datatracker.ietf.org/doc/html/rfc3629)) characters attributed by meemoo to each of its Content Partners. |
+| <a id="string"></a>String         | A sequence of zero or more Unicode (UTF-8) characters, usually wrapped in double quotes, using backslash escapes (if necessary). A character is represented as a single character string. |
+| <a id="uuid"></a>UUID           | A Universally Unique Identifier as defined in [RFC4122](https://datatracker.ietf.org/doc/html/rfc4122). |
 
 <small>
 Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}).

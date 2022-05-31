@@ -11,7 +11,7 @@ Status: WIP
 
 The basic profile supports simple cases consisting of a single media file accompanied by limited metadata.
 
-**Content information type:** <https://data.hetarchief.be/id/sip/1.0/basic>
+**Permalink:** <https://data.hetarchief.be/id/sip/1.0/basic>
 
 **Directory structure:**
 
@@ -24,9 +24,9 @@ root_directory
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   └── descriptive.xml
+    |   |   └── dc.xml
     |   └── preservation
-    |       └── preservation.xml
+    |       └── premis.xml
     │
     └── representations
         └──representation_1
@@ -37,17 +37,17 @@ root_directory
            │
            └──metadata
               └──preservation
-                 └── preservation.xml
+                 └── premis.xml
 ```
 
 
 ## Requirements
 
-- The `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.0/basic`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.0/basic`.
 - There MUST be exactly one IE.
 - The IE MUST be represented by exactly one representation.
 - There MUST NOT be any descriptive metadata at the representation level.
-- A descriptive metadata file `descriptive/dc_1.xml` MUST be present at the package level.
+- A descriptive metadata file `descriptive/dc.xml` MUST be present at the package level.
 - Descriptive metadata MUST be limited to the DCTERMS metadata schema.
 - Preservation metadata MUST be limited to the PREMIS metadata schema.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
