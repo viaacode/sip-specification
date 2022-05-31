@@ -136,7 +136,7 @@ The various requirements are listed in the table below.
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Attribute | `mets/@csip:CONTENTINFORMATIONTYPE` |
+| <a id="CONTENTINFORMATIONTYPE"></a>Attribute | `mets/@csip:CONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Content information type specification |
 | Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.0/basic` for the basic content profile which can be found on [its content profile page]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/basic.md %}).<br>Note that this attribute is left empty in the example above, since this is part of a dummy sample. |
@@ -144,7 +144,7 @@ The various requirements are listed in the table below.
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| <a id="OTHERCONTENTINFORMATIONTYPE"></a>Attribute | `mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE` |
+| Attribute | `mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Other content information type specification |
 | Description | The `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute MAY be used to further declare the content information type/content profile.|
@@ -1433,9 +1433,11 @@ Each XML file follows the naming convention `dc_*.xml` (where `*` is a positive 
 The `descriptive.xml` file at the package-level contains descriptive metadata about the IE(s) of the SIP.
 It relies on the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
 
-Descriptive metadata about multiple IEs is divided into different descriptive metadata files.
+<a id="shareduuidinfo"></a>Descriptive metadata about multiple IEs is divided into different descriptive metadata files.
 There is a link present between each `dc_*.xml` file and the different PREMIS objects in the `preservation/premis.xml` file via a shared UUID.
 This shared UUID is stored in the `<dcterms:identifier>` element of each `dc_*.xml` file and in a `<premis:objectIdentifier>` element of each PREMIS object in the `preservation/premis.xml` file.
+
+Please note that additional IDs must be dealt with in the `preservation/premis.xml` file via `<premis:objectIdentifier>` elements in which the type of ID is specified using the `<premis:objectIdentifierType>` element.
 
 ***Example***
 
@@ -1469,6 +1471,7 @@ This shared UUID is stored in the `<dcterms:identifier>` element of each `dc_*.x
 - Each `dc_*.xml` file MUST use the `<metadata/>` tag as its root element.
 - Each `dc_*.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
 - Each `dc_*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
+- Each `dc_*.xml` file MUST NOT contain additional IDs besides the shared UUID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
 
 | Element | `metadata` |
 |-----------------------|-----------|
@@ -1526,6 +1529,7 @@ The `/preservation` directory contains preservation metadata about the IE(s) at 
 - The `/preservation` directory MUST contain exactly one file: `premis.xml`.
 
 The `premis.xml` file at the package-level contains preservation metadata about the IE(s) of the SIP, and about the SIP as a whole.
+It also contains any additional IDs related to the IE(s) of the SIP.
 It relies on the [Preservation Metadata: Implementation Strategies (PREMIS)](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information.
 More detailed preservation information can be described using PREMIS events and PREMIS agents.
 
