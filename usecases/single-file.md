@@ -82,6 +82,11 @@ In total, the SIP contains 3 metadata files:
 
 ### /data/metadata/descriptive/dc_1.xml
 
+The `dc_1.xml` of the package level describes the IE using the DCTERMS metadata schema.
+It contains minimal metadata such as a title, an identifier, a creation datetime (set to unknown) and a number of keywords.
+
+Note that the identifier is used to link the `dc_1.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
 <metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
@@ -104,6 +109,10 @@ In total, the SIP contains 3 metadata files:
 ```
 
 ### /data/metadata/preservation/premis.xml
+
+The `premis.xml` of the package level describes the IE and its relationship with its representation.
+
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier>` in the `descriptive/dc_1.xml` file in order to link the two files together.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -134,10 +143,15 @@ In total, the SIP contains 3 metadata files:
 
 ### /data/representations/representation_1/metadata/preservation/premis.xml
 
-The `premis.xml` on _representation level_ describes two PREMIS objects:
+The `premis.xml` of the representation level describes two PREMIS objects:
 
 1. the representation
 2. the media file `D523F963.jpg`
+
+It also describes the various relationships between these objects:
+
+- the relation between the representation and the IE at the package level;
+- the relations between the representation and the media file;
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -207,3 +221,7 @@ The `premis.xml` on _representation level_ describes two PREMIS objects:
 
 </premis:premis>
 ```
+
+<small>
+Continue to [Video file with subtitles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/usecases/video-with-subtitles.md %}).
+</small>
