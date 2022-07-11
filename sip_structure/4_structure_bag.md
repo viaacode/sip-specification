@@ -52,20 +52,22 @@ It is used during processing of the bag to allow for data integrity checking.
 ***Example***
 
 ```plaintext
-b5ab2782919f67d4779de9825c538f01  ./data/mets.xml
-2f3f71fadf038f86ba512c16702af864  ./data/representations/representation_2/mets.xml
+2c28e2b32a6e5e94669a516036838429  ./data/mets.xml
+95fc1f5cfd89b97bacf49473267752f5  ./data/representations/representation_2/mets.xml
 18513a8d61c6f2cbaaeeedd754b01d6b  ./data/representations/representation_2/data/D523F963.jpg
-d890aedac3b9d8620b4ead534c774e6c  ./data/representations/representation_2/metadata/preservation/preservation.xml
-bcb7a509d68156d2c5f349da4d46b757  ./data/representations/representation_2/metadata/descriptive/descriptive.xml
-b31b2224cef22b22d29f62a03f30aaa3  ./data/representations/representation_1/mets.xml
+fde6c913b4105cc06174fba8cd3b864e  ./data/representations/representation_2/metadata/preservation/premis.xml
+31d402b829f673afe24f698dc462bbde  ./data/representations/representation_2/metadata/descriptive/dc_1.xml
+fc030be17b9c7fd3f86b0cf095a64a33  ./data/representations/representation_1/mets.xml
 d4985ba4b67ff067a0e84c53b6d35355  ./data/representations/representation_1/data/1450.jpeg
 b7ae37f6094794e313402b9d064978e8  ./data/representations/representation_1/data/1445.jpeg
-ee4a938670222a8aab7a03dd4e64cb1d  ./data/representations/representation_1/metadata/preservation/preservation.xml
-254acb652404702061d8552b658eb46a  ./data/representations/representation_1/metadata/descriptive/descriptive.xml
-8c2914e1df1e2827c9c4059804075120  ./data/metadata/preservation/preservation.xml
-7c513b9cb8848860ddcb4d4b680171bc  ./data/metadata/descriptive/descriptive.xml
+7a1a5145d1f54b01537b76e52b19b804  ./data/representations/representation_1/metadata/preservation/premis.xml
+e45622b2b8536d312203e1cb7d5548c7  ./data/representations/representation_1/metadata/descriptive/dc_1.xml
+c50c40b09a5f04ecf441f136c1c6581e  ./data/metadata/preservation/premis.xml
+9d55815152e83db76a32f74990d79cd3  ./data/metadata/descriptive/dc_3.xml
+cd17cbb2153946c8462e10b337e0e9c1  ./data/metadata/descriptive/dc_1.xml
+fbab574560f2d548fd84c6c1fd1cb7f2  ./data/metadata/descriptive/dc_2.xml
 eaa2c609ff6371712f623f5531945b44  ./bagit.txt
-b87cd3b7924b79f2d60f8abc6a94a95e  ./manifest-md5.txt
+d67fe46437a03a307c7b28c819b56a95  ./manifest-md5.txt
 ```
 
 ***Requirements***

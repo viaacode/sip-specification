@@ -138,32 +138,28 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3">
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
 
-  <premis:object>
-    <premis:objectCategory>intellectual entity</premis:objectCategory>
+  <premis:object xsi:type="premis:intellectualEntity">
 
-   <!-- linking id between descriptive and preservation metadata -->
-   <!-- matches the identifier of dcterms:identifier defined in the descriptive/dc.xml -->
-   <premis:objectIdentifier>
+    <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
       <premis:objectIdentifierValue>uuid-f58ece94-f050-4b5b-b383-bba83393eaff</premis:objectIdentifierValue>
-   </premis:objectIdentifier>
+    </premis:objectIdentifier>
 
-   <premis:objectIdentifier>
+    <premis:objectIdentifier>
       <premis:objectIdentifierType>local_id</premis:objectIdentifierType>
       <premis:objectIdentifierValue>a custom identifier provided by the CP</premis:objectIdentifierValue>
-   </premis:objectIdentifier>
+    </premis:objectIdentifier>
 
-   <!-- information about the relation between the IE and its representation -->
-   <premis:relationship>
+    <premis:relationship>
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-c84a4912-f10d-46a5-b513-e4c4e2eefb43</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
-   </premis:relationship>
+    </premis:relationship>
 
   </premis:object>
 
@@ -186,11 +182,9 @@ It also describes the various relationships between these objects:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3">
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
 
-   <!-- Representation -->
-   <premis:object>
-    <premis:objectCategory>representation</premis:objectCategory>
+  <premis:object xsi:type="premis:representation">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -222,11 +216,7 @@ It also describes the various relationships between these objects:
     </premis:relationship>
   </premis:object>
 
-   <!-- Media file: broadcaster_news_20220516.mp4 -->
-   <premis:object>
-    <premis:objectCategory>file</premis:objectCategory>
-
-    <premis:originalName>sample_video.mxf.txt</premis:originalName>
+  <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -238,9 +228,19 @@ It also describes the various relationships between these objects:
         <premis:messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5">
                 MD5
         </premis:messageDigestAlgorithm>
-        <premis:messageDigest>d784fa8b6d98d27699781bd9a7cf19f0</premis:messageDigest>
+        <premis:messageDigest>22502b5dc38e893d99e9368c6ff70229</premis:messageDigest>
       </premis:fixity>
+      <premis:size>5</premis:size>
+      <premis:format>
+        <premis:formatRegistry>
+          <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+          <premis:formatRegistryKey>fmt-199</premis:formatRegistryKey>
+          <premis:formatRegistryRole authority="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
+        </premis:formatRegistry>
+      </premis:format>
     </premis:objectCharacteristics>
+
+    <premis:originalName>broadcaster_news_20220525.mp4</premis:originalName>
 
     <!-- relationship between file and its representation -->
     <premis:relationship>
@@ -264,11 +264,7 @@ It also describes the various relationships between these objects:
 
   </premis:object>
 
-   <!-- Subtitles: broadcaster_news_20220516.srt -->
-   <premis:object>
-    <premis:objectCategory>file</premis:objectCategory>
-
-    <premis:originalName>sample_video.srt.txt</premis:originalName>
+  <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -280,9 +276,19 @@ It also describes the various relationships between these objects:
         <premis:messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5">
                 MD5
         </premis:messageDigestAlgorithm>
-        <premis:messageDigest>d784fa8b6d98d27699781bd9a7cf19f0</premis:messageDigest>
+        <premis:messageDigest>daefffb93e6c3be7136ba40edae4f2f1</premis:messageDigest>
       </premis:fixity>
+      <premis:size>3</premis:size>
+      <premis:format>
+        <premis:formatRegistry>
+          <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+          <premis:formatRegistryKey>fmt-1218</premis:formatRegistryKey>
+          <premis:formatRegistryRole authority="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
+        </premis:formatRegistry>
+      </premis:format>
     </premis:objectCharacteristics>
+
+    <premis:originalName>broadcaster_news_20220525.srt</premis:originalName>
 
     <!-- relationship between file and its representation -->
     <premis:relationship>

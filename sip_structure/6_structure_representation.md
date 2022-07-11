@@ -303,10 +303,9 @@ More detailed preservation information can be described using PREMIS events and 
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3">
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
 
-  <premis:object>
-    <premis:objectCategory>representation</premis:objectCategory>
+  <premis:object xsi:type="premis:representation">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -338,10 +337,7 @@ More detailed preservation information can be described using PREMIS events and 
     </premis:relationship>
   </premis:object>
 
-  <premis:object>
-    <premis:objectCategory>file</premis:objectCategory>
-
-    <premis:originalName>1445.jpeg</premis:originalName>
+  <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -355,7 +351,17 @@ More detailed preservation information can be described using PREMIS events and 
         </premis:messageDigestAlgorithm>
         <premis:messageDigest>b7ae37f6094794e313402b9d064978e8</premis:messageDigest>
       </premis:fixity>
+      <premis:size>721603</premis:size>
+      <premis:format>
+        <premis:formatRegistry>
+          <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+          <premis:formatRegistryKey>fmt-1507</premis:formatRegistryKey>
+          <premis:formatRegistryRole authority="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
+        </premis:formatRegistry>
+      </premis:format>
     </premis:objectCharacteristics>
+
+    <premis:originalName>1445.jpeg</premis:originalName>
 
     <!-- relationship between file and its representation -->
     <premis:relationship>
@@ -369,10 +375,7 @@ More detailed preservation information can be described using PREMIS events and 
 
   </premis:object>
 
-  <premis:object>
-    <premis:objectCategory>file</premis:objectCategory>
-
-    <premis:originalName>1450.jpeg</premis:originalName>
+  <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -386,7 +389,17 @@ More detailed preservation information can be described using PREMIS events and 
         </premis:messageDigestAlgorithm>
         <premis:messageDigest>d4985ba4b67ff067a0e84c53b6d35355</premis:messageDigest>
       </premis:fixity>
+      <premis:size>738611</premis:size>
+      <premis:format>
+        <premis:formatRegistry>
+          <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+          <premis:formatRegistryKey>fmt-1507</premis:formatRegistryKey>
+          <premis:formatRegistryRole authority="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
+        </premis:formatRegistry>
+      </premis:format>
     </premis:objectCharacteristics>
+
+    <premis:originalName>1450.jpeg</premis:originalName>
 
     <!-- relationship between file and its representation -->
     <premis:relationship>

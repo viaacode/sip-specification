@@ -116,11 +116,10 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3">
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
 
   <!-- IE about the Felis Catus Flamens -->
-  <premis:object>
-    <premis:objectCategory>intellectual entity</premis:objectCategory>
+  <premis:object xsi:type="premis:intellectualEntity">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -155,11 +154,9 @@ It also describes the various relationships between these objects:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3">
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
 
-  <!-- Representation: archive master -->
-  <premis:object>
-    <premis:objectCategory>representation</premis:objectCategory>
+  <premis:object xsi:type="premis:representation">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -187,11 +184,7 @@ It also describes the various relationships between these objects:
     </premis:relationship>
   </premis:object>
 
-  <!-- Image file: D523F963.jpg -->
-  <premis:object>
-    <premis:objectCategory>file</premis:objectCategory>
-
-    <premis:originalName>D523F963.jpg</premis:originalName>
+  <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -205,7 +198,18 @@ It also describes the various relationships between these objects:
         </premis:messageDigestAlgorithm>
         <premis:messageDigest>18513a8d61c6f2cbaaeeedd754b01d6b</premis:messageDigest>
       </premis:fixity>
+      <premis:size>1735648</premis:size>
+      <premis:format>
+        <premis:formatRegistry>
+          <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
+          <premis:formatRegistryKey>fmt-1507</premis:formatRegistryKey>
+          <premis:formatRegistryRole authority="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
+        </premis:formatRegistry>
+        <premis:formatNote></premis:formatNote>
+      </premis:format>
     </premis:objectCharacteristics>
+
+    <premis:originalName>D523F963.jpg</premis:originalName>
 
     <!-- relationship between file and its representation -->
     <premis:relationship>

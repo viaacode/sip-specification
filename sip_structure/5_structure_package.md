@@ -1540,11 +1540,10 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3">
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
 
   <!-- IE about the Felis Catus Flamens -->
-  <premis:object>
-    <premis:objectCategory>intellectual entity</premis:objectCategory>
+  <premis:object xsi:type="premis:intellectualEntity">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -1568,8 +1567,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
   </premis:object>
 
   <!-- nested IE1 about the Felis Catus Flamens lying on the sofa -->
-  <premis:object>
-    <premis:objectCategory>intellectual entity</premis:objectCategory>
+  <premis:object xsi:type="premis:intellectualEntity">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
@@ -1599,8 +1597,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
   </premis:object>
 
   <!-- nested IE2 about the Felis Catus Flamens sitting on its cat tree -->
-  <premis:object>
-    <premis:objectCategory>intellectual entity</premis:objectCategory>
+  <premis:object xsi:type="premis:intellectualEntity">
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
