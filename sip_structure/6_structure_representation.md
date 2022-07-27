@@ -418,6 +418,303 @@ More detailed preservation information can be described using PREMIS events and 
 
 ***Requirements***
 
+| Element | `premis:premis` |
+|-----------------------|-----------|
+| Name | PREMIS root element |
+| Description | This is the root element of the PREMIS file.<br>|
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/@version` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/@xmlns:xsi` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/@xmlns:premis` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis@/xsi:schemaLocation` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/@xsi:type` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectIdentifier` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@authority` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@authorityURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigest` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:size` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryName` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryKey` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole/@authority` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole/@valueURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:originalName` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authority` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authorityURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@valueURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authority` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authorityURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@valueURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierType` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality |  |
+| Obligation |  |
+
+***Requirements***
+
 - The `premis.xml` file MUST contain a PREMIS object for the representation.
 - The `premis.xml` file MUST contain a PREMIS object for each media file in the `/data` directory.
 - Each PREMIS object MUST contain a unique identifier.

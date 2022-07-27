@@ -1631,6 +1631,162 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 ***Requirements***
 
+| Element | `premis:premis` |
+|-----------------------|-----------|
+| Name | PREMIS root element |
+| Description | This is the root element of the PREMIS file.<br><br>It MUST contain the following XML schema namespaces: <br>[`xsi: http://www.w3.org/2001/XMLSchema-instance`](http://www.w3.org/2001/XMLSchema-instance)<br>[`premis: http://www.loc.gov/premis/v3`](http://www.loc.gov/premis/v3).|
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/@version` |
+|-----------------------|-----------|
+| Name | PREMIS version attribute |
+| Description | This attribute signals which PREMIS version is being used.<br>The attribute's value MUST be set to `3.0`. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis@/xsi:schemaLocation` |
+|-----------------------|-----------|
+| Name | Schema location declaration |
+| Description | This attribute signals where to find the relevant XSD schema in order to validate the PREMIS file.<br><br>When used, its value MUST be set to `"http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd"` to signal conformance with PREMIS 3.0.|
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Attribute | `premis:premis/premis:object` |
+|-----------------------|-----------|
+| Name | PREMIS object element |
+| Description | A `premis:object` element MUST be defined for each IE in the SIP. |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/@xsi:type` |
+|-----------------------|-----------|
+| Name | PREMIS object type |
+| Description | This attribute signals whether a PREMIS object is of type intellectual entity, representation or file.<br><br>In the case of the `premis.xml` file of the package level, this attribute's value MUST always be set to `premis:intellectualEntity` since the package level can only contain IEs.|
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:objectIdentifier` |
+|-----------------------|-----------|
+| Name | PREMIS object identifier |
+| Description | This element contains object identifier information.<br><br>At least one object identifier MUST be present to uniquely identify the concerned IE and establish a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
+|-----------------------|-----------|
+| Name | PREMIS object identifier type |
+| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br> This unique identifier is also used to link the PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
+| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `local`<br>`UUID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
+|-----------------------|-----------|
+| Name | PREMIS object identifier value |
+| Description | The actual value making up the identifier of the PREMIS object. |
+| Datatype | String |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship` |
+|-----------------------|-----------|
+| Name | PREMIS relationship |
+| Description | Information about a relationship between the current object and one or more other objects.<br><br> In the case of the `premis.xml` file of the package level, this element MUST detail the relationships between the IE defined at the package level and all of its representations defined in the various directories at the representation level.|
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
+|-----------------------|-----------|
+| Name | PREMIS relationship type |
+| Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `structural` when expressing the relationship between the IE object and the representation object.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `logical` to express the relationship between one IE and another. |
+| Datatype |  |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authority` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authorityURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@valueURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authority` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authorityURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@valueURI` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierType` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
+|-----------------------|-----------|
+| Name |  |
+| Description |  |
+| Datatype |  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+***Requirements***
+
 - The `premis.xml` file MUST contain a PREMIS object for each IE in the SIP.
 - Each PREMIS object in the `premis.xml` MUST contain a unique identifier, shared with the corresponding `dc_*.xml` file in the `/descriptive` directory.
 - The `preservation.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the SIP as a whole.
