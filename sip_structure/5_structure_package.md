@@ -1677,7 +1677,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Object identifier type |
 | Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
-| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1701,7 +1701,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship type |
 | Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `structural` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `logical` to express the relationship between one IE and another. |
-| Datatype | String; fixed vocabulary |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `structural`<br>`logical` |
 | Cardinality | 1..* |
 | Obligation | MUST |
@@ -1710,7 +1710,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship type authority attribute |
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship types. Its value MUST be set to `"relationshipType"`. |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1718,7 +1718,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship type authority URI |
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType"`. |
-| Datatype | URI |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1726,7 +1726,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship type value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `structural` relationship type is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType/str"`.<br>If the `logical` relationship type is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType/log"`. |
-| Datatype | URI; fixed vocabulary |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
 | Vocabulary | `"http://id.loc.gov/vocabulary/preservation/relationshipType/str"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipType/log"` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1735,7 +1735,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship subtype |
 | Description | A detailed categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `is represented by` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `generalizes` when the relationship is expressed from the side of the main IE (i.e. the main IE is the subject of the relationship); when the relationship is expressed from the side of one of the subIEs (i.e. one of the subIEs is the subject of the relationship), this element's value MUST be set to `specializes`. |
-| Datatype | String; fixed vocabulary |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `is represented by`<br>`generalizes`<br>`specializes` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1744,7 +1744,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship subtype authority attribute |
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship subtypes. Its value MUST be set to `"relationshipSubType"`. |
-| Datatype | String |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1752,7 +1752,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship subtype authority URI |
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType"`. |
-| Datatype | URI |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1760,7 +1760,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Relationship subtype value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `is represented by` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr"`.<br>If the `generalizes` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen"`.<br>If the `generalizes` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe"` |
-| Datatype | URI; fixed vocabulary |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
 | Vocabulary | `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe"` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1776,7 +1776,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Related object identifier type |
 | Description | The type of the PREMIS related object identifier being used. |
-| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1785,7 +1785,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 |-----------------------|-----------|
 | Name | Related object identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS related object. |
-| Datatype | String (depending on the value of the `premis:relatedObjectIdentifierType`) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:relatedObjectIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
