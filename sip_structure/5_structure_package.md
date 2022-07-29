@@ -1661,21 +1661,21 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 | Attribute | `premis:premis/premis:object/@xsi:type` |
 |-----------------------|-----------|
-| Name | PREMIS object type |
+| Name | Object type |
 | Description | This attribute signals whether a PREMIS object is of type intellectual entity, representation or file.<br><br>In the case of the `premis.xml` file of the package level, this attribute's value MUST always be set to `premis:intellectualEntity` since the package level can only contain IEs.|
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:object/premis:objectIdentifier` |
 |-----------------------|-----------|
-| Name | PREMIS object identifier |
+| Name | Object identifier |
 | Description | This element contains object identifier information.<br><br>At least one object identifier MUST be present to uniquely identify the concerned IE and establish a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
 |-----------------------|-----------|
-| Name | PREMIS object identifier type |
+| Name | Object identifier type |
 | Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
 | Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
@@ -1684,9 +1684,9 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 | Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
 |-----------------------|-----------|
-| Name | PREMIS object identifier value |
+| Name | Object identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS object. |
-| Datatype | String |
+| Datatype | String (depending on the value of the `premis:objectIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1699,7 +1699,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
 |-----------------------|-----------|
-| Name | PREMIS relationship type |
+| Name | Relationship type |
 | Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `structural` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `logical` to express the relationship between one IE and another. |
 | Datatype | String; fixed vocabulary |
 | Vocabulary | `structural`<br>`logical` |
@@ -1733,8 +1733,8 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType` |
 |-----------------------|-----------|
-| Name | PREMIS relationship subtype |
-| Description | A detailed categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `is represented by` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `generalizes` when the relationship is expressed from the side of the main IE; when the relationship is expressed from the side of one of the subIEs, this element's value MUST be set to `specializes`. |
+| Name | Relationship subtype |
+| Description | A detailed categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `is represented by` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `generalizes` when the relationship is expressed from the side of the main IE (i.e. the main IE is the subject of the relationship); when the relationship is expressed from the side of one of the subIEs (i.e. one of the subIEs is the subject of the relationship), this element's value MUST be set to `specializes`. |
 | Datatype | String; fixed vocabulary |
 | Vocabulary | `is represented by`<br>`generalizes`<br>`specializes` |
 | Cardinality | 1..1 |
@@ -1767,23 +1767,15 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
 |-----------------------|-----------|
-| Name | PREMIS related object identifier |
+| Name | Related object identifier |
 | Description | This element references the object of the relationship that is expressed. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierType` |
 |-----------------------|-----------|
-| Name | PREMIS related object identifier type |
+| Name | Related object identifier type |
 | Description | The type of the PREMIS related object identifier being used. |
-| Datatype |  |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
-|-----------------------|-----------|
-| Name | PREMIS related object identifier value |
-| Description | The actual value that makes up the identifier of the PREMIS related object. |
 | Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
@@ -1791,13 +1783,11 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
 |-----------------------|-----------|
-| Name | PREMIS related object identifier value |
+| Name | Related object identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS related object. |
-| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
+| Datatype | String (depending on the value of the `premis:relatedObjectIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
-
 
 ***Overview of relevant PREMIS relationships***
 
