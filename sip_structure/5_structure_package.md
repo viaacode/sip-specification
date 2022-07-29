@@ -1652,7 +1652,7 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Attribute | `premis:premis/premis:object` |
+| Element | `premis:premis/premis:object` |
 |-----------------------|-----------|
 | Name | PREMIS object element |
 | Description | A `premis:object` element MUST be defined for each IE in the SIP. |
@@ -1666,130 +1666,146 @@ This UUID is stored in the `<premis:objectidentifier>` element of the relevant P
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectIdentifier` |
+| Element | `premis:premis/premis:object/premis:objectIdentifier` |
 |-----------------------|-----------|
 | Name | PREMIS object identifier |
 | Description | This element contains object identifier information.<br><br>At least one object identifier MUST be present to uniquely identify the concerned IE and establish a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
+| Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
 |-----------------------|-----------|
 | Name | PREMIS object identifier type |
-| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br> This unique identifier is also used to link the PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
+| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
 | Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `local`<br>`UUID`<br>... |
+| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
+| Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
 |-----------------------|-----------|
 | Name | PREMIS object identifier value |
-| Description | The actual value making up the identifier of the PREMIS object. |
+| Description | The actual value that makes up the identifier of the PREMIS object. |
 | Datatype | String |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship` |
+| Element | `premis:premis/premis:object/premis:relationship` |
 |-----------------------|-----------|
 | Name | PREMIS relationship |
-| Description | Information about a relationship between the current object and one or more other objects.<br><br> In the case of the `premis.xml` file of the package level, this element MUST detail the relationships between the IE defined at the package level and all of its representations defined in the various directories at the representation level.|
+| Description | Information about a relationship between the current object and one or more other objects.<br><br> In the case of the `premis.xml` file of the package level, this element MUST detail the relationships between the IE defined at the package level and all of its representations defined in the various directories of the representation level.|
 | Cardinality | 1..* |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
 |-----------------------|-----------|
 | Name | PREMIS relationship type |
-| Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `structural` when expressing the relationship between the IE object and the representation object.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `logical` to express the relationship between one IE and another. |
-| Datatype |  |
+| Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `structural` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `logical` to express the relationship between one IE and another. |
+| Datatype | String; fixed vocabulary |
+| Vocabulary | `structural`<br>`logical` |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authority` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | Relationship type authority attribute |
+| Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship types. Its value MUST be set to `"relationshipType"`. |
+| Datatype | String |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authorityURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | Relationship type authority URI |
+| Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType"`. |
+| Datatype | URI |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@valueURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | Relationship type value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `structural` relationship type is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType/str"`.<br>If the `logical` relationship type is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType/log"`. |
+| Datatype | URI; fixed vocabulary |
+| Vocabulary | `"http://id.loc.gov/vocabulary/preservation/relationshipType/str"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipType/log"` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | PREMIS relationship subtype |
+| Description | A detailed categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `is represented by` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `generalizes` when the relationship is expressed from the side of the main IE; when the relationship is expressed from the side of one of the subIEs, this element's value MUST be set to `specializes`. |
+| Datatype | String; fixed vocabulary |
+| Vocabulary | `is represented by`<br>`generalizes`<br>`specializes` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authority` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | Relationship subtype authority attribute |
+| Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship subtypes. Its value MUST be set to `"relationshipSubType"`. |
+| Datatype | String |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authorityURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | Relationship subtype authority URI |
+| Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType"`. |
+| Datatype | URI |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@valueURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | Relationship subtype value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `is represented by` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr"`.<br>If the `generalizes` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen"`.<br>If the `generalizes` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe"` |
+| Datatype | URI; fixed vocabulary |
+| Vocabulary | `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe"` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | PREMIS related object identifier |
+| Description | This element references the object of the relationship that is expressed. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierType` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierType` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
+| Name | PREMIS related object identifier type |
+| Description | The type of the PREMIS related object identifier being used. |
 | Datatype |  |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
+| Name | PREMIS related object identifier value |
+| Description | The actual value that makes up the identifier of the PREMIS related object. |
+| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-***Requirements***
+| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
+|-----------------------|-----------|
+| Name | PREMIS related object identifier value |
+| Description | The actual value that makes up the identifier of the PREMIS related object. |
+| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-- The `premis.xml` file MUST contain a PREMIS object for each IE in the SIP.
-- Each PREMIS object in the `premis.xml` MUST contain a unique identifier, shared with the corresponding `dc_*.xml` file in the `/descriptive` directory.
-- The `preservation.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the SIP as a whole.
+
+***Overview of relevant PREMIS relationships***
+
+| Relationship type | Relationship subtype | Reciprocal/inverse relationship | Subject | Object | Description |
+|-------------------|----------------------|---------------------------------|---------|--------|-------------|
+| `logical` | `generalizes` | `logical/specializes` | (main) IE | (sub) IE | The main IE generalizes one or more subIEs |
+| `logical` | `specializes` | `logical/generalizes` | (sub) IE | (main) IE | One or more subIEs specialize the main IE |
+| `structural` | `is represented by` | `structural/represents` | IE | Representation | The IE object is represented by one of its representations |
 
 ## /representations (directory)
 
