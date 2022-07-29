@@ -421,305 +421,311 @@ More detailed preservation information can be described using PREMIS events and 
 | Element | `premis:premis` |
 |-----------------------|-----------|
 | Name | PREMIS root element |
-| Description | This is the root element of the PREMIS file.<br>|
+| Description | This is the root element of the PREMIS file.<br><br>It MUST contain the following XML schema namespaces: <br>[`xsi: http://www.w3.org/2001/XMLSchema-instance`](http://www.w3.org/2001/XMLSchema-instance)<br>[`premis: http://www.loc.gov/premis/v3`](http://www.loc.gov/premis/v3).|
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/@version` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/@xmlns:xsi` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/@xmlns:premis` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | PREMIS version attribute |
+| Description | This attribute signals which PREMIS version is being used.<br>The attribute's value MUST be set to `3.0`. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `premis:premis@/xsi:schemaLocation` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Schema location declaration |
+| Description | This attribute signals where to find the relevant XSD schema in order to validate the PREMIS file.<br><br>When used, its value MUST be set to `"http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd"` to signal conformance with PREMIS 3.0.|
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
 
-| Attribute | `premis:premis/premis:object` |
+| Element | `premis:premis/premis:object` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | PREMIS object |
+| Description | A `premis:object` element MUST be defined for each representation and file of the representation level in the SIP. |
+| Cardinality | 1..* |
+| Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/@xsi:type` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Object type |
+| Description | This attribute signals whether a PREMIS object is of type intellectual entity, representation or file.<br><br>In the case of the `premis.xml` file of the representation level, this attribute's value MUST be set to `premis:representation` in the case of a representation object, and to `premis:file` in the case of a file object. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectIdentifier` |
+| Element | `premis:premis/premis:object/premis:objectIdentifier` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Object identifier |
+| Description | This element contains object identifier information.<br><br>At least one object identifier MUST be present to uniquely identify the concerned representation or file, and to establish a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. |
+| Cardinality | 1..* |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
+| Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Object identifier type |
+| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
+| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
+| Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Object identifier value |
+| Description | The actual value that makes up the identifier of the PREMIS object. |
+| Datatype | String (depending on the value of the `premis:objectIdentifierType`) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics` |
+| Element | `premis:premis/premis:object/premis:relationship` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | PREMIS relationship |
+| Description | Information about a relationship between the current object and one or more other objects.<br><br> In the case of the `premis.xml` file of the representation level, this element MUST detail the relationships between the representation and IE on the one hand, and between the representation and file(s) on the other hand.|
+| Cardinality | 1..* |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@authority` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@authorityURI` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:fixity/premis:messageDigest` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:size` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryName` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryKey` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole/@authority` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole/@valueURI` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:originalName` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
-
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
-|-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship type |
+| Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the representation level, this element's value MUST be set to `structural`.|
+| Datatype | String |
+| Cardinality | 1..* |
+| Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authority` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship type authority attribute |
+| Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship types. Its value MUST be set to `"relationshipType"`. |
+| Datatype | String |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authorityURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship type authority URI |
+| Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType"`. |
+| Datatype | URI |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@valueURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship type value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>For the `structural` relationship type, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType/str"`. |
+| Datatype | URI |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship subtype |
+| Description | A detailed categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the representation level, this element's value MUST be set to `represents` when expressing the relationship between a representation and the IE it represents.<br>When expressing the relationship between a representation and a file, this element's value MUST be set to `includes` when this relationship is expressed from the side of the representation (i.e. the representation is the subject of the relationship); when this relationship is expressed from the side of the file (i.e. the file is the subject of the relationship), this element's value MUST be set to `is included in`.|
+| Datatype | String; fixed vocabulary |
+| Vocabulary | `represents`<br>`includes`<br>`is included in` |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authority` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship subtype authority attribute |
+| Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship subtypes. Its value MUST be set to `"relationshipSubType"`. |
+| Datatype | String |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authorityURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship subtype authority URI |
+| Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType"`. |
+| Datatype | URI |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@valueURI` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Relationship subtype value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `represents` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep"`.<br>If the `includes` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc"`.<br>If the `is included in` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi"` |
+| Datatype | URI; fixed vocabulary |
+| Vocabulary | `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi"` |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Related object identifier |
+| Description | This element references the object of the relationship that is expressed. |
+| Cardinality | 1..* |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierType` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierType` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Related object identifier type |
+| Description | The type of the PREMIS related object identifier being used. |
+| Datatype | String; fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-| Attribute | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
+| Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier/premis:relatedObjectIdentifierValue` |
 |-----------------------|-----------|
-| Name |  |
-| Description |  |
-| Datatype |  |
-| Cardinality |  |
-| Obligation |  |
+| Name | Related object identifier value |
+| Description | The actual value that makes up the identifier of the PREMIS related object. |
+| Datatype | String (depending on the value of the `premis:relatedObjectIdentifierType`) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-***Requirements***
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics` |
+|-----------------------|-----------|
+| Name | Object characteristics |
+| Description | If the PREMIS object is of type file, this element MUST be used to further specify the various characteristics of the file object such as fixity, size and format information. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-- The `premis.xml` file MUST contain a PREMIS object for the representation.
-- The `premis.xml` file MUST contain a PREMIS object for each media file in the `/data` directory.
-- Each PREMIS object MUST contain a unique identifier.
-- Each PREMIS object with the `<premis:objectCategory>` element's value set to `FILE` MUST contain a checksum.
-- The `premis.xml` file SHOULD contain PREMIS events detailing, a.o., the creation and each modification of the representation and the media files.
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity` |
+|-----------------------|-----------|
+| Name | Fixity |
+| Description | This element contains the fixity information of the PREMIS file object. It encapsulates the message digest algorithm that is being used and its value. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` |
+|-----------------------|-----------|
+| Name | Message digest algorithm |
+| Description | This element details which algorithm is used to construct the message digest for the digital file object present. The value MUST be set to MD5. |
+| Datatype | String |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@authority` |
+|-----------------------|-----------|
+| Name | Message digest algorithm authority attribute |
+| Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different message digest algorithms. Its value MUST be set to `"cryptographicHashFunctions"`. |
+| Datatype | String |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@authorityURI` |
+|-----------------------|-----------|
+| Name | Message digest algorithm authority URI |
+| Description |  This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions"`. |
+| Datatype | URI |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` |
+|-----------------------|-----------|
+| Name | Message digest algorithm value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>This attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5"`. |
+| Datatype | URI |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigest` |
+|-----------------------|-----------|
+| Name | Message digest |
+| Description | This element contains the actual value calculated message digest algorithm specified in the `premis:messageDigestAlgorithm` element. |
+| Datatype | MD5 |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:size` |
+|-----------------------|-----------|
+| Name | File size |
+| Description | The size of the file object. This MUST be expressed in bytes. |
+| Datatype | Integer |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format` |
+|-----------------------|-----------|
+| Name | File format identification |
+| Description | This element contains information about the format of the file object. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatDesignation` |
+|-----------------------|-----------|
+| Name | File format designation |
+| Description | This element contains an identification of the format of the file object. |
+| Cardinality | 1..1 |
+| Obligation | SHOULD |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatDesignation/premis:formatName` |
+|-----------------------|-----------|
+| Name | File format name |
+| Description | A commonly accepted name for the file format. |
+| Datatype | String; fixed vocabulary (from a format or technical registry, e.g. [PRONOM](https://www.nationalarchives.gov.uk/PRONOM/Default.aspx)) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatDesignation/premis:formatVersion` |
+|-----------------------|-----------|
+| Name | File format version |
+| Description | The version of the format named in `premis:formatName`. |
+| Cardinality | 1..1 |
+| Obligation | SHOULD |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry` |
+|-----------------------|-----------|
+| Name | Format registry |
+| Description | This element identifies and/or gives further information about the file format by referencing an entry in a format registry (e.g. [PRONOM](https://www.nationalarchives.gov.uk/PRONOM/Default.aspx)). |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryName` |
+|-----------------------|-----------|
+| Name | Format registry name |
+| Description | Name of the referenced format registry |
+| Datatype | String |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryKey` |
+|-----------------------|-----------|
+| Name | Format registry key |
+| Description | Unique key that is used by the format registry for the concerned file format. |
+|| Datatype | ID |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole` |
+|-----------------------|-----------|
+| Name | Format registry role |
+| Description | The purpose or expected use of the format registry. This MUST be set to `specification`. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole/@authority` |
+|-----------------------|-----------|
+| Name | Format registry role authority |
+| Description | This attribute indicates the name of the authority/controlled vocabulary that is being used. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/formatRegistryRole"`. |
+| Datatype | URI |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole/@valueURI` |
+|-----------------------|-----------|
+| Name | Format registry role value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>This attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe"`. |
+| Datatype | URI |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:originalName` |
+|-----------------------|-----------|
+| Name | Original filename |
+| Description | This element contains the original name of the file object, including its extension. |
+| Datatype | String |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+***Overview of relevant PREMIS relationships***
+
+| Relationship type | Relationship subtype | Reciprocal/inverse relationship | Subject | Object | Description |
+|-------------------|----------------------|---------------------------------|---------|--------|-------------|
+| `structural` | `represents` | `structural/is represented by` | Representation | IE | A representation represents a specific IE |
+| `structural` | `includes` | `structural/is included in` | Representation | File | A representation includes one or more file objects |
+| `structural` | `is included in` | `structural/includes` | File | Representation | A file is included in a representation |
 
 <small>
 Continue to [Profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
