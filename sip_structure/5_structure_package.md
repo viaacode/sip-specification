@@ -1430,12 +1430,12 @@ Each XML file follows the naming convention `dc*.xml` (where `*` is any string o
 - The `/descriptive` directory SHOULD at least contain one metadata file: `dc*.xml`.
 - The metadata files in the `/descriptive` directory SHOULD follow the `dc*.xml` naming convention.
 
-The `descriptive.xml` file at the package-level contains descriptive metadata about the IE(s) of the SIP.
+The `dc*.xml` file at the package-level contains descriptive metadata about the IE(s) of the SIP.
 It relies on the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
 
 <a id="shareduuidinfo"></a>Descriptive metadata about multiple IEs is divided into different descriptive metadata files.
-There is a link present between each `dc_*.xml` file and the different PREMIS objects in the `preservation/premis.xml` file via a shared UUID.
-This shared UUID is stored in the `<dcterms:identifier>` element of each `dc_*.xml` file and in a `<premis:objectIdentifier>` element of each PREMIS object in the `preservation/premis.xml` file.
+There is a link present between each `dc*.xml` file and the different PREMIS objects in the `preservation/premis.xml` file via a shared UUID.
+This shared UUID is stored in the `<dcterms:identifier>` element of each `dc*.xml` file and in a `<premis:objectIdentifier>` element of each PREMIS object in the `preservation/premis.xml` file.
 
 Please note that additional IDs must be dealt with in the `preservation/premis.xml` file via `<premis:objectIdentifier>` elements in which the type of ID is specified using the `<premis:objectIdentifierType>` element.
 
@@ -1465,13 +1465,13 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 ***Requirements***
 
-- Each `dc_*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
-- Each `dc_*.xml` file MUST declare the DCTERMS namespaces in its root element.
-- Each `dc_*.xml` file MUST contain a shared UUID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element.
-- Each `dc_*.xml` file MUST use the `<metadata/>` tag as its root element.
-- Each `dc_*.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
-- Each `dc_*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
-- Each `dc_*.xml` file MUST NOT contain additional IDs besides the shared UUID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
+- Each `dc*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
+- Each `dc*.xml` file MUST declare the DCTERMS namespaces in its root element.
+- Each `dc*.xml` file MUST contain a shared UUID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element.
+- Each `dc*.xml` file MUST use the `<metadata/>` tag as its root element.
+- Each `dc*.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
+- Each `dc*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
+- Each `dc*.xml` file MUST NOT contain additional IDs besides the shared UUID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
 
 | Element | `metadata` |
 |-----------------------|-----------|
@@ -1483,7 +1483,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 | Element | `metadata/dcterms:identifier` |
 |-----------------------|-----------|
 | Name | Identifier |
-| Description | An unambiguous and unique reference to the Intellectual Entity/Entities present in the SIP.<br>This identifier MUST be used to establish a link between the `dc_*.xml` file and the relevant PREMIS object in the `preservation/premis.xml` file. |
+| Description | An unambiguous and unique reference to the Intellectual Entity/Entities present in the SIP.<br>This identifier MUST be used to establish a link between the `dc*.xml` file and the relevant PREMIS object in the `preservation/premis.xml` file. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1533,8 +1533,8 @@ It also contains any additional IDs related to the IE(s) of the SIP.
 It relies on the [Preservation Metadata: Implementation Strategies (PREMIS)](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information.
 More detailed preservation information can be described using PREMIS events and PREMIS agents.
 
-If descriptive metadata is available for a given IE, a link is established via a shared UUID between the relevant PREMIS object in the `premis.xml` file and the corresponding `descriptive/dc_*.xml` file.
-This UUID is stored in the `<premis:objectidentifier>` element of the relevant PREMIS object and in the `<dcterms:identifier>` element of the corresponding `dc_*.xml` file in the `/descriptive` directory. 
+If descriptive metadata is available for a given IE, a link is established via a shared UUID between the relevant PREMIS object in the `premis.xml` file and the corresponding `descriptive/dc*.xml` file.
+This UUID is stored in the `<premis:objectidentifier>` element of the relevant PREMIS object and in the `<dcterms:identifier>` element of the corresponding `dc*.xml` file in the `/descriptive` directory. 
 
 ***Example***
 
