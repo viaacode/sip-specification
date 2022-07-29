@@ -456,14 +456,14 @@ More detailed preservation information can be described using PREMIS events and 
 | Element | `premis:premis/premis:object/premis:objectIdentifier` |
 |-----------------------|-----------|
 | Name | Object identifier |
-| Description | This element contains object identifier information.<br><br>At least one object identifier MUST be present to uniquely identify the concerned representation or file, and to establish a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. |
+| Description | This element contains object identifier information.<br><br>At least one object identifier MUST be present to uniquely identify the concerned representation or file, and to establish a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc*.xml` file, if any is present. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
 |-----------------------|-----------|
 | Name | Object identifier type |
-| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
+| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc*.xml` file, if any is present. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
