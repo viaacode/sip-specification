@@ -63,6 +63,7 @@ In the context of noting metadata values, the following datatypes are mentioned 
 | <a id="mimetype"></a>IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
 | <a id="id"></a>ID | A string identifier consisting of alphanumerical characters (i.e. letters, digits, underscores, hyphens and periods), defined as the NCName datatype in the [XSD Datatypes specification](https://www.w3.org/TR/xmlschema11-2/#NCName).<br><br>Every ID MUST start with a letter or an underscore and it MUST be unique within the SIP. |
 | <a id="integer"></a>Integer        | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
+| <a id="md5"></a>MD5        | String result from applying the MD5 message-digest algorithm to a digital file object. |
 | <a id="url"></a>URL            | A Uniform Resource Locator as defined in [RFC1738](https://datatracker.ietf.org/doc/html/rfc1738). |
 | <a id="uri"></a>URI            | A Uniform Resource Identifier as defined in [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986), which extends the URL. |
 | <a id="or-id"></a>OR-id            | Organisation ID; a unique sequence of 10 Unicode ([UTF-8](https://datatracker.ietf.org/doc/html/rfc3629)) characters attributed by meemoo to each of its Content Partners. Note that an OR-id is also an instance of an ID. |
