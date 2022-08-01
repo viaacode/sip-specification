@@ -115,7 +115,7 @@ The various requirements are listed in the table below.
 |-----------------------|-----------|
 | Name | Package identifier |
 | Description | This is an ID for the METS document. For the package METS, this MUST be the same ID as the one used for the entire bag. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -544,7 +544,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Descriptive metadata section identifier |
 | Description | A unique identifier for the `dmdSec` used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -682,7 +682,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Digital provenance metadata identifier |
 | Description | A unique identifier used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -786,7 +786,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Rights metadata identifier |
 | Description | A unique identifier used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -942,7 +942,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File section identifier |
 | Description | A unique identifier for the file section used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -971,7 +971,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | Reference to administrative metadata |
 | Description | Reference to the ID of the corresponding administrative metadata section, in case an `amdSec` was used. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1000,7 +1000,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File group identifier |
 | Description | A unique identifier for the file group. This is used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1015,7 +1015,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File identifier |
 | Description | A unique identifier for the file. This is used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1070,7 +1070,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File reference to administrative metadata |
 | Description | If an `amdSec` (with `@ID` attribute) was provided, this attribute allows to reference it. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1078,7 +1078,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File reference to descriptive metadata |
 | Description | If a `dmdSec` (with `@ID` attribute) was provided, this attribute allows to reference it. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1173,7 +1173,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Structural description identifier |
 | Description | A unique identifier for the structural description. This can be used for internal package references. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1188,7 +1188,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Main structural division identifier |
 | Description | A unique identifier for the main `div` element. This can be used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1204,7 +1204,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division identifier |
 | Description | A unique identifier for the metadata `div` element. This can be used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1220,7 +1220,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division references administrative metadata |
 | Description | The administrative metadata division should reference all current administrative metadata sections.<br>All `amdSec` elements with `@STATUS='CURRENT'` SHOULD be referenced by their identifier, `@ID`. <br> The current `amdSec` elements' `@ID`s are recorded in the `div[@LABEL='Metadata']/@ADMID` attribute in a space delimited list. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -1228,7 +1228,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division references descriptive metadata |
 | Description | The descriptive metadata division should reference all current descriptive metadata sections.<br>All `dmdSec` elements with `@STATUS='CURRENT'` SHOULD be referenced by their identifier, `@ID`. <br> The current `dmdSec` elements' `@ID`s are recorded in the `div[@LABEL='Metadata']/@DMDID` attribute in a space delimited list. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -1244,7 +1244,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Documentation division identifier |
 | Description | A unique identifier for the documentation `div` element. This can be used for internal package references. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1267,7 +1267,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Documentation file group reference pointer |
 | Description | A unique identifier to the `Documentation` file group. This can be used for internal package references. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1283,7 +1283,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Schema division identifier |
 | Description | A unique identifier to the `Schemas` file group. This can be used for internal package references. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1306,7 +1306,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Schema file group reference |
 | Description | A unique identifier to the `Schemas` file group. This can be used for internal package references. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1321,7 +1321,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Content division identifier |
 | Description | A unique identifier to the `Representations` file group. This can be used for internal package references. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1344,7 +1344,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Content division file group references |
 | Description | The pointer to the identifier for the `Representations` file group. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1359,7 +1359,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Representations division identifier |
 | Description | A unique identifier that can be used for internal package references. |
-| Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1433,9 +1433,9 @@ Each XML file follows the naming convention `dc*.xml` (where `*` is any string o
 The `dc*.xml` file at the package-level contains descriptive metadata about the IE(s) of the SIP.
 It relies on the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema in order to facilitate a basic description with a limited number of descriptive metadata elements.
 
-<a id="shareduuidinfo"></a>Descriptive metadata about multiple IEs is divided into different descriptive metadata files.
-There is a link present between each `dc*.xml` file and the different PREMIS objects in the `preservation/premis.xml` file via a shared UUID.
-This shared UUID is stored in the `<dcterms:identifier>` element of each `dc*.xml` file and in a `<premis:objectIdentifier>` element of each PREMIS object in the `preservation/premis.xml` file.
+Descriptive metadata about multiple IEs is divided into different descriptive metadata files.
+There is a link present between each `dc*.xml` file and the different PREMIS objects in the `preservation/premis.xml` file via a shared ID.
+This shared ID is stored in the `<dcterms:identifier>` element of each `dc*.xml` file and in a `<premis:objectIdentifier>` element of each PREMIS object in the `preservation/premis.xml` file.
 
 Please note that additional IDs must be dealt with in the `preservation/premis.xml` file via `<premis:objectIdentifier>` elements in which the type of ID is specified using the `<premis:objectIdentifierType>` element.
 
@@ -1467,11 +1467,11 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 - Each `dc*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
 - Each `dc*.xml` file MUST declare the DCTERMS namespaces in its root element.
-- Each `dc*.xml` file MUST contain a shared UUID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element.
+- Each `dc*.xml` file MUST contain a shared ID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element.
 - Each `dc*.xml` file MUST use the `<metadata/>` tag as its root element.
 - Each `dc*.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
 - Each `dc*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
-- Each `dc*.xml` file MUST NOT contain additional IDs besides the shared UUID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
+- Each `dc*.xml` file MUST NOT contain additional IDs besides the shared ID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
 
 | Element | `metadata` |
 |-----------------------|-----------|
@@ -1533,8 +1533,8 @@ It also contains any additional IDs related to the IE(s) of the SIP.
 It relies on the [Preservation Metadata: Implementation Strategies (PREMIS)](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information.
 More detailed preservation information can be described using PREMIS events and PREMIS agents.
 
-If descriptive metadata is available for a given IE, a link is established via a shared UUID between the relevant PREMIS object in the `premis.xml` file and the corresponding `descriptive/dc*.xml` file.
-This UUID is stored in the `<premis:objectidentifier>` element of the relevant PREMIS object and in the `<dcterms:identifier>` element of the corresponding `dc*.xml` file in the `/descriptive` directory. 
+If descriptive metadata is available for a given IE, a link is established via a shared ID between the relevant PREMIS object in the `premis.xml` file and the corresponding `descriptive/dc*.xml` file.
+This ID is stored in the `<premis:objectidentifier>` element of the relevant PREMIS object and in the `<dcterms:identifier>` element of the corresponding `dc*.xml` file in the `/descriptive` directory. 
 
 ***Example***
 
