@@ -6,9 +6,6 @@ grand_parent:  Digitale instroom
 nav_order:    3
 nav_exclude:  false
 ---
-Status: WIP
-{: .label .label-yellow }
-
 # Core Concepts
 {: .no_toc }
 

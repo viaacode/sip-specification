@@ -6,8 +6,6 @@ grand_parent:  Digitale instroom
 nav_order:    2
 nav_exclude:  false
 ---
-Status: WIP
-{: .label .label-yellow }
 # Terminology
 
 <dl>

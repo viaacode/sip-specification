@@ -5,8 +5,6 @@ has_children: true
 parent:       Digitale instroom
 nav_order:    1
 ---
-Status: WIP
-{: .label .label-yellow }
 # meemoo Submission Information Package (SIP) Specification
 
 {% include_relative _metadata.liquid  %}

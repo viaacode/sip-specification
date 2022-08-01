@@ -5,8 +5,6 @@ parent:       Structure
 nav_order:    6
 nav_exclude:  false
 ---
-Status: WIP
-{: .label .label-yellow }
 # Package level
 {: .no_toc }
 

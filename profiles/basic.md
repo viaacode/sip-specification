@@ -5,8 +5,6 @@ parent:       Profiles
 nav_order:    3
 nav_exclude:  false
 ---
-Status: WIP
-{: .label .label-yellow }
 # Profile: Basic 
 
 The basic profile supports simple cases consisting of a single media file accompanied by limited metadata.

@@ -6,8 +6,6 @@ grand_parent:  Digitale instroom
 nav_order:    1
 nav_exclude:  false
 ---
-Status: WIP
-{: .label .label-yellow }
 # Introduction
 
 This document specifies the meemoo Submission Information Package (SIP), which describes how data and metadata should be packaged when delivered to meemoo for ingest.

@@ -7,8 +7,6 @@ nav_exclude:  false
 has_children: false
 sip_profile: basic
 ---
-Status: WIP
-{: .label .label-yellow }
 # Use Case: a single image
 
 The following use case describes how to package a single image file with some basic descriptive metadata.

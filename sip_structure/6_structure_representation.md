@@ -5,8 +5,6 @@ parent:       Structure
 nav_order:    7
 nav_exclude:  false
 ---
-Status: WIP
-{: .label .label-yellow }
 # Representation level
 {: .no_toc }
 

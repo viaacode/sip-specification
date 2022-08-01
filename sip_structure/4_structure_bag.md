@@ -5,8 +5,6 @@ parent:       Structure
 nav_order:    5
 nav_exclude:  false
 ---
-Status: WIP
-{: .label .label-yellow }
 # Bag level
 {: .no_toc }
 
