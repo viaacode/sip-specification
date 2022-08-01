@@ -85,7 +85,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
       xmlns:sip="https://DILCIS.eu/XML/METS/SIPExtensionMETS"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:xlink="http://www.w3.org/1999/xlink"
-      OBJID="uuid-b4e6213d-7a32-482c-8631-7dcc5f0a7681"
+      OBJID="representation_1"
       TYPE="Photographs – Digital"
       PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml">
 
