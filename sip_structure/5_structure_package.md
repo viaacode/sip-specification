@@ -114,7 +114,7 @@ The various requirements are listed in the table below.
 | Attribute | `mets/@OBJID` |
 |-----------------------|-----------|
 | Name | Package identifier |
-| Description | This is a UUID identifier for the METS document. For the package METS, this MUST be the same UUID as the one used for the entire bag. |
+| Description | This is an ID for the METS document. For the package METS, this MUST be the same ID as the one used for the entire bag. |
 | Datatype | [UUID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uuid) |
 | Cardinality | 1..1 |
 | Obligation | MUST |

@@ -110,7 +110,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 | Attribute | `mets/@OBJID` |
 |-----------------------|-----------|
 | Name | Representation identifier |
-| Description | This is an identifier for the METS document. For the representation METS, this MUST be the same name as the one used for the corresponding representation directory. |
+| Description | This is an ID for the METS document. For the representation METS, this MUST be the same name as the one used for the corresponding representation directory. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
