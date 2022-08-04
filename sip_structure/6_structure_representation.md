@@ -414,6 +414,20 @@ More detailed preservation information can be described using PREMIS events and 
 </premis:premis>
 ```
 
+***Overview of relevant PREMIS relationships***
+
+On the representation level, the preservation metadata is used to express 
+- what the representations and files are that are contained in the SIP; and 
+- how they relate to eachother or to IEs described on the package level. 
+
+The table below gives an overview of the different relationship types that can be used on the representation level:
+
+| Relationship type | Relationship subtype | Reciprocal/inverse relationship | Subject | Object | Description |
+|-------------------|----------------------|---------------------------------|---------|--------|-------------|
+| `structural` | `represents` | `structural/is represented by` | Representation | IE | A representation represents a specific IE |
+| `structural` | `includes` | `structural/is included in` | Representation | File | A representation includes one or more file objects |
+| `structural` | `is included in` | `structural/includes` | File | Representation | A file is included in a representation |
+
 ***Requirements***
 
 | Element | `premis:premis` |
@@ -716,14 +730,6 @@ More detailed preservation information can be described using PREMIS events and 
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
-
-***Overview of relevant PREMIS relationships***
-
-| Relationship type | Relationship subtype | Reciprocal/inverse relationship | Subject | Object | Description |
-|-------------------|----------------------|---------------------------------|---------|--------|-------------|
-| `structural` | `represents` | `structural/is represented by` | Representation | IE | A representation represents a specific IE |
-| `structural` | `includes` | `structural/is included in` | Representation | File | A representation includes one or more file objects |
-| `structural` | `is included in` | `structural/includes` | File | Representation | A file is included in a representation |
 
 <small>
 Continue to [Profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
