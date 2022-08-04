@@ -1550,8 +1550,8 @@ This ID is stored in the `<premis:objectIdentifier>` element of the relevant PRE
 
     <!-- relationship between the main IE and the nested IEs -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/log">logical</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen">generalizes</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp">has part</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-948e2213-ca54-459c-8c87-5818adeb9444</premis:relatedObjectIdentifierValue>
@@ -1574,8 +1574,8 @@ This ID is stored in the `<premis:objectIdentifier>` element of the relevant PRE
 
     <!-- relationship between nested IE1 and the main IE -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/log">logical</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe">specializes</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp">is part of</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:relatedObjectIdentifierValue>
@@ -1604,8 +1604,8 @@ This ID is stored in the `<premis:objectIdentifier>` element of the relevant PRE
 
     <!-- relationship between nested IE2 and the main IE -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/log">logical</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe">specializes</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp">is part of</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:relatedObjectIdentifierValue>
@@ -1635,11 +1635,11 @@ On the package level, the preservation metadata is used to express
 
 The table below gives an overview of the different relationship types that can be used on the package level:
 
-| Relationship type | Relationship subtype | Reciprocal/inverse relationship | Subject | Object | Description |
-|-------------------|----------------------|---------------------------------|---------|--------|-------------|
-| `logical` | `generalizes` | `logical/specializes` | (main) IE | (sub) IE | The main IE generalizes one or more subIEs |
-| `logical` | `specializes` | `logical/generalizes` | (sub) IE | (main) IE | One or more subIEs specialize the main IE |
-| `structural` | `is represented by` | `structural/represents` | IE | Representation | The IE object is represented by one of its representations |
+| Direction | Relationship type | Relationship subtype | Reciprocal/inverse relationship | Description |
+|-------------------|----------------------|---------------------------------|-------------|
+| From (main) IE to (sub) IE | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`has part`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp) | [`is part of`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp) | A a larger IE, such as the main IE, has another IE as a part. |
+| From (sub) IE to (main) IE | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`is part of`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp) | [`has part`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp) | A subIE is part of a larger main IE. |
+| From IE to Representation | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`is represented by`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr) | [`represents`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep) | The IE object is represented by one of its representations |
 
 ***Requirements***
 
@@ -1712,9 +1712,9 @@ The table below gives an overview of the different relationship types that can b
 | Element | `premis:premis/premis:object/premis:relationship/premis:relationshipType` |
 |-----------------------|-----------|
 | Name | Relationship type |
-| Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `structural` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `logical` to express the relationship between one IE and another. |
+| Description | A high-level categorization of the nature of the relationship.<br><br>This element's value MUST be set to `structural` when expressing the relationship between one IE and another or between the IE object and one of its representations. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
-| Vocabulary | `structural`<br>`logical` |
+| Vocabulary | `structural` |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
@@ -1737,9 +1737,9 @@ The table below gives an overview of the different relationship types that can b
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@valueURI` |
 |-----------------------|-----------|
 | Name | Relationship type value URI |
-| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `structural` relationship type is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/str`.<br>If the `logical` relationship type is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/log`. |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `structural` relationship type is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/str`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
-| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipType/str`<br>`http://id.loc.gov/vocabulary/preservation/relationshipType/log` |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipType/str` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1771,9 +1771,9 @@ The table below gives an overview of the different relationship types that can b
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@valueURI` |
 |-----------------------|-----------|
 | Name | Relationship subtype value URI |
-| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `is represented by` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`.<br>If the `generalizes` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen`.<br>If the `generalizes` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe` |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `is represented by` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`.<br>If the `has part` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`.<br>If the `is part of` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
-| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/gen`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/spe` |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 

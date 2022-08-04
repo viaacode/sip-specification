@@ -422,11 +422,11 @@ On the representation level, the preservation metadata is used to express
 
 The table below gives an overview of the different relationship types that can be used on the representation level:
 
-| Relationship type | Relationship subtype | Reciprocal/inverse relationship | Subject | Object | Description |
-|-------------------|----------------------|---------------------------------|---------|--------|-------------|
-| `structural` | `represents` | `structural/is represented by` | Representation | IE | A representation represents a specific IE |
-| `structural` | `includes` | `structural/is included in` | Representation | File | A representation includes one or more file objects |
-| `structural` | `is included in` | `structural/includes` | File | Representation | A file is included in a representation |
+| Direction | Relationship type | Relationship subtype | Reciprocal/inverse relationship | Description |
+|-------------------|----------------------|---------------------------------|-------------|
+| From Representation to IE | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`represents`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep) | [`is represented by`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr) | A representation represents a specific IE |
+| From Representation to File | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`includes`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc) | [`is included in`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi) | A representation includes one or more file objects |
+| From File to Representation | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`is included in`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi) | [`includes`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc) | A file is included in a representation |
 
 ***Requirements***
 
