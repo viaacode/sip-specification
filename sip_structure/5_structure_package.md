@@ -1801,6 +1801,61 @@ The table below gives an overview of the different relationship types that can b
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+***Adding object provenance with PREMIS events***
+
+
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
+...
+    <premis:event>
+        <premis:eventIdentifier>
+            <premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+            <premis:eventIdentifierValue>uuid-f0513e06-4c57-4faf-a758-042043d99b81</premis:eventIdentifierValue>
+        </premis:eventIdentifier>
+        <premis:eventType>DIGITIZATION</premis:eventType>
+        <premis:eventDateTime>2022-05-17T11:50:13</premis:eventDateTime>
+        <premis:eventDetailInformation>
+            <premis:eventDetail />
+        </premis:eventDetailInformation>
+        <premis:linkingAgentIdentifier>
+            <premis:linkingAgentIdentifierType>VIAA SP Agent ID</premis:linkingAgentIdentifierType>
+            <premis:linkingAgentIdentifierValue>OR-m30wc4t</premis:linkingAgentIdentifierValue>
+            <premis:linkingAgentRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp">implementer</premis:linkingAgentRole>
+        </premis:linkingAgentIdentifier>
+        <premis:linkingAgentIdentifier>
+            <premis:linkingAgentIdentifierType>UUID</premis:linkingAgentIdentifierType>
+            <premis:linkingAgentIdentifierValue>uuid-1cc1fe7a-da78-4c53-847a-0fd141ce2d3b</premis:linkingAgentIdentifierValue>
+            <premis:linkingAgentRole>player</premis:linkingAgentRole>
+        </premis:linkingAgentIdentifier>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-de83045d-3b0f-4161-9f96-40079af0d480</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+    </premis:event>
+
+    <!-- description of the video player used to digitize an anlog carrier -->
+    <premis:agent>
+        <premis:agentIdentifier>
+            <premis:agentIdentifierType>UUID</premis:agentIdentifierType>
+            <premis:agentIdentifierValue>uuid-1cc1fe7a-da78-4c53-847a-0fd141ce2d3b</premis:agentIdentifierValue>
+        </premis:agentIdentifier>
+        <premis:agentName>SONY PDW-U2</premis:agentName>
+        <premis:agentType>player</premis:agentType>
+        <premis:agentExtension>
+            <schema:model>PDW-U2</schema:model>
+            <schema:brand>
+                <schema:name>SONY</schema:name>
+            </schema:brand>
+            <schema:serialNumber>123456</schema:serialNumber>
+        </premis:agentExtension>
+    </premis:agent>
+...
+</premis:premis>
+```
+
 ## /representations (directory)
 
 The `/representations` directory contains a separate `/representation_*` (where `*` is a positive integer increasing by 1 for each additional representation) directory for each representation of (the) IE(s) of the package level.
