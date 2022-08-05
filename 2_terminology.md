@@ -58,7 +58,7 @@ In the context of noting metadata values, the following datatypes are mentioned 
 | Datatype       | Definition |
 | -------------- | ---------- |
 | <a id="iso-8601"></a>ISO 8601            | Date and time, following the [ISO 8601:2004](https://www.iso.org/standard/40874.html) standard. |
-| <a id="edtf"></a>EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) up to level 1 plus the value `XXXX` to indicate an unknown date. |
+| <a id="edtf"></a>EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) up to level 1 plus the value `XXXX` to indicate an unknown date. All [ISO 8601](#iso-8601) dates are also valid EDTF dates. |
 | <a id="mimetype"></a>IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
 | <a id="id"></a>ID | A string identifier consisting of alphanumerical characters (i.e. letters, digits, underscores, hyphens and periods), defined as the NCName datatype in the [XSD Datatypes specification](https://www.w3.org/TR/xmlschema11-2/#NCName).<br><br>Every ID MUST start with a letter or an underscore and it MUST be unique within the SIP. |
 | <a id="integer"></a>Integer        | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
