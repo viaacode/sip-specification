@@ -1910,7 +1910,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Event datetime  |
 | Description | The moment on which the event occurred. |
-| Datatype | [ISO 8601]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#iso-8601) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
