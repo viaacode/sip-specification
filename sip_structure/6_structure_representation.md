@@ -167,7 +167,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Representation creation datetime |
 | Description | This attribute records the date and time the representation was created. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -175,7 +175,7 @@ Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same
 |-----------------------|-----------|
 | Name | Representation last modification datetime |
 | Description | In case the representation was modified since its creation, this attribute records the date and time of that modification.<br>This attribute MUST be present and used when the representation has been modified since its creation datetime. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 

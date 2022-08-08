@@ -57,17 +57,17 @@ In the context of noting metadata values, the following datatypes are mentioned 
 
 | Datatype       | Definition |
 | -------------- | ---------- |
-| <a id="iso-8601"></a>ISO 8601            | Date and time, following the [ISO 8601:2004](https://www.iso.org/standard/40874.html) standard. |
-| <a id="edtf"></a>EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) up to level 1 plus the value `XXXX` to indicate an unknown date. All [ISO 8601](#iso-8601) dates are also valid EDTF dates. |
-| <a id="mimetype"></a>IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
-| <a id="id"></a>ID | A string identifier consisting of alphanumerical characters (i.e. letters, digits, underscores, hyphens and periods), defined as the NCName datatype in the [XSD Datatypes specification](https://www.w3.org/TR/xmlschema11-2/#NCName).<br><br>Every ID MUST start with a letter or an underscore and it MUST be unique within the SIP. |
 | <a id="integer"></a>Integer        | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
-| <a id="md5"></a>MD5        | String result from applying the MD5 message-digest algorithm to a digital file object. |
-| <a id="or-id"></a>OR-id            | Organisation ID; a unique sequence of 10 Unicode ([UTF-8](https://datatracker.ietf.org/doc/html/rfc3629)) characters attributed by meemoo to each of its Content Partners. Note that an OR-id is also an instance of an ID. |
 | <a id="string"></a>String         | A sequence of zero or more Unicode (UTF-8) characters, usually wrapped in double quotes, using backslash escapes (if necessary). A character is represented as a single character string. |
+| <a id="xsd-datetime"></a>XML Schema datetime            | Date and time notation according to the [XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#dateTime) standard. Compatible with [ISO 8601:2004](https://www.w3.org/TR/xmlschema-2/#dateTime). |
+| <a id="edtf"></a>EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) up to level 1 plus the value `XXXX` to indicate an unknown date. All [XML Schema datetimes](#xsd-datetime) dates are also valid EDTF dates. |
+| <a id="mimetype"></a>IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
+| <a id="md5"></a>MD5        | String result from applying the MD5 message-digest algorithm to a digital file object. |
+| <a id="id"></a>ID | A string identifier consisting of alphanumerical characters (i.e. letters, digits, underscores, hyphens and periods), defined as the NCName datatype in the [XSD Datatypes specification](https://www.w3.org/TR/xmlschema11-2/#NCName).<br><br>Every ID MUST start with a letter or an underscore and it MUST be unique within the SIP. |
+| <a id="uuid"></a>UUID           | A Universally Unique Identifier as defined in [RFC4122](https://datatracker.ietf.org/doc/html/rfc4122). Note that a UUID is also an instance of an ID, if it starts with a letter or an underscore.|
+| <a id="or-id"></a>OR-id            | Organisation ID; a unique sequence of 10 Unicode ([UTF-8](https://datatracker.ietf.org/doc/html/rfc3629)) characters attributed by meemoo to each of its Content Partners. Note that an OR-id is also an instance of an ID. |
 | <a id="uri"></a>URI            | A Uniform Resource Identifier as defined in [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986), which extends the URL. |
 | <a id="url"></a>URL            | A Uniform Resource Locator as defined in [RFC1738](https://datatracker.ietf.org/doc/html/rfc1738). |
-| <a id="uuid"></a>UUID           | A Universally Unique Identifier as defined in [RFC4122](https://datatracker.ietf.org/doc/html/rfc4122). Note that a UUID is also an instance of an ID, if it starts with a letter or an underscore.|
 
 <small>
 Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}).

@@ -206,7 +206,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Package creation datetime |
 | Description | This attribute records the date and time the SIP was created. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -214,7 +214,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Package last modification datetime |
 | Description | In case the SIP was modified since its creation, this attribute records the date and time of that modification.<br>This attribute MUST be present and filled in when the SIP has been modified since its creation datetime. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -550,7 +550,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Descriptive metadata creation datetime |
 | Description | Creation date and time of the descriptive metadata referenced in this section. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -623,7 +623,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -753,7 +753,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -857,7 +857,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1037,7 +1037,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
