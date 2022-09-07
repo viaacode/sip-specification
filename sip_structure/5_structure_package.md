@@ -1849,7 +1849,7 @@ TODO: figure out the IDs
         </premis:linkingObjectIdentifier>
     </premis:event>
 
-    <!-- description of the video player used to digitize an anlog carrier -->
+    <!-- description of the video player used to digitize an analog carrier -->
     <premis:agent>
         <premis:agentIdentifier>
             <premis:agentIdentifierType>UUID</premis:agentIdentifierType>
