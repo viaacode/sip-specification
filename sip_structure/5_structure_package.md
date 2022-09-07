@@ -1811,7 +1811,7 @@ In most cases, events are used to submit information about the digitization proc
 The use of events might be prohibited or enforced depending on the given content profile. 
 
 {: .note }
-The possible event types is limited and is managed by a controlled list. This is list is still under development en will be published at the 1.0 release of the specification.
+The possible event types are limited and managed by a controlled list. This list is still under development and will be published in a future release of the specification.
 <!--
 TODO: Link to list of possible eventTypes
 TODO: figure out the IDs
