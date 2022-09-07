@@ -1807,7 +1807,7 @@ The table below gives an overview of the different relationship types that can b
 #### Adding provenance of representations
 
 If desired, a representation's provenance trail can be added to the preservation metadata using PREMIS events and agents.
-In most cases, event are used to submit information about the digitization process that created the representations. 
+In most cases, events are used to submit information about the digitization process that created the representations. 
 The use of events might be prohibited or enforced depending on the given content profile. 
 
 {: .note }
