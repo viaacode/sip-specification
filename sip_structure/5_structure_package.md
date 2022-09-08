@@ -1859,8 +1859,8 @@ TODO: figure out the IDs
             <premis:agentIdentifierValue>uuid-1cc1fe7a-da78-4c53-847a-0fd141ce2d3b</premis:agentIdentifierValue>
         </premis:agentIdentifier>
         <premis:agentName>SONY PDW-U2</premis:agentName>
-        <premis:agentType>player</premis:agentType>
-        <premis:agentExtension>
+        <premis:agentType>hardware</premis:agentType>
+        <premis:agentExtension xmlns:schema="http://schema.org/">
             <schema:model>PDW-U2</schema:model>
             <schema:brand>
                 <schema:name>SONY</schema:name>
@@ -2045,7 +2045,8 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Agent type |
 | Description | The type of agent, such as a specific type of organization (e.g. CP) or a specific type of hardware (e.g. video player). |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary from [PREMIS Agent Type](https://id.loc.gov/vocabulary/preservation/agentType.html) |
+| Vocabulary | `person`<br>`organization`<br>`hardware`<br>`software` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
