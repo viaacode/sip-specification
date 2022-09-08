@@ -1820,7 +1820,10 @@ TODO: figure out the IDs
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
-...
+
+    <!-- description of objects (left out for clarity) -->
+    ...
+
     <!-- description of the digitization event that created the supplied representation -->
     <premis:event>
         <premis:eventIdentifier>
@@ -2019,14 +2022,6 @@ TODO: figure out the IDs
 | Description | The type of the PREMIS agent identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS agent. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `UUID`<br>`ID`<br>... |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `premis:premis/premis:agent/premis:agentIdentifier/premis:agentIdentifierValue` |
-|-----------------------|-----------|
-| Name | Agent identifier value |
-| Description | The actual value that makes up the identifier of the PREMIS agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:agentIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
