@@ -2049,7 +2049,7 @@ TODO: figure out the IDs
 | Element | `premis:premis/premis:agent/premis:agentType` |
 |-----------------------|-----------|
 | Name | Agent type |
-| Description | The type of agent, such as a specific type of organization (eg. CP) or a specific type of hardware (eg. video player). |
+| Description | The type of agent, such as a specific type of organization (e.g. CP) or a specific type of hardware (e.g. video player). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
