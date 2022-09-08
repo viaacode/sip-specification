@@ -2005,7 +2005,7 @@ TODO: figure out the IDs
 | Element | `premis:premis/premis:agent` |
 |-----------------------|-----------|
 | Name | PREMIS agent element |
-| Description | A `premis:agent` element MAY be defined for one or more representations in the SIP. |
+| Description | A person, organization or piece of software or hardware associated to preservation events in the life of a data object. A `premis:agent` element MAY be defined for one or more events. |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
