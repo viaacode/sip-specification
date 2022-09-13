@@ -162,69 +162,178 @@ root_directory
 
 - A preservation metadata file `preservation/premis.xml` MUST be present at the package level.
 - The `preservation/premis.xml` file MUST follow the [PREMIS](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) metadata schema (v3.0.).
-- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. See the example below for more information.
-- If the SIP contains a PDF file (which SHOULD contain all pages of the newspaper edition, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. See the example below for more information.
+- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information.
+- If the SIP contains a PDF file (which SHOULD contain all pages of the newspaper edition, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 2 below](#example-creation-event) for more information.
 
-Example of a PREMIS transcription event (linking the TIFF and ALTO XML files):
+<a id="example-transcription-event"></a>_Example 1: a PREMIS transcription event (linking the TIFF and ALTO XML files)_
 
 ```xml
-<premis:event>
-    <premis:eventIdentifier>
-      <premis:eventIdentifierType>UUID</premis:eventIdentifierType>
-      <premis:eventIdentifierValue>uuid-34ae79f8-a8e7-4768-a269-4d6d895662d6</premis:eventIdentifierValue>
-    </premis:eventIdentifier>
-    <premis:eventType>transcription</premis:eventType>
-    <premis:eventDateTime>2022-02-16T10:01:15.014+02:00</premis:eventDateTime>
-    <premis:eventDetailInformation>
-      <premis:eventDetail>Generate ALTO XML from TIFF via OCR</premis:eventDetail>
-    </premis:eventDetailInformation>
-    <premis:linkingObjectIdentifier>
-      <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
-      <premis:linkingObjectIdentifierValue>uuid-d8fd6dde-53a5-4614-823c-32f64588efe6</premis:linkingObjectIdentifierValue>
-      <premis:linkingObjectRole>source</premis:linkingObjectRole>
-    </premis:linkingObjectIdentifier>
-    <premis:linkingObjectIdentifier>
-      <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
-      <premis:linkingObjectIdentifierValue>uuid-1fca6190-a4bd-4773-8529-272b9e7d536a</premis:linkingObjectIdentifierValue>
-      <premis:linkingObjectRole>outcome</premis:linkingObjectRole>
-    </premis:linkingObjectIdentifier>
-  </premis:event>
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
+    
+    [...]
+
+    <premis:event>
+        <premis:eventIdentifier>
+            <premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+            <premis:eventIdentifierValue>uuid-34ae79f8-a8e7-4768-a269-4d6d895662d6</premis:eventIdentifierValue>
+        </premis:eventIdentifier>
+        <premis:eventType>transcription</premis:eventType>
+        <premis:eventDateTime>2022-02-16T10:01:15.014+02:00</premis:eventDateTime>
+        <premis:eventDetailInformation>
+            <premis:eventDetail>Generate ALTO XML from TIFF via OCR</premis:eventDetail>
+        </premis:eventDetailInformation>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-d8fd6dde-53a5-4614-823c-32f64588efe6</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole>source</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-1fca6190-a4bd-4773-8529-272b9e7d536a</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole>outcome</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+    </premis:event>
+
+    [...]
+
+</premis:premis>
 ```
 
-Example of a PREMIS creation event (linking the TIFF, ALTO XML and PDF files):
+<a id="example-creation-event"></a>_Example 2: a PREMIS creation event (linking the TIFF, ALTO XML and PDF files)_
 
 ```xml
-<premis:event>
-    <premis:eventIdentifier>
-      <premis:eventIdentifierType>UUID</premis:eventIdentifierType>
-      <premis:eventIdentifierValue>uuid-16a5c827-e513-4ec5-ad75-f75c7b9bde1f</premis:eventIdentifierValue>
-    </premis:eventIdentifier>
-    <premis:eventType>creation</premis:eventType>
-    <premis:eventDateTime>2022-02-16T10:01:15.014+02:00</premis:eventDateTime>
-    <premis:eventDetailInformation>
-      <premis:eventDetail>Generate PDF from ALTO XML and TIFF</premis:eventDetail>
-    </premis:eventDetailInformation>
-    <premis:linkingObjectIdentifier>
-      <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
-      <premis:linkingObjectIdentifierValue>uuid-d8fd6dde-53a5-4614-823c-32f64588efe6</premis:linkingObjectIdentifierValue>
-      <premis:linkingObjectRole>source</premis:linkingObjectRole>
-    </premis:linkingObjectIdentifier>
-    <premis:linkingObjectIdentifier>
-      <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
-      <premis:linkingObjectIdentifierValue>uuid-1fca6190-a4bd-4773-8529-272b9e7d536a</premis:linkingObjectIdentifierValue>
-      <premis:linkingObjectRole>source</premis:linkingObjectRole>
-    </premis:linkingObjectIdentifier>
-    <premis:linkingObjectIdentifier>
-      <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
-      <premis:linkingObjectIdentifierValue>uuid-3d371b39-90af-4655-91e9-d93c55f25da1</premis:linkingObjectIdentifierValue>
-      <premis:linkingObjectRole>outcome</premis:linkingObjectRole>
-    </premis:linkingObjectIdentifier>
-  </premis:event>
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
+    
+    [...]
+
+    <premis:event>
+        <premis:eventIdentifier>
+            <premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+            <premis:eventIdentifierValue>uuid-16a5c827-e513-4ec5-ad75-f75c7b9bde1f</premis:eventIdentifierValue>
+        </premis:eventIdentifier>
+        <premis:eventType>creation</premis:eventType>
+        <premis:eventDateTime>2022-02-16T10:01:15.014+02:00</premis:eventDateTime>
+        <premis:eventDetailInformation>
+            <premis:eventDetail>Generate PDF from ALTO XML and TIFF</premis:eventDetail>
+        </premis:eventDetailInformation>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-d8fd6dde-53a5-4614-823c-32f64588efe6</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole>source</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-1fca6190-a4bd-4773-8529-272b9e7d536a</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole>source</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-3d371b39-90af-4655-91e9-d93c55f25da1</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole>outcome</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+    </premis:event>
+    
+    [...]
+
+<premis:premis>
 ```
 
 ### Representation METS
 
+- If the files in a representation each correspond with a single page (e.g. the TIFF and ALTO XML files, since each of these files MUST correspond to a single page), the corresponding `<div/>` elements in the structural map MUST contain an `@ORDER` attribute that indicates the sequence of the pages of the newspaper edition. Additionally, each `<div/>` element that corresponds to a file representing a page MUST have a `@TYPE` attribute that is set to `page`. See [example 3 below](#example-representation-mets) for more information.
+
+<a id="example-representation-mets"></a>_Example 3: the structural map of a representation METS, with `@TYPE` and `@ORDER` attributes_
+
+```xml
+<mets xmlns="http://www.loc.gov/METS/" xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS" xmlns:sip="https://DILCIS.eu/XML/METS/SIPExtensionMETS" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" OBJID="representation_1" TYPE="Textual works - Print" PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml">
+    
+    [...]
+    
+    <structMap ID="uuid-04647bb4-f524-435b-b4bf-5fe7a926b9d4" TYPE="PHYSICAL" LABEL="CSIP">
+        <div ID="uuid-74e4335c-1d24-42bc-bbd0-864bd216d99c" LABEL="representation_1">
+            <div ID="uuid-60d4a0db-769c-42a9-8ef8-c395bb555803" LABEL="metadata">
+                <div ID="uuid-e96b8688-e811-4dd8-83dc-81ae263b9c2a" LABEL="preservation">
+                    <fptr FILEID="uuid-4482555d-aed7-4066-a211-44429a60a49a" />
+                </div>
+            </div>
+            <!-- order attributes for page order -->
+            <div ID="uuid-41bacec1-1d6c-467a-8020-7114115562a8" LABEL="data">
+                <div ID="uuid-47e52361-8508-4ae1-ad8c-0e1f5382065e" TYPE="page" ORDER="1">
+                    <fptr FILEID="uuid-9850cb03-b1fd-4661-a4fb-e3dfcf25e9e5" />
+                </div>
+                <div ID="uuid-47e52361-8508-4ae1-ad8c-0e1f5382065e" TYPE="page" ORDER="2">
+                    <fptr FILEID="uuid-3309e853-bf0f-4d19-ae6a-5e14911e3662" />
+                </div>
+                <div ID="uuid-eebd6f2a-f06e-4c5f-9c52-fd58e784eaff" TYPE="page" ORDER="3">
+                    <fptr FILEID="uuid-4ef96979-4abf-4af0-8156-d04fdd2ff7c3" />
+                </div>
+            </div>
+        </div>
+    </structMap>
+    
+    [...]
+
+</mets>
+```  
+
 ### Representation Preservation Metadata
+
+- If ALTO XML files are present in the SIP, the `preservation/premis.xml` files of the representation containing the TIFF files and of the representation containing the ALTO XML files MUST contain a PREMIS relationship to establish a link between the two.
+  - In the case of the representation with the TIFF files, this PREMIS relationship MUST be of type `derivation` and of subtype `is source of`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/iso`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is shown in [example 4 below](#example-premis-issourceof).
+  - In the case of the representation with the ALTO XML files, this PREMIS relationship MUST be of type `derivation` and of subtype `has source`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is shown in [example 5 below](#example-premis-hassource).
+- If a PDF file is present in the SIP, the `preservation/premis.xml` files of all three representations (i.e. of the TIFF files, of the ALTO XML file and of the PDF file) MUST contain a PREMIS relationship to establish a link between the three.
+  - In the case of the representations with the TIFF and ALTO XML files, this PREMIS relationship MUST be of type `derivation` and of subtype `is source of`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/iso`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is similar to [example 4 shown below](#example-premis-issourceof).
+  - In the case of the representation with the PDF file, this PREMIS relationship MUST be of type `derivation` and of subtype `has source`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is similar to [example 5 below](#example-premis-hassource), the difference being that the relationship will mostly entail multiple `<premis:relatedObjectIdentifier/>` elements since the PDF is derived from all TIFF and ALTO XML files together.
+
+<a id="example-premis-issourceof"></a>_Example 4: a PREMIS `is source of` relationship_
+
+```xml
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
+
+[...]
+
+    <premis:relationship>
+        <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/der">derivation</premis:relationshipType>
+        <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/iso">is source of</premis:relationshipSubType>
+        <premis:relatedObjectIdentifier>
+            <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+            <premis:relatedObjectIdentifierValue>uuid-3d2dfddb-6348-43b7-865d-ba9a12ef5c79</premis:relatedObjectIdentifierValue>
+        </premis:relatedObjectIdentifier>
+        <premis:relatedEventIdentifier>
+            <premis:relatedEventIdentifierType>UUID</premis:relatedEventIdentifierType>
+            <premis:relatedEventIdentifierValue>uuid-34ae79f8-a8e7-4768-a269-4d6d895662d6</premis:relatedEventIdentifierValue>
+        </premis:relatedEventIdentifier>
+    </premis:relationship>
+
+[...]
+
+</premis:premis>
+```
+
+<a id="example-premis-hassource"></a>_Example 5: a PREMIS `has source` relationship_
+
+```xml
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
+    
+    [...]
+
+    <premis:relationship>
+        <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/der">derivation</premis:relationshipType>
+        <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss">has source</premis:relationshipSubType>
+        <premis:relatedObjectIdentifier>
+            <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+            <premis:relatedObjectIdentifierValue>uuid-1711cd43-19d2-4d89-9259-17443fc7d75f</premis:relatedObjectIdentifierValue>
+        </premis:relatedObjectIdentifier>
+        <premis:relatedEventIdentifier>
+            <premis:relatedEventIdentifierType>UUID</premis:relatedEventIdentifierType>
+            <premis:relatedEventIdentifierValue>uuid-34ae79f8-a8e7-4768-a269-4d6d895662d6</premis:relatedEventIdentifierValue>
+        </premis:relatedEventIdentifier>
+    </premis:relationship>
+    
+    [...]
+
+</premis:premis>
+```
 
 ## Use Cases
 
