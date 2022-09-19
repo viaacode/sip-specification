@@ -1,43 +1,47 @@
 ---
 layout:       default
-title:        Two-dimensional artwork
+title:        Gigapixel artwork
 parent:       Use cases
-nav_order:    4
+nav_order:    5
 nav_exclude:  false
 has_children: false
 sip_profile:  2d
 ---
-# Use Case: a digitization of a two-dimensional artwork
+# Use Case: a gigapixel digitization of a two-dimensional artwork
 
-The following use case describes how to package a reproduction of a two-dimensional artwork such as a painting. 
+The following use case describes how to package a gigapixel reproduction of a two-dimensional artwork such as a drawing or painting. 
 The reproduction contains multiple flavours of photoregistration: with frame, without frame, stiched, or as partial captures. 
 It includes:
 
 - TIFF files;
+- an Adobe Photoshop PSB file
 - basic descriptive metadata;
 - basic preservation metadata.
 
 It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/2d.md %}).
 
-A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/fa307608-35c3-11ed-9243-7e92631d7d27.zip %}).
-
+<!-- 
+A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/fd569eca-37f8-11ed-9b05-7e92631d7d28.zip %}).
+-->
 ## The content
 
 The following content is provided for packaging:
 
-| `7m03z1634f_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ' with the frame included. |
-| `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif` | An image file in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ' without the frame. |
-| `7m03z1634f_stitch_tiff.tif` | A stiched very high-resolution image file in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
-| `7m03z1634f_target_tiff.tif` | A reference image file in the TIFF media format for calibrating the photoregistration hardware. |
-| `7m03z1634f_deelopname1_tiff.tif`<br>`7m03z1634f_deelopname2_tiff.tif`<br>`...`<br>`7m03z1634f_deelopname9_tiff.tif` | A very high-resolution image split in multiple files in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
-| `metadata.xml` | A metadata record describing the painting 'The lamentation over the Dead Christ'. |
+| `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF media format containing a photoregistration of an 'Uur- en kalenderwijzeplaat' with the frame included. |
+| `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff` | An image file in the TIFF media format containing a photoregistration of the 'Uur- en kalenderwijzeplaat' without the frame. |
+| `cf9j41p15z_stitch_bigtiff.tiff` | A stiched very high-resolution image file in the TIFF media format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
+| `cf9j41p15z_stitch_psb.psb` | A stiched very high-resolution image file in the Adobe Photoshop Large Document Format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
+| `cf9j41p15z_target_tiff.tiff` | A reference image file in the TIFF media format for calibrating the photoregistration hardware. |
+| `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff` | A very high-resolution image split in multiple files in the TIFF media format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
+| `metadata.xml` | A metadata record describing the 'Uur- en kalenderwijzeplaat'. |
 
 The metadata record can contain the following information:
 
-- the title of the painting;
-- a description of the painting;
-- the date the painting was created;
-- the dimensions of the painting;
+- the title of the work;
+- a description of the work;
+- a local identifier (e.g., Inventarisnummer)
+- the date the work was created;
+- the dimensions of the work;
 - the name, birthdate and deathdate of the author;
 - a list of meemoo licenses;
 - some keywords
@@ -51,26 +55,28 @@ Some of the metadata above is supplied in English and Dutch.
 
 Since the metadata only describes a single artwork, we can consider it as the single Intellectual Entity in the SIP.
 
-We can distinguish a couple of file sets (in the TIFF file format) that represent the painting in some manner: an overview with frame, an overview without frame, a stiched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
+We can distinguish a couple of file sets (in the TIFF or PSB file format) that represent the work in some manner: an overview with frame, an overview without frame, a stiched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
 
 Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}):
 
 |_Intellectual Entity_|the painting 'The lamentation over the Dead Christ' |
 |_Representation 1_| the access copy of the painting with frame |
 |_Representation 2_| the access copy of the painting without frame |
-|_Representation 3_| the first archive master: a high-resolution stitched representation |
-|_Representation 4_| the second archive master: a high-resolution non-stitched representation|
-|_Representation 5_| the calibration result|
-|_Files (rep. 1)_|the TIFF file: `7m03z1634f_overzichtsopname_metlijst_tiff.tiff`|
-|_Files (rep. 2)_|the TIFF file: `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif`|
-|_Files (rep. 3)_|the TIFF file: `7m03z1634f_stitch_tiff.tif`|
-|_Files (rep. 4)_|the TIFF files: `7m03z1634f_deelopname1_tiff.tif`, `7m03z1634f_deelopname2_tiff.tif`, ..., `7m03z1634f_deelopname9_tiff.tif`|
-|_Files (rep. 5)_|the TIFF file: `7m03z1634f_target_tiff`|
+|_Representation 3_| the first archive master: a high-resolution stitched representation in TIFF format |
+|_Representation 4_| the second archive master: a high-resolution stitched representation in Adobe Photoshop Large Document Format |
+|_Representation 5_| the second archive master: a high-resolution non-stitched representation|
+|_Representation 6_| the calibration result|
+|_Files (rep. 1)_|the TIFF file: `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff`|
+|_Files (rep. 2)_|the TIFF file: `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff`|
+|_Files (rep. 3)_|the TIFF file: `cf9j41p15z_stitch_bigtiff.tiff` |
+|_Files (rep. 4)_|the PSB file: `cf9j41p15z_stitch_psb.psb`|
+|_Files (rep. 5)_|the TIFF files: `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`, `cf9j41p15z_Kolom1_deelopname2_tiff.tiff`, ..., `cf9j41p15z_Kolom5_deelopname6_tiff.tiff`|
+|_Files (rep. 6)_|the TIFF file: `cf9j41p15z_target_tiff.tiff`|
 
 This case relies on the 2D profile because:
 
 - there is one IE and multiple representations;
-- the painting can be described using a combination of DCTERMS and a Schema.org;
+- the artwork can be described using a combination of DCTERMS and a Schema.org;
 
 ## Directory structure
 
@@ -93,7 +99,7 @@ root_directory
         |── representation_1       # overview with list
         |   │── mets.xml
         |   |── data
-        |   │   └── 7m03z1634f_overzichtsopname_metlijst_tiff.tiff
+        |   │   └── cf9j41p15z_overzichtsopname_metlijst_tiff.tiff
         |   └──metadata
         |      |── descriptive    
         |      |   └── dc.xml   
@@ -102,7 +108,7 @@ root_directory
         |── representation_2       # overview without list
         |   │── mets.xml
         |   |── data
-        |   │   └── 7m03z1634f_overzichtsopname_zonderlijst_tiff.tif
+        |   │   └── cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff
         |   └──metadata
         |      |── descriptive     
         |      |   └── dc.xml   
@@ -111,28 +117,37 @@ root_directory
         |── representation_3       # composed stitch 
         |   │── mets.xml
         |   |── data
-        |   │   └── 7m03z1634f_stitch_tiff.tif
+        |   │   └── cf9j41p15z_stitch_bigtiff.tiff
         |   └──metadata
         |      |── descriptive   
         |      |   └── dc.xml         
         |      └── preservation
         |          └── premis.xml
-        |── representation_4       # stitch 
+        |── representation_4       # composed stitch in PSB
         |   │── mets.xml
         |   |── data
-        |   |   |── 7m03z1634f_deelopname1_tiff.tif
-        |   |   |── 7m03z1634f_deelopname2_tiff.tif
+        |   │   └── cf9j41p15z_stitch_psb.psb
+        |   └──metadata
+        |      |── descriptive   
+        |      |   └── dc.xml         
+        |      └── preservation
+        |          └── premis.xml
+        |── representation_5       # stitch 
+        |   │── mets.xml
+        |   |── data
+        |   |   |── cf9j41p15z_Kolom1_deelopname1_tiff.tiff
+        |   |   |── cf9j41p15z_Kolom1_deelopname2_tiff.tiff
         |   |   |── ...
-        |   │   └── 7m03z1634f_deelopname9_tiff.tif
+        |   │   └── cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
         |   └── metadata
         |       |── descriptive     
         |       |   └── dc.xml    
         |       └── preservation
         |           └── premis.xml
-        └── representation_5       # target 
+        └── representation_6       # target 
            │── mets.xml
            |── data
-           │   └── 7m03z1634f_target_tiff.tif
+           │   └── cf9j41p15z_target_tiff.tiff
            └── metadata
                |── descriptive     
                |   └── dc.xml    
@@ -143,7 +158,7 @@ root_directory
 
 ## The metadata
 
-In total, the SIP contains 5 metadata files:
+In total, the SIP contains 6 metadata files:
 
 |`data/metadata/descriptive/dc.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
@@ -161,44 +176,39 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
 <metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
 
   <!-- general title for the resource -->
-  <dcterms:title xml:lang="nl">Bewening van Christus</dcterms:title>
-  <dcterms:title xml:lang="en">The lamentation over the Dead Christ</dcterms:title>
+  <dcterms:title xml:lang="nl">Uur- en kalenderwijzeplaat</dcterms:title>
 
   <!-- general description for the resource -->
-  <dcterms:description xml:lang="nl">Rond 1629 geschilderd voor het hoogaltaar van de Begijnhofkerk te Antwerpen. Een tweede exemplaar wordt bewaard te Madrid (Prado); schetsen te Leningrad (Hermitage) een kleinere herhaling te Hagley (Lord Littleton) een tekening in Atger Museum te Montpellier en een grisaille studie tenslotte bevond zich in 1776 in de veiling Randon de Boisset. Het schilderij werd gegraveerd door Paul Pontius en Andreas van Rymsdyck.</dcterms:description>
-  <dcterms:description xml:lang="en">Painted around 1629 for the high altar of the Beguinage Church in Antwerp. A second copy is kept in Madrid (Prado); sketches at Leningrad (Hermitage) a smaller repetition at Hagley (Lord Littleton) a drawing in the Atger Museum in Montpellier and finally a grisaille study was in the Randon de Boisset auction in 1776. The painting was engraved by Paul Pontius and Andreas van Rymsdyck.</dcterms:description>
+  <dcterms:description xml:lang="nl">De unieke Brabantse uur- en kalenderwijzerplaat van circa 1500 vertelt als een groot en minitieus geschilderd prentenboek de verhalen van de dierenriem de maanden en de planetenkinderen.</dcterms:description>
 
   <!-- linking id between dc and premis -->
-  <dcterms:identifier>7m03z1634f</dcterms:identifier>
+  <dcterms:identifier>cf9j41p15z</dcterms:identifier>
 
   <!-- creationdate -->
-  <dcterms:created xsi:type="edtf:EDTF-level1">1628/1629</dcterms:created>
+  <dcterms:created xsi:type="edtf:EDTF">1500</dcterms:created>
 
   <dcterms:subject xml:lang="nl">topstukken</dcterms:subject>
   <dcterms:subject xml:lang="nl">religie</dcterms:subject>
   <dcterms:subject xml:lang="nl">Christus</dcterms:subject>
 
+  <!-- creator -->
+  <dcterms:creator schema:roleName="auteur">
+    Anoniem (Anoniem Leuvens Meester)
+  </dcterms:creator>
+
   <!-- rights note -->
   <dcterms:rights xml:lang="en">public domain</dcterms:rights>
 
-  <!-- creator -->
-  <schema:creator schema:roleName="auteur">
-    <schema:name>Anthony van Dyck</schema:name>
-    <schema:birthDate xsi:type="xsd:dateTime">1599</schema:birthDate>
-    <schema:deathDate xsi:type="xsd:dateTime">1641</schema:deathDate>
-  </schema:creator>
-
-
   <!-- dimensions -->
   <schema:height>
-    <schema:value>3030</schema:value>
-    <schema:unitText>mm</schema:unitText>
-    <schema:unitCode>MMT</schema:unitCode>
+    <schema:value>123,4</schema:value>
+    <schema:unitText>cm</schema:unitText>
+    <schema:unitCode>CMT</schema:unitCode>
   </schema:height>
   <schema:width>
-    <schema:value>2250</schema:value>
-    <schema:unitText>mm</schema:unitText>
-    <schema:unitCode>MMT</schema:unitCode>
+    <schema:value>125,6</schema:value>
+    <schema:unitText>cm</schema:unitText>
+    <schema:unitCode>CMT</schema:unitCode>
   </schema:width>
   <schema:artMedium xml:lang="nl">olieverf op doek</schema:artMedium>
   <schema:artMedium xml:lang="en">oil on canvas</schema:artMedium>
@@ -213,7 +223,7 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains a digitization event that details how the TIFF files were created and by who.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) and with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 
 ```xml
@@ -224,17 +234,17 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     <premis:object xsi:type="premis:intellectualEntity">
         <premis:objectIdentifier>
             <premis:objectIdentifierType>VIAA PID</premis:objectIdentifierType>
-            <premis:objectIdentifierValue>7m03z1634f</premis:objectIdentifierValue>
+            <premis:objectIdentifierValue>cf9j41p15z</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
         <premis:objectIdentifier>
             <premis:objectIdentifierType>Topstuk_ID</premis:objectIdentifierType>
-            <premis:objectIdentifierValue>213</premis:objectIdentifierValue>
+            <premis:objectIdentifierValue>222</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
         <premis:objectIdentifier>
             <premis:objectIdentifierType>Inventarisnummer</premis:objectIdentifierType>
-            <premis:objectIdentifierValue>IB00.008</premis:objectIdentifierValue>
+            <premis:objectIdentifierValue>S/4/O</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
         <premis:relationship>
@@ -264,6 +274,10 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
             </premis:relatedObjectIdentifier>
             <premis:relatedObjectIdentifier>
                 <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+                <premis:relatedObjectIdentifierValue>uuid-70dd6ae0-37fe-11ed-9b20-7e92631d7d28</premis:relatedObjectIdentifierValue>
+            </premis:relatedObjectIdentifier>
+            <premis:relatedObjectIdentifier>
+                <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
                 <premis:relatedObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:relatedObjectIdentifierValue>
             </premis:relatedObjectIdentifier>
             <premis:relatedObjectIdentifier>
@@ -282,7 +296,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
             <premis:eventIdentifierValue>uuid-187DA428-6BA1-4EB7-B786-CD4AF85A02B1</premis:eventIdentifierValue>
         </premis:eventIdentifier>
         <premis:eventType>digitization</premis:eventType>
-        <premis:eventDateTime>2022-06-15T00:00:00Z</premis:eventDateTime>
+        <premis:eventDateTime>03-08-2022T00:00:00Z</premis:eventDateTime>
 
         <premis:eventOutcomeInformation>
             <premis:eventOutcome>success</premis:eventOutcome>
@@ -290,7 +304,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 
         <premis:linkingAgentIdentifier>
             <premis:linkingAgentIdentifierType>VIAA SP Agent ID</premis:linkingAgentIdentifierType>
-            <premis:linkingAgentIdentifierValue>OR-xg9fb0b</premis:linkingAgentIdentifierValue>
+            <premis:linkingAgentIdentifierValue>OR-319s272</premis:linkingAgentIdentifierValue>
             <premis:linkingAgentRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp">implementer</premis:linkingAgentRole>
         </premis:linkingAgentIdentifier>
 
@@ -311,6 +325,11 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
         </premis:linkingObjectIdentifier>
         <premis:linkingObjectIdentifier>
             <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-70dd6ae0-37fe-11ed-9b20-7e92631d7d28</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
             <premis:linkingObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:linkingObjectIdentifierValue>
             <premis:linkingObjectRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</premis:linkingObjectRole>
         </premis:linkingObjectIdentifier>
@@ -325,24 +344,24 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     <premis:agent>
         <premis:agentIdentifier>
             <premis:agentIdentifierType>VIAA SP Agent ID</premis:agentIdentifierType>
-            <premis:agentIdentifierValue>OR-xg9fb0b</premis:agentIdentifierValue>
+            <premis:agentIdentifierValue>OR-319s272</premis:agentIdentifierValue>
         </premis:agentIdentifier>
-        <premis:agentName>Cedric Verhelst</premis:agentName>
+        <premis:agentName>Rik Klein Gotink</premis:agentName>
         <premis:agentType>person</premis:agentType>
         <premis:agentExtension>
-            <schema:affiliation>Cedric Verhelst bv</schema:affiliation>
+            <schema:affiliation>Rik Klein Gotink fotografie</schema:affiliation>
         </premis:agentExtension>
     </premis:agent>
 
 </premis:premis>
 ```
 
-### data/representations/representation_1/metadata/preservation/premis.xml
+### data/representations/representation_4/metadata/preservation/premis.xml
 
-The `premis.xml` file of the first representation describes two PREMIS objects:
+The `premis.xml` file of the fourth representation describes two PREMIS objects:
 
 1. the representation;
-2. the TIFF file `7m03z1634f_overzichtsopname_metlijst_tiff.tiff`;
+2. the PSB file `cf9j41p15z_stitch_psb.psb`;
 
 It also describes the various relationships between these objects:
 
@@ -357,7 +376,7 @@ It also describes the various relationships between these objects:
 
     <premis:objectIdentifier>
       <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-      <premis:objectIdentifierValue>uuid-187DA428-6BA1-4EB7-B786-CD4AF85A02B1</premis:objectIdentifierValue>
+      <premis:objectIdentifierValue>uuid-70dd6ae0-37fe-11ed-9b20-7e92631d7d28</premis:objectIdentifierValue>
     </premis:objectIdentifier>
 
     <!-- relationship between representation and its files -->
@@ -376,7 +395,7 @@ It also describes the various relationships between these objects:
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>7m03z1634f</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierValue>cf9j41p15z</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>
@@ -399,14 +418,14 @@ It also describes the various relationships between these objects:
       <premis:format>
         <premis:formatRegistry>
           <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
-          <premis:formatRegistryKey>fmt/154</premis:formatRegistryKey>
+          <premis:formatRegistryKey>fmt/996</premis:formatRegistryKey>
           <premis:formatRegistryRole authority="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
         </premis:formatRegistry>
         <premis:formatNote></premis:formatNote>
       </premis:format>
     </premis:objectCharacteristics>
 
-    <premis:originalName>7m03z1634f_overzichtsopname_metlijst_tiff</premis:originalName>
+    <premis:originalName>cf9j41p15z_stitch_psb</premis:originalName>
 
     <!-- relationship between file and its representation -->
     <premis:relationship>
@@ -414,7 +433,7 @@ It also describes the various relationships between these objects:
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is included in</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-187DA428-6BA1-4EB7-B786-CD4AF85A02B1</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierValue>uuid-70dd6ae0-37fe-11ed-9b20-7e92631d7d28</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
 
@@ -423,15 +442,15 @@ It also describes the various relationships between these objects:
 </premis:premis>
 ```
 
-The folders of representation 2, 3, and 5 have a identical structure.
+The folders of representation 1, 2, 3, and 5 have a identical structure.
 
 
 ### data/representations/representation_4/metadata/preservation/premis.xml
 
-The `premis.xml` file of the fourth representation describes 10 PREMIS objects (of which the first two are shown in the example below):
+The `premis.xml` file of the fifth representation describes 30 PREMIS objects (of which the first two are shown in the example below):
 
 1. the representation;
-2. the nine TIFF files `7m03z1634f_deelopname1_tiff`, ... , `7m03z1634f_deelopname9_tiff`;
+2. the nine TIFF files `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`, `cf9j41p15z_Kolom1_deelopname2_tiff.tiff`, ..., `cf9j41p15z_Kolom5_deelopname6_tiff.tiff`;
 
 It also describes the various relationships between these objects:
 
@@ -457,34 +476,7 @@ It also describes the various relationships between these objects:
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-075BF4BB-559A-497E-AA58-EEF7287F0A39</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-94F620EB-C269-45F0-A276-1C0319E5330F</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-75360EDC-A6D7-47BF-86D7-476EE59AF4A0</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-D22C8951-2A17-4856-9006-5F8613BD52C0</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-8E6174A1-FD31-432E-A780-8DC15BA4B0DD</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-1A40CBB1-C36A-4CAD-BEA0-7474BA96DD24</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-A5C4CCEE-A034-416E-B3D2-8EBE949C2F01</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-F64294B9-1224-40D3-AF63-29B9E26028AC</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
+      <!-- ( there is a premis:relatedObjectIdentifier all 30 files) -->
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-B15A7521-92A6-42DB-BCA4-8F16ABC7FCF9</premis:relatedObjectIdentifierValue>
@@ -497,22 +489,11 @@ It also describes the various relationships between these objects:
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>7m03z1634f</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierValue>cf9j41p15z</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>
 
-    <!-- relationship between file and its representation -->
-    <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is included in</premis:relationshipSubType>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-    </premis:relationship>
-
-  </premis:object>
   <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
@@ -525,9 +506,9 @@ It also describes the various relationships between these objects:
         <premis:messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5">
                 MD5
         </premis:messageDigestAlgorithm>
-        <premis:messageDigest>6f556d6b193a0af3eca85a2b382273bc</premis:messageDigest>
+        <premis:messageDigest>d41d8cd98f00b204e9800998ecf8427e</premis:messageDigest>
       </premis:fixity>
-      <premis:size>605028352</premis:size>
+      <premis:size>1735648</premis:size>
       <premis:format>
         <premis:formatRegistry>
           <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
@@ -538,7 +519,7 @@ It also describes the various relationships between these objects:
       </premis:format>
     </premis:objectCharacteristics>
 
-    <premis:originalName>7m03z1634f_deelopname1_tiff</premis:originalName>
+    <premis:originalName>cf9j41p15z_Kolom1_deelopname1_tiff.tiff</premis:originalName>
 
     <!-- relationship between file and its representation -->
     <premis:relationship>
@@ -552,44 +533,6 @@ It also describes the various relationships between these objects:
 
   </premis:object>
 
-  <premis:object xsi:type="premis:file">
-
-    <premis:objectIdentifier>
-      <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-      <premis:objectIdentifierValue>uuid-94F620EB-C269-45F0-A276-1C0319E5330F</premis:objectIdentifierValue>
-    </premis:objectIdentifier>
-
-    <premis:objectCharacteristics>
-      <premis:fixity>
-        <premis:messageDigestAlgorithm authority="cryptographicHashFunctions" authorityURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions" valueURI="http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5">
-                MD5
-        </premis:messageDigestAlgorithm>
-        <premis:messageDigest>e1f53063d78e0a3f399d41ef764775f1</premis:messageDigest>
-      </premis:fixity>
-      <premis:size>605028352</premis:size>
-      <premis:format>
-        <premis:formatRegistry>
-          <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
-          <premis:formatRegistryKey>fmt/154</premis:formatRegistryKey>
-          <premis:formatRegistryRole authority="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
-        </premis:formatRegistry>
-        <premis:formatNote></premis:formatNote>
-      </premis:format>
-    </premis:objectCharacteristics>
-
-    <premis:originalName>7m03z1634f_deelopname2_tiff</premis:originalName>
-
-    <!-- relationship between file and its representation -->
-    <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is included in</premis:relationshipSubType>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-    </premis:relationship>
-
-  </premis:object>
 
   [similar to above for the other TIFF files]
 
