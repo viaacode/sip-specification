@@ -237,7 +237,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
             <premis:objectIdentifierValue>IB00.008</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
-        <!-- relationship between nested IE and its representations -->
+        <!-- relationship between IE and its representations -->
         <premis:relationship>
             <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
             <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
