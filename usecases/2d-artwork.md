@@ -237,16 +237,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
             <premis:objectIdentifierValue>IB00.008</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
-        <premis:relationship>
-            <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-            <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
-            <premis:relatedObjectIdentifier>
-                <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-                <premis:relatedObjectIdentifierValue>uuid-7507ec4a-39e0-4ddd-8c7e-95bdaa7bbbc6</premis:relatedObjectIdentifierValue>
-            </premis:relatedObjectIdentifier>
-        </premis:relationship>
-
-        <!-- relationship between nested IE and its representation -->
+        <!-- relationship between nested IE and its representations -->
         <premis:relationship>
             <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
             <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
