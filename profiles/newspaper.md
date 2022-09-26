@@ -8,7 +8,7 @@ nav_exclude:  false
 # Profile: Newspaper 
 
 The newspaper profile supports the ingest of digitised newspaper content.
-It is an extension of the generic SIP specification and it shows how to deal with multiple media files (in formats such as TIFF, ALTO XML and PDF) and the relationships between them and their metadata.
+It shows how to deal with multiple media files (in formats such as TIFF, ALTO XML and PDF) and the relationships between them and their metadata.
 It also allows to use the [MODS metadata schema](https://www.loc.gov/standards/mods/) for descriptive metadata, which is the default for describing newspaper content.
 
 **Permalink:** <https://data.hetarchief.be/id/sip/1.0/newspaper>
@@ -68,8 +68,8 @@ root_directory
 - The newspaper edition MUST be digitised per page, i.e. each TIFF and/or ALTO XML file contained in their respective representation directories MUST represent exactly one page.
   - <a id="pdf"></a>An exception to this requirement MAY be made with regards to the PDF file: if a PDF file is present, it SHOULD contain the contents of the entire newspaper edition (i.e. all pages are present in one single PDF file).
 - There MUST be exactly one IE present in the SIP, i.e. the newspaper edition.
-- Preservation metadata in the SIP MUST be limited to the PREMIS metadata schema.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
+- Preservation metadata in the SIP MUST be limited to the PREMIS metadata schema.
 - There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
 - There MUST NOT be any descriptive metadata at the representation level.
 
@@ -79,10 +79,8 @@ root_directory
 
 ### Package Descriptive Metadata
 
-- A descriptive metadata file `descriptive/mods.xml` MUST be present at the package level.
-- A descriptive metadata file `descriptive/dc.xml` MAY be present at the package level.
-- The `descriptive/mods.xml` file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7.).
-- The `descriptive/dc.xml` file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema.
+- A descriptive metadata file `descriptive/mods.xml` MUST be present at the package level; this file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7.).
+- A descriptive metadata file `descriptive/dc.xml` MAY be present at the package level; if present, this file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema.
 - The `descriptive/mods.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/mods.xml` file.
 - If present, the `descriptive/dc.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/dc.xml` file.
 - The `descriptive/mods.xml` file MUST minimally implement the MODS metadata elements outlined below.
@@ -162,8 +160,8 @@ root_directory
 
 - A preservation metadata file `preservation/premis.xml` MUST be present at the package level.
 - The `preservation/premis.xml` file MUST follow the [PREMIS](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) metadata schema (v3.0.).
-- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information.
-- If the SIP contains a PDF file (which SHOULD contain all pages of the newspaper edition, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 2 below](#example-creation-event) for more information.
+- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. With this event, the representation containing the TIFF files MUST receive the PREMIS linking object role `source` and the representation containing the ALTO XML files MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
+- If the SIP contains a PDF file (which SHOULD contain all pages of the newspaper edition, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
 
 <a id="example-transcription-event"></a>_Example 1: a PREMIS transcription event (linking the TIFF and ALTO XML files)_
 
