@@ -69,9 +69,9 @@ root_directory
   - <a id="pdf"></a>An exception to this requirement MAY be made with regards to the PDF file: if a PDF file is present, it SHOULD contain the contents of the entire newspaper edition (i.e. all pages are present in one single PDF file).
 - There MUST be exactly one IE present in the SIP, i.e. the newspaper edition.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
-- Preservation metadata in the SIP MUST be limited to the PREMIS metadata schema.
 - There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
-- There MUST NOT be any descriptive metadata at the representation level.
+- Preservation metadata in the SIP MUST be limited to the PREMIS metadata schema.
+- There MAY be descriptive metadata at the representation level (e.g. information about the representations, such as a title or a description).
 
 ### Package METS
 
