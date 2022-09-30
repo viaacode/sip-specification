@@ -30,13 +30,13 @@ The following content is provided for packaging:
 | `cf9j41p15z_stitch_psb.psb` | A stitched very high-resolution image file in the Adobe Photoshop Large Document Format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
 | `cf9j41p15z_target_tiff.tiff` | A reference image file in the TIFF file format for calibrating the photoregistration hardware. |
 | `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff` | A very high-resolution image split in multiple files in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
-| `metadata.xml` | A metadata record describing the 'Uur- en kalenderwijzeplaat'. |
+| `metadata.xml` | A metadata record describing the 'Uur- en kalenderwijzerplaat'. |
 
 The metadata record can contain the following information:
 
 - the title of the work;
 - a description of the work;
-- a local identifier (e.g., Inventarisnummer)
+- a local identifier (e.g. Inventarisnummer)
 - the date the work was created;
 - the dimensions of the work;
 - the name, birthdate and deathdate of the artist;
@@ -239,7 +239,7 @@ Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `sch
 ### data/metadata/preservation/premis.xml
 
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
-It also contains a digitization event that details how the TIFF files were created and by who.
+It also contains a digitization event that details how the TIFF files were created and by whom.
 
 Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) element and the `<schema:identifier/>` element (in the `descriptive/schema.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
