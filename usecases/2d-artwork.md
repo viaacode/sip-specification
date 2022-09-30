@@ -85,7 +85,8 @@ root_directory
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   └── dc.xml
+    |   |   |── dc.xml
+    |   |   └── schema.xml
     |   └── preservation
     |       └── premis.xml
     │
@@ -143,9 +144,10 @@ root_directory
 
 ## The metadata
 
-In total, the SIP contains 5 metadata files:
+In total, the SIP contains 13 metadata files:
 
-|`data/metadata/descriptive/dc.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
+|`data/metadata/descriptive/dc.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) metadata schema. |
+|`data/metadata/descriptive/schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [Schema](schema.org/) metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_*/metadata/preservation/premis.xml`| Preservation metadata about the representation and TIFF files residing at the _representation level_. |
 
@@ -181,13 +183,35 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
   <!-- rights note -->
   <dcterms:rights xml:lang="en">public domain</dcterms:rights>
 
-  <!-- creator -->
+</metadata>
+```
+
+### /data/metadata/descriptive/schema.xml
+
+The `schema.xml` of the package level describes the IE using [Schema metadata schema](schema.org/).
+It contains additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
+
+Similar to `dc.xml`, the identifier is used to link the `schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level.
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
+
+  <!-- linking id between dc and premis -->
+  <schema:identifier>7m03z1634f</schema:identifier>
+
   <schema:creator schema:roleName="auteur">
     <schema:name>Anthony van Dyck</schema:name>
     <schema:birthDate xsi:type="xsd:dateTime">1599</schema:birthDate>
     <schema:deathDate xsi:type="xsd:dateTime">1641</schema:deathDate>
   </schema:creator>
 
+  <!-- creator -->
+  <schema:creator schema:roleName="auteur">
+    <schema:name>Anthony van Dyck</schema:name>
+    <schema:birthDate xsi:type="xsd:dateTime">1599</schema:birthDate>
+    <schema:deathDate xsi:type="xsd:dateTime">1641</schema:deathDate>
+  </schema:creator>
 
   <!-- dimensions -->
   <schema:height>
