@@ -8,6 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  2d
 ---
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a gigapixel digitization of a two-dimensional artwork
 
 The following use case describes how to package a gigapixel reproduction of a two-dimensional artwork such as a drawing or painting. 
@@ -19,7 +21,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/2D.md %}).
+It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/2D.md %}).
 
 ## The content
 
@@ -55,7 +57,7 @@ Since the metadata only describes a single artwork, we can consider it as the si
 
 We can distinguish a couple of file sets (in the TIFF or PSB file format) that represent the work in some manner: an overview with frame, an overview without frame, a stitched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
 
-Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}):
+Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/3_core-concepts.md %}):
 
 |_Intellectual Entity_|the 'Uur- en kalenderwijzerplaat' |
 |_Representation 1_| the access copy of the painting with frame |
@@ -174,7 +176,7 @@ In total, the SIP contains 14 metadata files:
 The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
