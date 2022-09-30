@@ -236,8 +236,7 @@ Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `sch
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains a digitization event that details how the TIFF files were created and by who.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
-
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) element and the `<schema:identifier/>` element (in the `descriptive/schema.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
