@@ -39,7 +39,7 @@ The metadata record can contain the following information:
 - a local identifier (e.g., Inventarisnummer)
 - the date the work was created;
 - the dimensions of the work;
-- the name, birthdate and deathdate of the author;
+- the name, birthdate and deathdate of the artist;
 - a list of meemoo licenses;
 - some keywords
 - the md5 checksums of the media files;
@@ -88,7 +88,8 @@ root_directory
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   └── dc.xml
+    |   |   |── dc.xml
+    |   |   └── schema.xml
     |   └── preservation
     |       └── premis.xml
     │
@@ -155,9 +156,10 @@ root_directory
 
 ## The metadata
 
-In total, the SIP contains 6 metadata files:
+In total, the SIP contains 14 metadata files:
 
 |`data/metadata/descriptive/dc.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
+|`data/metadata/descriptive/schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_*/metadata/preservation/premis.xml`| Preservation metadata about the representation and TIFF files residing at the _representation level_. |
 
@@ -195,6 +197,21 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
 
   <!-- rights note -->
   <dcterms:rights xml:lang="en">public domain</dcterms:rights>
+</metadata>
+```
+
+### /data/metadata/descriptive/schema.xml
+
+The `schema.xml` of the package level describes the IE using [Schema metadata schema](schema.org/).
+It contains additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
+
+Similar to `dc.xml`, the identifier is used to link the `schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level.
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
+  <!-- linking id between schema and premis -->
+  <schema:identifier>cf9j41p15z</schema:identifier>
 
   <!-- dimensions -->
   <schema:height>
@@ -211,7 +228,6 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
   <schema:artMedium xml:lang="en">oil on canvas</schema:artMedium>
   <schema:artform xml:lang="en">painting</schema:artform>
   <schema:artform xml:lang="nl">schilderij</schema:artform>
-
 </metadata>
 ```
 
