@@ -27,9 +27,9 @@ The following content is provided for packaging:
 
 | `7m03z1634f_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' with the frame included. |
 | `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' without the frame. |
-| `7m03z1634f_stitch_tiff.tif` | A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
+| `7m03z1634f_stitch_tiff.tif` | A stitched very high-resolution image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
 | `7m03z1634f_target_tiff.tif` | A reference image file in the TIFF file format for calibrating the photoregistration hardware. |
-| `7m03z1634f_deelopname1_tiff.tif`<br>`7m03z1634f_deelopname2_tiff.tif`<br>`...`<br>`7m03z1634f_deelopname9_tiff.tif` | A very high-resolution image split in multiple files in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
+| `7m03z1634f_deelopname1_tiff.tif`<br>`7m03z1634f_deelopname2_tiff.tif`<br>`...`<br>`7m03z1634f_deelopname9_tiff.tif` | A very high-resolution image split into multiple files in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
 | `metadata.xml` | A metadata record describing the painting 'The lamentation over the Dead Christ'. |
 
 The metadata record can contain the following information:
@@ -38,20 +38,20 @@ The metadata record can contain the following information:
 - a description of the painting;
 - the date the painting was created;
 - the dimensions of the painting;
-- the name, birthdate and deathdate of the author;
+- the name, birthdate and deathdate of the artist;
 - a list of meemoo licenses;
-- some keywords
+- some keywords;
 - the md5 checksums of the media files;
-- rights credits
+- rights credits;
 - ...
 
-Some of the metadata above is supplied in English and Dutch.
+Some of the metadata above is supplied in both English and Dutch.
 
 ## Applying the core concepts
 
 Since the metadata only describes a single artwork, we can consider it as the single Intellectual Entity in the SIP.
 
-We can distinguish a couple of file sets (in the TIFF file format) that represent the painting in some manner: an overview with frame, an overview without frame, a stiched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
+We can distinguish a couple of file sets (in the TIFF file format) that represent the painting in some manner: an overview with frame, an overview without frame, a stitched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
 
 Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}):
 
