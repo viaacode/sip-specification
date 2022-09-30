@@ -363,7 +363,7 @@ The `premis.xml` file of the fourth representation describes two PREMIS objects:
 It also describes the various relationships between these objects:
 
 1. the relation between the representation and the IE at the package level;
-2. the relations between the representation and the TIFF file;
+2. the relations between the representation and the PSB file;
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
