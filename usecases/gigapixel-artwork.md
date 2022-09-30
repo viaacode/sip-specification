@@ -24,12 +24,12 @@ It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/
 
 The following content is provided for packaging:
 
-| `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF media format containing a photoregistration of an 'Uur- en kalenderwijzeplaat' with the frame included. |
-| `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff` | An image file in the TIFF media format containing a photoregistration of the 'Uur- en kalenderwijzeplaat' without the frame. |
-| `cf9j41p15z_stitch_bigtiff.tiff` | A stiched very high-resolution image file in the TIFF media format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
+| `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of an 'Uur- en kalenderwijzeplaat' with the frame included. |
+| `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzeplaat' without the frame. |
+| `cf9j41p15z_stitch_bigtiff.tiff` | A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
 | `cf9j41p15z_stitch_psb.psb` | A stiched very high-resolution image file in the Adobe Photoshop Large Document Format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
-| `cf9j41p15z_target_tiff.tiff` | A reference image file in the TIFF media format for calibrating the photoregistration hardware. |
-| `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff` | A very high-resolution image split in multiple files in the TIFF media format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
+| `cf9j41p15z_target_tiff.tiff` | A reference image file in the TIFF file format for calibrating the photoregistration hardware. |
+| `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff` | A very high-resolution image split in multiple files in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
 | `metadata.xml` | A metadata record describing the 'Uur- en kalenderwijzeplaat'. |
 
 The metadata record can contain the following information:
@@ -220,7 +220,7 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains a digitization event that details how the TIFF files were created and by who.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) and with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 
 ```xml
