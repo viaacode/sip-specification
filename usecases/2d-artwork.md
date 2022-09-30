@@ -461,12 +461,12 @@ The `premis.xml` files of representations 2, 3, and 5 have an identical structur
 The `premis.xml` file of the fourth representation describes 10 PREMIS objects (of which the first two are shown in the example below):
 
 1. the representation;
-2. the nine TIFF files `7m03z1634f_deelopname1_tiff`, ... , `7m03z1634f_deelopname9_tiff`;
+2. the nine TIFF files `7m03z1634f_deelopname1_tiff`, ... , `7m03z1634f_deelopname9_tiff`.
 
 It also describes the various relationships between these objects:
 
 1. the relation between the representation and the IE at the package level;
-2. the relations between the representation and the TIFF files;
+2. the relations between the representation and the TIFF files.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
