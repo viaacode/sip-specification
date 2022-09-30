@@ -100,7 +100,7 @@ root_directory
         |      |   └── dc.xml   
         |      └── preservation
         |          └── premis.xml
-        |── representation_2       # overview without list
+        |── representation_2       # overview without frame
         |   │── mets.xml
         |   |── data
         |   │   └── 7m03z1634f_overzichtsopname_zonderlijst_tiff.tif
