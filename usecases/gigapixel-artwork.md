@@ -439,7 +439,7 @@ It also describes the various relationships between these objects:
 </premis:premis>
 ```
 
-The `premis.xml` file of representation 1, 2, 3, and 5 have an identical structure.
+The `premis.xml` file of representation 1, 2, 3 have an identical structure.
 
 
 ### data/representations/representation_5/metadata/preservation/premis.xml
