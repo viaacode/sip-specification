@@ -27,12 +27,12 @@ It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/
 
 The following content is provided for packaging:
 
-| `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of an 'Uur- en kalenderwijzeplaat' with the frame included. |
-| `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzeplaat' without the frame. |
-| `cf9j41p15z_stitch_bigtiff.tiff` | A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
-| `cf9j41p15z_stitch_psb.psb` | A stitched very high-resolution image file in the Adobe Photoshop Large Document Format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
+| `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of an 'Uur- en kalenderwijzerplaat' with the frame included. |
+| `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat' without the frame. |
+| `cf9j41p15z_stitch_bigtiff.tiff` | A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'. |
+| `cf9j41p15z_stitch_psb.psb` | A stitched very high-resolution image file in the Adobe Photoshop Large Document Format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'. |
 | `cf9j41p15z_target_tiff.tiff` | A reference image file in the TIFF file format for calibrating the photoregistration hardware. |
-| `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff` | A very high-resolution image split in multiple files in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzeplaat'. |
+| `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff` | A very high-resolution image split into multiple files in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'. |
 | `metadata.xml` | A metadata record describing the 'Uur- en kalenderwijzerplaat'. |
 
 The metadata record can contain the following information:
