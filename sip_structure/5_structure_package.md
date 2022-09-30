@@ -2,6 +2,7 @@
 layout:       default
 title:        Package level
 parent:       Structure
+grand_parent:  SIP Specification 1.0
 nav_order:    6
 nav_exclude:  false
 ---
