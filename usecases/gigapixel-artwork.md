@@ -20,9 +20,6 @@ It includes:
 
 It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/2D.md %}).
 
-<!-- 
-A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/fd569eca-37f8-11ed-9b05-7e92631d7d28.zip %}).
--->
 ## The content
 
 The following content is provided for packaging:
