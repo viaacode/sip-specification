@@ -113,9 +113,7 @@ root_directory
         |   │── mets.xml
         |   |── data
         |   │   └── 7m03z1634f_stitch_tiff.tif
-        |   └──metadata
-        |      |── descriptive   
-        |      |   └── dc.xml         
+        |   └──metadata    
         |      └── preservation
         |          └── premis.xml
         |── representation_4       # stitch 
@@ -126,8 +124,6 @@ root_directory
         |   |   |── ...
         |   │   └── 7m03z1634f_deelopname9_tiff.tif
         |   └── metadata
-        |       |── descriptive     
-        |       |   └── dc.xml    
         |       └── preservation
         |           └── premis.xml
         └── representation_5       # target 
@@ -135,8 +131,6 @@ root_directory
            |── data
            │   └── 7m03z1634f_target_tiff.tif
            └── metadata
-               |── descriptive     
-               |   └── dc.xml    
                └── preservation
                    └── premis.xml
 
@@ -350,6 +344,27 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     </premis:agent>
 
 </premis:premis>
+```
+
+### data/representations/representation_1/metadata/descriptive/dc.xml
+
+The `dc.xml` of the representation level describes the representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
+It contains minimal metadata about licenses that might divert from the IE's license.
+
+The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org">
+
+    <!-- linking id between dc and premis -->
+    <dcterms:identifier>uuid-187DA428-6BA1-4EB7-B786-CD4AF85A02B1</dcterms:identifier>
+
+    <!-- licenses -->
+    <dcterms:license>CCBY-NC-ND-CONTENT</dcterms:license>
+    <dcterms:license>CP-website</dcterms:license>
+
+</metadata>
 ```
 
 ### data/representations/representation_1/metadata/preservation/premis.xml
