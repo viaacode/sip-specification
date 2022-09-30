@@ -25,11 +25,11 @@ A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samp
 
 The following content is provided for packaging:
 
-| `7m03z1634f_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ' with the frame included. |
-| `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif` | An image file in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ' without the frame. |
-| `7m03z1634f_stitch_tiff.tif` | A stiched very high-resolution image file in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
-| `7m03z1634f_target_tiff.tif` | A reference image file in the TIFF media format for calibrating the photoregistration hardware. |
-| `7m03z1634f_deelopname1_tiff.tif`<br>`7m03z1634f_deelopname2_tiff.tif`<br>`...`<br>`7m03z1634f_deelopname9_tiff.tif` | A very high-resolution image split in multiple files in the TIFF media format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
+| `7m03z1634f_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' with the frame included. |
+| `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' without the frame. |
+| `7m03z1634f_stitch_tiff.tif` | A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
+| `7m03z1634f_target_tiff.tif` | A reference image file in the TIFF file format for calibrating the photoregistration hardware. |
+| `7m03z1634f_deelopname1_tiff.tif`<br>`7m03z1634f_deelopname2_tiff.tif`<br>`...`<br>`7m03z1634f_deelopname9_tiff.tif` | A very high-resolution image split in multiple files in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
 | `metadata.xml` | A metadata record describing the painting 'The lamentation over the Dead Christ'. |
 
 The metadata record can contain the following information:
