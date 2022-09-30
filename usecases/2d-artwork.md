@@ -189,7 +189,7 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc.xm
 The `schema.xml` of the package level describes the IE using [Schema metadata schema](schema.org/).
 It contains additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
 
-Similar to `dc.xml`, the identifier is used to link the `schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level.
+Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
