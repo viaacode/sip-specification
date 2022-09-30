@@ -147,7 +147,7 @@ In total, the SIP contains 13 metadata files:
 
 ### /data/metadata/descriptive/dc.xml
 
-The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
+The `dc.xml` of the package level describes the IE using [the DCTERMS]((https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)) and the [Schema](schema.org/) metadata models.
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
 The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
