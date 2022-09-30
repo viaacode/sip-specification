@@ -143,7 +143,11 @@ In total, the SIP contains 13 metadata files:
 |`data/metadata/descriptive/dc.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) metadata schema. |
 |`data/metadata/descriptive/schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [Schema](schema.org/) metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
-|`data/representations/representation_*/metadata/preservation/premis.xml`| Preservation metadata about the representation and TIFF files residing at the _representation level_. |
+|`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF files residing at the _representation level_. |
+|`data/representations/representation_2/metadata/preservation/premis.xml`| Preservation metadata about the second representation and TIFF files residing at the _representation level_. |
+|`data/representations/representation_3/metadata/preservation/premis.xml`| Preservation metadata about the third representation and TIFF files residing at the _representation level_. |
+|`data/representations/representation_4/metadata/preservation/premis.xml`| Preservation metadata about the fourth representation and TIFF files residing at the _representation level_. |
+|`data/representations/representation_5/metadata/preservation/premis.xml`| Preservation metadata about the fifth representation and TIFF files residing at the _representation level_. |
 
 ### /data/metadata/descriptive/dc.xml
 
