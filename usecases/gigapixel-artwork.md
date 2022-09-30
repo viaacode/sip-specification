@@ -10,7 +10,7 @@ sip_profile:  2d
 # Use Case: a gigapixel digitization of a two-dimensional artwork
 
 The following use case describes how to package a gigapixel reproduction of a two-dimensional artwork such as a drawing or painting. 
-The reproduction contains multiple flavours of photoregistration: with frame, without frame, stiched, or as partial captures. 
+The reproduction contains multiple flavours of photoregistration: with frame, without frame, stitched, or as partial captures. 
 It includes:
 
 - TIFF files;
