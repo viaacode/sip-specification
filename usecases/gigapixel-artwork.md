@@ -41,22 +41,22 @@ The metadata record can contain the following information:
 - the dimensions of the work;
 - the name, birthdate and deathdate of the artist;
 - a list of meemoo licenses;
-- some keywords
+- some keywords;
 - the md5 checksums of the media files;
-- rights credits
+- rights credits;
 - ...
 
-Some of the metadata above is supplied in English and Dutch.
+Some of the metadata above is supplied in both English and Dutch.
 
 ## Applying the core concepts
 
 Since the metadata only describes a single artwork, we can consider it as the single Intellectual Entity in the SIP.
 
-We can distinguish a couple of file sets (in the TIFF or PSB file format) that represent the work in some manner: an overview with frame, an overview without frame, a stiched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
+We can distinguish a couple of file sets (in the TIFF or PSB file format) that represent the work in some manner: an overview with frame, an overview without frame, a stitched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
 
 Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}):
 
-|_Intellectual Entity_|the painting 'The lamentation over the Dead Christ' |
+|_Intellectual Entity_|the 'Uur- en kalenderwijzerplaat' |
 |_Representation 1_| the access copy of the painting with frame |
 |_Representation 2_| the access copy of the painting without frame |
 |_Representation 3_| the first archive master: a high-resolution stitched representation in TIFF format |
