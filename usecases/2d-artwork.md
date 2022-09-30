@@ -90,7 +90,7 @@ root_directory
     |       └── premis.xml
     │
     └── representations
-        |── representation_1       # overview with list
+        |── representation_1       # overview with frame
         |   │── mets.xml
         |   |── data
         |   │   └── 7m03z1634f_overzichtsopname_metlijst_tiff.tiff
