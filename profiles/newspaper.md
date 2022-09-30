@@ -2,16 +2,19 @@
 layout:       default
 title:        Newspaper
 parent:       Profiles
+grand_parent:  SIP Specification 1.1
 nav_order:    2
-nav_exclude:  true
+nav_exclude:  false
 ---
+Editor's Draft
+{: .label .label-yellow }
 # Profile: Newspaper 
 
 The newspaper profile supports the ingest of digitised newspaper content.
 It shows how to deal with multiple media files (in formats such as TIFF, ALTO XML and PDF) and the relationships between them and their metadata.
 It also allows to use the [MODS metadata schema](https://www.loc.gov/standards/mods/) for descriptive metadata, which is the default for describing newspaper content.
 
-**Permalink:** <https://data.hetarchief.be/id/sip/1.0/newspaper>
+**Permalink:** <https://data.hetarchief.be/id/sip/1.1/newspaper>
 
 **Example Directory structure:**
 
@@ -75,7 +78,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.0/newspaper`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/newspaper`.
 
 ### Package Descriptive Metadata
 
@@ -96,7 +99,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS version attribute |
 | Description | This attribute indicates which version of MODS is being used.<br>It MUST be set to `3.7` to indicate conformance with MODS v3.7. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -104,7 +107,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS title element |
 | Description | This element contains the title of the newspaper.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes in order to differentiate from other optional `<mods:titleInfo/>` elements which, if present, MUST contain `@type` attributes to indicate e.g. alternative titles for the newspaper. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -112,7 +115,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS identifier element |
 | Description | A unique identifier for the newspaper edition.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -120,7 +123,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS type of resource element |
 | Description | This element indicates which type of resource is being described. Its value MUST be set to `newspaper edition`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -128,7 +131,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS issuance date element |
 | Description | This element contains the date the newspaper edition was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -136,7 +139,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Abraham ID |
 | Description | This element contains the Abraham identifier taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham identifier refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham identifier.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_id`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -144,7 +147,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Abraham URI |
 | Description | This element contains the Abraham URI taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham URI refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham URI.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_uri`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. Note that the Abraham URI contains the Abraham identifier. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri) |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -152,7 +155,7 @@ root_directory
 |-----------------------|-----------|
 | Name | License element |
 | Description | This element MAY be used to add any licensing info needed. It MUST contain the `@type` attribute, with its value set to `license`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -160,8 +163,8 @@ root_directory
 
 - A preservation metadata file `preservation/premis.xml` MUST be present at the package level.
 - The `preservation/premis.xml` file MUST follow the [PREMIS](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) metadata schema (v3.0.).
-- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. With this event, the representation containing the TIFF files MUST receive the PREMIS linking object role `source` and the representation containing the ALTO XML files MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
-- If the SIP contains a PDF file (which SHOULD contain all pages of the newspaper edition, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
+- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. With this event, the representation containing the TIFF files MUST receive the PREMIS linking object role `source` and the representation containing the ALTO XML files MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
+- If the SIP contains a PDF file (which SHOULD contain all pages of the newspaper edition, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
 
 <a id="example-transcription-event"></a>_Example 1: a PREMIS transcription event (linking the TIFF and ALTO XML files)_
 
