@@ -70,7 +70,7 @@ Since each set of files can have a meaning on its own (i.e. one could focus on o
 This case relies on the 2D profile because:
 
 - there is one IE and multiple representations;
-- the painting can be described using a combination of DCTERMS and a Schema.org;
+- the painting can be described using a combination of the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata models;
 
 ## Directory structure
 
