@@ -442,7 +442,7 @@ It also describes the various relationships between these objects:
 The `premis.xml` file of representation 1, 2, 3, and 5 have an identical structure.
 
 
-### data/representations/representation_4/metadata/preservation/premis.xml
+### data/representations/representation_5/metadata/preservation/premis.xml
 
 The `premis.xml` file of the fifth representation describes 30 PREMIS objects (of which the first two are shown in the example below):
 
