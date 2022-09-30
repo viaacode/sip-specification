@@ -17,7 +17,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/2d.md %}).
+It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/2D.md %}).
 
 A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/fa307608-35c3-11ed-9243-7e92631d7d27.zip %}).
 
