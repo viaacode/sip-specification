@@ -3,7 +3,7 @@ layout:       default
 title:        Newspaper edition (without PDF)
 parent:       Use cases
 grand_parent:  SIP Specification 1.1
-nav_order:    3
+nav_order:    4
 nav_exclude:  false
 has_children: false
 sip_profile:  newspaper
