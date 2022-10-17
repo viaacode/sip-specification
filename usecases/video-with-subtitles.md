@@ -6,7 +6,7 @@ grand_parent:  SIP Specification 1.0
 nav_order:    2
 nav_exclude:  false
 has_children: false
-sip_profile:  basic
+sip_profile:  Basic
 ---
 # Use Case: a video file with subtitles
 
