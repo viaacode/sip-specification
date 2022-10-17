@@ -6,7 +6,7 @@ grand_parent:  SIP Specification 1.1
 nav_order:    3
 nav_exclude:  false
 has_children: false
-sip_profile:  newspaper
+sip_profile:  Newspaper
 ---
 Editor's Draft
 {: .label .label-yellow }

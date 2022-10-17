@@ -6,7 +6,7 @@ grand_parent:  SIP Specification 1.1
 nav_order:    6
 nav_exclude:  false
 has_children: false
-sip_profile:  material-artwork
+sip_profile:  Material artwork
 ---
 Editor's Draft
 {: .label .label-yellow }
@@ -21,7 +21,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/2D.md %}).
+It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/material-artwork.md %}).
 
 ## The content
 

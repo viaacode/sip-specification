@@ -6,7 +6,7 @@ grand_parent:  SIP Specification 1.1
 nav_order:    5
 nav_exclude:  false
 has_children: false
-sip_profile:  material-artwork
+sip_profile:  Material artwork
 ---
 Editor's Draft
 {: .label .label-yellow }

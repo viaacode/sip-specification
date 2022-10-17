@@ -1,6 +1,6 @@
 ---
 layout:       default
-title:        material-artwork
+title:        Material artwork
 parent:       Profiles
 grand_parent:  SIP Specification 1.1
 nav_order:    3
@@ -8,9 +8,9 @@ nav_exclude:  false
 ---
 Editor's Draft
 {: .label .label-yellow }
-# Profile: material-artwork 
+# Profile: Material artwork 
 
-The _material-artwork_ profile supports digital reproductions of artworks that are moveable material objects, often, but not always, displayed in or maintained by museums. 
+The _Material artwork_ profile supports digital reproductions of artworks that are moveable material objects, often, but not always, displayed in or maintained by museums. 
 This includes photographic registration of 2D artworks, such as paintings or drawings, in high and very high (gigapixel) resolution and high-polygon scans of 3D artworks, such as statues or sculptures.
 
 This content profile specifies how to package different media files (e.g., TIFF, JPEG, OBJ or MTL), their metadata and the relationships between them in a meemoo SIP package.
