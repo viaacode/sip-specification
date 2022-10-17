@@ -1,6 +1,6 @@
 ---
 layout:       default
-title:        2D
+title:        material-artwork
 parent:       Profiles
 grand_parent:  SIP Specification 1.1
 nav_order:    3
@@ -8,15 +8,19 @@ nav_exclude:  false
 ---
 Editor's Draft
 {: .label .label-yellow }
-# Profile: 2D 
+# Profile: material-artwork 
 
-The 2D profile supports cases of digital reproductions of 2D artworks in high and very high (gigapixel) resolution.
-It specifies how to package different media files, such as TIFF and JPEG, their metadata and the relationships between them in a meemoo SIP package.
+The _material-artwork_ profile supports digital reproductions of artworks that are moveable material objects, often, but not always, displayed in or maintained by museums. 
+This includes photographic registration of 2D artworks, such as paintings or drawings, in high and very high (gigapixel) resolution and high-polygon scans of 3D artworks, such as statues or sculptures.
+
+This content profile specifies how to package different media files (e.g., TIFF, JPEG, OBJ or MTL), their metadata and the relationships between them in a meemoo SIP package.
 It also allows extensions to the descriptive metadata using [Schema.org](https://schema.org).
 
-**Permalink:** <https://data.hetarchief.be/id/sip/1.0/2D>
+**Permalink:** <https://data.hetarchief.be/id/sip/1.0/material-artwork>
 
-**Directory structure:**
+## Example Directory structure
+
+### 2D photoregistration
 
 ```plaintext
 root_directory
@@ -77,6 +81,71 @@ root_directory
                  └── premis.xml
 ```
 
+### 3D scan
+
+```plaintext
+root_directory
+│── manifest-md5.txt
+│── bagit.txt
+│
+└── data
+    │── mets.xml
+    │── metadata
+    |   |── descriptive
+    |   |   └── dc.xml
+    |   └── preservation
+    |       └── premis.xml
+    │
+    └── representations
+        └──representation_1       # high-poly capture for print
+           │── mets.xml
+           └──data  
+           │  └── PID_ARCH_STL.STL              
+           │
+           └──metadata
+              |── descriptive     (optional)
+              |   └── dc.xml
+              └──preservation
+                 └── premis.xml
+        └──representation_2       # high-poly capture
+           │── mets.xml
+           └──data
+           |  |── PID_ARCH_OBJ.OBJ       # polygon file    
+           |  |── PID_ARCH_TIFF_COLOR.TIFF      # texture image       
+           │  └── PID_ARCH_MTL.MTL              # texture mapping file
+           │
+           └──metadata
+              |── descriptive     (optional)
+              |   └── dc.xml
+              └──preservation
+                 └── premis.xml
+        └──representation_3       # low-poly capture
+           │── mets.xml
+           └──data
+           |  |── PID_VER_OBJ.OBJ       # polygon file    
+           |  |── PID_VER_COLOR_BMP.BMP             # texture image       
+           │  └── PID_VER_MTL.MTL                   # texture mapping file
+           │
+           └──metadata
+              |── descriptive     (optional)
+              |   └── dc.xml    
+              └──preservation
+                 └── premis.xml
+        └──representation_4       # quality assessment reference
+           │── mets.xml
+           └──data
+           |  |── PID_REF_OBJ.OBJ               # polygon file    
+           |  |── PID_REF_BMP.BMP               # texture image      
+           |  |── PID_REF_IJK_BMP.BMP           # reference texture image     
+           │  └── PID_REF_MTL.MTL               # texture mapping file
+           │
+           └──metadata
+              |── descriptive     (optional)
+              |   └── dc.xml    
+              └──preservation
+                 └── premis.xml
+```
+
 ## Requirements
 
 ### General
@@ -91,7 +160,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.0/2D`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.0/material-artwork`.
 - The `TYPE` attribute in the `mets.xml` file MUST be set to `Physical object`.
 
 ### Descriptive Metadata
@@ -106,8 +175,15 @@ root_directory
 |-----------------------|-----------|
 | Name | Creator artwork |
 | Description | The creator/author of the digitally reproduced artwork.  |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
+
+| Attribute | `schema:creator/@roleName` |
+|-----------------------|-----------|
+| Name | Role creator |
+| Description | The role with which the creator/author was involved in creating the digitally reproduced artwork.  |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
 
 | Element | `schema:creator/schema:name` |
 |-----------------------|-----------|
@@ -144,17 +220,24 @@ root_directory
 | Name | Width artwork |
 | Description | The measure width of the physical artwork. |
 | Cardinality | 0..1 |
-| Obligation | MAY |
+| Obligation | SHOULD |
 
-| Element | `(schema:height|schema:width)/schema:value`  |
+| Element | `schema:depth` |
+|-----------------------|-----------|
+| Name | Depth artwork |
+| Description | The measured depth of the physical artwork. |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `(schema:height|schema:width|schema:depth)/schema:value` |
 |-----------------------|-----------|
 | Name | Value |
-| Description | The height or width measurement value. |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#integer) |
+| Description | The height, width or depth measurement value. |
 | Cardinality | 1..1 |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#integer) |
 | Obligation | MUST |
 
-| Element | `(schema:height|schema:width)/schema:unitCode` |
+| Element | `(schema:height|schema:width|schema:depth)/schema:unitCode` |
 |-----------------------|-----------|
 | Name | height |
 | Description | The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). |
@@ -163,7 +246,7 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `(schema:height|schema:width)/schema:unitText` |
+| Element | `(schema:height|schema:width|schema:depth)/schema:unitText` |
 |-----------------------|-----------|
 | Name | height |
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |

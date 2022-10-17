@@ -16,7 +16,7 @@ It also allows to use the [MODS metadata schema](https://www.loc.gov/standards/m
 
 **Permalink:** <https://data.hetarchief.be/id/sip/1.1/newspaper>
 
-**Example Directory structure:**
+## Example Directory structure
 
 ```plaintext
 root_directory

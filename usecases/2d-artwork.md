@@ -6,7 +6,7 @@ grand_parent:  SIP Specification 1.1
 nav_order:    5
 nav_exclude:  false
 has_children: false
-sip_profile:  2d
+sip_profile:  material-artwork
 ---
 Editor's Draft
 {: .label .label-yellow }
@@ -20,7 +20,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**2D SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/2D.md %}).
+It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/material-artwork.md %}).
 
 A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/fa307608-35c3-11ed-9243-7e92631d7d27.zip %}).
 
@@ -70,7 +70,7 @@ Since each set of files can have a meaning on its own (i.e. one could focus on o
 |_Files (rep. 4)_|the TIFF files: `7m03z1634f_deelopname1_tiff.tif`, `7m03z1634f_deelopname2_tiff.tif`, ..., `7m03z1634f_deelopname9_tiff.tif`|
 |_Files (rep. 5)_|the TIFF file: `7m03z1634f_target_tiff`|
 
-This case relies on the 2D profile because:
+This case relies on the material-artwork profile because:
 
 - there is one IE and multiple representations;
 - the painting can be described using a combination of the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata models;

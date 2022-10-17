@@ -14,7 +14,7 @@ The basic profile supports simple cases consisting of a single media file accomp
 
 **Permalink:** <https://data.hetarchief.be/id/sip/1.1/basic>
 
-**Directory structure:**
+## Example Directory structure
 
 ```plaintext
 root_directory
