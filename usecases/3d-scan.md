@@ -24,7 +24,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/material-artwork.md %}).
+It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/material-artwork.md %}).
 
 A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/3d4bd7ca-38c6-11ed-95f2-7e92631d7d28.zip %}).
 
@@ -67,7 +67,7 @@ Since the metadata only describes a single artwork, we can consider it as the si
 
 We can distinguish a couple of file sets that represent the sculpture in some manner: an model for 3D printing, a high-polygon scan, a low-polygon scan, a scanner calibration target recording, and some additional photos..
 
-Since each set of files can have a meaning on its own, they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}):
+Since each set of files can have a meaning on its own, they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/3_core-concepts.md %}):
 
 |_Intellectual Entity_| the sculpture 'The Roman She-Wolf with Romulus and Remus' |
 |_Representation 1_| the model of the sculpture for 3D printing |
@@ -179,7 +179,7 @@ In total, the SIP contains 12 metadata files:
 The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -475,7 +475,7 @@ It also describes the various relationships between these objects:
 The `dc.xml` of the representation level describes the Representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata such as a title and some licenses.
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file in the representaion folder (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/6_structure_representation.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file in the representaion folder (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/6_structure_representation.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>

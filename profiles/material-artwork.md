@@ -16,7 +16,7 @@ This includes photographic registration of 2D artworks, such as paintings or dra
 This content profile specifies how to package different media files (e.g., TIFF, JPEG, OBJ or MTL), their metadata and the relationships between them in a meemoo SIP package.
 It also allows extensions to the descriptive metadata using [Schema.org](https://schema.org).
 
-**Permalink:** <https://data.hetarchief.be/id/sip/1.0/material-artwork>
+**Permalink:** <https://data.hetarchief.be/id/sip/1.1/material-artwork>
 
 ## Example Directory structure
 
@@ -160,7 +160,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.0/material-artwork`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/material-artwork`.
 - The `TYPE` attribute in the `mets.xml` file MUST be set to `Physical object`.
 
 ### Descriptive Metadata
@@ -196,7 +196,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Birth date creator |
 | Description | The creator's date of birth.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -204,7 +204,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Death date creator |
 | Description | The creator's date of death.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -234,7 +234,7 @@ root_directory
 | Name | Value |
 | Description | The height, width or depth measurement value. |
 | Cardinality | 1..1 |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#integer) |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
 | Obligation | MUST |
 
 | Element | `(schema:height|schema:width|schema:depth)/schema:unitCode` |
@@ -242,7 +242,7 @@ root_directory
 | Name | height |
 | Description | The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). |
 | Vocabulary | `MMT`, `CMT`, `MTR` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -251,7 +251,7 @@ root_directory
 | Name | height |
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `mm`, `cm`, `m` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
@@ -259,7 +259,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Art medium |
 | Description | The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -267,7 +267,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Artform |
 | Description | The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 

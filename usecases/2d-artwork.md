@@ -20,7 +20,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/material-artwork.md %}).
+It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/material-artwork.md %}).
 
 A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/fa307608-35c3-11ed-9243-7e92631d7d27.zip %}).
 
@@ -358,7 +358,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 The `dc.xml` of the representation level describes the representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata about licenses that might divert from the IE's license.
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
