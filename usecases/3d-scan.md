@@ -215,6 +215,22 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
 
   <!-- rights note -->
   <dcterms:rights xml:lang="en">public domain</dcterms:rights>
+</metadata>
+```
+
+### /data/metadata/descriptive/schema.xml
+
+The `schema.xml` of the package level describes the IE using [Schema metadata schema](schema.org/).
+It contains additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
+
+Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level.
+
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<metadata xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
+
+  <!-- linking id between schema and premis -->
+  <schema:identifier>7m03z1634f</schema:identifier>
 
   <!-- creator -->
   <schema:creator schema:roleName="auteur">
@@ -248,7 +264,8 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
   <schema:artMedium xml:lang="en">terracotta</schema:artMedium>
   <schema:artform xml:lang="nl">beeldhouwwerk</schema:artform>
   <schema:artform xml:lang="en">sculpture</schema:artform>
-  <!-- Surface of artwork: 22 x 13-->
+
+
 </metadata>
 ```
 
