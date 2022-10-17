@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Core concepts
-parent:       SIP Specification
+parent:       SIP Specification 1.0
 grand_parent:  Digitale instroom
 nav_order:    3
 nav_exclude:  false

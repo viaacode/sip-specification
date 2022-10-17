@@ -2,7 +2,8 @@
 layout:       default
 title:        Basic
 parent:       Profiles
-nav_order:    3
+grand_parent:  SIP Specification 1.0
+nav_order:    1
 nav_exclude:  false
 ---
 # Profile: Basic 
@@ -55,8 +56,4 @@ root_directory
 
 Some use cases that implement this profile are:
 
-{% for page in site.pages %}
-{% if page.sip_profile == "basic" %}
-- [{{ page.title }}]({{ page.url }})
-{% endif %}
-{% endfor %}
+{% include _usecases.liquid  %}

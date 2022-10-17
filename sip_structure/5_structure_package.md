@@ -2,6 +2,7 @@
 layout:       default
 title:        Package level
 parent:       Structure
+grand_parent:  SIP Specification 1.0
 nav_order:    6
 nav_exclude:  false
 ---
@@ -206,7 +207,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Package creation datetime |
 | Description | This attribute records the date and time the SIP was created. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -214,7 +215,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Package last modification datetime |
 | Description | In case the SIP was modified since its creation, this attribute records the date and time of that modification.<br>This attribute MUST be present and filled in when the SIP has been modified since its creation datetime. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -550,7 +551,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Descriptive metadata creation datetime |
 | Description | Creation date and time of the descriptive metadata referenced in this section. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -623,7 +624,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -753,7 +754,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -857,7 +858,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1037,7 +1038,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1470,6 +1471,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 - Each `dc*.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
 - Each `dc*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 - Each `dc*.xml` file MUST NOT contain additional IDs besides the shared ID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
+- A descriptive metadata element of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) MAY contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages). The value of this attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list).
 
 | Element | `metadata` |
 |-----------------------|-----------|
@@ -1529,10 +1531,17 @@ The `/preservation` directory contains preservation metadata about the IE(s) at 
 The `premis.xml` file at the package-level contains preservation metadata about the IE(s) of the SIP, and about the SIP as a whole.
 It also contains any additional IDs related to the IE(s) of the SIP.
 It relies on the [Preservation Metadata: Implementation Strategies (PREMIS)](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information.
-More detailed preservation information can be described using PREMIS events and PREMIS agents.
+More detailed preservation information can be described [using PREMIS events and PREMIS agents](#adding-provenance-of-representations).
 
 If descriptive metadata is available for a given IE, a link is established via a shared ID between the relevant PREMIS object in the `premis.xml` file and the corresponding `descriptive/dc*.xml` file.
 This ID is stored in the `<premis:objectIdentifier>` element of the relevant PREMIS object and in the `<dcterms:identifier>` element of the corresponding `dc*.xml` file in the `/descriptive` directory. 
+
+#### Describing Intellectual Entities
+
+On the package level, the preservation metadata is used to express
+
+- what the different IEs are contained in the SIP; and 
+- how they relate to eachother and to possible representations. 
 
 ***Example***
 
@@ -1628,10 +1637,6 @@ This ID is stored in the `<premis:objectIdentifier>` element of the relevant PRE
 ```
 
 ***Overview of relevant PREMIS relationships***
-
-On the package level, the preservation metadata is used to express 
-- what the different IEs and representations are that are contained in the SIP; and 
-- how they relate to eachother. 
 
 The table below gives an overview of the different relationship types that can be used on the package level:
 
@@ -1800,6 +1805,259 @@ The table below gives an overview of the different relationship types that can b
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:relatedObjectIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
+
+#### Adding provenance of representations
+
+If desired, a representation's provenance trail can be added to the preservation metadata using PREMIS events and agents.
+In most cases, events are used to submit information about the digitization process that created the representations. 
+The use of events might be prohibited or enforced depending on the given content profile. 
+
+{: .note }
+The possible event types are limited and managed by a controlled list. This list is still under development and will be published in a future release of the specification.
+<!--
+TODO: Link to list of possible eventTypes
+TODO: figure out the IDs
+-->
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
+
+    <!-- description of objects (left out for clarity) -->
+    ...
+
+    <!-- description of the digitization event that created the supplied representation -->
+    <premis:event>
+        <premis:eventIdentifier>
+            <premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+            <premis:eventIdentifierValue>uuid-f0513e06-4c57-4faf-a758-042043d99b81</premis:eventIdentifierValue>
+        </premis:eventIdentifier>
+        <premis:eventType>DIGITIZATION</premis:eventType>
+        <premis:eventDateTime>2022-05-17T11:50:13</premis:eventDateTime>
+        <premis:eventDetailInformation>
+            <premis:eventDetail />
+        </premis:eventDetailInformation>
+        <premis:linkingAgentIdentifier>
+            <premis:linkingAgentIdentifierType>OR-id</premis:linkingAgentIdentifierType>
+            <premis:linkingAgentIdentifierValue>OR-m30wc4t</premis:linkingAgentIdentifierValue>
+            <premis:linkingAgentRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp">implementer</premis:linkingAgentRole>
+        </premis:linkingAgentIdentifier>
+        <premis:linkingAgentIdentifier>
+            <premis:linkingAgentIdentifierType>UUID</premis:linkingAgentIdentifierType>
+            <premis:linkingAgentIdentifierValue>uuid-1cc1fe7a-da78-4c53-847a-0fd141ce2d3b</premis:linkingAgentIdentifierValue>
+            <premis:linkingAgentRole>player</premis:linkingAgentRole>
+        </premis:linkingAgentIdentifier>
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-de83045d-3b0f-4161-9f96-40079af0d480</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out">outcome</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+    </premis:event>
+
+    <!-- description of the video player used to digitize an analog carrier -->
+    <premis:agent>
+        <premis:agentIdentifier>
+            <premis:agentIdentifierType>UUID</premis:agentIdentifierType>
+            <premis:agentIdentifierValue>uuid-1cc1fe7a-da78-4c53-847a-0fd141ce2d3b</premis:agentIdentifierValue>
+        </premis:agentIdentifier>
+        <premis:agentName>SONY PDW-U2</premis:agentName>
+        <premis:agentType>hardware</premis:agentType>
+        <premis:agentExtension xmlns:schema="http://schema.org/">
+            <schema:model>PDW-U2</schema:model>
+            <schema:brand>
+                <schema:name>SONY</schema:name>
+            </schema:brand>
+            <schema:serialNumber>123456</schema:serialNumber>
+        </premis:agentExtension>
+    </premis:agent>
+...
+</premis:premis>
+```
+
+| Element | `premis:premis/premis:event` |
+|-----------------------|-----------|
+| Name | PREMIS event element |
+| Description | A `premis:event` element MAY be defined for one or more representations in the SIP. |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `premis:premis/premis:event/premis:eventIdentifier` |
+|-----------------------|-----------|
+| Name | Event identifier |
+| Description | This element contains event identifier information.<br><br>At least one event identifier MUST be present to uniquely identify the event. |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:eventIdentifier/premis:eventIdentifierType` |
+|-----------------------|-----------|
+| Name | Event identifier type |
+| Description | The type of the PREMIS event identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS event. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `UUID`<br>`ID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:eventIdentifier/premis:eventIdentifierValue` |
+|-----------------------|-----------|
+| Name | Event identifier value |
+| Description | The actual value that makes up the identifier of the PREMIS event. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:eventIdentifierType`) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:eventType` |
+|-----------------------|-----------|
+| Name | PREMIS event type |
+| Description | The specific type of the event. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:event/premis:eventDateTime` |
+|-----------------------|-----------|
+| Name | Event datetime  |
+| Description | The moment on which the event occurred. |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
+| Cardinality | 0..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:linkingAgentIdentifier` |
+|-----------------------|-----------|
+| Name | Linking agent identifier |
+| Description | This element contains identifier information on the agent that was linked to this event.<br><br>At least one linking agent identifier MUST be present. |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingAgentIdentifierType` |
+|-----------------------|-----------|
+| Name | Linking agent identifier type |
+| Description | The type of the agent identifier being used. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `UUID`<br>`ID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingAgentIdentifierValue` |
+|-----------------------|-----------|
+| Name | Linking agent identifier value |
+| Description | The actual value that makes up the identifier of the agent. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:eventIdentifierType`) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingAgentRole` |
+|-----------------------|-----------|
+| Name | Linking agent role |
+| Description | The role that the agent played in relation to the event. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS Event Related Agent Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole))  |
+| Vocabulary | `authorizer`<br>`executing program`<br>`implementer`<br>`validator`<br><br>`player`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingAgentRole/@valueURI` |
+|-----------------------|-----------|
+| Name | Linking agent role value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `authorizer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut`.<br>If the `executing program` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe`.<br>If the `implementer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp`.<br>If the `validator` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/val` |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `premis:premis/premis:event/premis:linkingObjectIdentifier` |
+|-----------------------|-----------|
+| Name | Linking object identifier |
+| Description | This element contains identifier information on a representation that was linked to this event.<br><br>At least one linking object identifier MUST be present. |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:linkingObjectIdentifier/premis:linkingObjectIdentifierType` |
+|-----------------------|-----------|
+| Name | Linking object identifier type |
+| Description | The type of the object identifier that the event is being linked to. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:linkingObjectIdentifier/premis:linkingObjectIdentifierValue` |
+|-----------------------|-----------|
+| Name | Linking object identifier value |
+| Description | The actual value that makes up the identifier of the linked representation. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:linkingObjectIdentifierType`) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:linkingObjectIdentifier/premis:linkingObjectRole` |
+|-----------------------|-----------|
+| Name | Linking object role |
+| Description | The role that the object played in relation to the event.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary from [`PREMIS Event Related Object Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole))  |
+| Vocabulary | `source`<br>`outcome` |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingObjectRole/@valueURI` |
+|-----------------------|-----------|
+| Name | Linking agent role value URI |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `authorizer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut`.<br>If the `executing program` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe`.<br>If the `implementer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp`.<br>If the `validator` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/val` |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `premis:premis/premis:agent` |
+|-----------------------|-----------|
+| Name | PREMIS agent element |
+| Description | A person, organization or piece of software or hardware associated to preservation events in the life of a data object. A `premis:agent` element MAY be defined for one or more events. |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `premis:premis/premis:agent/premis:agentIdentifier` |
+|-----------------------|-----------|
+| Name | Agent identifier |
+| Description | This element contains agent identifier information.<br><br>At least one agent identifier MUST be present to uniquely identify the agent. |
+| Cardinality | 1..* |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:agent/premis:agentIdentifier/premis:agentIdentifierType` |
+|-----------------------|-----------|
+| Name | Agent identifier type |
+| Description | The type of the PREMIS agent identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS agent. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `UUID`<br>`ID`<br>... |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:agent/premis:agentIdentifier/premis:agentIdentifierValue` |
+|-----------------------|-----------|
+| Name | Agent identifier value |
+| Description | The actual value that makes up the identifier of the PREMIS agent. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:agentIdentifierType`) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:agent/premis:agentName` |
+|-----------------------|-----------|
+| Name | Agent name |
+| Description | The name of the agent. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:agent/premis:agentType` |
+|-----------------------|-----------|
+| Name | Agent type |
+| Description | The type of agent, such as a specific type of organization (e.g. CP) or a specific type of hardware (e.g. video player). |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary from [PREMIS Agent Type](https://id.loc.gov/vocabulary/preservation/agentType.html) |
+| Vocabulary | `person`<br>`organization`<br>`hardware`<br>`software` |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:agent/premis:agentExtension` |
+|-----------------------|-----------|
+| Name | Agent extra metadata |
+| Description | Any extra metadata to further describe the agent. Its constraints are defined in the applied content profile. |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 ## /representations (directory)
 

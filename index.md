@@ -1,6 +1,6 @@
 ---
 layout:       default
-title:        SIP Specification
+title:        SIP Specification 1.0
 has_children: true
 parent:       Digitale instroom
 nav_order:    1
