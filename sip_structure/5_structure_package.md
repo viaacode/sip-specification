@@ -1053,6 +1053,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Obligation | MUST |
 
 | Attribute | `mets/fileSec/fileGrp/file/@CHECKSUMTYPE` |
+|-----------------------|-----------|
 | Name | File checksum type |
 | Description | A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. This MUST be set to `MD5`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
