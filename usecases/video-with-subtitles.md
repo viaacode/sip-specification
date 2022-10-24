@@ -122,7 +122,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 
   <dcterms:license>VIAA-PUBLIEK-METADATA-LTD</dcterms:license>
   <dcterms:publisher>the publisher of the episode</dcterms:publisher>
-  <dcterms:rightsHolder schema:roleName="auteursrechthouder">the rights owner</dcterms:rightsHolder>
+  <dcterms:rightsHolder>the rights owner</dcterms:rightsHolder>
 
   <dcterms:subject>Keyword 1</dcterms:subject>
   <dcterms:subject>Keyword 2</dcterms:subject>
