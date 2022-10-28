@@ -792,7 +792,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 | Attribute | `mets/amdSec/rightsMD/@STATUS` |
 |-----------------------|-----------|
 | Name | Status of the rights metadata |
-| Description | Describes the status of the `digiprovMD` which is supported by the profile.<br>Meemoo investigates the use of the `@STATUS` attribute for future use cases such as e.g. a rights metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
+| Description | Describes the status of the `rightsMD` which is supported by the profile.<br>Meemoo investigates the use of the `@STATUS` attribute for future use cases such as e.g. a rights metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `CURRENT`<br>`SUPERSEDED` |
 | Cardinality | 0..1 |
