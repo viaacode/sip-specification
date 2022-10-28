@@ -1106,7 +1106,8 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Attribute | `mets/fileSec/fileGrp/file/FLocat/@xlink:href` |
 |-----------------------|-----------|
 | Name | Resource location |
-| Description | One SHOULD use the relative location of the file in this URL. |
+| Description | Indication of the actual location of the referenced file.
+As indicated by the @LOCTYPE attribute, this filepath MUST be a URL type filepath. |
 | Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
