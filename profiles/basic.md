@@ -47,7 +47,7 @@ root_directory
 - The IE MUST be represented by exactly one representation.
 - There MUST NOT be any descriptive metadata at the representation level.
 - A descriptive metadata file `descriptive/dc.xml` MUST be present at the package level.
-- Descriptive metadata MUST be limited to the DCTERMS metadata schema.
+- Descriptive metadata MUST be limited to the DCTERMS metadata schema according to the [package level requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#dc-requirements).
 - Preservation metadata MUST be limited to the PREMIS metadata schema.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
 - There MUST be preservation metadata at the representation level in the `preservation/premis.xml` file.

@@ -1464,7 +1464,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 </metadata>   
 ```
 
-***Requirements***
+<span id="dc-requirements"></span>***Requirements***
 
 - Each `dc*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
 - Each `dc*.xml` file MUST declare the DCTERMS namespaces in its root element.
