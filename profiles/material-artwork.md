@@ -169,7 +169,7 @@ root_directory
 - Descriptive metadata in `descriptive/dc.xml` MUST apply the DCTERMS metadata schema.
 - A descriptive metadata file `descriptive/schema.xml` describing the IE MAY be present at the package level. 
 - Descriptive metadata in `descriptive/schema.xml` MUST apply a subset of the [SCHEMA](http://schema.org) metadata schema (see below).
-- The [SCHEMA](http://schema.org) elements in `descriptive/dc.xml` MUST be limited to the elements outlined below.
+- The [SCHEMA](http://schema.org) metadata in `descriptive/dc.xml` MUST be limited to the elements and attributes outlined below.
 
 | Element | `schema:creator` |
 |-----------------------|-----------|
