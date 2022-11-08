@@ -150,7 +150,7 @@ root_directory
 
 ### General
 
-- There MUST be at least one IE. It MAY contain other (sub-)IE's (e.g. to describe panels of a triptych individually)
+- There MUST be exactly one IE at the root. There MAY be other sub-IE's that are part of the root IE or other sub-IE's (e.g. to describe panels of a triptych individually).
 - There MUST be at least one representation, but there MAY be multiple: either containing different captures or resolutions of the same IE or representing a different IE.
 - Each representation MUST contain at least one file. 
 - Preservation metadata MUST be limited to the PREMIS metadata schema.
