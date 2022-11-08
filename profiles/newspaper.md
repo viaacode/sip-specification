@@ -69,7 +69,7 @@ root_directory
 
 - A newspaper SIP MUST contain exactly one newspaper edition.
 - The newspaper edition MUST be digitised per page, i.e. each TIFF and/or ALTO XML file contained in their respective representation directories MUST represent exactly one page.
-  - <a id="pdf"></a>An exception to this requirement MAY be made with regards to the PDF file: if a PDF file is present, it SHOULD contain the contents of the entire newspaper edition (i.e. all pages are present in one single PDF file).
+  - <a id="pdf"></a>An exception to this requirement MAY be made with regards to a PDF file: it is RECOMMENDED to only use a single PDF that contains the contents of the entire newspaper edition (i.e. all pages are present in one single PDF file).
 - There MUST be exactly one IE present in the SIP, i.e. the newspaper edition.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
 - There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
@@ -86,7 +86,7 @@ root_directory
 - A descriptive metadata file `descriptive/dc.xml` MAY be present at the package level; if present, this file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema.
 - The `descriptive/mods.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/mods.xml` file.
 - If present, the `descriptive/dc.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/dc.xml` file.
-- The `descriptive/mods.xml` file MUST minimally implement the MODS metadata elements outlined below.
+- The MODS metadata in `descriptive/mods.xml` MUST be limited to the elements and attributes outlined below.
 
 | Element | `mods:mods` |
 |-----------------------|-----------|
