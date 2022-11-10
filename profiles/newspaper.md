@@ -26,8 +26,8 @@ root_directory
 └──data
     │──mets.xml
     │──metadata
-    |   |──descriptive
-    |   |  └──dc.xml
+    |   |──descriptive      (at least one of both files must be present)
+    |   |  └──dc.xml 
     |   |  └──mods.xml
     |   └──preservation
     |       └──premis.xml
@@ -82,10 +82,10 @@ root_directory
 
 ### Package Descriptive Metadata
 
-- A descriptive metadata file `descriptive/mods.xml` MUST be present at the package level; this file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7.).
-- A descriptive metadata file `descriptive/dc.xml` MAY be present at the package level; if present, this file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema.
+- Either a `descriptive/mods.xml` or a `descriptive/dc.xml` descriptive metadata file MUST be present at the package level. In case they both occur, the `descriptive/dc.xml` file is ignored. 
+- The `descriptive/dc.xml` file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema according to the [package level requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#dc-requirements).
+- The `descriptive/mods.xml` file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7.).
 - The `descriptive/mods.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/mods.xml` file.
-- If present, the `descriptive/dc.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/dc.xml` file.
 - The MODS metadata in `descriptive/mods.xml` MUST be limited to the elements and attributes outlined below.
 
 | Element | `mods:mods` |
@@ -124,6 +124,61 @@ root_directory
 | Name | MODS type of resource element |
 | Description | This element indicates which type of resource is being described. Its value MUST be set to `newspaper edition`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `mods:mods/mods:abstract` |
+|-----------------------|-----------|
+| Name | A summary of the content of the newspaper. |
+| Description | This element contains a summary of the content of the newspaper. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `mods:mods/mods:subject/mods:topic` |
+|-----------------------|-----------|
+| Name | A term or phrase representing the primary topic(s) on which the newspaper is focused. |
+| Description | This element contains a summary of the content of the newspaper. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:name[@type="personal"]` |
+|-----------------------|-----------|
+| Name | Name of a person |
+| Description | The name of a person associated with the newspaper.  |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `mods:mods/mods:name[@type="personal"]/namePart[@type="family"]` |
+|-----------------------|-----------|
+| Name | Family name of a person |
+| Description | The family name of a person associated with the newspaper.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `mods:mods/mods:name[@type="personal"]/namePart[@type="given"]` |
+|-----------------------|-----------|
+| Name | Given name of a person |
+| Description | The given name of a person associated with the newspaper.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `mods:mods/mods:name[@type="personal"]/role/roleTerm[@type="text"]` |
+|-----------------------|-----------|
+| Name | Role of a person |
+| Description | Designates the relationship (role) of the person to the newspaper.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:originInfo/mods:dateCreated[@encoding="edtf"]` |
+|-----------------------|-----------|
+| Name | MODS issuance date element |
+| Description | This element contains the date the newspaper edition was created. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
