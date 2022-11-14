@@ -99,7 +99,7 @@ root_directory
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   └── dc.xml
+    |   |   └── dc+schema.xml
     |   └── preservation
     |       └── premis.xml
     │
@@ -111,7 +111,7 @@ root_directory
         |   │
         |   └── metadata
         |       |── descriptive  
-        |       |   └── dc.xml
+        |       |   └── dc+schema.xml
         |       └── preservation
         |           └── premis.xml
         |── representation_2       # high-poly capture
@@ -123,7 +123,7 @@ root_directory
         |   │
         |   └── metadata
         |       |── descriptive   
-        |       |   └── dc.xml
+        |       |   └── dc+schema.xml
         |       └── preservation
         |           └── premis.xml
         └──representation_3       # low-poly capture
@@ -135,7 +135,7 @@ root_directory
         |   │
         |   └── metadata
         |       |── descriptive   
-        |       |   └── dc.xml    
+        |       |   └── dc+schema.xml    
         |       └──preservation
         |          └── premis.xml
         └── representation_4       # quality assessment reference
@@ -148,7 +148,7 @@ root_directory
         |    │
         |    └── metadata
         |       |── descriptive
-        |       |   └── dc.xml    
+        |       |   └── dc+schema.xml    
         |       └── preservation
         |           └── premis.xml
         └── representation_5       # additional photography
@@ -160,7 +160,7 @@ root_directory
             │
             └── metadata
                 |── descriptive
-                |   └── dc.xml    
+                |   └── dc+schema.xml    
                 └── preservation
                     └── premis.xml
 ```
@@ -169,17 +169,17 @@ root_directory
 
 In total, the SIP contains 12 metadata files:
 
-|`data/metadata/descriptive/dc.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
+|`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
-|`data/representations/representation_*/metadata/descriptive/dc.xml`| Descriptive metadata about about each of the 5 representations at the _representation level_. |
+|`data/representations/representation_*/metadata/descriptive/dc+schema.xml`| Descriptive metadata about about each of the 5 representations at the _representation level_. |
 |`data/representations/representation_*/metadata/preservation/premis.xml`| Preservation metadata about each of the 5 representations and 14 files residing at the _representation level_. |
 
-### /data/metadata/descriptive/dc.xml
+### /data/metadata/descriptive/dc+schema.xml
 
-The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
-It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
+The `dc+schema.xml` of the package level describes the IE using [the DCTERMS]((https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)) and the [Schema](schema.org/) metadata models.
+It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance, and additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -215,22 +215,6 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
 
   <!-- rights note -->
   <dcterms:rights xml:lang="en">public domain</dcterms:rights>
-</metadata>
-```
-
-### /data/metadata/descriptive/schema.xml
-
-The `schema.xml` of the package level describes the IE using [Schema metadata schema](schema.org/).
-It contains additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
-
-Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level.
-
-```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
-
-  <!-- linking id between schema and premis -->
-  <schema:identifier>7m03z1634f</schema:identifier>
 
   <!-- creator -->
   <schema:creator schema:roleName="auteur">
@@ -274,7 +258,7 @@ Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `sch
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains a digitization event that details how the differetn files were created and by who.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -470,12 +454,12 @@ It also describes the various relationships between these objects:
 </premis:premis>
 ```
 
-### data/representations/representation_2/metadata/descriptive/dc.xml
+### data/representations/representation_2/metadata/descriptive/dc+schema.xml
 
-The `dc.xml` of the representation level describes the Representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
+The `dc+schema.xml` of the representation level describes the Representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata such as a title and some licenses.
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file in the representaion folder (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/6_structure_representation.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file in the representaion folder (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/6_structure_representation.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
