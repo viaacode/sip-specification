@@ -1426,7 +1426,7 @@ It also contains preservation metadata about the SIP as a whole.
 
 The `/descriptive` directory contains descriptive metadata about the IE(s) at the package level.
 This descriptive metadata is stored in different XML files, depending on the number of IE(s) present in the SIP.
-Each XML file follows the naming convention `dc*.xml` (where `*` is any string of zero or more characters characters; a positive integer increasing by one for each additional IE with descriptive metadata present is recommended).
+Each XML file follows the naming convention `dc*.xml` (where `*` is any string of zero or more characters; a positive integer increasing by one for each additional IE with descriptive metadata present is recommended).
 
 ***Requirements***
 

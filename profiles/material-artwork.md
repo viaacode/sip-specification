@@ -31,8 +31,7 @@ root_directory
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   |── dc.xml
-    |   |   └── schema.xml
+    |   |   └── dc+schema.xml
     |   └── preservation
     |       └── premis.xml
     │
@@ -44,7 +43,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)
-              |   └── dc.xml
+              |   └── dc+schema.xml
               └──preservation
                  └── premis.xml
         └──representation_2       # overview without list
@@ -54,7 +53,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)
-              |   └── dc.xml    
+              |   └── dc+schema.xml    
               └──preservation
                  └── premis.xml
         └──representation_3       # composed stitch 
@@ -64,7 +63,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)    
-              |   └── dc.xml    
+              |   └── dc+schema.xml    
               └──preservation
                  └── premis.xml
         └──representation_4       # stitch 
@@ -76,7 +75,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)  
-              |   └── dc.xml    
+              |   └── dc+schema.xml    
               └──preservation
                  └── premis.xml
 ```
@@ -92,7 +91,7 @@ root_directory
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   └── dc.xml
+    |   |   └── dc+schema.xml
     |   └── preservation
     |       └── premis.xml
     │
@@ -104,7 +103,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)
-              |   └── dc.xml
+              |   └── dc+schema.xml
               └──preservation
                  └── premis.xml
         └──representation_2       # high-poly capture
@@ -116,7 +115,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)
-              |   └── dc.xml
+              |   └── dc+schema.xml
               └──preservation
                  └── premis.xml
         └──representation_3       # low-poly capture
@@ -128,7 +127,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)
-              |   └── dc.xml    
+              |   └── dc+schema.xml   
               └──preservation
                  └── premis.xml
         └──representation_4       # quality assessment reference
@@ -141,7 +140,7 @@ root_directory
            │
            └──metadata
               |── descriptive     (optional)
-              |   └── dc.xml    
+              |   └── dc+schema.xml    
               └──preservation
                  └── premis.xml
 ```
@@ -165,11 +164,9 @@ root_directory
 
 ### Descriptive Metadata
 
-- A descriptive metadata file `descriptive/dc.xml` describing the IE MUST be present at the package level and MAY be present at the representation level (eg. to indicate diverting licenses). 
-- Descriptive metadata in `descriptive/dc.xml` MUST apply the DCTERMS metadata schema.
-- A descriptive metadata file `descriptive/schema.xml` describing the IE MAY be present at the package level. 
-- Descriptive metadata in `descriptive/schema.xml` MUST apply a subset of the [SCHEMA](http://schema.org) metadata schema (see below).
-- The [SCHEMA](http://schema.org) metadata in `descriptive/dc.xml` MUST be limited to the elements and attributes outlined below.
+- A descriptive metadata file `descriptive/dc+schema.xml` describing the IE MUST be present at the package level and MAY be present at the representation level (eg. to indicate diverting licenses). 
+- Descriptive metadata in `descriptive/dc+schema.xml` MUST apply the DCTERMS metadata schema and MAY also apply the [SCHEMA](http://schema.org) metadata schema (see below).
+- The [SCHEMA](http://schema.org) metadata in `descriptive/dc+schema.xml` MUST be limited to the elements and attributes outlined below.
 
 | Element | `schema:creator` |
 |-----------------------|-----------|
