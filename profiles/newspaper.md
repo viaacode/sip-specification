@@ -79,6 +79,7 @@ root_directory
 ### Package METS
 
 - The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/newspaper`.
+- The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `DC` or `MODS`.
 
 ### Package Descriptive Metadata
 
