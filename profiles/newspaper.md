@@ -83,7 +83,7 @@ root_directory
 ### Package Descriptive Metadata
 
 - Either a `descriptive/mods.xml` or a `descriptive/dc.xml` descriptive metadata file MUST be present at the package level. In case they both occur, the `descriptive/dc.xml` file is ignored. 
-- The `descriptive/dc.xml` file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema according to the [package level requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#dc-requirements).
+- The `descriptive/dc.xml` file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema in accordance with the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}#dc-requirements).
 - The `descriptive/mods.xml` file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7.).
 - The `descriptive/mods.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/mods.xml` file.
 - The MODS metadata in `descriptive/mods.xml` MUST be limited to the elements and attributes outlined below.

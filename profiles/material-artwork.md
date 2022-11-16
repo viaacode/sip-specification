@@ -156,7 +156,6 @@ root_directory
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
 - There MUST be preservation metadata at the representation level in the `preservation/premis.xml` file.
 
-
 ### Package METS
 
 - The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/material-artwork`.
@@ -164,8 +163,10 @@ root_directory
 
 ### Descriptive Metadata
 
-- A descriptive metadata file `descriptive/dc+schema.xml` describing the IE MUST be present at the package level and MAY be present at the representation level (eg. to indicate diverting licenses). 
+- A descriptive metadata file `descriptive/dc+schema.xml` describing the IE MUST be present at the package level.
+- A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level (eg. to indicate diverting licenses). 
 - Descriptive metadata in `descriptive/dc+schema.xml` MUST apply the DCTERMS metadata schema and MAY also apply the [SCHEMA](http://schema.org) metadata schema (see below).
+- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
 - The [SCHEMA](http://schema.org) metadata in `descriptive/dc+schema.xml` MUST be limited to the elements and attributes outlined below.
 
 | Element | `schema:creator` |
@@ -268,6 +269,16 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
+
+### Rep level/descriptive (directory)
+
+The `/descriptive` directory contains descriptive metadata about the representation.
+
+***Requirements***
+
+- The `/descriptive` directory MAY contain zero or more `dc*.xml` metadata files.
+
+The `dc*.xml` files at the representation level contains descriptive metadata about a specific representation of the SIP.
 
 ## Use Cases
 
