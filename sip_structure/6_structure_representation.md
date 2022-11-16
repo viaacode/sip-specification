@@ -252,39 +252,10 @@ The `/metadata` directory contains both descriptive and preservation metadata ab
 ### /descriptive (directory)
 
 The `/descriptive` directory contains descriptive metadata about the representation.
+This descriptive metadata is stored in XML files, describing the specific representation of the SIP.
 
-***Requirements***
-
-- The `/descriptive` directory MAY contain zero or more `dc*.xml` metadata files.
-
-The `dc*.xml` files at the representation level contains descriptive metadata about a specific representation of the SIP.
-
-***Example***
-
-```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
-
-  <!-- general title for the representation -->
-  <dcterms:title>Colour representation of the Felis Catus Flamens lying on a sofa</dcterms:title>
-
-  <!-- linking id between dc and premis -->
-  <dcterms:identifier>uuid-541292c3-223a-4b80-b747-66bc86ff4a89</dcterms:identifier>
-
-  <!-- date when representation was created -->
-  <dcterms:created xsi:type="edtf">2022-01~</dcterms:created>
-
-  <!-- multiple keywords about the representation -->
-  <dcterms:subject>Cat</dcterms:subject>
-  <dcterms:subject>Felis Catus Flamens</dcterms:subject>
-  <dcterms:subject>Sofa</dcterms:subject>
-
-</metadata> 
-```
-
-***Requirements***
-
-The `dc*.xml` files of the representation level follows the same requirements regarding metadata elements of the `dc*.xml` files discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
+Descriptive metadata at the represenation level follows the same requirements regarding metadata elements discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
+Hence, the concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
 
 ### /preservation (directory)
 
