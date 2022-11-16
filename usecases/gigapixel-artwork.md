@@ -91,8 +91,7 @@ root_directory
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   |── dc.xml
-    |   |   └── schema.xml
+    |   |   └── dc+schema.xml
     |   └── preservation
     |       └── premis.xml
     │
@@ -103,7 +102,7 @@ root_directory
         |   │   └── cf9j41p15z_overzichtsopname_metlijst_tiff.tiff
         |   └──metadata
         |      |── descriptive    
-        |      |   └── dc.xml   
+        |      |   └── dc+schema.xml   
         |      └── preservation
         |          └── premis.xml
         |── representation_2       # overview without list
@@ -112,7 +111,7 @@ root_directory
         |   │   └── cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff
         |   └──metadata
         |      |── descriptive     
-        |      |   └── dc.xml   
+        |      |   └── dc+schema.xml   
         |      └── preservation
         |          └── premis.xml
         |── representation_3       # composed stitch 
@@ -121,7 +120,7 @@ root_directory
         |   │   └── cf9j41p15z_stitch_bigtiff.tiff
         |   └──metadata
         |      |── descriptive   
-        |      |   └── dc.xml         
+        |      |   └── dc+schema.xml         
         |      └── preservation
         |          └── premis.xml
         |── representation_4       # composed stitch in PSB
@@ -130,7 +129,7 @@ root_directory
         |   │   └── cf9j41p15z_stitch_psb.psb
         |   └──metadata
         |      |── descriptive   
-        |      |   └── dc.xml         
+        |      |   └── dc+schema.xml         
         |      └── preservation
         |          └── premis.xml
         |── representation_5       # stitch 
@@ -142,7 +141,7 @@ root_directory
         |   │   └── cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
         |   └── metadata
         |       |── descriptive     
-        |       |   └── dc.xml    
+        |       |   └── dc+schema.xml    
         |       └── preservation
         |           └── premis.xml
         └── representation_6       # target 
@@ -151,7 +150,7 @@ root_directory
            │   └── cf9j41p15z_target_tiff.tiff
            └── metadata
                |── descriptive     
-               |   └── dc.xml    
+               |   └── dc+schema.xml    
                └── preservation
                    └── premis.xml
 
@@ -159,10 +158,9 @@ root_directory
 
 ## The metadata
 
-In total, the SIP contains 14 metadata files:
+In total, the SIP contains 13 metadata files:
 
-|`data/metadata/descriptive/dc.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
-|`data/metadata/descriptive/schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
+|`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF file residing at the _representation level_. |
 |`data/representations/representation_2/metadata/preservation/premis.xml`| Preservation metadata about the second representation and TIFF file residing at the _representation level_. |
@@ -171,12 +169,12 @@ In total, the SIP contains 14 metadata files:
 |`data/representations/representation_5/metadata/preservation/premis.xml`| Preservation metadata about the fifth representation and TIFF files residing at the _representation level_. |
 |`data/representations/representation_6/metadata/preservation/premis.xml`| Preservation metadata about the sixth representation and TIFF file residing at the _representation level_. |
 
-### /data/metadata/descriptive/dc.xml
+### /data/metadata/descriptive/dc+schema.xml
 
-The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
-It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
+The `dc+schema.xml` of the package level describes the IE using [the DCTERMS]((https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)) and the [Schema](schema.org/) metadata models.
+It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance, and additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier in the `<dcterms:identifier/>` element is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -205,21 +203,6 @@ The identifier is used to link the `dc.xml` file to the corresponding PREMIS obj
 
   <!-- rights note -->
   <dcterms:rights xml:lang="en">public domain</dcterms:rights>
-</metadata>
-```
-
-### /data/metadata/descriptive/schema.xml
-
-The `schema.xml` of the package level describes the IE using [Schema metadata schema](schema.org/).
-It contains additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
-
-Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level.
-
-```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
-  <!-- linking id between schema and premis -->
-  <schema:identifier>cf9j41p15z</schema:identifier>
 
   <!-- dimensions -->
   <schema:height>
@@ -244,7 +227,7 @@ Similar to `dc.xml`, the `<schema:identifier/>` element is used to link the `sch
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains a digitization event that details how the TIFF files were created and by whom.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) element and the `<schema:identifier/>` element (in the `descriptive/schema.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) element and the `<schema:identifier/>` element (in the `descriptive/schema.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
