@@ -161,6 +161,11 @@ root_directory
 - The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/material-artwork`.
 - The `TYPE` attribute in the `mets.xml` file MUST be set to `Physical object`.
 - The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `OTHER`.
+  
+<!-- 
+The E-ARK (C)SIP spec verplicht blijkbaar OTHERMDTYPE niet als MDTYPE de waarde "OTHER" bevat:
+https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
+-->
 
 ### Descriptive Metadata
 
