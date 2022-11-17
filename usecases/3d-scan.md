@@ -459,7 +459,7 @@ It also describes the various relationships between these objects:
 The `dc+schema.xml` of the representation level describes the Representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata such as a title and some licenses.
 
-The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file in the representaion folder (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/6_structure_representation.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file in the representation folder (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/6_structure_representation.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
