@@ -177,7 +177,7 @@ root_directory
 
 | Element | `mods:mods/mods:originInfo/mods:dateCreated[@encoding="edtf"]` |
 |-----------------------|-----------|
-| Name | MODS issuance date element |
+| Name | MODS creation date element |
 | Description | This element contains the date the newspaper edition was created. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
 | Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
