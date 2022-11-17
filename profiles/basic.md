@@ -59,7 +59,7 @@ root_directory
 
 - There MUST NOT be any descriptive metadata at the representation level.
 - The `/descriptive` directory at the package level MUST contain exactly one metadata file `dc*.xml` that describes the IE.
-- The `dc*.xml` filename SHOULD apply the following naming convention: `*` is any string of zero or more characters; a positive integer increasing by one for each additional IE with descriptive metadata present is recommended
+- The `dc*.xml` filename SHOULD apply the following naming convention: `dc*.xml` with `*` is any string of zero or more characters.
 - The `dc*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
 - The `dc*.xml` file MUST declare the DCTERMS namespaces in its root element.
 - The `dc*.xml` file MUST use the `<metadata/>` tag as its root element.
