@@ -258,7 +258,7 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains a digitization event that details how the differetn files were created and by who.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) in order to link the PREMIS IE object to its description.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
