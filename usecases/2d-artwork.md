@@ -2,7 +2,7 @@
 layout:       default
 title:        Two-dimensional artwork
 parent:       Use cases
-grand_parent:  SIP Specification 1.1
+grand_parent:  1.1
 nav_order:    5
 nav_exclude:  false
 has_children: false

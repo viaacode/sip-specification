@@ -1,8 +1,8 @@
 ---
 layout:       default
 title:        Introduction
-parent:       SIP Specification 1.1
-grand_parent:  Digitale instroom
+parent:       1.1
+grand_parent:  SIP Specification 
 nav_order:    1
 nav_exclude:  false
 ---

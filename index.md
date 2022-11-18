@@ -1,9 +1,9 @@
 ---
 layout:       default
-title:        SIP Specification 1.1
+title:        1.1
 has_children: true
-parent:       Digitale instroom
-nav_exclude:  true
+parent:       SIP Specification
+nav_exclude:  false
 nav_order:    1
 ---
 # meemoo Submission Information Package (SIP) Specification

@@ -2,7 +2,7 @@
 layout:       default
 title:        Representation level
 parent:       Structure
-grand_parent:  SIP Specification 1.1
+grand_parent:  1.1
 nav_order:    7
 nav_exclude:  false
 ---

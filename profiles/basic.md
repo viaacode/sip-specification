@@ -2,7 +2,7 @@
 layout:       default
 title:        Basic
 parent:       Profiles
-grand_parent:  SIP Specification 1.1
+grand_parent:  1.1
 nav_order:    1
 nav_exclude:  false
 ---
