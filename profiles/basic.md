@@ -63,7 +63,7 @@ root_directory
 - The `dc*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
 - The `dc*.xml` file MUST declare the DCTERMS namespaces in its root element.
 - The `dc*.xml` file MUST use the `<metadata/>` tag as its root element.
-- The `dc*.xml` file MUST include the DCTERMS elements outlined in the table below; besides these mandatory elements it MAY use all other terms from the DCTERMS schema.
+- The `dc*.xml` file MUST be limited to the DCTERMS elements outlined in the table below.
 - The `dc*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 - The `dc*.xml` file MUST contain a shared ID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element (see [next section](#connecting-the-descriptive-metadata-to-premis)).
 - The `dc*.xml` file MUST NOT contain additional IDs besides the shared ID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
@@ -76,45 +76,157 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+| Element | `metadata/dcterms:title` |
+|-----------------------|-----------|
+| Name | Title |
+| Description | A name given to the Intellectual Entity. <br>The `title` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/dcterms:alternative` |
+|-----------------------|-----------|
+| Name | Alternative title |
+| Description | An alternative to the main title given to the Intellectual Entity.<br>The `alternative` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
 | Element | `metadata/dcterms:identifier` |
 |-----------------------|-----------|
 | Name | Identifier |
 | Description | An unambiguous and unique reference to the Intellectual Entity/Entities present in the SIP.<br>This identifier MUST be used to establish a link between the `dc*.xml` file and the relevant PREMIS object in the `preservation/premis.xml` file. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `metadata/dcterms:created` |
+| Element | `metadata/dcterms:extent` |
 |-----------------------|-----------|
-| Name | Creation date |
-| Description | Creation date of the resource. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Name | Duration |
+| Description | Duration in time of the Intellectual Entity. |
+| Datatype | [XML Schema duration]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-duration) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/dcterms:available` |
+|-----------------------|-----------|
+| Name | Available |
+| Description | The moment that the Intellectual Entity became available. |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Element | `metadata/dcterms:description` |
 |-----------------------|-----------|
 | Name | Description |
-| Description | An account of the resource.<br>The `description` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@XML:LANG` attribute. This attribute MUST use a controlled vocabulary such as [ISO 639-2](https://www.loc.gov/standards/iso639-2/php/code_list.php) or [ISO 639-3](https://www.iso.org/standard/39534.html). |
+| Description | An account of the Intellectual Entity.<br>The `description` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/dcterms:abstract` |
+|-----------------------|-----------|
+| Name | Description |
+| Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/dcterms:created` |
+|-----------------------|-----------|
+| Name | Creation date |
+| Description | Creation date of the Intellectual Entity. |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `metadata/dcterms:issued` |
 |-----------------------|-----------|
 | Name | Date issued |
-| Description | Date of formal issuance of the resource. |
+| Description | Date of formal issuance of the Intellectual Entity. |
 | Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `metadata/dcterms:title` |
+| Element | `metadata/dcterms:publisher` |
 |-----------------------|-----------|
-| Name | Title |
-| Description | A name given to the resource. |
+| Name | Publisher |
+| Description | A publisher of the Intellectual Entity |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/dcterms:contributor` |
+|-----------------------|-----------|
+| Name | Contributor |
+| Description | A contributor to the Intellectual Entity |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/dcterms:creator` |
+|-----------------------|-----------|
+| Name | Creator |
+| Description | An author or creator of the Intellectual Entity |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/dcterms:spatial` |
+|-----------------------|-----------|
+| Name | Spatial |
+| Description | Spatial coverage information on the Intellectual Entity |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/dcterms:temporal` |
+|-----------------------|-----------|
+| Name | Temporal |
+| Description | Temporal coverage information on the Intellectual Entity |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/dcterms:subject` |
+|-----------------------|-----------|
+| Name | Subject |
+| Description | Subjects or keywords related to the Intellectual Entity. The `subject` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | SHOULD |
+
+| Element | `metadata/dcterms:language` |
+|-----------------------|-----------|
+| Name | Language |
+| Description | The language that the Intellectual Entity is in. |
+| Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#bcp47) |
+| Cardinality | 0..* |
+| Obligation | SHOULD |
+
+| Element | `metadata/dcterms:rightsHolder` |
+|-----------------------|-----------|
+| Name | Rights holder |
+| Description | The person or ogranization that holds the copyright to the Intellectual Entity. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `metadata/dcterms:rights` |
+|-----------------------|-----------|
+| Name | Rights |
+| Description | A copyright notice on the Intellectual Entity. The `rights` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `metadata/dcterms:type` |
+|-----------------------|-----------|
+| Name | Type |
+| Description | The classification of this Intellectual Entity . |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 ## Connecting the descriptive metadata to PREMIS
 
