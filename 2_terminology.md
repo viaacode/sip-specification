@@ -61,7 +61,9 @@ In the context of noting metadata values, the following datatypes are mentioned 
 | -------------- | ---------- |
 | <a id="integer"></a>Integer        | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
 | <a id="string"></a>String         | A sequence of zero or more Unicode (UTF-8) characters, usually wrapped in double quotes, using backslash escapes (if necessary). A character is represented as a single character string. |
-| <a id="xsd-datetime"></a>XML Schema datetime            | Date and time notation according to the [XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#dateTime) standard. Compatible with [ISO 8601:2004](https://www.w3.org/TR/xmlschema-2/#dateTime). |
+| <a id="xsd-datetime"></a>XML Schema datetime            | Date and time notation according to the [XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#dateTime) standard. Compatible with [ISO 8601:2004](https://www.iso.org/standard/40874.html). |
+| <a id="xsd-duration"></a>XML Schema duration            | Duration of time notation according to the [XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#duration) standard. Compatible with [ISO 8601:2004](https://www.iso.org/standard/40874.html). |
+| <a id="bcp47"></a>BCP47 language tag            | Language tag according to the [BCP47](https://www.rfc-editor.org/info/bcp47) standard. |
 | <a id="edtf"></a>EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) up to level 1 plus the value `XXXX` to indicate an unknown date. All [XML Schema datetimes](#xsd-datetime) dates are also valid EDTF dates. |
 | <a id="mimetype"></a>IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
 | <a id="md5"></a>MD5        | String result from applying the MD5 message-digest algorithm to a digital file object. |
