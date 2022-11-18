@@ -2,7 +2,7 @@
 layout:       default
 title:        Single file
 parent:       Use cases
-grand_parent:  SIP Specification 1.0
+grand_parent:  1.0
 nav_order:    1
 nav_exclude:  false
 has_children: false

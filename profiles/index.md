@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Profiles
-parent:       SIP Specification 1.0
+parent:       1.0
 nav_order:    8
 nav_exclude:  false
 has_children: true

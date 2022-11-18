@@ -2,7 +2,7 @@
 layout:       default
 title:        Video file with subtitles
 parent:       Use cases
-grand_parent:  SIP Specification 1.0
+grand_parent:  1.0
 nav_order:    2
 nav_exclude:  false
 has_children: false
