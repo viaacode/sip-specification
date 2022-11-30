@@ -126,7 +126,7 @@ root_directory
 
 | Element | `metadata/dcterms:abstract` |
 |-----------------------|-----------|
-| Name | Description |
+| Name | Abstract |
 | Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
