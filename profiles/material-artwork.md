@@ -276,16 +276,6 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Obligation | MAY |
 
 
-### Rep level/descriptive (directory)
-
-The `/descriptive` directory contains descriptive metadata about the representation.
-
-***Requirements***
-
-- The `/descriptive` directory MAY contain zero or more `dc*.xml` metadata files.
-
-The `dc*.xml` files at the representation level contains descriptive metadata about a specific representation of the SIP.
-
 ## Use Cases
 
 Some use cases that implement this profile are:
