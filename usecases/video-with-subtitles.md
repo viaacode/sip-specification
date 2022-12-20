@@ -20,7 +20,7 @@ The following use case describes how to package
 
 It uses the [**Basic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).
 
-A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip %}).
+A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip %}).
 
 ## The content
 
@@ -62,11 +62,11 @@ This case uses the Basic profile because:
 
 ## Directory structure
 
-We package the above in a meemoo SIP named `d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip`.
+We package the above in a meemoo SIP named `subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip`.
 It has the following directory structure:
 
 ```plaintext
-d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip
+subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip
 │── manifest-md5.txt
 │── bagit.txt
 │

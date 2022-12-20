@@ -15,7 +15,7 @@ Editor's Draft
 The following use case describes how to package a single image file with some basic descriptive metadata.
 It illustrates the most minimal implementation that conforms to meemoo's SIP specification and the [**Basic content profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).
 
-A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip %}).
+A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip %}).
 
 ## The content
 
@@ -46,11 +46,11 @@ This case uses the Basic content profile because:
 
 ## Directory structure
 
-We package the above in a meemoo SIP named `deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip`.
+We package the above in a meemoo SIP named `basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip`.
 It has the following directory structure:
 
 ```plaintext
-deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip
+basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip
 │── manifest-md5.txt
 │── bagit.txt
 │
