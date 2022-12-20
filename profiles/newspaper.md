@@ -308,7 +308,7 @@ root_directory
     
     <structMap ID="uuid-04647bb4-f524-435b-b4bf-5fe7a926b9d4" TYPE="PHYSICAL" LABEL="CSIP">
         <div ID="uuid-74e4335c-1d24-42bc-bbd0-864bd216d99c" LABEL="representation_1">
-            <div ID="uuid-60d4a0db-769c-42a9-8ef8-c395bb555803" LABEL="metadata">
+            <div ID="uuid-60d4a0db-769c-42a9-8ef8-c395bb555803" LABEL="Metadata">
                 <div ID="uuid-e96b8688-e811-4dd8-83dc-81ae263b9c2a" LABEL="preservation">
                     <fptr FILEID="uuid-4482555d-aed7-4066-a211-44429a60a49a" />
                 </div>
