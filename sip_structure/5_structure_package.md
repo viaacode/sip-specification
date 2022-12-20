@@ -1123,7 +1123,7 @@ It provides links between elements and metadata files located elsewhere in the p
 <!-- structural map -->
 <structMap ID="uuid-1ce2cef4-cb9a-4649-8983-c916870cf2b4" TYPE="PHYSICAL" LABEL="CSIP">
     <div ID="uuid-33cd69c8-b297-40e1-9491-1b5db58890bd" LABEL="">
-        <div ID="uuid-c0a73bbc-d6f3-42a0-b5e1-f53a4601101b" LABEL="metadata">
+        <div ID="uuid-c0a73bbc-d6f3-42a0-b5e1-f53a4601101b" LABEL="Metadata">
             <div ID="uuid-9aae35c0-9d17-43c7-824a-4722ef3039cd" LABEL="descriptive">
                 <fptr FILEID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911" />
                 <fptr FILEID="uuid-7a3443ed-9925-414b-819f-fc4830475e22" />
@@ -1133,7 +1133,7 @@ It provides links between elements and metadata files located elsewhere in the p
                 <fptr FILEID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0" />
             </div>
         </div>
-        <div ID="uuid-17ff6cea-cd84-46ad-b9a8-250809f9e2c7" LABEL="representations">
+        <div ID="uuid-17ff6cea-cd84-46ad-b9a8-250809f9e2c7" LABEL="Representations">
             <div ID="uuid-c5cab13b-aced-4024-bbc3-d38c682602d2" LABEL="representation_1">
                 <mptr xlink:type="simple" xlink:href="./representations/representation_1/mets.xml" LOCTYPE="URL" />
             </div>
