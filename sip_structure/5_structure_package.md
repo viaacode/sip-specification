@@ -64,15 +64,45 @@ The package `mets.xml` file does not record the internal structure of the differ
 It only references the different `mets.xml` files contained in each `/representation_*` directory (where `*` is an integer indicating the number of different representations in the `/representation` directory).
 Each of the `mets.xml` files at the [representation level](./6_structure_representation.html) references its own internal structure.
 
+## Elements and internal references
+
 A `mets.xml` file typically consists of a number of fixed elements, outlined below.
-This section covers each of these elements below in a dedicated subsection.
+Each of these elements is covered in a dedicated subsection in the remainder of this section.
 
 - `<mets>` element: the root tag; this element contains a number of attributes with information about the type of SIP and its identification.
 - `<metsHdr>` element: this tag mainly covers the agents (such as software or the CP) involved with the creation and submission process of the SIP.
 - `<dmdSec>` element: this tag contains descriptive metadata, either embedded within the tag or with a reference to an external metadata file.
 - `<amdSec>` element: this tag contains preservation metadata, either embedded within the tag or with a reference to an external metadata file.
 - `<fileSec>` element: this tag acts as an inventory of the files that comprise the digital object being described in the `mets.xml` file.
-- `<structMap>` element: this tag organizes the digital content represented in the `<fileSec>` element into a coherent hierarchical structure. This is important for a correct comprehension and navigation of digital content with complex relationships between the digital objects, such as newspapers.
+- `<structMap>` element: this tag organizes the digital content represented in the `<fileSec>`, `<dmdSec>`, and `<amdSec>` elements into a coherent hierarchical structure. This is important for a correct comprehension and navigation of digital content with complex relationships between the digital objects, such as newspapers. 
+
+Some of these elements, or their child elements, are identified with an identifier, contained in the `@ID` attribute (see the requirements in the sections below).
+These identifiers must be unique within the SIP. 
+
+The `<structMap>` serves as the entrypoint for locating the metadata, data or manifest files during parsing of the SIP.
+Therefore, it contains pointers to the `@ID` identifiers defined in the `<fileSec>`, `<dmdSec>`, and `<amdSec>` sections.
+An overview of the different elements and references is given in the following figure.
+
+<figure class="mx-auto">
+  <img src="../../../../../assets/images_spec/sip-structure-pointers.svg" alt="Internal references between elements in the mets.xml" /> 
+  <figcaption>Internal references between elements in the mets.xml.</figcaption>
+</figure>
+
+In addition, 
+the `<fileGrp>` and `<file>` elements can also reference contents of the `<amdSec>` and `<dmdSec>`, however this is optional.
+A summary of all possible references and their obligation is given in the table below.
+
+| Pointer | Obligation | Target |
+| ------- | ---------- | ---------- |
+[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID`](#structMap-csip-div-div-representations-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.  |
+[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID`](#structMap-csip-div-div-documentation-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
+[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID`](#structMap-csip-div-div-schemas-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
+[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID`](#structMap-csip-div-div-metadata-dmdid) | SHOULD | [`mets/dmdSec/@ID`](#dmdSec-id) |
+[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID`](#structMap-csip-div-div-metadata-admid) | SHOULD | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
+[`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`]() OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
+[`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
+[`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
+
 
 ### \<mets\> section
 
@@ -541,7 +571,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
-| Attribute | `mets/dmdSec/@ID` |
+| <a id="dmdSec-id"></a>Attribute | `mets/dmdSec/@ID` |
 |-----------------------|-----------|
 | Name | Descriptive metadata section identifier |
 | Description | A unique identifier for the `dmdSec` used for internal package references.<br>It MUST be unique within the SIP. |
@@ -679,7 +709,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/amdSec/digiprovMD/@ID` |
+| <a id="digiprovMD-id"></a>Attribute | `mets/amdSec/digiprovMD/@ID` |
 |-----------------------|-----------|
 | Name | Digital provenance metadata identifier |
 | Description | A unique identifier used for internal package references.<br>It MUST be unique within the SIP. |
@@ -783,7 +813,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Attribute | `mets/amdSec/rightsMD/@ID` |
+| <a id="rightsMD-id"></a>Attribute | `mets/amdSec/rightsMD/@ID` |
 |-----------------------|-----------|
 | Name | Rights metadata identifier |
 | Description | A unique identifier used for internal package references.<br>It MUST be unique within the SIP. |
@@ -917,7 +947,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Attribute | `mets/fileSec/@ID` |
+| <a id="fileSec-id"></a>Attribute | `mets/fileSec/@ID` |
 |-----------------------|-----------|
 | Name | File section identifier |
 | Description | A unique identifier for the file section used for internal package references.<br>It MUST be unique within the SIP. |
@@ -946,7 +976,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Cardinality | 1..* |
 | Obligation | MUST |
 
-| Attribute | `mets/fileSec/fileGrp/@ADMID` |
+| <a id="fileGrp-admid"></a>Attribute | `mets/fileSec/fileGrp/@ADMID` |
 |-----------------------|-----------|
 | Name | Reference to administrative metadata |
 | Description | Reference to the ID of the corresponding administrative metadata section, in case an `amdSec` was used. |
@@ -975,7 +1005,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/fileSec/fileGrp/@ID` |
+| <a id="fileGrp-id"></a>Attribute | `mets/fileSec/fileGrp/@ID` |
 |-----------------------|-----------|
 | Name | File group identifier |
 | Description | A unique identifier for the file group. This is used for internal package references.<br>It MUST be unique within the SIP. |
@@ -990,7 +1020,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Cardinality | 1..* |
 | Obligation | MUST |
 
-| Attribute | `mets/fileSec/fileGrp/file/@ID` |
+| <a id="file-id"></a>Attribute | `mets/fileSec/fileGrp/file/@ID` |
 |-----------------------|-----------|
 | Name | File identifier |
 | Description | A unique identifier for the file. This is used for internal package references.<br>It MUST be unique within the SIP. |
@@ -1046,7 +1076,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/fileSec/fileGrp/file/@ADMID` |
+| <a id="file-admid"></a>Attribute | `mets/fileSec/fileGrp/file/@ADMID` |
 |-----------------------|-----------|
 | Name | File reference to administrative metadata |
 | Description | If an `amdSec` (with `@ID` attribute) was provided, this attribute allows to reference it. |
@@ -1054,7 +1084,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/fileSec/fileGrp/file/@DMDID` |
+| <a id="file-dmdid"></a>Attribute | `mets/fileSec/fileGrp/file/@DMDID` |
 |-----------------------|-----------|
 | Name | File reference to descriptive metadata |
 | Description | If a `dmdSec` (with `@ID` attribute) was provided, this attribute allows to reference it. |
@@ -1143,7 +1173,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/@ID` |
+| <a id="structMap-csip-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/@ID` |
 |-----------------------|-----------|
 | Name | Structural description identifier |
 | Description | A unique identifier for the structural description. This can be used for internal package references. |
@@ -1158,7 +1188,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/@ID` |
+| <a id="structMap-csip-div-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/@ID` |
 |-----------------------|-----------|
 | Name | Main structural division identifier |
 | Description | A unique identifier for the main `div` element. This can be used for internal package references.<br>It MUST be unique within the SIP. |
@@ -1174,7 +1204,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ID` |
+| <a id="structMap-csip-div-div-metadata-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ID` |
 |-----------------------|-----------|
 | Name | Metadata division identifier |
 | Description | A unique identifier for the metadata `div` element. This can be used for internal package references.<br>It MUST be unique within the SIP. |
@@ -1190,7 +1220,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID` |
+| <a id="structMap-csip-div-div-metadata-admid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID` |
 |-----------------------|-----------|
 | Name | Metadata division references administrative metadata |
 | Description | The administrative metadata division should reference all current administrative metadata sections.<br>All `amdSec` elements with `@STATUS='CURRENT'` SHOULD be referenced by their identifier, `@ID`. <br> The current `amdSec` elements' `@ID`s are recorded in the `div[@LABEL='Metadata']/@ADMID` attribute in a space delimited list. |
@@ -1198,7 +1228,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID` |
+| <a id="structMap-csip-div-div-metadata-dmdid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID` |
 |-----------------------|-----------|
 | Name | Metadata division references descriptive metadata |
 | Description | The descriptive metadata division should reference all current descriptive metadata sections.<br>All `dmdSec` elements with `@STATUS='CURRENT'` SHOULD be referenced by their identifier, `@ID`. <br> The current `dmdSec` elements' `@ID`s are recorded in the `div[@LABEL='Metadata']/@DMDID` attribute in a space delimited list. |
@@ -1214,7 +1244,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/@ID` |
+| <a id="structMap-csip-div-div-documentation-id">Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/@ID` |
 |-----------------------|-----------|
 | Name | Documentation division identifier |
 | Description | A unique identifier for the documentation `div` element. This can be used for internal package references. |
@@ -1237,7 +1267,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..* |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID` |
+| <a id="structMap-csip-div-div-documentation-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID` |
 |-----------------------|-----------|
 | Name | Documentation file group reference pointer |
 | Description | A unique identifier to the `Documentation` file group. This can be used for internal package references. |
@@ -1253,7 +1283,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/@ID` |
+| <a id="structMap-csip-div-div-schemas-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/@ID` |
 |-----------------------|-----------|
 | Name | Schema division identifier |
 | Description | A unique identifier to the `Schemas` file group. This can be used for internal package references. |
@@ -1276,7 +1306,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..* |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID` |
+| <a id="structMap-csip-div-div-schemas-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID` |
 |-----------------------|-----------|
 | Name | Schema file group reference |
 | Description | A unique identifier to the `Schemas` file group. This can be used for internal package references. |
@@ -1291,7 +1321,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/@ID` |
+| <a id="structMap-csip-div-div-representations-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/@ID` |
 |-----------------------|-----------|
 | Name | Content division identifier |
 | Description | A unique identifier to the `Representations` file group. This can be used for internal package references. |
@@ -1314,7 +1344,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..* |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID` |
+| <a id="structMap-csip-div-div-representations-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID` |
 |-----------------------|-----------|
 | Name | Content division file group references |
 | Description | The pointer to the identifier for the `Representations` file group. |
@@ -1329,7 +1359,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div/@ID` |
+| <a id="structMap-csip-div-div-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div/@ID` |
 |-----------------------|-----------|
 | Name | Representations division identifier |
 | Description | A unique identifier that can be used for internal package references. |
