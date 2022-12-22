@@ -150,7 +150,7 @@ The various requirements are listed in the table below.
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/@TYPE` |
+| <a id="TYPE"></a>Attribute | `mets/@TYPE` |
 |-----------------------|-----------|
 | Name | Content category |
 | Description | This attribute MUST be set to declare the category of the content held in the SIP. |
