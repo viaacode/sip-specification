@@ -64,7 +64,7 @@ The package `mets.xml` file does not record the internal structure of the differ
 It only references the different `mets.xml` files contained in each `/representation_*` directory (where `*` is an integer indicating the number of different representations in the `/representation` directory).
 Each of the `mets.xml` files at the [representation level](./6_structure_representation.html) references its own internal structure.
 
-## Elements and internal references
+### Elements and internal references
 
 A `mets.xml` file typically consists of a number of fixed elements, outlined below.
 Each of these elements is covered in a dedicated subsection in the remainder of this section.
