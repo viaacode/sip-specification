@@ -438,7 +438,7 @@ The table below gives an overview of the different relationship types that can b
 | Element | `premis:premis/premis:object/premis:objectIdentifier` |
 |-----------------------|-----------|
 | Name | Object identifier |
-| Description | This element contains object identifier information.<br><br>There MUST be exactly one object identifier present with `premis:objectIdentifierType` set to `UUID`. This is the main identifier for the concerned representation or file, which uniquely identifies the concerned IE and establishes a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. There MAY be zero or more additional object identifiers of a different type. |
+| Description | This element contains object identifier information.<br><br>There MUST be exactly one object identifier present with `premis:objectIdentifierType` set to `UUID`. This is the main identifier for the concerned representation or file, which uniquely identifies the concerned IE and establishes a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc*.xml` file, if any is present. There MAY be zero or more additional object identifiers of a different type. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
