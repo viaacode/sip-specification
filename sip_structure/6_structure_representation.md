@@ -438,7 +438,7 @@ The table below gives an overview of the different relationship types that can b
 | Element | `premis:premis/premis:object/premis:objectIdentifier` |
 |-----------------------|-----------|
 | Name | Object identifier |
-| Description | This element contains object identifier information.<br><br>At least one object identifier MUST be present to uniquely identify the concerned representation or file, and to establish a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc*.xml` file, if any is present. |
+| Description | This element contains object identifier information.<br><br>There MUST be exactly one object identifier present with `premis:objectIdentifierType` set to `UUID`. This is the main identifier for the concerned representation or file, which uniquely identifies the concerned IE and establishes a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. There MAY be zero or more additional object identifiers of a different type. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
@@ -447,7 +447,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Object identifier type |
 | Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc*.xml` file, if any is present. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
+| Vocabulary | `local_id`<br>`ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -544,7 +544,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Related object identifier type |
 | Description | The type of the PREMIS related object identifier being used. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `local`<br>`ID`<br>`UUID`<br>... |
+| Vocabulary | `ID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
