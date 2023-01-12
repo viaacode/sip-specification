@@ -90,7 +90,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <!-- general title for the resource -->
   <dcterms:title>Felis Catus Flamens sitting on a cat tree</dcterms:title>

@@ -178,7 +178,7 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
 
   <!-- general title for the resource -->
   <dcterms:title xml:lang="nl">Uur- en kalenderwijzeplaat</dcterms:title>

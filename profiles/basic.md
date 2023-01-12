@@ -244,7 +244,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 
   <!-- general title for the resource -->

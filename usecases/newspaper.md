@@ -129,7 +129,7 @@ Note that, as opposed to the `mods.xml` file, the `dc.xml` file is optional acco
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
   <dcterms:title>Le Chat Blanc: 02/08/2022</dcterms:title>
 
@@ -162,7 +162,7 @@ The examples below and in the sample mentioned earlier therefore only serve as a
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<mods:mods xmlns:mods="http://www.loc.gov/mods/v3" version="3.7" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance/" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
+<mods:mods xmlns:mods="http://www.loc.gov/mods/v3" version="3.7" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-7.xsd">
 
   <mods:titleInfo>
     <mods:title>Le Chat Blanc</mods:title>
