@@ -445,9 +445,9 @@ The table below gives an overview of the different relationship types that can b
 | Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierType` |
 |-----------------------|-----------|
 | Name | Object identifier type |
-| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type ID MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc*.xml` file, if any is present. |
+| Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type `UUID` MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc*.xml` file, if any is present. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `local_id`<br>`ID`<br>`UUID`<br>... |
+| Vocabulary | `UUID`<br>`LOCAL_ID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
