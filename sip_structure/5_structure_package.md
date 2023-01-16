@@ -1705,7 +1705,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Related object identifier type |
 | Description | The type of the PREMIS related object identifier being used. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `ID`<br>`UUID`<br>... |
+| Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1885,7 +1885,7 @@ TODO: figure out the IDs
 | Name | Linking object identifier type |
 | Description | The type of the object identifier that the event is being linked to. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `ID`<br>`UUID`<br>... |
+| Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
