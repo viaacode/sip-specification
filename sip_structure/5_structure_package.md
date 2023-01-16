@@ -1703,7 +1703,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Related object identifier type |
 | Description | The type of the PREMIS related object identifier being used. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `ID`<br>`UUID`<br>... |
+| Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1802,7 +1802,7 @@ TODO: figure out the IDs
 | Name | Event identifier type |
 | Description | The type of the PREMIS event identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS event. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `UUID`<br>`ID`<br>... |
+| Vocabulary | `UUID`<br>`UUID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1883,7 +1883,7 @@ TODO: figure out the IDs
 | Name | Linking object identifier type |
 | Description | The type of the object identifier that the event is being linked to. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `ID`<br>`UUID`<br>... |
+| Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1930,7 +1930,7 @@ TODO: figure out the IDs
 | Element | `premis:premis/premis:agent/premis:agentIdentifier/premis:agentIdentifierType` |
 |-----------------------|-----------|
 | Name | Agent identifier type |
-| Description | The type of the PREMIS agent identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS agent. |
+| Description | The type of the PREMIS agent identifier being used.<br><br>At least one identifier of type `UUID` MUST be defined in order to provide a unique identifier for each PREMIS agent. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
