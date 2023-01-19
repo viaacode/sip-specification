@@ -668,7 +668,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Format registry key |
 | Description | Unique key that is used by the format registry for the concerned file format. |
-|| Datatype | ID |
+| Datatype | ID |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
