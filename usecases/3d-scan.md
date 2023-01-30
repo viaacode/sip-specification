@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Material artwork
 ---
-Editor's Draft
-{: .label .label-yellow }
+Release Candidate
+{: .label .label-blue }
 # Use Case: a digitization of a three-dimensional artwork
 
 The following use case describes how to package a reproduction of a three-dimensional artwork such as a statue or sculpture. 

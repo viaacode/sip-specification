@@ -6,8 +6,8 @@ grand_parent:  SIP Specification
 nav_order:    2
 nav_exclude:  false
 ---
-Editor's Draft
-{: .label .label-yellow }
+Release Candidate
+{: .label .label-blue }
 # Terminology
 
 <dl>

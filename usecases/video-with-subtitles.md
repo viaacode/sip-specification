@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Basic
 ---
-Editor's Draft
-{: .label .label-yellow }
+Release Candidate
+{: .label .label-blue }
 # Use Case: a video file with subtitles
 
 The following use case describes how to package

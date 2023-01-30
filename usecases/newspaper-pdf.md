@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Newspaper
 ---
-Editor's Draft
-{: .label .label-yellow }
+Release Candidate
+{: .label .label-blue }
 # Use Case: a newspaper edition digitised per page (with PDF)
 
 The following use case describes how to package a newspaper edition digitised per page (with PDF file). It includes:

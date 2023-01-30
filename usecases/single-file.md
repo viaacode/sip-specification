@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile: Basic
 ---
-Editor's Draft
-{: .label .label-yellow }
+Release Candidate
+{: .label .label-blue }
 # Use Case: a single image
 
 The following use case describes how to package a single image file with some basic descriptive metadata.

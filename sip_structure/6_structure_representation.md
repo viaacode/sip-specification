@@ -6,8 +6,8 @@ grand_parent:  1.1
 nav_order:    7
 nav_exclude:  false
 ---
-Editor's Draft
-{: .label .label-yellow }
+Release Candidate
+{: .label .label-blue }
 # Representation level
 {: .no_toc }
 

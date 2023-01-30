@@ -6,8 +6,8 @@ grand_parent:  1.1
 nav_order:    2
 nav_exclude:  false
 ---
-Editor's Draft
-{: .label .label-yellow }
+Release Candidate
+{: .label .label-blue }
 # Profile: Newspaper 
 
 The newspaper profile supports the ingest of digitised newspaper content.
