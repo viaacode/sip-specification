@@ -230,6 +230,15 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
+### Validation
+
+The XML files that are required by this profile can be validated using the following XML schema definitions:
+
+| File | Format | XML Schema |
+| `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
+| `dc_*.xml` | Dublin Core (custom schema) | [dcterms.xsd](../../assets/xsd/dcterms.xsd) |
+
 ## Connecting the descriptive metadata to PREMIS
 
 The `dc*.xml` file at the package-level contains descriptive metadata about the IE(s) of the SIP.

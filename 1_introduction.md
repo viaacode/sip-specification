@@ -43,14 +43,14 @@ This document is primarily intended for the following audiences:
 
 To fully understand the basics of this specification, it is advised to be familiar with the [XML](https://www.w3.org/XML/) format, as well as the following standards and metadata schemas this specification adheres to:
 
-| Abbreviation | Standard/schema|
+| Abbreviation | Standard |
 | ------------ | -------------- |
 | <a id="bagit"></a>BagIt        | [BagIt File Packaging Format](https://www.rfc-editor.org/rfc/rfc8493.html)|
 | <a id="e-ark-csip"></a>E-ARK CSIP   | [E-ARK Common Specification for Information Packages](https://earkcsip.dilcis.eu/)|
 | <a id="e-ark-sip"></a>E-ARK SIP    | [E-ARK Specification for Submission Information Packages](https://earksip.dilcis.eu/)|
 | <a id="mets"></a>METS         | [Metadata Encoding & Transmission Standard](https://www.loc.gov/standards/mets/mets.xsd)|
-| <a id="dcterms"></a>DCTERMS      | [Dublin Core Metadata Initiative Metadata Terms](http://dublincore.org/schemas/xmls/qdc/2008/02/11/dcterms.xsd)|
-| <a id="premis"></a>PREMIS       | [PREMIS for Preservation Metadata](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd)|
+| <a id="dcterms"></a>DCTERMS      | [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)|
+| <a id="premis"></a>PREMIS       | [PREMIS Data Dictionary for Preservation Metadata]([PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/))|
 
 Metadata elements from these standards are described throughout this specification using tables such as the one below. 
 
