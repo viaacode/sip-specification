@@ -400,7 +400,7 @@ The XML files that are required by this profile can be validated using the follo
 | `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc.xml` | Dublin Core (custom schema) | [dcterms.xsd](../../assets/xsd/dcterms.xsd) |
-| `mods.xml` | MODS v3.8 | [dcterms.xsd](https://www.loc.gov/standards/mods/v3/mods-3-8.xsd) |
+| `mods.xml` | MODS v3.8 | [mods-3-8.xsd](https://www.loc.gov/standards/mods/v3/mods-3-8.xsd) |
 
 ## Use Cases
 
