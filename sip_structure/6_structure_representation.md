@@ -74,7 +74,7 @@ The `mets.xml` file at the representation level (also known as the representatio
 
 ### Elements and internal references
 
-Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists requirements regarding the `mets` and `metsHdr` sections are covered in a dedicated subsection in the remainder of this section.
+Since the `dmdSec`, `amdSec`, `fileSec` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists (additional )requirements regarding the `mets`, `metsHdr` and `structMap` sections are covered in a dedicated subsection in the remainder of this section.
 
 Some of these elements, or their child elements, are identified with an identifier, contained in the `@ID` attribute (see the requirements in the sections below).
 These identifiers must be unique within the SIP. 
@@ -258,6 +258,63 @@ A summary of all possible references and their obligation is given in the table 
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
+
+### \<structMap\> section
+
+The `structMap` element outlines the hierarchical structure of the representation level of the SIP.
+Its requirements are very similar to the package level, however, instead of pointing to the contained representations, a `Data` division points to the contained files. 
+
+***Example***
+
+```xml
+<structMap ID="uuid-f81f8688-b278-4397-b59c-82593b11a2b9" TYPE="PHYSICAL" LABEL="CSIP">
+    <div ID="uuid-a5e05d29-49d9-4466-b070-19b8990b5029" LABEL="representation_1">
+        <div ID="uuid-af54ed63-8361-4d90-a30f-99d02de24857" LABEL="Metadata" 
+            ADMID="uuid-f7972ff5-599e-4f60-8b7e-8bbf4e035482" />
+        <div ID="uuid-c137b167-7254-4085-b965-75980976638d" LABEL="Data">
+            <fptr FILEID="uuid-d020d7d1-f258-40af-8788-04cf62a0032b" />
+        </div>
+    </div>
+</structMap>
+```
+
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']` |
+|-----------------------|-----------|
+| Name | Content division |
+| Description | The data referenced in the file section file groups are described in the structural map within a single sub-division. |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| <a id="structMap-csip-div-div-representations-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']/@ID` |
+|-----------------------|-----------|
+| Name | Content division identifier |
+| Description | A unique identifier to the `Data` file group. This can be used for internal package references. |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']` |
+|-----------------------|-----------|
+| Name | Content division label |
+| Description | The representations `div` element’s `@LABEL` attribute value MUST be `Data`. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']/fptr` |
+|-----------------------|-----------|
+| Name | Content division file references |
+| Description | All file groups containing content described in the package are referenced via the relevant file group identifiers.<br>There MUST be one file group reference per `fptr` element. |
+| Cardinality | 0..* |
+| Obligation | MUST |
+
+| <a id="structMap-csip-div-div-representations-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']/fptr/@FILEID` |
+|-----------------------|-----------|
+| Name | Content division file group references |
+| Description | The pointer to the identifier for the `Data` file group. |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 ## /data (directory)
 
