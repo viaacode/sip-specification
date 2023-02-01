@@ -292,7 +292,7 @@ Its requirements are very similar to the package level, however, instead of poin
 |-----------------------|-----------|
 | Name | Content division identifier |
 | Description | A unique identifier to the `Data` file group. This can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -300,7 +300,7 @@ Its requirements are very similar to the package level, however, instead of poin
 |-----------------------|-----------|
 | Name | Content division label |
 | Description | The representations `div` element’s `@LABEL` attribute value MUST be `Data`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -315,7 +315,7 @@ Its requirements are very similar to the package level, however, instead of poin
 |-----------------------|-----------|
 | Name | Content division file group references |
 | Description | The pointer to the identifier for the `Data` file group. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
