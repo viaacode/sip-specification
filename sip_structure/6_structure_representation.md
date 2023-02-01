@@ -71,7 +71,35 @@ These two directories are ignored during ingest and will therefore not be archiv
 ## mets.xml (file)
 
 The `mets.xml` file at the representation level (also known as the representation mets) generally follows the same structure and requirements as the package mets discussed in the section [package mets.xml](./5_structure_package.html#metsxml-file).
-Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same requirements, where possible, as the package `mets.xml` file, this section only lists requirements regarding the `mets` and `metsHdr` sections.
+
+### Elements and internal references
+
+Since the `dmdSec`, `amdSec`, `fileSec` and `structMap` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists requirements regarding the `mets` and `metsHdr` sections are covered in a dedicated subsection in the remainder of this section.
+
+Some of these elements, or their child elements, are identified with an identifier, contained in the `@ID` attribute (see the requirements in the sections below).
+These identifiers must be unique within the SIP. 
+
+The `<structMap>` serves as the entrypoint for locating the metadata, data or manifest files during parsing of the SIP.
+Therefore, it contains pointers to the `@ID` identifiers defined in the `<fileSec>`, `<dmdSec>`, and `<amdSec>` sections.
+An overview of the different elements and references on the representation level is given in the following figure.
+
+<figure class="mx-auto">
+  <img src="../../../../../assets/images_spec/sip-representation-pointers.svg" alt="Internal references between elements in the mets.xml" /> 
+  <figcaption>Internal references between elements in the representation mets.xml.</figcaption>
+</figure>
+
+In addition, 
+the `<fileGrp>` and `<file>` elements can also reference contents of the `<amdSec>` and `<dmdSec>`, however this is optional.
+A summary of all possible references and their obligation is given in the table below.
+
+| Pointer | Obligation | Target |
+| ------- | ---------- | ---------- |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']/fptr/@FILEID`](#structMap-csip-div-div-representations-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.  |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID`](#structMap-csip-div-div-metadata-dmdid) | MUST | [`mets/dmdSec/@ID`](#dmdSec-id) |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID`](#structMap-csip-div-div-metadata-admid) | MUST | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
+| [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`]() OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
+|[`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
+| [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
 
 ### \<mets\> section
 
