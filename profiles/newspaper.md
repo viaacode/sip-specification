@@ -314,7 +314,7 @@ root_directory
                 </div>
             </div>
             <!-- order attributes for page order -->
-            <div ID="uuid-41bacec1-1d6c-467a-8020-7114115562a8" LABEL="data">
+            <div ID="uuid-41bacec1-1d6c-467a-8020-7114115562a8" LABEL="Data">
                 <div ID="uuid-47e52361-8508-4ae1-ad8c-0e1f5382065e" TYPE="page" ORDER="1">
                     <fptr FILEID="uuid-9850cb03-b1fd-4661-a4fb-e3dfcf25e9e5" />
                 </div>
