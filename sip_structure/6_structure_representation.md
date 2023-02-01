@@ -76,7 +76,7 @@ The `mets.xml` file at the representation level (also known as the representatio
 
 ### Elements and internal references
 
-Since the `dmdSec`, `amdSec`, `fileSec` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists (additional )requirements regarding the `mets`, `metsHdr` and `structMap` sections are covered in a dedicated subsection in the remainder of this section.
+Since the `dmdSec`, `amdSec`, `fileSec` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists (additional) requirements regarding the `mets`, `metsHdr` and `structMap` sections are covered in a dedicated subsection in the remainder of this section.
 
 Some of these elements, or their child elements, are identified with an identifier, contained in the `@ID` attribute (see the requirements in the sections below).
 These identifiers must be unique within the SIP. 
@@ -102,7 +102,6 @@ A summary of all possible references and their obligation is given in the table 
 | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`]() OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
 |[`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
-
 
 ### \<mets\> section
 
@@ -311,14 +310,13 @@ Its requirements are very similar to the package level, however, instead of poin
 | Cardinality | 0..* |
 | Obligation | MUST |
 
-| <a id="structMap-csip-div-div-representations-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']/fptr/@FILEID` |
+| <a id="structMap-csip-div-div-data-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Data']/fptr/@FILEID` |
 |-----------------------|-----------|
 | Name | Content division file group references |
 | Description | The pointer to the identifier for the `Data` file group. |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
-
 
 ## /data (directory)
 
@@ -345,6 +343,10 @@ This descriptive metadata is stored in XML files, describing the specific repres
 
 Descriptive metadata at the represenation level follows the same requirements regarding metadata elements discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
 Hence, the concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/index.md %}).
+
+### /preservation (directory)
+
+The `/preservation` directory contains preservation metadata about the representation and the media files.
 
 ***Requirements***
 
