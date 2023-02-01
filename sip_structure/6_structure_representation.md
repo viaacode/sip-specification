@@ -74,7 +74,7 @@ The `mets.xml` file at the representation level (also known as the representatio
 
 ### Elements and internal references
 
-Since the `dmdSec`, `amdSec`, `fileSec` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists (additional )requirements regarding the `mets`, `metsHdr` and `structMap` sections are covered in a dedicated subsection in the remainder of this section.
+Since the `dmdSec`, `amdSec`, `fileSec` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists (additional) requirements regarding the `mets`, `metsHdr` and `structMap` sections are covered in a dedicated subsection in the remainder of this section.
 
 Some of these elements, or their child elements, are identified with an identifier, contained in the `@ID` attribute (see the requirements in the sections below).
 These identifiers must be unique within the SIP. 
