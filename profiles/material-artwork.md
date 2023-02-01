@@ -36,7 +36,7 @@ root_directory
     |       └── premis.xml
     │
     └── representations
-        └──representation_1       # overview with list
+        └──representation_1       # overview with frame
            │── mets.xml
            └──data
            │  └── PID_overzichtsopname_metlijst_tiff.tiff
@@ -46,7 +46,7 @@ root_directory
               |   └── dc+schema.xml
               └──preservation
                  └── premis.xml
-        └──representation_2       # overview without list
+        └──representation_2       # overview without frame
            │── mets.xml
            └──data
            │  └── PID_overzichtsopname_zonderlijst_tiff.tif
