@@ -262,7 +262,7 @@ A summary of all possible references and their obligation is given in the table 
 ### \<structMap\> section
 
 The `structMap` element outlines the hierarchical structure of the representation level of the SIP.
-Its requirements are very similar to the package level, however, instead of pointing to the contained representations, a `Data` division points to the contained files. 
+Its requirements are very similar to the package level, however, instead of pointing to the contained representations, a `Representations` division points to the contained files. 
 
 ***Example***
 
