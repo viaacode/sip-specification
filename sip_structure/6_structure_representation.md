@@ -629,7 +629,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | File format designation |
 | Description | This element contains an identification of the format of the file object. |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | SHOULD |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatDesignation/premis:formatName` |
@@ -644,8 +644,8 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | File format version |
 | Description | The version of the format named in `premis:formatName`. |
-| Cardinality | 1..1 |
-| Obligation | SHOULD |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry` |
 |-----------------------|-----------|
