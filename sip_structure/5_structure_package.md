@@ -96,9 +96,9 @@ A summary of all possible references and their obligation is given in the table 
 | ------- | ---------- | ---------- |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID`](#structMap-csip-div-div-metadata-dmdid) | MUST | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID`](#structMap-csip-div-div-metadata-admid) | MUST | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
-| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title`](#structMap-csip-div-div-representations-fptr-fileid) | SHOULD | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) (or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.)  |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID`](#structMap-csip-div-div-documentation-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID`](#structMap-csip-div-div-schemas-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title`](#structMap-csip-div-div-representations-fptr-fileid) | SHOULD | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) (or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.)  |
 | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`]() OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
 | [`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
