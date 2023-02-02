@@ -753,7 +753,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Format registry key |
 | Description | Unique key that is used by the format registry for the concerned file format. |
-| Datatype | ID |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
