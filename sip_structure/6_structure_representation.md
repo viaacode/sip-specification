@@ -264,7 +264,7 @@ A summary of all possible references and their obligation is given in the table 
 ### \<structMap\> section
 
 The `structMap` element outlines the hierarchical structure of the representation level of the SIP.
-Its requirements are very similar to the package level, however, instead of pointing to the contained representations, a `Data` division points to the contained files. 
+Its requirements are very similar to the package level, however, instead of pointing to the contained representations, a `Representations` division points to the contained files. 
 
 ***Example***
 
@@ -283,14 +283,14 @@ Its requirements are very similar to the package level, however, instead of poin
 | Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']` |
 |-----------------------|-----------|
 | Name | Content division |
-| Description | The data referenced in the file section file groups are described in the structural map within a single sub-division. |
+| Description | The data referenced in the file section file groups are described in the structural map within a single sub-division called `Representations`. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | <a id="structMap-csip-div-div-representations-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/@ID` |
 |-----------------------|-----------|
 | Name | Content division identifier |
-| Description | A unique identifier to the `Data` file group. This can be used for internal package references. |
+| Description | A unique identifier to the `Representations` file group. This can be used for internal package references. |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -298,7 +298,7 @@ Its requirements are very similar to the package level, however, instead of poin
 | Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']` |
 |-----------------------|-----------|
 | Name | Content division label |
-| Description | The representations `div` element’s `@LABEL` attribute value MUST be `Data`. |
+| Description | The representations `div` element’s `@LABEL` attribute value MUST be `Representations`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -313,7 +313,7 @@ Its requirements are very similar to the package level, however, instead of poin
 | <a id="structMap-csip-div-div-data-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID` |
 |-----------------------|-----------|
 | Name | Content division file group references |
-| Description | The pointer to the identifier for the `Data` file group. |
+| Description | The pointer to the identifier for the `Representations` file group. |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
