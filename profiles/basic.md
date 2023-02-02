@@ -61,8 +61,9 @@ root_directory
 - The `/descriptive` directory at the package level MUST contain exactly one metadata file `dc*.xml` that describes the IE.
 - The `dc*.xml` filename SHOULD apply the following naming convention: `dc*.xml` with `*` is any string of zero or more characters.
 - The `dc*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
-- The `dc*.xml` file MUST declare the DCTERMS namespaces in its root element.
 - The `dc*.xml` file MUST use the `<metadata/>` tag as its root element.
+- The `dc*.xml` file MUST declare the `http://purl.org/dc/terms/` (dcterms), `http://www.w3.org/2001/XMLSchema-instance` (xsi) and `http://id.loc.gov/datatypes/edtf/` (edtf)` namespaces in its root element.
+- The `dc*.xml` file MUST declare `https://data.hetarchief.be/id/sip/1.0/basic` as default namespace in its root element.
 - The `dc*.xml` file MUST be limited to the DCTERMS elements outlined in the table below.
 - The `dc*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 - The `dc*.xml` file MUST contain a shared ID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element (see [next section](#connecting-the-descriptive-metadata-to-premis)).
@@ -71,8 +72,8 @@ root_directory
 
 | Element | `metadata` |
 |-----------------------|-----------|
-| Name | DC root element |
-| Description | This root element MUST contain the XML schema namespace of [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd).<br>It MUST NOT contain any other XML schema namespaces besides DCTERMS.<br>It MUST NOT contain any attributes besides namespaces. |
+| Name | DCTERMS root element |
+| Description | The root element for descriptive metadata in [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/). This root element MUST declare the XML schema namespaces `http://purl.org/dc/terms/` (dcterms), `http://www.w3.org/2001/XMLSchema-instance` (xsi) and `http://id.loc.gov/datatypes/edtf/` (edtf), and the default namespace `https://data.hetarchief.be/id/sip/1.0/basic`. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -251,7 +252,11 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<metadata xmlns="https://data.hetarchief.be/id/sip/1.1/basic" 
+      xmlns:dcterms="http://purl.org/dc/terms/" 
+      xmlns:xs="http://www.w3.org/2001/XMLSchema/" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
 
   <!-- general title for the resource -->
@@ -261,7 +266,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
   <dcterms:identifier>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</dcterms:identifier>
 
   <!-- date unknown -->
-  <dcterms:created xsi:type="edtf">XXXX</dcterms:created>
+  <dcterms:created xsi:type="edtf:EDTF">XXXX</dcterms:created>
 
   <!-- multiple keywords about the resource -->
   <dcterms:subject>Cat</dcterms:subject>
