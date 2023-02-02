@@ -1346,7 +1346,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Representations division file references |
 | Description | The file group containing the files described in the package are referenced via the relevant file group identifier. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
