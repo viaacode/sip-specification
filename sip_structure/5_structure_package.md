@@ -81,10 +81,10 @@ These identifiers must be unique within the SIP.
 
 The `<structMap>` serves as the entrypoint for locating the metadata, data or manifest files during parsing of the SIP.
 Therefore, it contains pointers to the `@ID` identifiers defined in the `<fileSec>`, `<dmdSec>`, and `<amdSec>` sections.
-An overview of the different elements and references is given in the following figure.
+An overview of the different elements and references on the package level is given in the following figure.
 
 <figure class="mx-auto">
-  <img src="../../../../../assets/images_spec/sip-structure-pointers.svg" alt="Internal references between elements in the mets.xml" /> 
+  <img src="../../../../../assets/images_spec/sip-package-pointers.svg" alt="Internal references between elements in the package mets.xml" /> 
   <figcaption>Internal references between elements in the mets.xml.</figcaption>
 </figure>
 
@@ -94,14 +94,14 @@ A summary of all possible references and their obligation is given in the table 
 
 | Pointer | Obligation | Target |
 | ------- | ---------- | ---------- |
-[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID`](#structMap-csip-div-div-representations-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.  |
-[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID`](#structMap-csip-div-div-documentation-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
-[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID`](#structMap-csip-div-div-schemas-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
-[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID`](#structMap-csip-div-div-metadata-dmdid) | MUST | [`mets/dmdSec/@ID`](#dmdSec-id) |
-[`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID`](#structMap-csip-div-div-metadata-admid) | MUST | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
-[`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`]() OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
-[`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
-[`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID`](#structMap-csip-div-div-metadata-dmdid) | MUST | [`mets/dmdSec/@ID`](#dmdSec-id) |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID`](#structMap-csip-div-div-metadata-admid) | MUST | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID`](#structMap-csip-div-div-documentation-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID`](#structMap-csip-div-div-schemas-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title`](#structMap-csip-div-div-representations-fptr-fileid) | SHOULD | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) (or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.)  |
+| [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`]() OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
+| [`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
+| [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) |
 
 
 ### \<mets\> section
@@ -1136,13 +1136,11 @@ It provides links between elements and metadata files located elsewhere in the p
         <div ID="uuid-c0a73bbc-d6f3-42a0-b5e1-f53a4601101b" LABEL="Metadata"
             DMDID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911 uuid-7a3443ed-9925-414b-819f-fc4830475e22 uuid-dff9e2ad-ab58-490a-9d80-df6c812404d2"
             ADMID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0" />
-        <div ID="uuid-17ff6cea-cd84-46ad-b9a8-250809f9e2c7" LABEL="Representations">
-            <div ID="uuid-c5cab13b-aced-4024-bbc3-d38c682602d2" LABEL="representation_1">
-                <mptr xlink:type="simple" xlink:href="./representations/representation_1/mets.xml" LOCTYPE="URL" />
-            </div>
-            <div ID="uuid-daeba358-46ee-4363-b2a2-bd745c128f6f" LABEL="representation_2">
-                <mptr xlink:type="simple" xlink:href="./representations/representation_2/mets.xml" LOCTYPE="URL" />
-            </div>
+        <div ID="uuid-c5cab13b-aced-4024-bbc3-d38c682602d2" LABEL="Representations/representation_1">
+            <mptr xlink:type="simple" xlink:href="./representations/representation_1/mets.xml" LOCTYPE="URL" xlink:title="uuid-700c97da-3164-4863-9e58-d6d62156052e" />
+        </div>
+        <div ID="uuid-daeba358-46ee-4363-b2a2-bd745c128f6f" LABEL="Representations/representation_2">
+            <mptr xlink:type="simple" xlink:href="./representations/representation_2/mets.xml" LOCTYPE="URL" xlink:title="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c" />
         </div>
     </div>
 </structMap>
@@ -1314,52 +1312,14 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']` |
-|-----------------------|-----------|
-| Name | Content division |
-| Description | When no representations are present the content referenced in the file section file group with `@USE` attribute value, `Representations` is described in the structural map as a single sub division. |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-| <a id="structMap-csip-div-div-representations-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/@ID` |
-|-----------------------|-----------|
-| Name | Content division identifier |
-| Description | A unique identifier to the `Representations` file group. This can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']` |
-|-----------------------|-----------|
-| Name | Content division label |
-| Description | The representations `div` element’s `@LABEL` attribute value MUST be `Representations`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr` |
-|-----------------------|-----------|
-| Name | Content division file references |
-| Description | All file groups containing content described in the package are referenced via the relevant file group identifiers.<br>There MUST be one file group reference per `fptr` element. |
-| Cardinality | 0..* |
-| Obligation | MUST |
-
-| <a id="structMap-csip-div-div-representations-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID` |
-|-----------------------|-----------|
-| Name | Content division file group references |
-| Description | The pointer to the identifier for the `Representations` file group. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mets/structMap[@LABEL='CSIP']/div/div` |
+| Element | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']` |
 |-----------------------|-----------|
 | Name | Representation division |
-| Description | When a package consists of multiple representations, each described by a representation level mets.xml file, there should be a discrete representation `\div` element for each representation. <br> Each representation `div` references the representation level `mets.xml` file, documenting the structure of the representation and its content. |
-| Cardinality | 0..* |
-| Obligation | SHOULD |
+| Description | A package consists of multiple representations, each described by a representation level `mets.xml` file, there should be a discrete representation `\div` element for each representation. <br> Each representation `div` references the representation level `mets.xml` file, documenting the structure of the representation and its content. |
+| Cardinality | 1..* |
+| Obligation | MUST |
 
-| <a id="structMap-csip-div-div-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div/@ID` |
+| <a id="structMap-csip-div-div-id"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/@ID` |
 |-----------------------|-----------|
 | Name | Representations division identifier |
 | Description | A unique identifier that can be used for internal package references. |
@@ -1367,30 +1327,30 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div/@LABEL` |
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/@LABEL` |
 |-----------------------|-----------|
 | Name | Representations division label |
-| Description | The package’s representation division `div` element `@LABEL` attribute value must be the path to the representation level mets.xml file starting with the value `Representations` followed by the main folder name, e.g. `Representations/representation_1`. |
+| Description | The package’s representation division `div` element `@LABEL` attribute value must be the path to the representation level `mets.xml` file starting with the value `Representations` followed by the main folder name, e.g. `Representations/representation_1`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div/mptr/@xlink:title` |
-|-----------------------|-----------|
-| Name | Representations division file references |
-| Description | The file group containing the files described in the package are referenced via the relevant file group identifier. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mets/structMap[@LABEL='CSIP']/div/div/mptr` |
+| Element | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr` |
 |-----------------------|-----------|
 | Name | Representation METS pointer |
 | Description | The division `div` of the specific representation includes one occurrence of the METS pointer `mptr` element, pointing to the appropriate representation `mets.xml` file. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap/div/div/mptr/@xlink:href` |
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title` |
+|-----------------------|-----------|
+| Name | Representations division file references |
+| Description | The file group containing the files described in the package are referenced via the relevant file group identifier. |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:href` |
 |-----------------------|-----------|
 | Name | Resource location |
 | Description | Indication of the actual location of the `mets.xml` file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath.<br>One SHOULD use the relative location of the file in this URL. |
@@ -1398,7 +1358,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap/div/div/mptr[@xlink:type='simple']` |
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr[@xlink:type='simple']` |
 |-----------------------|-----------|
 | Name | Type of link |
 | Description | This attribute's value MUST be set to `simple`, in order to indicate a simple 'HTML-like' link. |
@@ -1406,7 +1366,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap/div/div/mptr[@LOCTYPE='URL']` |
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr[@LOCTYPE='URL']` |
 |-----------------------|-----------|
 | Name | Type of locator |
 | Description | Indication of the locator type used to refer to the representation mets.xml files of the different representation levels.<br>It MUST always be used with the value `URL`. |
