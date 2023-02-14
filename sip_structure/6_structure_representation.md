@@ -503,7 +503,7 @@ The table below gives an overview of the different relationship types that can b
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis@/xsi:schemaLocation` |
+| Attribute | `premis:premis/@xsi:schemaLocation` |
 |-----------------------|-----------|
 | Name | Schema location declaration |
 | Description | This attribute signals where to find the relevant XSD schema in order to validate the PREMIS file.<br><br>When used, its value MUST be set to `"http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd"` to signal conformance with PREMIS 3.0.|
