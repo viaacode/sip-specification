@@ -77,10 +77,10 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `metadata/dcterms:title` |
+| Element | `metadata/dcterms:title[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Title |
-| Description | A name given to the Intellectual Entity. <br>The `title` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Description | A name given to the Intellectual Entity. <br>The `title` term MAY only be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -88,7 +88,7 @@ root_directory
 | Element | `metadata/dcterms:alternative` |
 |-----------------------|-----------|
 | Name | Alternative title |
-| Description | An alternative to the main title given to the Intellectual Entity.<br>The `alternative` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Description | An alternative to the main title given to the Intellectual Entity.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -117,18 +117,18 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `metadata/dcterms:description` |
+| Element | `metadata/dcterms:description[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Description |
-| Description | An account of the Intellectual Entity.<br>The `description` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Description | An account of the Intellectual Entity.<br>The `description` term MAY only be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `metadata/dcterms:abstract` |
+| Element | `metadata/dcterms:abstract[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Abstract |
-| Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
+| Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY only be used multiple times when it uses a different language.<br>The language of the description MUST be provided by a `@xml:lang` attribute (see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
