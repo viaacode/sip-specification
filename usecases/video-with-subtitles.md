@@ -105,7 +105,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
   <dcterms:title>the title of the episode</dcterms:title>
 
@@ -115,8 +115,8 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
   <!-- matches the identifier of the premis:object defined in the preservation/premis.xml -->
   <dcterms:identifier>uuid-f58ece94-f050-4b5b-b383-bba83393eaff</dcterms:identifier>
 
-  <dcterms:created xsi:type="edtf">the date the episode was created</dcterms:created>
-  <dcterms:issued xsi:type="edtf">the date the episode was aired</dcterms:issued>
+  <dcterms:created xsi:type="edtf:EDTF">the date the episode was created</dcterms:created>
+  <dcterms:issued xsi:type="edtf:EDTF">the date the episode was aired</dcterms:issued>
 
   <dcterms:license>VIAA-PUBLIEK-METADATA-LTD</dcterms:license>
   <dcterms:publisher>the publisher of the episode</dcterms:publisher>
