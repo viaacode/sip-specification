@@ -90,7 +90,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
   <!-- general title for the resource -->
   <dcterms:title>Felis Catus Flamens sitting on a cat tree</dcterms:title>
@@ -99,7 +99,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
   <dcterms:identifier>uuid-a0a5329c-4ad1-4607-9f6e-ce980d90b992</dcterms:identifier>
 
   <!-- date unknown -->
-  <dcterms:created xsi:type="edtf">XXXX</dcterms:created>
+  <dcterms:created xsi:type="edtf:EDTF">XXXX</dcterms:created>
 
   <!-- multiple keywords about the resource -->
   <dcterms:subject>Cat</dcterms:subject>
