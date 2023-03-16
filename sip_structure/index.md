@@ -33,7 +33,7 @@ Each representation folder also contains its own `mets.xml` file, together with 
 {: .note }
 This section introduces a fictional scenario as a running example and is to be considered informative.
 The examples in the upcoming sections are based on this scenario.
-A complete sample (including all examples) can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/cbee2999-1db5-4a69-9260-f216dee75623/)..
+A complete sample (including all examples) can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/cbee2999-1db5-4a69-9260-f216dee75623/).
 
 One of meemoo's content partners, the (fictional) Flemish Cat Museum (henceforth FCM), wishes to archive a number of rare digitised pictures of the Felis Catus Flamens (a cat species originating in Flanders and threatened with extinction).
 More specifically, the FCM owns two pictures of the Felis Catus Flamens lying on a sofa and one picture of the Felis Catus Flamens on its cat tree.
