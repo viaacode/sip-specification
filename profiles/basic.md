@@ -80,7 +80,7 @@ root_directory
 | Element | `metadata/dcterms:title[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Title |
-| Description | A name given to the Intellectual Entity. <br>The `title` term MAY only be used multiple times when it uses a different language. There MUST be always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | A name given to the Intellectual Entity. <br>The `title` term MAY only be used multiple times when it uses a different language. There MUST always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -88,7 +88,7 @@ root_directory
 | Element | `metadata/dcterms:alternative` |
 |-----------------------|-----------|
 | Name | Alternative title |
-| Description | An alternative to the main title given to the Intellectual Entity.<br>The language of the description SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | An alternative to the main title given to the Intellectual Entity.<br>The `alternative` term MAY be used multiple times when it uses a different language. The language of the description SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -120,7 +120,7 @@ root_directory
 | Element | `metadata/dcterms:description[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Description |
-| Description | An account of the Intellectual Entity.<br>The `description` term MAY only be used multiple times when it uses a different language.There MUST be always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | An account of the Intellectual Entity.<br>The `description` term MAY only be used multiple times when it uses a different language. There MUST always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -128,7 +128,7 @@ root_directory
 | Element | `metadata/dcterms:abstract[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Abstract |
-| Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY only be used multiple times when it uses a different language. If the term present, here MUST be always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY only be used multiple times when it uses a different language. If the term present, there MUST always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
