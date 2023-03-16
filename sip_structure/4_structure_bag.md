@@ -93,7 +93,7 @@ Tag-File-Character-Encoding: UTF-8
 
 ***Requirements***
 
-- The first line of the `bagit.txt` file MUST specify the exact version of the BagIt standard.
+- The first line of the `bagit.txt` file MUST specify the exact version of the BagIt standard. The version MUST be 0.97 or later.
 - The second line of the `bagit.txt` file MUST specify the character set encoding of the bag and its files. This encoding MUST be UTF-8.
 
 ## /data (directory)
