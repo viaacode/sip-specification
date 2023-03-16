@@ -107,7 +107,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
+<metadata xmlns="https://data.hetarchief.be/id/sip/1.1/basic" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
   <dcterms:title>the title of the episode</dcterms:title>
 
