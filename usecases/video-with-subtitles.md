@@ -20,7 +20,7 @@ The following use case describes how to package
 
 It uses the [**Basic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).
 
-A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip %}).
+A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6/).
 
 ## The content
 

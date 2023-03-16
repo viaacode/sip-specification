@@ -22,7 +22,7 @@ The following use case describes how to package a newspaper edition digitised pe
 
 It uses the [**Newspaper SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/newspaper.md %}).
 
-A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/newspaper_tiff_alto_pdf_ebe47259-8f23-4a2d-bf49-55ae1d855393.zip %}).
+A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/newspaper_tiff_alto_pdf_ebe47259-8f23-4a2d-bf49-55ae1d855393/).
 
 ## The content
 
