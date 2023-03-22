@@ -265,33 +265,36 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Name | OAIS Package type information |
 | Description | The value of `@csip:OAISPACKAGETYPE` MUST be set to `SIP` to indicate to meemoo that the delivered content is a SIP meant for ingest. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `SIP` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @OTHERTYPE='SOFTWARE']` |
 |-----------------------|-----------|
 | Name | SIP creator software agent |
 | Description | A mandatory agent element records the software used to create the package. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@ROLE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @OTHERTYPE='SOFTWARE']/@ROLE` |
 |-----------------------|-----------|
 | Name | SIP creator software agent role |
 | Description | The role of the SIP creator software agent.<br>This value MUST be set to `CREATOR`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `CREATOR` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@TYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @OTHERTYPE='SOFTWARE']/@TYPE` |
 |-----------------------|-----------|
 | Name | SIP creator software agent type |
 | Description | The type of the SIP creator software agent.<br>This value MUST be set to `OTHER`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Vocabulary | `OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@OTHERTYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @OTHERTYPE='SOFTWARE']/@OTHERTYPE` |
 |-----------------------|-----------|
 | Name | SIP creator software agent other type |
 | Description | A specification of the type of the SIP creator software agent, indicating it being software.<br>This value MUST be set to `SOFTWARE`. |
@@ -299,7 +302,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/name` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @OTHERTYPE='SOFTWARE']/name` |
 |-----------------------|-----------|
 | Name | SIP creator software agent name |
 | Description | This element records the name of the software tool used to create the SIP. |
@@ -307,7 +310,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/note` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @OTHERTYPE='SOFTWARE']/note` |
 |-----------------------|-----------|
 | Name | SIP creator software agent additional information |
 | Description | The mandatory note element records the version of the software tool used to create the IP.<br>It MUST have a `@csip:NOTETYPE` attribute with the value `SOFTWARE VERSION`. |
@@ -315,39 +318,41 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/note[@csip:NOTETYPE='SOFTWARE VERSION']` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @OTHERTYPE='SOFTWARE']/note[@csip:NOTETYPE='SOFTWARE VERSION']` |
 |-----------------------|-----------|
 | Name | Classification of the SIP creator software agent additional information |
 | Description | The value of this attribute MUST be set to `SOFTWARE VERSION` to denote the software version of the software being used. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `SOFTWARE VERSION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent` |
+| Element | `mets/metsHdr/agent[@ROLE='ARCHIVIST']` |
 |-----------------------|-----------|
 | Name | Archival creator agent |
 | Description | A wrapper element that enables to encode the name of the person/people or CP that originally created the content being transferred. This can be different from the CP tasked with preparing and sending the SIP to meemoo (cf. 'submitting agent' below). |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/agent/@ROLE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='ARCHIVIST']/@ROLE` |
 |-----------------------|-----------|
 | Name | Archival creator agent role |
 | Description | The role of the person/people or CP responsible for the digital content.<br>This value MUST be set to `ARCHIVIST`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `ARCHIVIST` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@TYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='ARCHIVIST']/@TYPE` |
 |-----------------------|-----------|
 | Name | Archival creator agent type |
 | Description | The type of the archival creator agent. When the agent is a CP, this value MUST be set to `ORGANIZATION`.|
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary |
-| Vocabulary | `ORGANIZATION`<br>`INDIVIDUAL`<br>`OTHER` |
+| Vocabulary | `ORGANIZATION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/name` |
+| Element | `mets/metsHdr/agent[@ROLE='ARCHIVIST']/name` |
 |-----------------------|-----------|
 | Name | Archival creator agent name |
 | Description | The name of the CP that originally created the digital content being transferred. |
@@ -355,7 +360,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/note` |
+| Element | `mets/metsHdr/agent[@ROLE='ARCHIVIST']/note` |
 |-----------------------|-----------|
 | Name | Archival creator agent additional information |
 | Description | The archival creator agent MAY have a note providing a unique identification code for the archival creator. |
@@ -363,39 +368,41 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/agent/note/@csip:NOTETYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='ARCHIVIST']/note/@csip:NOTETYPE` |
 |-----------------------|-----------|
 | Name | Classification of the archival creator agent additional information |
 | Description | The archival creator agent note attribute value MUST be set to `IDENTIFICATIONCODE`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `IDENTIFICATIONCODE` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='ORGANIZATION']` |
 |-----------------------|-----------|
 | Name | Submitting agent |
 | Description | The name of the CP submitting the package to meemoo. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@ROLE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='ORGANIZATION']/@ROLE` |
 |-----------------------|-----------|
 | Name | Submitting agent role |
 | Description | The role of the CP responsible for creating and/or submitting the SIP. This value MUST be set to `CREATOR`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `CREATOR` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@TYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='ORGANIZATION']/@TYPE` |
 |-----------------------|-----------|
 | Name | Submitting agent type |
 | Description | The type of the submitting agent. When the agent is a CP, this value MUST be set to `ORGANIZATION`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary |
-| Vocabulary | `ORGANIZATION`<br>`INDIVIDUAL`<br>`OTHER` |
+| Vocabulary | `ORGANIZATION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/name` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='ORGANIZATION']/name` |
 |-----------------------|-----------|
 | Name | Submitting agent name |
 | Description | Name of the CP or individual submitting the SIP to meemoo. |
@@ -403,7 +410,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/note` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='ORGANIZATION']/note` |
 |-----------------------|-----------|
 | Name | Submitting agent additional information |
 | Description | The submitting agent MUST have a note providing a unique identification code. |
@@ -411,38 +418,41 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/note/@csip:NOTETYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='ORGANIZATION']/note/@csip:NOTETYPE` |
 |-----------------------|-----------|
 | Name | Classification of the submitting agent agent additional information |
 | Description | This submitting agent note attribute value MUST be set to `IDENTIFICATIONCODE`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `IDENTIFICATIONCODE` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='INDIVIDUAL']` |
 |-----------------------|-----------|
 | Name | Contact person agent |
 | Description | Optional contact person for meemoo for the submission of the SIP. |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/agent/@ROLE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='INDIVIDUAL']/@ROLE` |
 |-----------------------|-----------|
 | Name | Contact person agent role |
 | Description | The role of the contact person agent MUST be set to `CREATOR`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `CREATOR` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@TYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='INDIVIDUAL']/@TYPE` |
 |-----------------------|-----------|
 | Name | Contact person agent type |
 | Description | The type of the contact person agent MUST be set to `INDIVIDUAL`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `INDIVIDUAL` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/name` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='INDIVIDUAL']/name` |
 |-----------------------|-----------|
 | Name | Contact person agent name |
 | Description | Name of the contact person. |
@@ -450,7 +460,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/note` |
+| Element | `mets/metsHdr/agent[@ROLE='CREATOR' and @TYPE='INDIVIDUAL']/note` |
 |-----------------------|-----------|
 | Name | Contact person agent additional information |
 | Description | The contact person agent MAY have one or more notes providing the actual contact information, such as an address, e-mail, telephone number... |
@@ -458,22 +468,23 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Element | `mets/metsHdr/agent` |
+| Element | `mets/metsHdr/agent[@ROLE='PRESERVATION']` |
 |-----------------------|-----------|
 | Name | Preservation agent |
 | Description | The CP, organization or person/people that preserve the package. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/agent/@ROLE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='PRESERVATION']/@ROLE` |
 |-----------------------|-----------|
 | Name | Preservation agent role |
 | Description | The role of the preservation agent MUST be set to `PRESERVATION`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `PRESERVATION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/agent/@TYPE` |
+| Attribute | `mets/metsHdr/agent[@ROLE='PRESERVATION']/@TYPE` |
 |-----------------------|-----------|
 | Name | Preservation agent type |
 | Description | The type of the preservation agent. |
@@ -482,7 +493,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mets/metsHdr/agent/name` |
+| Element | `mets/metsHdr/agent[@ROLE='PRESERVATION']/name` |
 |-----------------------|-----------|
 | Name | Preservation agent name |
 | Description | Name of the preservation agent. |
@@ -490,7 +501,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 1..1 |
 | Obligation | MAY |
 
-| Element | `mets/metsHdr/agent/note` |
+| Element | `mets/metsHdr/agent[@ROLE='PRESERVATION']/note` |
 |-----------------------|-----------|
 | Name | Preservation agent additional information |
 | Description | The preservation agent MAY have a note providing a unique identification code. |
@@ -498,42 +509,43 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/agent/note/@csip:NOTETYPE` |
+| Attribute | `mets/metsHdr/agent/note[@ROLE='PRESERVATION']/@csip:NOTETYPE` |
 |-----------------------|-----------|
 | Name | Classification of the preservation agent additional information |
 | Description | This preservation agent note attribute value MUST be set to `IDENTIFICATIONCODE`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `IDENTIFICATIONCODE` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/metsHdr/altRecordID[@TYPE='SUBMISSIONAGREEMENT']` |
+| Element | `mets/metsHdr/altRecordID[@TYPE='SUBMISSIONAGREEMENT']` |
 |-----------------------|-----------|
 | Name | Submission agreement |
-| Description | An optional reference to the submission agreement associated with the SIP.<br>When used, this attribute MUST be set to `SUBMISSIONAGREEMENT`. |
+| Description | An optional reference to the submission agreement associated with the SIP.<br>When used, the `@TYPE` attribute MUST be set to `SUBMISSIONAGREEMENT`. |
 | Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#url) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/altRecordID[@TYPE='PREVIOUSSUBMISSIONAGREEMENT']` |
+| Element | `mets/metsHdr/altRecordID[@TYPE='PREVIOUSSUBMISSIONAGREEMENT']` |
 |-----------------------|-----------|
 | Name | Previous submission agreement |
-| Description | An optional reference to a previous submission agreement associated with the SIP.<br>When used, this attribute MUST be set to `PREVIOUSSUBMISSIONAGREEMENT`. |
+| Description | An optional reference to a previous submission agreement associated with the SIP.<br>When used, the `@TYPE` attribute MUST be set to `PREVIOUSSUBMISSIONAGREEMENT`. |
 | Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#url) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/altRecordID[@TYPE='REFERENCECODE']` |
+| Element | `mets/metsHdr/altRecordID[@TYPE='REFERENCECODE']` |
 |-----------------------|-----------|
 | Name | Archival reference code |
-| Description | An optional reference to indicate where in the archival hierarchy the package shall be placed in meemoo's archive.<br>When used, this attribute MUST be set to `REFERENCECODE`. |
+| Description | An optional reference to indicate where in the archival hierarchy the package shall be placed in meemoo's archive.<br>When used, the `@TYPE` attribute MUST be set to `REFERENCECODE`. |
 | Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#url) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mets/metsHdr/altRecordID[@TYPE='PREVIOUSREFERENCECODE']` |
+| Element | `mets/metsHdr/altRecordID[@TYPE='PREVIOUSREFERENCECODE']` |
 |-----------------------|-----------|
 | Name | Previous archival reference code |
-| Description | In cases where the SIP originates from other institutions maintaining a reference code structure, this element can be used to record these reference codes and therefore support the provenance of the package when a whole archival description is not submitted with the submission.<br>When used, this attribute MUST be set to `PREVIOUSREFERENCECODE`. |
+| Description | In cases where the SIP originates from other institutions maintaining a reference code structure, this element can be used to record these reference codes and therefore support the provenance of the package when a whole archival description is not submitted with the submission.<br>When used, the `@TYPE` attribute MUST be set to `PREVIOUSREFERENCECODE`. |
 | Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#url) |
 | Cardinality | 0..* |
 | Obligation | MAY |
