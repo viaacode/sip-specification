@@ -1557,7 +1557,7 @@ The table below gives an overview of the different relationship types that can b
 | Element | `premis:premis/premis:object/premis:objectIdentifier` |
 |-----------------------|-----------|
 | Name | Object identifier |
-| Description | This element contains object identifier information.<br><br>There MUST be exactly one object identifier present with `premis:objectIdentifierType` set to `UUID` (see below). This is the main identifier for the object, which uniquely identifies the concerned IE and establishes a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present. <br><br>There MAY be zero or more additional object identifiers of a different type. It is RECOMMENDED to include an identifier with `premis:objectIdentifierType` set to `LOCAL_ID` to pinpoint the main local identifier well known to the SIP submitter (e.g., the record identifier in the local collection registration system), which can be used to easily retrieve the intellectual entity from the meemoo archive. |
+| Description | This element contains object identifier information.<br><br>There MUST be exactly one object identifier present with `premis:objectIdentifierType` set to `UUID` (see below). This is the main identifier for the object, which uniquely identifies the concerned IE and establishes a link between the relevant preservation metadata in the `premis.xml` file and the descriptive metadata in the `dc.xml` file, if any is present.<br><br>There MAY be zero or more additional object identifiers of a different type. It is RECOMMENDED to include an identifier with `premis:objectIdentifierType` set to `LOCAL_ID` to pinpoint the main local identifier well known to the SIP submitter (e.g., the record identifier in the local collection registration system), which can be used to easily retrieve the intellectual entity from the meemoo archive. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
@@ -1783,12 +1783,27 @@ TODO: figure out the IDs
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:event/premis:eventDateTime` |
+| Element | `premis:premis/premis:event/premis:eventDateTime` |
 |-----------------------|-----------|
 | Name | Event datetime  |
 | Description | The moment on which the event occurred. |
 | Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 0..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:eventDetailInformation` |
+|-----------------------|-----------|
+| Name | Event detail information  |
+| Description | Additional information about the Event. |
+| Cardinality | 0..* |
+| Obligation | SHOULD |
+
+| Element | `premis:premis/premis:event/premis:eventDetailInformation/premis:eventDetail` |
+|-----------------------|-----------|
+| Name | Event detail  |
+| Description | Additional information as unstructured text. Multiple details should be recorded in independent `premis:eventDetailInformation` containers instead of repeating the `premis:eventDetail` element. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:event/premis:linkingAgentIdentifier` |
