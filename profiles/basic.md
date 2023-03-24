@@ -70,7 +70,8 @@ root_directory
 - The `dc*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 - The `dc*.xml` file MUST contain a shared ID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element (see [next section](#connecting-the-descriptive-metadata-to-premis)).
 - The `dc*.xml` file MUST NOT contain additional IDs besides the shared ID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
-- A descriptive metadata element of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) MAY contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages). The value of this attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). If the attribute is not present, the value is assumed to be in Dutch and the attribute `@xml:lang` with value `nl` is applied automatically.
+- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
+- The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
 | Element | `metadata` |
 |-----------------------|-----------|
@@ -82,7 +83,7 @@ root_directory
 | Element | `metadata/dcterms:title[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Title |
-| Description | A name given to the Intellectual Entity. <br>The `title` term MAY only be used multiple times when it uses a different language. There MUST always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | A name given to the Intellectual Entity. <br>The `title` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -90,7 +91,7 @@ root_directory
 | Element | `metadata/dcterms:alternative` |
 |-----------------------|-----------|
 | Name | Alternative title |
-| Description | An alternative to the main title given to the Intellectual Entity.<br>The `alternative` term MAY be used multiple times when it uses a different language. The language of the description SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | An alternative to the main title given to the Intellectual Entity.<br>The `alternative` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -122,7 +123,7 @@ root_directory
 | Element | `metadata/dcterms:description[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Description |
-| Description | An account of the Intellectual Entity.<br>The `description` term MAY only be used multiple times when it uses a different language. There MUST always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | An account of the Intellectual Entity.<br>The `description` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -130,7 +131,7 @@ root_directory
 | Element | `metadata/dcterms:abstract[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Abstract |
-| Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY only be used multiple times when it uses a different language. If the term present, there MUST always be an entry in Dutch.<br>The applied language SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -194,7 +195,7 @@ root_directory
 | Element | `metadata/dcterms:subject` |
 |-----------------------|-----------|
 | Name | Subject |
-| Description | Subjects or keywords related to the Intellectual Entity. The `subject` term MAY be used multiple times when it uses a different language.<br>The language of the description SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | Subjects or keywords related to the Intellectual Entity.<br> If the element is present, the applied language MUST be provided by a `@xml:lang` attribute (see requirements above) and there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
@@ -218,7 +219,7 @@ root_directory
 | Element | `metadata/dcterms:rights` |
 |-----------------------|-----------|
 | Name | Rights |
-| Description | A copyright notice on the Intellectual Entity. The `rights` term MAY be used multiple times when it uses a different language.<br>The language of the description SHOULD be provided by a `@xml:lang` attribute (defaults to `nl`; see requirements above). |
+| Description | A copyright notice on the Intellectual Entity. The `rights` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
@@ -238,7 +239,7 @@ The XML files that are required by this profile can be validated using the follo
 | File | Format | XML Schema |
 | `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
-| `dc*.xml` | Dublin Core (custom schema) | [dc_basic.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc_basic.xsd)<br>_depends on: [edtf.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/edtf.xsd), [dcterms.xsd](https://github.com/viaacode/sipin-sip-validator/blob/main/app/resources/xsd/dcterms.xsd), [dcmitype.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dcmitype.xsd), [dc.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc.xsd)_|
+| `dc*.xml` | Dublin Core (custom schema) | [dc_basic.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc_basic.xsd)<br>(_depends on: [edtf.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/edtf.xsd), [dcterms.xsd](https://github.com/viaacode/sipin-sip-validator/blob/main/app/resources/xsd/dcterms.xsd), [dcmitype.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dcmitype.xsd), [dc.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc.xsd))|
 
 ## Connecting the descriptive metadata to PREMIS
 
