@@ -147,7 +147,7 @@ Note that, as opposed to the `mods.xml` file, the `dc.xml` file is optional acco
 
   <dcterms:title>Le Chat Blanc: 02/08/2022</dcterms:title>
 
-  <dcterms:description>Journal Indépendant: Le Chat Blanc: 02/08/2022</dcterms:description>
+  <dcterms:description xml:lang="nl">Journal Indépendant: Le Chat Blanc: 02/08/2022</dcterms:description>
 
   <!-- linking id between dc and premis -->
   <!-- matches the identifier of the premis:object defined in the preservation/premis.xml -->
@@ -158,8 +158,8 @@ Note that, as opposed to the `mods.xml` file, the `dc.xml` file is optional acco
 
   <dcterms:license>VIAA-PUBLIEK-METADATA-LTD</dcterms:license>
 
-  <dcterms:subject>chat blanc</dcterms:subject>
-  <dcterms:subject>cats</dcterms:subject>
+  <dcterms:subject xml:lang="nl">chat blanc</dcterms:subject>
+  <dcterms:subject xml:lang="nl">cats</dcterms:subject>
 
 </metadata>  
 ```

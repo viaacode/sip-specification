@@ -283,8 +283,8 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
   <dcterms:created xsi:type="edtf:EDTF">XXXX</dcterms:created>
 
   <!-- multiple keywords about the resource -->
-  <dcterms:subject>Cat</dcterms:subject>
-  <dcterms:subject>Felis Catus Flamens</dcterms:subject>
+  <dcterms:subject xml:lang="nl">Cat</dcterms:subject>
+  <dcterms:subject xml:lang="nl">Felis Catus Flamens</dcterms:subject>
 
 
 </metadata>   
