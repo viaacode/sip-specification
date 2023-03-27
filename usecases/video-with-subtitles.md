@@ -107,9 +107,9 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 <?xml version='1.0' encoding='UTF-8'?>
 <metadata xmlns="https://data.hetarchief.be/id/sip/1.0/basic" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
-  <dcterms:title>the title of the episode</dcterms:title>
+  <dcterms:title xml:lang="nl">the title of the episode</dcterms:title>
 
-  <dcterms:description>the description of the episode</dcterms:description>
+  <dcterms:description xml:lang="nl">the description of the episode</dcterms:description>
 
   <!-- linking id between dc and premis -->
   <!-- matches the identifier of the premis:object defined in the preservation/premis.xml -->
@@ -122,8 +122,8 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
   <dcterms:publisher>the publisher of the episode</dcterms:publisher>
   <dcterms:rightsHolder>the rights owner</dcterms:rightsHolder>
 
-  <dcterms:subject>Keyword 1</dcterms:subject>
-  <dcterms:subject>Keyword 2</dcterms:subject>
+  <dcterms:subject xml:lang="nl">Keyword 1</dcterms:subject>
+  <dcterms:subject xml:lang="nl">Keyword 2</dcterms:subject>
 
 </metadata> 
 ```
