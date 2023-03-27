@@ -26,7 +26,7 @@ It includes:
 
 It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/material-artwork.md %}).
 
-A full sample SIP can be viewed [here]({{ site.baseurl }}{% link assets/sip_samples/3D_3d4bd7ca-38c6-11ed-95f2-7e92631d7d28.zip %}).
+A full sample SIP can be viewed [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/3D_3d4bd7ca-38c6-11ed-95f2-7e92631d7d28/).
 
 ## The content
 

@@ -15,7 +15,7 @@ Release Candidate
 The following use case describes how to package a single image file with some basic descriptive metadata.
 It illustrates the most minimal implementation that conforms to meemoo's SIP specification and the [**Basic content profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).
 
-A full sample SIP can be downloaded [here]({{ site.baseurl }}{% link assets/sip_samples/basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip %}).
+A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec/).
 
 ## The content
 
@@ -90,7 +90,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<metadata xmlns="https://data.hetarchief.be/id/sip/1.1/basic" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
   <!-- general title for the resource -->
   <dcterms:title>Felis Catus Flamens sitting on a cat tree</dcterms:title>
@@ -99,7 +99,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
   <dcterms:identifier>uuid-a0a5329c-4ad1-4607-9f6e-ce980d90b992</dcterms:identifier>
 
   <!-- date unknown -->
-  <dcterms:created xsi:type="edtf">XXXX</dcterms:created>
+  <dcterms:created xsi:type="edtf:EDTF">XXXX</dcterms:created>
 
   <!-- multiple keywords about the resource -->
   <dcterms:subject>Cat</dcterms:subject>

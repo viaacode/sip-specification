@@ -211,6 +211,14 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
+| Element | `metadata/dcterms:license` |
+|-----------------------|-----------|
+| Name | License |
+| Description | A legal document giving official permission to meemoo, end users of the meemoo platforms, or any other user, to do something with the Intellectual Entity. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | SHOULD |
+
 | Element | `metadata/dcterms:rightsHolder` |
 |-----------------------|-----------|
 | Name | Rights holder |
