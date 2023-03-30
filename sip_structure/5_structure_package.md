@@ -1793,12 +1793,27 @@ TODO: figure out the IDs
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `premis:premis/premis:event/premis:eventDateTime` |
+| Element | `premis:premis/premis:event/premis:eventDateTime` |
 |-----------------------|-----------|
 | Name | Event datetime  |
 | Description | The moment on which the event occurred. |
 | Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 0..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:eventDetailInformation` |
+|-----------------------|-----------|
+| Name | Event detail information  |
+| Description | Additional information about the Event. |
+| Cardinality | 0..* |
+| Obligation | SHOULD |
+
+| Element | `premis:premis/premis:event/premis:eventDetailInformation/premis:eventDetail` |
+|-----------------------|-----------|
+| Name | Event detail  |
+| Description | Additional information as unstructured text. Multiple details should be recorded in independent `premis:eventDetailInformation` containers instead of repeating the `premis:eventDetail` element. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:event/premis:linkingAgentIdentifier` |
