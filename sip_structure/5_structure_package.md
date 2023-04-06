@@ -968,16 +968,18 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Attribute | `mets/fileSec/fileGrp[@USE='Documentation']` |
 |-----------------------|-----------|
 | Name | Documentation file group |
-| Description | All documentation pertaining to the transferred content is placed in one or more file group elements with `mets/fileSec/fileGrp/@USE` attribute value “Documentation”. The content of this element MAY be empty. |
-| Cardinality | 1..* |
-| Obligation | MUST |
+| Description | All documentation pertaining to the transferred content is placed in one or more file group elements with `mets/fileSec/fileGrp/@USE` attribute value “Documentation”. 
+<!--The content of this element MAY be empty.--> |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Attribute | `mets/fileSec/fileGrp[@USE='Schemas']` |
 |-----------------------|-----------|
 | Name | Schema file group |
-| Description | XML schemas used in the information package can be included in one or more file groups with `mets/fileSec/fileGrp/@USE` attribute value “Schemas”. The content of this element MAY be empty. |
-| Cardinality | 1..* |
-| Obligation | MUST |
+| Description | XML schemas used in the information package can be included in one or more file groups with `mets/fileSec/fileGrp/@USE` attribute value “Schemas”. 
+<!--The content of this element MAY be empty.--> |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Attribute | `mets/fileSec/fileGrp[@USE=[starts-with('Representations')]]` |
 |-----------------------|-----------|
@@ -1273,7 +1275,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Name | Documentation file references |
 | Description | All file groups containing documentation described in the package are referenced via the relevant file group identifiers. <br>There MUST be one file group reference per `fptr` element. |
 | Cardinality | 0..* |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | <a id="structMap-csip-div-div-documentation-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID` |
 |-----------------------|-----------|
@@ -1312,7 +1314,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Name | Schema file reference |
 | Description | All file groups containing schemas described in the package are referenced via the relevant file group identifiers. <br>There MUST be one file group reference per `fptr` element. |
 | Cardinality | 0..* |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | <a id="structMap-csip-div-div-schemas-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID` |
 |-----------------------|-----------|
