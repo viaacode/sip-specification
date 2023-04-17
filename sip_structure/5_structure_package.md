@@ -1274,8 +1274,8 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Documentation file references |
 | Description | All file groups containing documentation described in the package are referenced via the relevant file group identifiers. <br>There MUST be one file group reference per `fptr` element. |
-| Cardinality | 0..* |
-| Obligation | MAY |
+| Cardinality | 1..* |
+| Obligation | MUST |
 
 | <a id="structMap-csip-div-div-documentation-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Documentation']/fptr/@FILEID` |
 |-----------------------|-----------|
