@@ -307,7 +307,7 @@ Its requirements are very similar to the package level, however, instead of poin
 |-----------------------|-----------|
 | Name | Content division file references |
 | Description | All file groups containing content described in the package are referenced via the relevant file group identifiers.<br>There MUST be one file group reference per `fptr` element. |
-| Cardinality | 0..* |
+| Cardinality | 1..* |
 | Obligation | MUST |
 
 | <a id="structMap-csip-div-div-data-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID` |
