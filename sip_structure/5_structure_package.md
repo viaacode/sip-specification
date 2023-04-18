@@ -1722,6 +1722,9 @@ TODO: figure out the IDs
         <premis:eventDetailInformation>
             <premis:eventDetail />
         </premis:eventDetailInformation>
+        <premis:eventOutcomeInformation>
+            <premis:eventOutcome>1</premis:eventOutcome>
+        </premis:eventOutcomeInformation>
         <premis:linkingAgentIdentifier>
             <premis:linkingAgentIdentifierType>OR-id</premis:linkingAgentIdentifierType>
             <premis:linkingAgentIdentifierValue>OR-m30wc4t</premis:linkingAgentIdentifierValue>
@@ -1817,6 +1820,22 @@ TODO: figure out the IDs
 | Name | Event detail  |
 | Description | Additional information as unstructured text. Multiple details should be recorded in independent `premis:eventDetailInformation` containers instead of repeating the `premis:eventDetail` element. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:eventOutcomeInformation` |
+|-----------------------|-----------|
+| Name | Event outcome information  |
+| Description | Information about the outcome of an event. |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `premis:premis/premis:event/premis:eventOutcomeInformation/premis:eventOutcome` |
+|-----------------------|-----------|
+| Name | Event outcome  |
+| Description | This element categorizes the outcome of the event in terms of success or failure. It contains a value '0' (not successful) or '1' (successful) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Vocabulary | `1`<br>`0` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
