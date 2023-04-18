@@ -1835,7 +1835,7 @@ TODO: figure out the IDs
 | Name | Event outcome  |
 | Description | This element categorizes the outcome of the event in terms of success or failure. It contains a value '0' (not successful) or '1' (successful) |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
-| Vocabulary | `1`<br>`0` |
+| Vocabulary | `0`<br>`1` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
