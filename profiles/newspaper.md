@@ -125,15 +125,24 @@ root_directory
 | Name | MODS type of resource element |
 | Description | This element indicates which type of resource is being described. Its value MUST be set to `newspaper edition`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | `newspaper edition` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `mods:mods/mods:abstract` |
 |-----------------------|-----------|
-| Name | A summary of the content of the newspaper. |
+| Name | MODS abstract element |
 | Description | This element contains a summary of the content of the newspaper. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `mods:mods/mods:genre` |
+|-----------------------|-----------|
+| Name | MODS genre element |
+| Description | This element contains a term or terms that designate a category characterizing a particular style, form, or content of the newspaper edition, such as artistic, musical, literary composition, etc. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
 | Obligation | SHOULD |
 
 | Element | `mods:mods/mods:subject/mods:topic` |
@@ -190,6 +199,84 @@ root_directory
 | Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
+
+| Element | `mods:mods/mods:originInfo/mods:issuance` |
+|-----------------------|-----------|
+| Name | MODS issuance element |
+| Description | This element contains a term that designates how the newspaper edition was issued. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:originInfo/mods:place` |
+|-----------------------|-----------|
+| Name | MODS place element |
+| Description | This element contains the place the newspaper edition was issued. |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="text"]` |
+|-----------------------|-----------|
+| Name | MODS place term text element |
+| Description | This element is used to express place in a textual form.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | SHOULD |
+
+| Element | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]` |
+|-----------------------|-----------|
+| Name | MODS place term code element |
+| Description | This element is used to express place in a coded form.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | SHOULD |
+
+| Element | `mods:mods/mods:physicalDescription` |
+|-----------------------|-----------|
+| Name | MODS physical description element |
+| Description | This element is used to express physical characteristics of the newspaper edition.  |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:physicalDescription/mods:extent[@unit="pages"]` |
+|-----------------------|-----------|
+| Name | MODS extent element |
+| Description | This element is used to express the number of pages in the newspaper edition.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:physicalDescription/mods:extent[@unit="cm"]` |
+|-----------------------|-----------|
+| Name | MODS extent element |
+| Description | This element is used to express the physical size of the newspaper edition in centimeters. Th value MUST be in the form `W X H`.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:physicalDescription/mods:form` |
+|-----------------------|-----------|
+| Name | MODS form element |
+| Description | This element denotes a particular physical presentation of the newspaper edition, including the physical form, medium or material.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Attribute | `mods:mods/(mods:genre|mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]|mods:physicalDescription/mods:form)/@authority` |
+|-----------------------|-----------|
+| Name | MODS authority attribute |
+| Description | The name of an authoritative list of terms whose values are controlled. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `mods:mods/(mods:genre|mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]|mods:physicalDescription/mods:form)/@authorityURI` |
+|-----------------------|-----------|
+| Name | MODS authority uri attribute |
+| Description | The URI for the authoritative list (as described above for `@authority`). |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
 
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="abraham_id"]` |
 |-----------------------|-----------|
