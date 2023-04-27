@@ -642,7 +642,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 | Name | Type of descriptive metadata |
 | Description | Specification of the type of metadata that is used in the externally located descriptive metadata file(s) in the `/metadata/descriptive` directory. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
-| Vocabulary | `MODS`<br>`DC`<br>`PREMIS`<br>`METSRIGHTS`<br>`OTHER` |
+| Vocabulary | `MODS`<br>`DC`<br>`OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -770,9 +770,9 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 | Attribute | `mets/amdSec/digiprovMD/mdRef/@MDTYPE` |
 |-----------------------|-----------|
 | Name | Type of preservation metadata |
-| Description | Specification of the type of metadata that is used in the externally located preservation metadata file in the `/metadata/preservation directory`. |
+| Description | Specification of the type of metadata that is used in the externally located preservation metadata file in the `/metadata/preservation directory`. The value MUST be set to `PREMIS`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
-| Vocabulary | `MODS`<br>`DC`<br>`PREMIS`<br>`METSRIGHTS`<br>`OTHER` |
+| Vocabulary | `PREMIS` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
