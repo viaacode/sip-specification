@@ -120,7 +120,7 @@ The various requirements are listed in the table below.
       OBJID="uuid-fae4ef8f-5954-4602-9a1e-0d6eb83f3727"
       TYPE="Photographs – Digital"
       PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml"
-      csip:CONTENTINFORMATIONTYPE="">
+      csip:CONTENTINFORMATIONTYPE="" xsi:schemaLocation="http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd">
 
   <metsHdr>...</metsHdr>
   <dmdSec>...</dmdSec>
