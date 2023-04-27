@@ -74,6 +74,9 @@ root_directory
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
 - There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
 - Preservation metadata in the SIP MUST be limited to the PREMIS metadata schema.
+- Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
+  - The value of element `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` MUST be set to `MD5`.
+  - The value of attribute `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5"`.
 - There MAY be descriptive metadata at the representation level (e.g. information about the representations, such as a title or a description).
 
 ### Package METS

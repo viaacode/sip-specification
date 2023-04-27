@@ -662,7 +662,7 @@ The table below gives an overview of the different relationship types that can b
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` |
 |-----------------------|-----------|
 | Name | Message digest algorithm |
-| Description | This element details which algorithm is used to construct the message digest for the digital file object present. The value MUST be set to MD5. |
+| Description | This element details which algorithm is used to construct the message digest for the digital file object present. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -686,8 +686,9 @@ The table below gives an overview of the different relationship types that can b
 | Attribute | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` |
 |-----------------------|-----------|
 | Name | Message digest algorithm value URI |
-| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>This attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5"`. |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Vocabulary | `Adler-32`<br>`CRC32`<br>`HAVAL`<br>`MD2`<br>`MD5`<br>`MNP`<br>`SHA-1`<br>`SHA-256`<br>`SHA-384`<br>`SHA-512`<br>`TIGER`<br>`unknown`<br>`Whirlpool` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -695,7 +696,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Message digest |
 | Description | This element contains the actual value calculated message digest algorithm specified in the `premis:messageDigestAlgorithm` element. |
-| Datatype | MD5 |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
