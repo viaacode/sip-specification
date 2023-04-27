@@ -334,7 +334,7 @@ The `/metadata` directory contains both descriptive and preservation metadata ab
 
 ***Requirements***
 
-- The `/metadata` directory MUST contain exactly two subdirectories: `/descriptive` and `/preservation`.
+- The `/metadata` directory MUST contain the subdirectory `/preservation` and it MAY contain the `/descriptive` subdirectory.
 
 ### /descriptive (directory)
 
