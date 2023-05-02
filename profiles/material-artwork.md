@@ -246,7 +246,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 
 | Element | `(schema:height|schema:width|schema:depth)/schema:unitCode` |
 |-----------------------|-----------|
-| Name | height |
+| Name | Unit Code |
 | Description | The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). |
 | Vocabulary | `MMT`, `CMT`, `MTR` |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
@@ -255,7 +255,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 
 | Element | `(schema:height|schema:width|schema:depth)/schema:unitText` |
 |-----------------------|-----------|
-| Name | height |
+| Name | Unit Text |
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `mm`, `cm`, `m` |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
