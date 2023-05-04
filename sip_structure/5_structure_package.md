@@ -1721,6 +1721,9 @@ TODO: figure out the IDs
         <premis:eventDetailInformation>
             <premis:eventDetail />
         </premis:eventDetailInformation>
+        <premis:eventOutcomeInformation>
+            <premis:eventOutcome valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">succes</premis:eventOutcome>
+        </premis:eventOutcomeInformation>
         <premis:linkingAgentIdentifier>
             <premis:linkingAgentIdentifierType>OR-id</premis:linkingAgentIdentifierType>
             <premis:linkingAgentIdentifierValue>OR-m30wc4t</premis:linkingAgentIdentifierValue>
@@ -1818,6 +1821,31 @@ TODO: figure out the IDs
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
+
+| Element | `premis:premis/premis:event/premis:eventOutcomeInformation` |
+|-----------------------|-----------|
+| Name | Event outcome information  |
+| Description | Information about the outcome of an event. |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `premis:premis/premis:event/premis:eventOutcomeInformation/premis:eventOutcome` |
+|-----------------------|-----------|
+| Name | Event outcome  |
+| Description | This element categorizes the outcome of the event in terms of success or failure. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS event outcome`](https://id.loc.gov/vocabulary/preservation/eventOutcome.html)) |
+| Vocabulary | `fail`<br>`success`<br>`warning` |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `premis:premis/premis:event/premis:eventOutcomeInformation/premis:eventOutcome/@valueURI` |
+|-----------------------|-----------|
+| Name | Event outcome value URI  |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the event outcome is `fail`, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventOutcome/fai`.<br>If the event outcome is `success`, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventOutcome/suc`.<br> If the event outcome is `warning`, this attribut's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventOutcome/war`.|
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/eventOutcome/fai`<br>`http://id.loc.gov/vocabulary/preservation/eventOutcome/suc`<br>`http://id.loc.gov/vocabulary/preservation/eventOutcome/war` |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Element | `premis:premis/premis:event/premis:linkingAgentIdentifier` |
 |-----------------------|-----------|
