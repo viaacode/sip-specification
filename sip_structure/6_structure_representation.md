@@ -116,7 +116,7 @@ A summary of all possible references and their obligation is given in the table 
       xmlns:xlink="http://www.w3.org/1999/xlink"
       OBJID="representation_1"
       TYPE="Photographs – Digital"
-      PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml">
+      PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml" xsi:schemaLocation="https://www.w3.org./1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd  http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd https://dilcis.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd https://dilcis.eu/XML/METS/SIPExtensionMETS https://earksip.dilcis.eu/schema/DILCISExtensionSIPMETS.xsd">
 
 <metsHdr>...</metsHdr>
 <dmdSec>...</dmdSec>
