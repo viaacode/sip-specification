@@ -1605,7 +1605,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | A high-level categorization of the nature of the relationship.<br><br>This element's value MUST be set to `structural` when expressing the relationship between one IE and another or between the IE object and one of its representations. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `structural` |
-| Cardinality | 1..* |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authority` |

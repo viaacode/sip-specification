@@ -560,7 +560,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Relationship type |
 | Description | A high-level categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the representation level, this element's value MUST be set to `structural`.|
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 1..* |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authority` |
