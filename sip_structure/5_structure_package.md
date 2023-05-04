@@ -116,7 +116,6 @@ The various requirements are listed in the table below.
 <?xml version='1.0' encoding='UTF-8'?>
 <mets xmlns="http://www.loc.gov/METS/"
       xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS"
-      
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       OBJID="uuid-fae4ef8f-5954-4602-9a1e-0d6eb83f3727"

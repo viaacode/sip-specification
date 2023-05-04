@@ -111,7 +111,6 @@ A summary of all possible references and their obligation is given in the table 
 <?xml version="1.0"?>
 <mets xmlns="http://www.loc.gov/METS/"
       xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS"
-      
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       OBJID="representation_1"
