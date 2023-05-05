@@ -116,14 +116,13 @@ The various requirements are listed in the table below.
 <?xml version='1.0' encoding='UTF-8'?>
 <mets xmlns="http://www.loc.gov/METS/"
       xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS"
-      xmlns:sip="https://DILCIS.eu/XML/METS/SIPExtensionMETS"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:xlink="http://www.w3.org/1999/xlink"
       OBJID="uuid-fae4ef8f-5954-4602-9a1e-0d6eb83f3727"
       TYPE="Photographs – Digital"
       PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml"
       csip:CONTENTINFORMATIONTYPE="" 
-      xsi:schemaLocation="https://www.w3.org./1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd  http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd https://dilcis.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd https://dilcis.eu/XML/METS/SIPExtensionMETS https://earksip.dilcis.eu/schema/DILCISExtensionSIPMETS.xsd">
+      xsi:schemaLocation="https://www.w3.org./1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd  http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd https://dilcis.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd ">
 
   <metsHdr>...</metsHdr>
   <dmdSec>...</dmdSec>
@@ -139,7 +138,7 @@ The various requirements are listed in the table below.
 | Element | `mets` |
 |-----------------------|-----------|
 | Name | METS root element |
-| Description | This is the root element of the package METS.<br>It MUST contain the following XML schema namespaces:<br>[`mets: http://www.loc.gov/METS/`](http://www.loc.gov/METS/)<br>[`csip: https://dilcis.eu/XML/METS/CSIPExtensionMETS`](https://dilcis.eu/XML/METS/CSIPExtensionMETS)<br>[`sip: https://dilcis.eu/XML/METS/SIPExtensionMETS`](https://dilcis.eu/XML/METS/SIPExtensionMETS)<br>[`xsi: http://www.w3.org/2001/XMLSchema-instance`](http://www.w3.org/2001/XMLSchema-instance)<br>[`xlink: http://www.w3.org/1999/xlink`](http://www.w3.org/1999/xlink)|
+| Description | This is the root element of the package METS.<br>It MUST contain the following XML schema namespaces:<br>[`mets: http://www.loc.gov/METS/`](http://www.loc.gov/METS/)<br>[`csip: https://dilcis.eu/XML/METS/CSIPExtensionMETS`](https://dilcis.eu/XML/METS/CSIPExtensionMETS)<br>[`xsi: http://www.w3.org/2001/XMLSchema-instance`](http://www.w3.org/2001/XMLSchema-instance)<br>[`xlink: http://www.w3.org/1999/xlink`](http://www.w3.org/1999/xlink)|
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1606,7 +1605,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | A high-level categorization of the nature of the relationship.<br><br>This element's value MUST be set to `structural` when expressing the relationship between one IE and another or between the IE object and one of its representations. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `structural` |
-| Cardinality | 1..* |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authority` |
