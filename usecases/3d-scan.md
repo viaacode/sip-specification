@@ -183,7 +183,7 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="">
+<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:schema="https://schema.org/">
 
 
   <!-- general title for the resource -->
@@ -219,8 +219,8 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
   <!-- creator -->
   <schema:creator schema:roleName="auteur">
     <schema:name>Walter Pompe</schema:name>
-    <schema:birthDate xsi:type="xsd:dateTime">1703</schema:birthDate>
-    <schema:deathDate xsi:type="xsd:dateTime">1777</schema:deathDate>
+    <schema:birthDate xsi:type="edtf:EDTF">1703-11-22</schema:birthDate>
+    <schema:deathDate xsi:type="edtf:EDTF">1777-02-16</schema:deathDate>
   </schema:creator>
 
   <!-- dimensions -->
