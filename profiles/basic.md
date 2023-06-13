@@ -281,7 +281,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
   <dcterms:identifier>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</dcterms:identifier>
 
   <!-- date unknown -->
-  <dcterms:created xsi:type="edtf:EDTF">XXXX</dcterms:created>
+  <dcterms:created xsi:type="edtf:EDTF-level1">XXXX</dcterms:created>
 
   <!-- multiple keywords about the resource -->
   <dcterms:subject xml:lang="nl">Cat</dcterms:subject>

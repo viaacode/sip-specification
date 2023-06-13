@@ -97,7 +97,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
   <dcterms:identifier>uuid-a0a5329c-4ad1-4607-9f6e-ce980d90b992</dcterms:identifier>
 
   <!-- date unknown -->
-  <dcterms:created xsi:type="edtf:EDTF">XXXX</dcterms:created>
+  <dcterms:created xsi:type="edtf:EDTF-level1">XXXX</dcterms:created>
 
   <!-- multiple keywords about the resource -->
   <dcterms:subject xml:lang="nl">Cat</dcterms:subject>
