@@ -198,7 +198,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Element | `metadata/dcterms:subject` |
+| Element | `metadata/dcterms:subject[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Subject |
 | Description | Subjects or keywords related to the Intellectual Entity.<br> If the element is present, the applied language MUST be provided by a `@xml:lang` attribute (see requirements above) and there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |

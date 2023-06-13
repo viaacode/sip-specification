@@ -269,7 +269,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Art medium |
 | Description | The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `schema:artform[@xml:lang=*]` |
@@ -277,7 +277,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Artform |
 | Description | The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 ### Validation
