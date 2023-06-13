@@ -190,7 +190,7 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
   <dcterms:identifier>cf9j41p15z</dcterms:identifier>
 
   <!-- creationdate -->
-  <dcterms:created xsi:type="edtf:EDTF">1500</dcterms:created>
+  <dcterms:created xsi:type="edtf:EDTF-level1">1500</dcterms:created>
 
   <dcterms:subject xml:lang="nl">topstukken</dcterms:subject>
   <dcterms:subject xml:lang="nl">religie</dcterms:subject>
