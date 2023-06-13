@@ -115,8 +115,10 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
   <!-- matches the identifier of the premis:object defined in the preservation/premis.xml -->
   <dcterms:identifier>uuid-f58ece94-f050-4b5b-b383-bba83393eaff</dcterms:identifier>
 
-  <dcterms:created xsi:type="edtf:EDTF-level1">the date the episode was created</dcterms:created>
-  <dcterms:issued xsi:type="edtf:EDTF-level1">the date the episode was aired</dcterms:issued>
+  <!-- the date the episode was created -->
+  <dcterms:created xsi:type="edtf:EDTF-level1">XXXX</dcterms:created>
+  <!-- the date the episode was aired -->
+  <dcterms:issued xsi:type="edtf:EDTF-level1">XXXX</dcterms:issued>
 
   <dcterms:license>VIAA-PUBLIEK-METADATA-LTD</dcterms:license>
   <dcterms:publisher>the publisher of the episode</dcterms:publisher>
