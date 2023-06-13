@@ -185,8 +185,8 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
   <!-- creator -->
   <schema:creator schema:roleName="auteur">
     <schema:name>Anthony van Dyck</schema:name>
-    <schema:birthDate xsi:type="edtf:EDTF">1599-03-22</schema:birthDate>
-    <schema:deathDate xsi:type="edtf:EDTF">1641-12-09</schema:deathDate>
+    <schema:birthDate xsi:type="edtf:EDTF-level1">1599-03-22</schema:birthDate>
+    <schema:deathDate xsi:type="edtf:EDTF-level1">1641-12-09</schema:deathDate>
   </schema:creator>
 
   <!-- dimensions -->

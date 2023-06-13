@@ -219,8 +219,8 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
   <!-- creator -->
   <schema:creator schema:roleName="auteur">
     <schema:name>Walter Pompe</schema:name>
-    <schema:birthDate xsi:type="edtf:EDTF">1703-11-22</schema:birthDate>
-    <schema:deathDate xsi:type="edtf:EDTF">1777-02-16</schema:deathDate>
+    <schema:birthDate xsi:type="edtf:EDTF-level1">1703-11-22</schema:birthDate>
+    <schema:deathDate xsi:type="edtf:EDTF-level1">1777-02-16</schema:deathDate>
   </schema:creator>
 
   <!-- dimensions -->
