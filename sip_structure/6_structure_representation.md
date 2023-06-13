@@ -413,7 +413,7 @@ More detailed preservation information can be described using PREMIS events and 
       <premis:format>
         <premis:formatRegistry>
           <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
-          <premis:formatRegistryKey>fmt-1507</premis:formatRegistryKey>
+          <premis:formatRegistryKey>fmt/1507</premis:formatRegistryKey>
           <premis:formatRegistryRole authority="formatRegistryRole" authorityURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
         </premis:formatRegistry>
       </premis:format>
@@ -451,7 +451,7 @@ More detailed preservation information can be described using PREMIS events and 
       <premis:format>
         <premis:formatRegistry>
           <premis:formatRegistryName>PRONOM</premis:formatRegistryName>
-          <premis:formatRegistryKey>fmt-1507</premis:formatRegistryKey>
+          <premis:formatRegistryKey>fmt/1507</premis:formatRegistryKey>
           <premis:formatRegistryRole authority="formatRegistryRole" authorityURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole" valueURI="http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe">specification</premis:formatRegistryRole>
         </premis:formatRegistry>
       </premis:format>
