@@ -177,6 +177,8 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 - Descriptive metadata in `descriptive/dc+schema.xml` MUST apply the DCTERMS metadata schema and MAY also apply the [SCHEMA](http://schema.org) metadata schema (see below).
 - The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
 - The [SCHEMA](http://schema.org) metadata in `descriptive/dc+schema.xml` MUST be limited to the elements and attributes outlined below.
+- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
+- The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
 | Element | `schema:creator` |
 |-----------------------|-----------|
@@ -262,18 +264,18 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
-| Element | `schema:artMedium` |
+| Element | `schema:artMedium[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Art medium |
-| Description | The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. |
+| Description | The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `schema:artform` |
+| Element | `schema:artform[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Artform |
-| Description | The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. |
+| Description | The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
