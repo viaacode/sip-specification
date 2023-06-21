@@ -195,7 +195,7 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
   <dcterms:description xml:lang="en">part of the Van Herck collection of terracotta sculptures.</dcterms:description>
 
   <!-- linking id between dc and premis -->
-  <dcterms:identifier>7m03z1634f</dcterms:identifier>
+  <dcterms:identifier>uuid-645392be-fa36-40fe-92e7-16c9fa60fe46</dcterms:identifier>
 
   <!-- creationdate -->
   <dcterms:created xsi:type="edtf:EDTF-level1">1701/1800</dcterms:created>
@@ -267,7 +267,12 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     <!-- IE about the artwork -->
     <premis:object xsi:type="premis:intellectualEntity">
         <premis:objectIdentifier>
-            <premis:objectIdentifierType>VIAA PID</premis:objectIdentifierType>
+            <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+            <premis:objectIdentifierValue>uuid-645392be-fa36-40fe-92e7-16c9fa60fe46</premis:objectIdentifierValue>
+        </premis:objectIdentifier>
+
+        <premis:objectIdentifier>
+            <premis:objectIdentifierType>meemoo_pid</premis:objectIdentifierType>
             <premis:objectIdentifierValue>qv3bz95m19</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
@@ -407,8 +412,8 @@ It also describes the various relationships between these objects:
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>qv3bz95m19</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+        <premis:relatedObjectIdentifierValue>uuid-645392be-fa36-40fe-92e7-16c9fa60fe46</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>
@@ -524,8 +529,8 @@ It also describes the various relationships between these objects:
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>qv3bz95m19</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+        <premis:relatedObjectIdentifierValue>uuid-645392be-fa36-40fe-92e7-16c9fa60fe46</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>
@@ -701,8 +706,8 @@ It also describes the various relationships between these objects:
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>qv3bz95m19</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+        <premis:relatedObjectIdentifierValue>uuid-645392be-fa36-40fe-92e7-16c9fa60fe46</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>

@@ -170,7 +170,7 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
   <dcterms:description xml:lang="en">Painted around 1629 for the high altar of the Beguinage Church in Antwerp. A second copy is kept in Madrid (Prado); sketches at Leningrad (Hermitage) a smaller repetition at Hagley (Lord Littleton) a drawing in the Atger Museum in Montpellier and finally a grisaille study was in the Randon de Boisset auction in 1776. The painting was engraved by Paul Pontius and Andreas van Rymsdyck.</dcterms:description>
 
   <!-- linking id between dc and premis -->
-  <dcterms:identifier>7m03z1634f</dcterms:identifier>
+  <dcterms:identifier>uuid-2767ce00-0b91-4eb8-80fb-e6f293f19675</dcterms:identifier>
 
   <!-- creationdate -->
   <dcterms:created xsi:type="edtf:EDTF-level1">1628/1629</dcterms:created>
@@ -223,7 +223,12 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     <!-- IE about the artwork -->
     <premis:object xsi:type="premis:intellectualEntity">
         <premis:objectIdentifier>
-            <premis:objectIdentifierType>VIAA PID</premis:objectIdentifierType>
+            <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+            <premis:objectIdentifierValue>uuid-2767ce00-0b91-4eb8-80fb-e6f293f19675</premis:objectIdentifierValue>
+        </premis:objectIdentifier>
+
+        <premis:objectIdentifier>
+            <premis:objectIdentifierType>meemoo_pid</premis:objectIdentifierType>
             <premis:objectIdentifierValue>7m03z1634f</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
@@ -387,8 +392,8 @@ It also describes the various relationships between these objects:
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>7m03z1634f</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+        <premis:relatedObjectIdentifierValue>uuid-2767ce00-0b91-4eb8-80fb-e6f293f19675</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>
@@ -508,8 +513,8 @@ It also describes the various relationships between these objects:
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>7m03z1634f</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+        <premis:relatedObjectIdentifierValue>uuid-2767ce00-0b91-4eb8-80fb-e6f293f19675</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>

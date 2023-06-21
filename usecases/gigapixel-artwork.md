@@ -187,7 +187,7 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
   <dcterms:description xml:lang="nl">De unieke Brabantse uur- en kalenderwijzerplaat van circa 1500 vertelt als een groot en minitieus geschilderd prentenboek de verhalen van de dierenriem de maanden en de planetenkinderen.</dcterms:description>
 
   <!-- linking id between dc and premis -->
-  <dcterms:identifier>cf9j41p15z</dcterms:identifier>
+  <dcterms:identifier>uuid-cd5bb5e4-fb6c-4e28-8c61-d924a903aafb</dcterms:identifier>
 
   <!-- creationdate -->
   <dcterms:created xsi:type="edtf:EDTF-level1">1500</dcterms:created>
@@ -236,7 +236,12 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     <!-- IE about the artwork -->
     <premis:object xsi:type="premis:intellectualEntity">
         <premis:objectIdentifier>
-            <premis:objectIdentifierType>VIAA PID</premis:objectIdentifierType>
+            <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+            <premis:objectIdentifierValue>uuid-cd5bb5e4-fb6c-4e28-8c61-d924a903aafb</premis:objectIdentifierValue>
+        </premis:objectIdentifier>
+
+        <premis:objectIdentifier>
+            <premis:objectIdentifierType>meemoo_pid</premis:objectIdentifierType>
             <premis:objectIdentifierValue>cf9j41p15z</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
@@ -397,8 +402,8 @@ It also describes the various relationships between these objects:
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>cf9j41p15z</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+        <premis:relatedObjectIdentifierValue>uuid-cd5bb5e4-fb6c-4e28-8c61-d924a903aafb</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>
@@ -491,8 +496,8 @@ It also describes the various relationships between these objects:
       <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
       <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>VIAA PID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>cf9j41p15z</premis:relatedObjectIdentifierValue>
+        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+        <premis:relatedObjectIdentifierValue>uuid-cd5bb5e4-fb6c-4e28-8c61-d924a903aafb</premis:relatedObjectIdentifierValue>
       </premis:relatedObjectIdentifier>
     </premis:relationship>
   </premis:object>
