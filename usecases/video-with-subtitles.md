@@ -149,7 +149,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     </premis:objectIdentifier>
 
     <premis:objectIdentifier>
-      <premis:objectIdentifierType>LOCAL_ID</premis:objectIdentifierType>
+      <premis:objectIdentifierType>MEEMOO-LOCAL-ID</premis:objectIdentifierType>
       <premis:objectIdentifierValue>a custom identifier provided by the CP</premis:objectIdentifierValue>
     </premis:objectIdentifier>
 
