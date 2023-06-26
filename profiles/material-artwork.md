@@ -241,7 +241,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Value |
 | Description | The height, width or depth measurement value. |
 | Cardinality | 1..1 |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Datatype | [Float]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#float) |
 | Obligation | MUST |
 
 | Element | `(schema:height|schema:width|schema:depth)/schema:unitCode` |
