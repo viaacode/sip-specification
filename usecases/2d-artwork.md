@@ -228,7 +228,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
         </premis:objectIdentifier>
 
         <premis:objectIdentifier>
-            <premis:objectIdentifierType>meemoo_pid</premis:objectIdentifierType>
+            <premis:objectIdentifierType>MEEMOO-PID</premis:objectIdentifierType>
             <premis:objectIdentifierValue>7m03z1634f</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
@@ -285,7 +285,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
         </premis:eventOutcomeInformation>
 
         <premis:linkingAgentIdentifier>
-            <premis:linkingAgentIdentifierType>VIAA SP Agent ID</premis:linkingAgentIdentifierType>
+            <premis:linkingAgentIdentifierType>MEEMOO-OR-ID</premis:linkingAgentIdentifierType>
             <premis:linkingAgentIdentifierValue>OR-xg9fb0b</premis:linkingAgentIdentifierValue>
             <premis:linkingAgentRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp">implementer</premis:linkingAgentRole>
         </premis:linkingAgentIdentifier>
@@ -320,7 +320,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 
     <premis:agent>
         <premis:agentIdentifier>
-            <premis:agentIdentifierType>VIAA SP Agent ID</premis:agentIdentifierType>
+            <premis:agentIdentifierType>MEEMOO-OR-ID</premis:agentIdentifierType>
             <premis:agentIdentifierValue>OR-xg9fb0b</premis:agentIdentifierValue>
         </premis:agentIdentifier>
         <premis:agentName>Cedric Verhelst</premis:agentName>

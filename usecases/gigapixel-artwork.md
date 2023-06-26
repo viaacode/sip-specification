@@ -241,7 +241,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
         </premis:objectIdentifier>
 
         <premis:objectIdentifier>
-            <premis:objectIdentifierType>meemoo_pid</premis:objectIdentifierType>
+            <premis:objectIdentifierType>MEEMOO-PID</premis:objectIdentifierType>
             <premis:objectIdentifierValue>cf9j41p15z</premis:objectIdentifierValue>
         </premis:objectIdentifier>
 
@@ -311,7 +311,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
         </premis:eventOutcomeInformation>
 
         <premis:linkingAgentIdentifier>
-            <premis:linkingAgentIdentifierType>VIAA SP Agent ID</premis:linkingAgentIdentifierType>
+            <premis:linkingAgentIdentifierType>MEEMOO-OR-ID</premis:linkingAgentIdentifierType>
             <premis:linkingAgentIdentifierValue>OR-319s272</premis:linkingAgentIdentifierValue>
             <premis:linkingAgentRole valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp">implementer</premis:linkingAgentRole>
         </premis:linkingAgentIdentifier>
@@ -351,7 +351,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 
     <premis:agent>
         <premis:agentIdentifier>
-            <premis:agentIdentifierType>VIAA SP Agent ID</premis:agentIdentifierType>
+            <premis:agentIdentifierType>MEEMOO-OR-ID</premis:agentIdentifierType>
             <premis:agentIdentifierValue>OR-319s272</premis:agentIdentifierValue>
         </premis:agentIdentifier>
         <premis:agentName>Rik Klein Gotink</premis:agentName>
