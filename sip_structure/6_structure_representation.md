@@ -711,8 +711,8 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | File format identification |
 | Description | This element contains information about the format of the file object. |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatDesignation` |
 |-----------------------|-----------|
@@ -740,8 +740,8 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Format registry |
 | Description | This element identifies and/or gives further information about the file format by referencing an entry in a format registry (e.g. [PRONOM](https://www.nationalarchives.gov.uk/PRONOM/Default.aspx)). |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryName` |
 |-----------------------|-----------|
