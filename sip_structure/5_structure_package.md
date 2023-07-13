@@ -1859,7 +1859,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking agent identifier type |
 | Description | The type of the agent identifier being used. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string); fixed vocabulary |
 | Vocabulary | `UUID`<br>`MEEMOO-OR-ID` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1868,7 +1868,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking agent identifier value |
 | Description | The actual value that makes up the identifier of the agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:eventIdentifierType`) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) (depending on the value of the `premis:linkingAgentIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1886,7 +1886,7 @@ TODO: figure out the IDs
 | Name | Linking agent role value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `authorizer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut`.<br>If the `executing program` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe`.<br>If the `implementer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp`.<br>If the `validator` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/val` |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
-| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/val` |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1926,9 +1926,9 @@ TODO: figure out the IDs
 | Attribute | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingObjectRole/@valueURI` |
 |-----------------------|-----------|
 | Name | Linking agent role value URI |
-| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `authorizer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut`.<br>If the `executing program` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe`.<br>If the `implementer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp`.<br>If the `validator` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/val` |
+| Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `outcome` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out`.<br>If the `source` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#uri); fixed vocabulary |
-| Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out` |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
