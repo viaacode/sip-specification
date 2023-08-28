@@ -476,7 +476,7 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
     <dcterms:title>ARCHIVERINGSCOPIE OBJ</dcterms:title>
 
     <!-- licenses -->
-    <dcterms:license>CCBY-NC-ND-CONTENT</dcterms:license>
+    <dcterms:license>CC_BY-NC-ND-CONTENT</dcterms:license>
     <dcterms:license>CP-website</dcterms:license>
 
 </metadata>
