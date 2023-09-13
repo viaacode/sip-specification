@@ -180,28 +180,30 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 - Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
 - The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
-| Element | `schema:creator` |
+| Element | `metadata/schema:creator` |
 |-----------------------|-----------|
 | Name | Creator artwork |
 | Description | The creator/author of the digitally reproduced artwork.  |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Attribute | `schema:creator/@roleName` |
+| Attribute | `metadata/schema:creator/@roleName` |
 |-----------------------|-----------|
 | Name | Role creator |
 | Description | The role with which the creator/author was involved in creating the digitally reproduced artwork.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `schema:creator/schema:name` |
+| Element | `metadata/schema:creator/schema:name` |
 |-----------------------|-----------|
 | Name | Name creator |
-| Description | The name of the  creator.  |
+| Description | The name of the creator.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `schema:creator/schema:birthDate` |
+| Element | `metadata/schema:creator/schema:birthDate` |
 |-----------------------|-----------|
 | Name | Birth date creator |
 | Description | The creator's date of birth.  |
@@ -209,7 +211,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `schema:creator/schema:deathDate` |
+| Element | `metadata/schema:creator/schema:deathDate` |
 |-----------------------|-----------|
 | Name | Death date creator |
 | Description | The creator's date of death.  |
@@ -217,28 +219,28 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `schema:height` |
+| Element | `metadata/schema:height` |
 |-----------------------|-----------|
 | Name | Height artwork |
 | Description | The measured height of the physical artwork.  |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `schema:width` |
+| Element | `metadata/schema:width` |
 |-----------------------|-----------|
 | Name | Width artwork |
 | Description | The measure width of the physical artwork. |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `schema:depth` |
+| Element | `metadata/schema:depth` |
 |-----------------------|-----------|
 | Name | Depth artwork |
 | Description | The measured depth of the physical artwork. |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `(schema:height|schema:width|schema:depth)/schema:value` |
+| Element | `metadata/(schema:height|schema:width|schema:depth)/schema:value` |
 |-----------------------|-----------|
 | Name | Value |
 | Description | The height, width or depth measurement value. |
@@ -246,7 +248,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
 | Obligation | MUST |
 
-| Element | `(schema:height|schema:width|schema:depth)/schema:unitCode` |
+| Element | `metadata/(schema:height|schema:width|schema:depth)/schema:unitCode` |
 |-----------------------|-----------|
 | Name | Unit Code |
 | Description | The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). |
@@ -255,7 +257,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `(schema:height|schema:width|schema:depth)/schema:unitText` |
+| Element | `metadata/(schema:height|schema:width|schema:depth)/schema:unitText` |
 |-----------------------|-----------|
 | Name | Unit Text |
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
@@ -264,7 +266,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
-| Element | `schema:artMedium[@xml:lang=*]` |
+| Element | `metadata/schema:artMedium[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Art medium |
 | Description | The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
@@ -272,12 +274,110 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Element | `schema:artform[@xml:lang=*]` |
+| Element | `metadata/schema:artform[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Artform |
 | Description | The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:Episode]` |
+|-----------------------|-----------|
+| Name | Is part of episode |
+| Description | Indicates an episode that this item is part of.  |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:Episode]/schema:name` |
+|-----------------------|-----------|
+| Name | Name episode |
+| Description | The name of the episode. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:ArchiveComponent]` |
+|-----------------------|-----------|
+| Name | Is part of archive |
+| Description |  Indicates an archive that this item is part of.  |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:ArchiveComponent]/schema:name` |
+|-----------------------|-----------|
+| Name | Name archive |
+| Description | The name of the archive.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]` |
+|-----------------------|-----------|
+| Name | Is part of series |
+| Description |   Indicates an series that this item is part of. |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:name` |
+|-----------------------|-----------|
+| Name | Name creative work series |
+| Description | The name of the series.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart` |
+|-----------------------|-----------|
+| Name | Has subseries |
+| Description | Indicates an (sub)series that is part of this series.  |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart/schema:name` |
+|-----------------------|-----------|
+| Name | Name subseries  |
+| Description | The name of the subseries.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:BroadcastEvent]` |
+|-----------------------|-----------|
+| Name | Is part of broadcast event|
+| Description | Indicates a broadcast that this item is part of.   |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:BroadcastEvent]/schema:name` |
+|-----------------------|-----------|
+| Name | Name broadcast event |
+| Description |  The name of the broadcast. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]` |
+|-----------------------|-----------|
+| Name | Is part of season |
+| Description |  Indicates a season that this item is part of.  |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:name` |
+|-----------------------|-----------|
+| Name | Name creative work season |
+| Description |  The name of the season. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:seasonNumber` |
+|-----------------------|-----------|
+| Name | Number season |
+| Description |  Position of the season within an ordered group of seasons. |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Cardinality | 0..1 |
 | Obligation | MAY |
 
 ### Validation
