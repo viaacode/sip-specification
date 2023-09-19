@@ -315,7 +315,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]` |
 |-----------------------|-----------|
 | Name | Is part of series |
-| Description |   Indicates an series that this item is part of. |
+| Description |   Indicates a series that this item is part of. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
