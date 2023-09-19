@@ -330,7 +330,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart` |
 |-----------------------|-----------|
 | Name | Has subseries |
-| Description | Indicates an (sub)series that is part of this series.  |
+| Description | Indicates a subseries that is part of this series.  |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
