@@ -366,7 +366,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:name` |
 |-----------------------|-----------|
-| Name | Name creative work season |
+| Name | Name season |
 | Description |  The name of the season. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
