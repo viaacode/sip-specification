@@ -321,7 +321,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:name` |
 |-----------------------|-----------|
-| Name | Name creative work series |
+| Name | Name series |
 | Description | The name of the series.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
