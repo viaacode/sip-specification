@@ -286,7 +286,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Is part of episode |
 | Description | Indicates an episode that this item is part of.  |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:Episode]/schema:name` |
@@ -301,7 +301,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Is part of archive |
 | Description |  Indicates an archive that this item is part of.  |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:ArchiveComponent]/schema:name` |
@@ -316,7 +316,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Is part of series |
 | Description |   Indicates a series that this item is part of. |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:name` |
@@ -327,11 +327,19 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+| Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:position` |
+|-----------------------|-----------|
+| Name | Number series |
+| Description | The number of the series.  |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart` |
 |-----------------------|-----------|
 | Name | Has subseries |
 | Description | Indicates a subseries that is part of this series.  |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart/schema:name` |
@@ -346,7 +354,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Is part of broadcast event|
 | Description | Indicates a broadcast that this item is part of.   |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:BroadcastEvent]/schema:name` |
@@ -361,7 +369,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Is part of season |
 | Description |  Indicates a season that this item is part of.  |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:name` |
