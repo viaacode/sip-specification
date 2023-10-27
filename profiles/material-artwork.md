@@ -16,7 +16,7 @@ This includes photographic registration of 2D artworks, such as paintings or dra
 This content profile specifies how to package different media files (e.g., TIFF, JPEG, OBJ or MTL), their metadata and the relationships between them in a meemoo SIP package.
 It also allows extensions to the descriptive metadata using [Schema.org](https://schema.org).
 
-**Permalink:** <https://data.hetarchief.be/id/sip/1.1/material-artwork>
+**Permalink:** <https://data.hetarchief.be/id/sip/1.2/material-artwork>
 
 ## Example Directory structure
 
@@ -161,7 +161,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/material-artwork`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.2/material-artwork`.
 - The `TYPE` attribute in the `mets.xml` file MUST be set to
   - `Photographs - Digital` (for 2D objects) or
   - `Scanned 3D Objects (output from photogrammetry scanning)` (for 3D objects).

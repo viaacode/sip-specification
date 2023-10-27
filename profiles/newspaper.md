@@ -1,6 +1,6 @@
 ---
 layout:       default
-title:        Newspaper
+title:        Bibliographic
 parent:       Profiles
 grand_parent:  1.2
 nav_order:    2
@@ -8,13 +8,13 @@ nav_exclude:  false
 ---
 Release Candidate
 {: .label .label-blue }
-# Profile: Newspaper 
+# Profile: Bibliographic 
 
-The newspaper profile supports the ingest of digitised newspaper content.
-It shows how to deal with multiple media files (in formats such as TIFF, ALTO XML and PDF) and the relationships between them and their metadata.
-It also allows to use the [MODS metadata schema](https://www.loc.gov/standards/mods/) for descriptive metadata, which is the default for describing newspaper content.
+The bibliographic profile supports the ingest of digitised written works consisting of multiple bounded or unbounded pages predominately containing handwritten or printed text, such as books, magazines, manuscripts, letters or newspapers. They are often described and maintained by libraries.
+This profile dictates how the media files (in formats such as TIFF, ALTO XML and PDF), their metadata, and the relationships between them, should be expressed and organized.
+It applies the [MODS XML metadata schema](https://www.loc.gov/standards/mods/) for descriptive metadata.
 
-**Permalink:** <https://data.hetarchief.be/id/sip/1.1/newspaper>
+**Permalink:** <https://data.hetarchief.be/id/sip/1.2/bibliographic>
 
 ## Example Directory structure
 
@@ -67,10 +67,15 @@ root_directory
 
 ### General
 
-- A newspaper SIP MUST contain exactly one newspaper edition.
-- The newspaper edition MUST be digitised per page, i.e. each TIFF and/or ALTO XML file contained in their respective representation directories MUST represent exactly one page.
-  - <a id="pdf"></a>An exception to this requirement MAY be made with regards to a PDF file: it is RECOMMENDED to only use a single PDF that contains the contents of the entire newspaper edition (i.e. all pages are present in one single PDF file).
-- There MUST be exactly one IE present in the SIP, i.e. the newspaper edition.
+- A SIP MUST contain content of exactly one written work of type
+  - newspaper edition;
+  - book;
+  - letter;
+  - magazine issue; or
+  - manuscript.
+- The content MUST be digitised per page, i.e. each TIFF and/or ALTO XML file contained in their respective representation directories MUST represent exactly one page.
+  - <a id="pdf"></a>An exception to this requirement MAY be made with regards to a PDF file: it is RECOMMENDED to only use a single PDF that contains the entire contents (i.e. all pages are present in one single PDF file).
+- There MUST be exactly one IE present in the SIP, i.e. the written work.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
 - There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
 - Preservation metadata in the SIP MUST be limited to the PREMIS metadata schema.
@@ -81,8 +86,8 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/newspaper`.
-- The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `DC` or `MODS`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.2/bibliographic`.
+- The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `MODS`.
 
 ### Package Descriptive Metadata
 
@@ -110,7 +115,7 @@ root_directory
 | Element | `mods:mods/mods:titleInfo[not(@*)]/mods:title` |
 |-----------------------|-----------|
 | Name | MODS title element |
-| Description | This element contains the title of the newspaper.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes in order to differentiate from other optional `<mods:titleInfo/>` elements which, if present, MUST contain `@type` attributes to indicate e.g. alternative titles for the newspaper. |
+| Description | This element contains the title of the written work.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes in order to differentiate from other optional `<mods:titleInfo/>` elements which, if present, MUST contain `@type` attributes to indicate e.g. alternative titles for the newspaper. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -118,7 +123,7 @@ root_directory
 | Element | `mods:mods/mods:identifier[not(@*)]` |
 |-----------------------|-----------|
 | Name | MODS identifier element |
-| Description | A unique identifier for the newspaper edition.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
+| Description | A unique identifier for the written work.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -143,7 +148,7 @@ root_directory
 | Element | `mods:mods/mods:genre` |
 |-----------------------|-----------|
 | Name | MODS genre element |
-| Description | This element contains a term or terms that designate a category characterizing a particular style, form, or content of the newspaper edition, such as artistic, musical, literary composition, etc. |
+| Description | This element contains a term or terms that designate a category characterizing a particular style, form, or content of the written work, such as artistic, musical, literary composition, etc. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
@@ -190,7 +195,7 @@ root_directory
 | Element | `mods:mods/mods:originInfo/mods:dateCreated[@encoding="edtf"]` |
 |-----------------------|-----------|
 | Name | MODS creation date element |
-| Description | This element contains the date the newspaper edition was created. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
+| Description | This element contains the date the written work was created. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
 | Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -198,7 +203,7 @@ root_directory
 | Element | `mods:mods/mods:originInfo/mods:dateIssued[@encoding="edtf"]` |
 |-----------------------|-----------|
 | Name | MODS issuance date element |
-| Description | This element contains the date the newspaper edition was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
+| Description | This element contains the date the written work was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
 | Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -206,7 +211,7 @@ root_directory
 | Element | `mods:mods/mods:originInfo/mods:issuance` |
 |-----------------------|-----------|
 | Name | MODS issuance element |
-| Description | This element contains a term that designates how the newspaper edition was issued. |
+| Description | This element contains a term that designates how the written work was issued. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -214,7 +219,7 @@ root_directory
 | Element | `mods:mods/mods:originInfo/mods:place` |
 |-----------------------|-----------|
 | Name | MODS place element |
-| Description | This element contains the place the newspaper edition was issued. |
+| Description | This element contains the place the written work was issued. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -237,14 +242,14 @@ root_directory
 | Element | `mods:mods/mods:physicalDescription` |
 |-----------------------|-----------|
 | Name | MODS physical description element |
-| Description | This element is used to express physical characteristics of the newspaper edition.  |
+| Description | This element is used to express physical characteristics of the written work.  |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
 | Element | `mods:mods/mods:physicalDescription/mods:extent[@unit="pages"]` |
 |-----------------------|-----------|
 | Name | MODS extent element |
-| Description | This element is used to express the number of pages in the newspaper edition.  |
+| Description | This element is used to express the number of pages in the written work.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -252,7 +257,7 @@ root_directory
 | Element | `mods:mods/mods:physicalDescription/mods:extent[@unit="cm"]` |
 |-----------------------|-----------|
 | Name | MODS extent element |
-| Description | This element is used to express the physical size of the newspaper edition in centimeters. Th value MUST be in the form `W X H`.  |
+| Description | This element is used to express the physical size of the written work in centimeters. Th value MUST be in the form `W X H`.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -260,7 +265,7 @@ root_directory
 | Element | `mods:mods/mods:physicalDescription/mods:form` |
 |-----------------------|-----------|
 | Name | MODS form element |
-| Description | This element denotes a particular physical presentation of the newspaper edition, including the physical form, medium or material.  |
+| Description | This element denotes a particular physical presentation of the written work, including the physical form, medium or material.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -310,7 +315,7 @@ root_directory
 - A preservation metadata file `preservation/premis.xml` MUST be present at the package level.
 - The `preservation/premis.xml` file MUST follow the [PREMIS](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) metadata schema (v3.0.).
 - If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. With this event, the representation containing the TIFF files MUST receive the PREMIS linking object role `source` and the representation containing the ALTO XML files MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
-- If the SIP contains a PDF file (which SHOULD contain all pages of the newspaper edition, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
+- If the SIP contains a PDF file (which SHOULD contain all pages of the written work, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
 
 <a id="example-transcription-event"></a>_Example 1: a PREMIS transcription event (linking the TIFF and ALTO XML files)_
 
@@ -387,7 +392,7 @@ root_directory
 
 ### Representation METS
 
-- If the files in a representation each correspond with a single page (e.g. the TIFF and ALTO XML files, since each of these files MUST correspond to a single page), the corresponding `<div/>` elements in the structural map MUST contain an `@ORDER` attribute that indicates the sequence of the pages of the newspaper edition. Additionally, each `<div/>` element that corresponds to a file representing a page MUST have a `@TYPE` attribute that is set to `page`. See [example 3 below](#example-representation-mets) for more information.
+- If the files in a representation each correspond with a single page (e.g. the TIFF and ALTO XML files, since each of these files MUST correspond to a single page), the corresponding `<div/>` elements in the structural map MUST contain an `@ORDER` attribute that indicates the sequence of the pages. Additionally, each `<div/>` element that corresponds to a file representing a page MUST have a `@TYPE` attribute that is set to `page`. See [example 3 below](#example-representation-mets) for more information.
 
 <a id="example-representation-mets"></a>_Example 3: the structural map of a representation METS, with `@TYPE` and `@ORDER` attributes_
 

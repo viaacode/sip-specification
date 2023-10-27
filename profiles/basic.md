@@ -12,7 +12,7 @@ Release Candidate
 
 The basic profile supports simple cases consisting of a single media file accompanied by limited metadata.
 
-**Permalink:** <https://data.hetarchief.be/id/sip/1.1/basic>
+**Permalink:** <https://data.hetarchief.be/id/sip/1.2/basic>
 
 ## Example Directory structure
 
@@ -57,7 +57,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/basic`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.2/basic`.
 - The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `DC`.
 
 ### <span id="dc-requirements"></span>Descriptive metadata
@@ -68,7 +68,7 @@ root_directory
 - The `dc*.xml` file MUST only use the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) schema and MUST NOT use any other metadata schemas.
 - The `dc*.xml` file MUST use the `<metadata/>` tag as its root element.
 - The `dc*.xml` file MUST declare the `http://purl.org/dc/terms/` (dcterms), `http://www.w3.org/2001/XMLSchema-instance` (xsi) and `http://id.loc.gov/datatypes/edtf/` (edtf) namespaces in its root element.
-- The `dc*.xml` file MUST declare `https://data.hetarchief.be/id/sip/1.1/basic` as default namespace in its root element.
+- The `dc*.xml` file MUST declare `https://data.hetarchief.be/id/sip/1.2/basic` as default namespace in its root element.
 - The `dc*.xml` file MUST be limited to the DCTERMS elements outlined in the table below.
 - The `dc*.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 - The `dc*.xml` file MUST contain a shared ID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element (see [next section](#connecting-the-descriptive-metadata-to-premis)).
@@ -82,7 +82,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Element | `metadata` |
 |-----------------------|-----------|
 | Name | DCTERMS root element |
-| Description | The root element for descriptive metadata in [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/). This root element MUST declare the XML schema namespaces `http://purl.org/dc/terms/` (dcterms), `http://www.w3.org/2001/XMLSchema-instance` (xsi) and `http://id.loc.gov/datatypes/edtf/` (edtf), and the default namespace `https://data.hetarchief.be/id/sip/1.1/basic`. |
+| Description | The root element for descriptive metadata in [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/). This root element MUST declare the XML schema namespaces `http://purl.org/dc/terms/` (dcterms), `http://www.w3.org/2001/XMLSchema-instance` (xsi) and `http://id.loc.gov/datatypes/edtf/` (edtf), and the default namespace `https://data.hetarchief.be/id/sip/1.2/basic`. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -269,7 +269,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns="https://data.hetarchief.be/id/sip/1.1/basic" 
+<metadata xmlns="https://data.hetarchief.be/id/sip/1.2/basic" 
       xmlns:dcterms="http://purl.org/dc/terms/" 
       xmlns:xs="http://www.w3.org/2001/XMLSchema/" 
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
