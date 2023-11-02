@@ -112,6 +112,8 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+{: .bg-green-000 }
+
 | Element | `mods:mods/mods:recordInfo/mods:recordIdentifier` |
 |-----------------------|-----------|
 | Name | MODS record identifier |
@@ -120,12 +122,16 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
+{: .bg-green-000 }
+
 | Element | `mods:mods/mods:titleInfo` |
 |-----------------------|-----------|
 | Name | MODS titleInfo element |
 | Description | This element contains information about the title of the written work.<br>There MUST be at least one `<mods:titleInfo/>` element that does not contain any attributes to designate the main title and differentiate it from other optional `<mods:titleInfo/>` elements which, if present, MUST contain `@type` attributes to indicate e.g. alternative titles for the newspaper. |
 | Cardinality | 1..* |
 | Obligation | MUST |
+
+{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:titleInfo/@type` |
 |-----------------------|-----------|
@@ -135,6 +141,8 @@ root_directory
 | Vocabulary | `alternative` |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
+
+{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:titleInfo[@type="alternative"]/@otherType` |
 |-----------------------|-----------|
@@ -153,6 +161,8 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+{: .bg-green-000 }
+
 | Element | `mods:mods/mods:titleInfo[@type="alternative"]/mods:title` |
 |-----------------------|-----------|
 | Name | MODS title element |
@@ -169,12 +179,16 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+{: .bg-green-000 }
+
 | Element | `mods:mods/mods:language` |
 |-----------------------|-----------|
 | Name | MODS language element |
 | Description | This element contains information about the language that the work is written in. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
+
+{: .bg-green-000 }
 
 | Element | `mods:mods/mods:language/mods:languageTerm[@type="code"]` |
 |-----------------------|-----------|
@@ -200,6 +214,8 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | SHOULD | -->
 
+{: .bg-yellow-200 }
+
 | Element | `mods:mods/mods:typeOfResource` |
 |-----------------------|-----------|
 | Name | MODS type of resource element |
@@ -208,6 +224,8 @@ root_directory
 | Vocabulary | `newspaper edition`, `Notated music`, `Text` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
+
+{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:typeOfResource/@manuscript` |
 |-----------------------|-----------|
@@ -242,12 +260,16 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
+{: .bg-yellow-200 }
+
 | Element | `mods:mods/mods:name` |
 |-----------------------|-----------|
 | Name | MODS name element |
 | Description | A person or company associated with the written work.  |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
+
+{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:name/@type` |
 |-----------------------|-----------|
@@ -273,6 +295,8 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+{: .bg-green-000 }
+
 | Element | `mods:mods/mods:name[@type="corporate"]/mods:namePart` |
 |-----------------------|-----------|
 | Name | Name of a company or organization |
@@ -280,6 +304,8 @@ root_directory
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
+
+{: .bg-yellow-200 }
 
 | Element | `mods:mods/mods:name/mods:role/mods:roleTerm[@type="text"]` |
 |-----------------------|-----------|
@@ -297,6 +323,8 @@ root_directory
 | Description | This element contains information about the written work's origin, e.g., when and where it was created or published  |
 | Cardinality | 1..* |
 | Obligation | MUST |
+
+{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:originInfo/@eventType` |
 |-----------------------|-----------|
@@ -368,6 +396,8 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
+{: .bg-yellow-200 }
+
 | Element | `mods:mods/mods:physicalDescription/mods:note` |
 |-----------------------|-----------|
 | Name | MODS physical description note element  |
@@ -375,6 +405,8 @@ root_directory
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
+
+{: .bg-green-000 }
 
 | Element | `mods:mods/mods:physicalDescription/mods:note/@type` |
 |-----------------------|-----------|
@@ -384,6 +416,8 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
+{: .bg-yellow-200 }
+
 | Element | `mods:mods/mods:physicalDescription/mods:extent` |
 |-----------------------|-----------|
 | Name | MODS extent element |
@@ -391,6 +425,8 @@ root_directory
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
+
+{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:physicalDescription/mods:extent/@unit` |
 |-----------------------|-----------|
@@ -408,6 +444,8 @@ root_directory
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
+
+{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:physicalDescription/mods:form/@type` |
 |-----------------------|-----------|
@@ -449,6 +487,8 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
+{: .bg-green-000 }
+
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="number"]` |
 |-----------------------|-----------|
 | Name | series number |
@@ -456,6 +496,8 @@ root_directory
 | Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
+
+{: .bg-green-000 }
 
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="page"]` |
 |-----------------------|-----------|
@@ -465,13 +507,17 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:title` |
+{: .bg-green-000 }
+
+| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:titleInfo/mods:title` |
 |-----------------------|-----------|
 | Name | MODS relatedItem title element |
-| Description | This element contains the title of the series.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes in order to differentiate from other optional `<mods:titleInfo/>` elements which, if present, MUST contain `@type` attributes to indicate e.g. alternative titles for the newspaper. |
+| Description | This element contains the title of the series.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
+
+{: .bg-green-000 }
 
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:originInfo/mods:dateIssued[@encoding="edtf"]` |
 |-----------------------|-----------|
@@ -673,7 +719,7 @@ The XML files that are required by this profile can be validated using the follo
 | File | Format | XML Schema |
 | `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
-| `mods.xml` | MODS v3.8 | [mods-3-8.xsd](https://www.loc.gov/standards/mods/v3/mods-3-8.xsd) |
+| `mods.xml` | MODS v3.7 | [mods-3-7.xsd](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) |
 | `dc.xml` (if no MODS) | Dublin Core (custom schema) | [dc_basic.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc_basic.xsd)<br>_depends on: [edtf.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/edtf.xsd), [dcterms.xsd](https://github.com/viaacode/sipin-sip-validator/blob/main/app/resources/xsd/dcterms.xsd), [dcmitype.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dcmitype.xsd), [dc.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc.xsd)_ |
 
 ## Use Cases
