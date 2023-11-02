@@ -93,7 +93,7 @@ root_directory
 
 - Either a `descriptive/mods.xml` or a `descriptive/dc.xml` descriptive metadata file MUST be present at the package level. In case they both occur, the `descriptive/dc.xml` file is ignored. 
 - The `descriptive/dc.xml` file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema in accordance with the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}#dc-requirements).
-- The `descriptive/mods.xml` file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7.).
+- The `descriptive/mods.xml` file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7).
 - The `descriptive/mods.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/mods.xml` file.
 - The MODS metadata in `descriptive/mods.xml` MUST be limited to the elements and attributes outlined below.
 
@@ -172,14 +172,22 @@ root_directory
 | Element | `mods:mods/mods:language` |
 |-----------------------|-----------|
 | Name | MODS language element |
-| Description |   |
+| Description | This element contains information about the language that the work is written in. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `mods:mods/mods:language/mods:languageTerm` |
+| Element | `mods:mods/mods:language/mods:languageTerm[@type="code"]` |
 |-----------------------|-----------|
 | Name | MODS language element |
-| Description |   |
+| Description | This element contains the language code of the language that the work is written in.  |
+| Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#bcp47) |
+| Cardinality | 0..1 |
+| Obligation | MUST |
+
+| Element | `mods:mods/mods:language/mods:languageTerm/@type` |
+|-----------------------|-----------|
+| Name | MODS language element |
+| Description | This element contains the name of the language that the work is written in.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
