@@ -6,8 +6,8 @@ grand_parent:  1.2
 nav_order:    3
 nav_exclude:  true
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Profile: Material artwork 
 
 The _Material artwork_ profile supports digital reproductions of artworks that are moveable material objects, often, but not always, displayed in or maintained by museums. 

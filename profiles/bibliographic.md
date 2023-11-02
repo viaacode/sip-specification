@@ -6,8 +6,8 @@ grand_parent:  1.2
 nav_order:    2
 nav_exclude:  true
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Profile: Bibliographic 
 
 The bibliographic profile supports the ingest of digitised written works consisting of multiple bounded or unbounded pages predominately containing handwritten or printed text, such as books, magazines, manuscripts, letters or newspapers. They are often described and maintained by libraries.

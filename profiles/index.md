@@ -7,8 +7,8 @@ nav_order:    8
 nav_exclude:  true
 has_children: true
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # SIP content profiles
 
 SIP content profiles define specific configurations of the meemoo SIP specification that are supported by the meemoo ingest pipeline.
