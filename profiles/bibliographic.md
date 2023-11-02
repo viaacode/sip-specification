@@ -4,7 +4,7 @@ title:        Bibliographic
 parent:       Profiles
 grand_parent:  1.2
 nav_order:    2
-nav_exclude:  false
+nav_exclude:  true
 ---
 Release Candidate
 {: .label .label-blue }

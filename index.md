@@ -3,7 +3,7 @@ layout:       default
 title:        1.2
 has_children: true
 parent:       SIP Specification
-nav_exclude:  false
+nav_exclude:  true
 nav_order:    1
 ---
 # meemoo Submission Information Package (SIP) Specification
