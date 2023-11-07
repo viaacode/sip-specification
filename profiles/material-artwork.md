@@ -242,10 +242,17 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `metadata/(schema:height|schema:width|schema:depth)/schema:value` |
+| Element | `metadata/schema:weight` |
+|-----------------------|-----------|
+| Name | Depth artwork |
+| Description | The measured weight of the physical artwork. |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `metadata/(schema:height|schema:width|schema:depth|schema:weight)/schema:value` |
 |-----------------------|-----------|
 | Name | Value |
-| Description | The height, width or depth measurement value. |
+| Description | The height, width, depth, or weight measurement value. |
 | Cardinality | 1..1 |
 | Datatype | [Float]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#float) |
 | Obligation | MUST |
@@ -259,11 +266,29 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
+| Element | `metadata/schema:weight/schema:unitCode` |
+|-----------------------|-----------|
+| Name | Unit Code |
+| Description | The unit of weight measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes), which MUST be set to `KGM` (kilograms). |
+| Vocabulary | `KGM` |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
 | Element | `metadata/(schema:height|schema:width|schema:depth)/schema:unitText` |
 |-----------------------|-----------|
 | Name | Unit Text |
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `mm`, `cm`, `m` |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | MUST |
+
+| Element | `metadata/schema:weight/schema:unitText` |
+|-----------------------|-----------|
+| Name | Unit Text |
+| Description | A string or text indicating the unit of the weight measurement value, which MUST be set to `kg` (kilograms). Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
+| Vocabulary | `kg` |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
