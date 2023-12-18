@@ -149,7 +149,7 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-##### Information on alternative titles
+#### Information on alternative titles
 
 | Element | `mods:mods/mods:titleInfo[@type="alternative"]` |
 |-----------------------|-----------|
