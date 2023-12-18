@@ -276,6 +276,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Role creator, publisher, or contributor |
 | Description | The role with which the creator, publisher, or contributor was involved in creating, publishing or contributing to the digitally reproduced artwork.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Vocabulary | See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3).  |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
