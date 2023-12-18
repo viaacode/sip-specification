@@ -10,7 +10,7 @@ Editor's Draft
 {: .label .label-yellow }
 # Profile: Bibliographic 
 
-The bibliographic profile supports the ingest of digitised written works consisting of multiple bounded or unbounded pages predominately containing handwritten or printed text, such as books, magazines, manuscripts, letters or newspapers. They are often described and maintained by libraries.
+The bibliographic profile supports the ingest of digitised written works consisting of multiple bounded or unbounded pages predominately containing handwritten or printed text, such as books, magazines, manuscripts, letters, notated music or newspapers. They are often described and maintained by libraries.
 This profile dictates how the media files (in formats such as TIFF, ALTO XML and PDF), their metadata, and the relationships between them, should be expressed and organized.
 It applies the [MODS XML metadata schema](https://www.loc.gov/standards/mods/) for descriptive metadata.
 
@@ -71,6 +71,7 @@ root_directory
   - newspaper edition;
   - book;
   - letter;
+  - notated music;
   - magazine issue; or
   - manuscript.
 - The content MUST be digitised per page, i.e. each TIFF and/or ALTO XML file contained in their respective representation directories MUST represent exactly one page.
@@ -91,11 +92,12 @@ root_directory
 
 ### Package Descriptive Metadata
 
-- Either a `descriptive/mods.xml` or a `descriptive/dc.xml` descriptive metadata file MUST be present at the package level. In case they both occur, the `descriptive/dc.xml` file is ignored. 
-- The `descriptive/dc.xml` file MUST follow the [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata schema in accordance with the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}#dc-requirements).
+- A `descriptive/mods.xml` descriptive metadata file MUST be present at the package level.
 - The `descriptive/mods.xml` file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7).
 - The `descriptive/mods.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/mods.xml` file.
 - The MODS metadata in `descriptive/mods.xml` MUST be limited to the elements and attributes outlined below.
+
+#### General information
 
 | Element | `mods:mods` |
 |-----------------------|-----------|
@@ -112,37 +114,58 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-{: .bg-green-000 }
+#### The main identifiers
+
+| Element | `mods:mods/mods:identifier[not(@type)]` |
+|-----------------------|-----------|
+| Name | MODS identifier element |
+| Description | A unique identifier for the written work.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Element | `mods:mods/mods:recordInfo/mods:recordIdentifier` |
 |-----------------------|-----------|
 | Name | MODS record identifier |
-| Description | This element contains the title of the written work. |
+| Description | This element contains a persistent identifier for the record that describes the written work, which typically originates from the source application.  The record identifier is different from the identifier that identifies the written work itself, which is denoted by `mods:identifier`.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
-{: .bg-green-000 }
+#### Information on the main title 
 
-| Element | `mods:mods/mods:titleInfo` |
+| Element | `mods:mods/mods:titleInfo[not(@type)]` |
 |-----------------------|-----------|
-| Name | MODS titleInfo element |
-| Description | This element contains information about the title of the written work.<br>There MUST be at least one `<mods:titleInfo/>` element that does not contain any attributes to designate the main title and differentiate it from other optional `<mods:titleInfo/>` elements which, if present, MUST contain `@type` attributes to indicate e.g. alternative titles for the newspaper. |
-| Cardinality | 1..* |
+| Name | MODS main titleInfo element |
+| Description | This element contains information about the main title of the written work.<br>This element MUST NOT contain a `@type` attribute in order to designate the main title and differentiate it from other optional `<mods:titleInfo/>` elements. |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
-{: .bg-green-000 }
+| Element | `mods:mods/mods:titleInfo[not(@type)]/mods:title` |
+|-----------------------|-----------|
+| Name | MODS title element |
+| Description | This element contains the title of the written work.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain a `@type` attribute. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
-| Attribute | `mods:mods/mods:titleInfo/@type` |
+##### Information on alternative titles
+
+| Element | `mods:mods/mods:titleInfo[@type="alternative"]` |
+|-----------------------|-----------|
+| Name | MODS alternative titleInfo element |
+| Description | This element contains alternative information about the title of the written work (e.g., alternative titles for a newspaper or magazine).<br>This element MUST contain a `@type` attribute set to `alternative` and the attribute `@otherType` MUST be present. |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Attribute | `mods:mods/mods:titleInfo[@type="alternative"]/@type` |
 |-----------------------|-----------|
 | Name | MODS title type attribute |
-| Description | This attribute indicates the type of title. If present, its value MUST be set to `alternative` and the attribute `@otherType` MUST be present.  |
+| Description | This attribute indicates the alternative type of title. Its value MUST be set to `alternative`.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Vocabulary | `alternative` |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-{: .bg-green-000 }
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `mods:mods/mods:titleInfo[@type="alternative"]/@otherType` |
 |-----------------------|-----------|
@@ -153,16 +176,6 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mods:mods/mods:titleInfo[not(@*)]/mods:title` |
-|-----------------------|-----------|
-| Name | MODS title element |
-| Description | This element contains the title of the written work.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes in order to differentiate from other optional `<mods:titleInfo/>` elements which, if present, MUST contain `@type` attributes to indicate e.g. alternative titles for the newspaper. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-{: .bg-green-000 }
-
 | Element | `mods:mods/mods:titleInfo[@type="alternative"]/mods:title` |
 |-----------------------|-----------|
 | Name | MODS title element |
@@ -171,15 +184,7 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `mods:mods/mods:identifier[not(@*)]` |
-|-----------------------|-----------|
-| Name | MODS identifier element |
-| Description | A unique identifier for the written work.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-{: .bg-green-000 }
+#### Information on language
 
 | Element | `mods:mods/mods:language` |
 |-----------------------|-----------|
@@ -188,44 +193,32 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-{: .bg-green-000 }
-
 | Element | `mods:mods/mods:language/mods:languageTerm[@type="code"]` |
 |-----------------------|-----------|
 | Name | MODS language element |
 | Description | This element contains the language code of the language that the work is written in.  |
 | Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#bcp47) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | SHOULD |
 
 | Element | `mods:mods/mods:language/mods:languageTerm/@type` |
 |-----------------------|-----------|
-| Name | MODS language element |
+| Name | MODS language element type attribute |
 | Description | This element contains the name of the language that the work is written in.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-<!-- | Element | `mods:mods/mods:identifier[@type="uri"]` |
-|-----------------------|-----------|
-| Name | Abraham ID |
-| Description | This element contains the Abraham identifier taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham identifier refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham identifier.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_id`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD | -->
-
-{: .bg-yellow-200 }
+#### General description of the written work
 
 | Element | `mods:mods/mods:typeOfResource` |
 |-----------------------|-----------|
 | Name | MODS type of resource element |
 | Description | This element indicates which type of resource is being described. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Vocabulary | `newspaper edition`, `Notated music`, `Text` |
+| Vocabulary | `Newspaper Edition`, `Notated music`, `Text` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
-
-{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:typeOfResource/@manuscript` |
 |-----------------------|-----------|
@@ -252,15 +245,46 @@ root_directory
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
+| Attribute | `mods:mods/mods:genre/@authority` |
+|-----------------------|-----------|
+| Name | MODS genre authority attribute |
+| Description | The name of an authoritative list of terms whose values are controlled. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `mods:mods/mods:genre/@authorityURI` |
+|-----------------------|-----------|
+| Name | MODS genre authority uri attribute |
+| Description | The URI for the authoritative list (as described above for `mods:mods/mods:genre/@authority`). |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `mods:mods/mods:subject` |
+|-----------------------|-----------|
+| Name | MODS subject element |
+| Description | This element contains information about the subject matter of the written work. |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
 | Element | `mods:mods/mods:subject/mods:topic` |
 |-----------------------|-----------|
 | Name | MODS topic element |
 | Description | A term or phrase representing the primary topic(s) on which the written work is focused. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `mods:mods/mods:note[@type="license"]` |
+|-----------------------|-----------|
+| Name | License element |
+| Description | This element MAY be used to add any licensing info needed. It MUST contain the `@type` attribute, with its value set to `license`. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
-{: .bg-yellow-200 }
+#### Information on people or organizations related to the written work
 
 | Element | `mods:mods/mods:name` |
 |-----------------------|-----------|
@@ -269,12 +293,10 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-{: .bg-green-000 }
-
 | Attribute | `mods:mods/mods:name/@type` |
 |-----------------------|-----------|
 | Name | MODS name type attribute |
-| Description | This attributed indicates wheter the name belongs to a person (`personal`) or to an organization or company (`corporate`).  |
+| Description | This attributed indicates whether the name belongs to a person (`personal`) or to an organization or company (`corporate`).  |
 | Vocabulary | `personal`, `corporate` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -305,17 +327,18 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-{: .bg-yellow-200 }
+<!-- TODO: link to thesaurus once available -->
 
 | Element | `mods:mods/mods:name/mods:role/mods:roleTerm[@type="text"]` |
 |-----------------------|-----------|
 | Name | Role of a person |
 | Description | Designates the relationship (role) of the person or organization to the written work.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Vocabulary | See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3).  |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
 
-{: .bg-green-000 }
+#### Information on the written work's origin
 
 | Element | `mods:mods/mods:originInfo` |
 |-----------------------|-----------|
@@ -324,12 +347,10 @@ root_directory
 | Cardinality | 1..* |
 | Obligation | MUST |
 
-{: .bg-green-000 }
-
 | Attribute | `mods:mods/mods:originInfo/@eventType` |
 |-----------------------|-----------|
 | Name | MODS issuance date element |
-| Description | This attribute specifies the type of event that should be associated with the originInfo. This attribute is not required, but if present, its value MUST be set to `publication, meaning that the origin info is about when the written work was published. |
+| Description | This attribute specifies the type of event that should be associated with the originInfo. This attribute is not required, but if present, its value MUST be set to `publication`, meaning that the origin info is about when the written work was published. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Vocabulary | `publication` |
 | Cardinality | 0..1 |
@@ -389,6 +410,24 @@ root_directory
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
+| Attribute | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]/@authority` |
+|-----------------------|-----------|
+| Name | MODS place term code authority attribute |
+| Description | The name of an authoritative list of terms whose values are controlled. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Attribute | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]/@authorityURI` |
+|-----------------------|-----------|
+| Name | MODS place term code authority uri attribute |
+| Description | The URI for the authoritative list (as described above for `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]/@authority`). |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+#### Information on the written work's physical characteristics
+
 | Element | `mods:mods/mods:physicalDescription` |
 |-----------------------|-----------|
 | Name | MODS physical description element |
@@ -396,17 +435,13 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-{: .bg-yellow-200 }
-
 | Element | `mods:mods/mods:physicalDescription/mods:note` |
 |-----------------------|-----------|
 | Name | MODS physical description note element  |
-| Description |  This element containes a description of the condition of the written work or the statement of responsibility of the written work.  |
+| Description |  This element contains a description of the condition of the written work or the statement of responsibility of the written work.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
-
-{: .bg-green-000 }
 
 | Element | `mods:mods/mods:physicalDescription/mods:note/@type` |
 |-----------------------|-----------|
@@ -416,26 +451,22 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-{: .bg-yellow-200 }
-
 | Element | `mods:mods/mods:physicalDescription/mods:extent` |
 |-----------------------|-----------|
 | Name | MODS extent element |
-| Description | This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements .  |
+| Description | This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements.<br>For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer).  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
-
-{: .bg-green-000 }
 
 | Attribute | `mods:mods/mods:physicalDescription/mods:extent/@unit` |
 |-----------------------|-----------|
-| Name | MODS extent element |
-| Description | This attribute indicates the physical dimension that is described. For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `<width> X <height>`, with `<width>` and `<height>` being values of type [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer). |
+| Name | MODS extent element unit attribute |
+| Description | This attribute indicates the physical dimension that is described. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Vocabulary | `cm`, `mm`, `sheets`, `pages` |
-| Cardinality | 0..* |
-| Obligation | MAY |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Element | `mods:mods/mods:physicalDescription/mods:form` |
 |-----------------------|-----------|
@@ -445,8 +476,6 @@ root_directory
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-{: .bg-green-000 }
-
 | Attribute | `mods:mods/mods:physicalDescription/mods:form/@type` |
 |-----------------------|-----------|
 | Name | MODS form type attribute |
@@ -455,39 +484,30 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Attribute | `mods:mods/(mods:genre|mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]|mods:physicalDescription/mods:form)/@authority` |
+| Attribute | `mods:mods/mods:physicalDescription/mods:form/@authority` |
 |-----------------------|-----------|
-| Name | MODS authority attribute |
+| Name | MODS form authority attribute |
 | Description | The name of an authoritative list of terms whose values are controlled. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mods:mods/(mods:genre|mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]|mods:physicalDescription/mods:form)/@authorityURI` |
+| Attribute | `mods:mods/mods:physicalDescription/mods:form/@authorityURI` |
 |-----------------------|-----------|
-| Name | MODS authority uri attribute |
-| Description | The URI for the authoritative list (as described above for `@authority`). |
+| Name | MODS form authority uri attribute |
+| Description | The URI for the authoritative list (as described above for `mods:mods/mods:physicalDescription/mods:form/@authority`). |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="abraham_id"]` |
+#### Information on the work series
+
+| Element | `mods:mods/mods:relatedItem[@type="series"]` |
 |-----------------------|-----------|
-| Name | Abraham ID |
-| Description | This element contains the Abraham identifier taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham identifier refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham identifier.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_id`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
+| Name | MODS related series element |
+| Description | This element contains information about the series that the written work is part of or related to.<br>The `@type` attribute MUST be set to `series`. |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
-
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="abraham_uri"]` |
-|-----------------------|-----------|
-| Name | Abraham URI |
-| Description | This element contains the Abraham URI taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham URI refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham URI.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_uri`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. Note that the Abraham URI contains the Abraham identifier. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-{: .bg-green-000 }
 
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="number"]` |
 |-----------------------|-----------|
@@ -497,8 +517,6 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-{: .bg-green-000 }
-
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="page"]` |
 |-----------------------|-----------|
 | Name | page number |
@@ -507,7 +525,21 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-{: .bg-green-000 }
+| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="abraham_id"]` |
+|-----------------------|-----------|
+| Name | Abraham ID |
+| Description | This element contains the Abraham identifier taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham identifier refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham identifier.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_id`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="abraham_uri"]` |
+|-----------------------|-----------|
+| Name | Abraham URI |
+| Description | This element contains the Abraham URI taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham URI refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham URI.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_uri`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. Note that the Abraham URI contains the Abraham identifier. |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:titleInfo/mods:title` |
 |-----------------------|-----------|
@@ -517,22 +549,12 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-{: .bg-green-000 }
-
 | Element | `mods:mods/mods:relatedItem[@type="series"]/mods:originInfo/mods:dateIssued[@encoding="edtf"]` |
 |-----------------------|-----------|
 | Name | MODS relatedItem issuance date element |
 | Description | This element contains the date the series was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
 | Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:note[@type="license"]` |
-|-----------------------|-----------|
-| Name | License element |
-| Description | This element MAY be used to add any licensing info needed. It MUST contain the `@type` attribute, with its value set to `license`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
 | Obligation | MAY |
 
 ### Package Preservation Metadata
