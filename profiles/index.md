@@ -16,7 +16,7 @@ They group different types of content that share a similar structure (e.g., ther
 
 A profile adds extra restrictions or extensions on top of the SIP specification.
 Hence, the SIP validation process depends on both.
-A delivered SIP MUST indicate which profile it adheres to in the package `mets.xml` through the [`mets/@csip:CONTENTINFORMATIONTYPE` attribute]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#CONTENTINFORMATIONTYPE).
+A delivered SIP MUST indicate which profile it adheres to in the package `mets.xml` through the [`mets/@csip:CONTENTINFORMATIONTYPE="OTHER" csip:OTHERCONTENTINFORMATIONTYPE` attribute]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#CONTENTINFORMATIONTYPE).
 
 <small>
 Continue to [Basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).

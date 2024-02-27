@@ -87,7 +87,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.2/bibliographic`.
+- The `csip:CONTENTINFORMATIONTYPE="OTHER" csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.2/bibliographic`.
 - The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `MODS`.
 
 ### Package Descriptive Metadata
