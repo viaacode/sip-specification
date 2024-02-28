@@ -161,7 +161,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE="OTHER" csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/material-artwork`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.1/material-artwork`.
 - The `TYPE` attribute in the `mets.xml` file MUST be set to
   - `Photographs - Digital` (for 2D objects) or
   - `Scanned 3D Objects (output from photogrammetry scanning)` (for 3D objects).
