@@ -57,7 +57,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE="OTHER" csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.2/basic`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/1.2/basic`.
 - The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `OTHER` and `mets/dmdSec/mdRef/@OTHERMDTYPE` attribute must be set to `DC+SCHEMA`.
 
 ### <span id="dc-requirements"></span>Descriptive metadata
