@@ -170,21 +170,21 @@ The various requirements are listed in the table below.
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| <a id="CONTENTINFORMATIONTYPE"></a>Attribute | `mets/@csip:CONTENTINFORMATIONTYPE`|
+| <a id="CONTENTINFORMATIONTYPE"></a>Attribute | `mets/@csip:CONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Content information type specification |
-| Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.1/basic` for the basic content profile which can be found on [its content profile page]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).<br>Note that this attribute is left empty in the example above, since this is part of a dummy sample. |
+| Description | This attribute must have the value "OTHER". The value of the `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute describes the value of the profile of the meemoo SIP. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-<!-- | Attribute | `mets[@csip:CONTENTINFORMATIONTYPE="OTHER" csip:OTHERCONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE` |
+| Attribute | `mets[@csip:CONTENTINFORMATIONTYPE="OTHER"]/@csip:OTHERCONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Other content information type specification |
-| Description | The `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute MAY be used to further declare the content information type/content profile.|
+| Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.1/basic` for the basic content profile which can be found on [its content profile page]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).<br>ote that the sample above has the value of the basic profile as an example. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | MAY | -->
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `mets/@PROFILE` |
 |-----------------------|-----------|
