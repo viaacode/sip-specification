@@ -245,7 +245,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Type |
 | Description | The classification of this Intellectual Entity . |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 #### Schema.org elements
