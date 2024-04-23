@@ -158,7 +158,6 @@ The various requirements are listed in the table below.
 | Name | Content category |
 | Description | This attribute MUST be set to declare the category of the content held in the SIP. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string); fixed vocabulary |
-
 | Vocabulary | `Textual works – Print`<br>`Textual works – Digital`<br>`Textual works – Electronic Serials`<br>`Digital Musical Composition (score-based representations)`<br>`Musical Scores - Print`<br>`Musical Scores - Digital`<br>`Photographs – Print`<br>`Photographs – Digital`<br>`Other Graphic Images – Print`<br>`Other Graphic Images – Digital`<br>`Microforms`<br>`Audio – On Tangible Medium (digital or analog)`<br>`Audio – Media-independent (digital)`<br>`Motion Pictures – Digital and Physical Media`<br>`Video – File-based and Physical Media`<br>`Software`<br>`Software and Video Games`<br>`Email`<br>`Datasets`<br>`Geospatial Data`<br>`Geographic Information System (GIS) - Vector Data`<br>`GIS Raster and Georeferenced Images`<br>`GIS Vector and Raster Combined`<br>`Non-GIS Cartographic`<br>`2D and 3D Computer Aided Design`<br>`Design (schematics, architectural drawings) - Print`<br>`Scanned 3D Objects (output from photogrammetry scanning)`<br>`Databases`<br>`Websites`<br>`Web Archives`<br>`Collection`<br>`Event`<br>`Image`<br>`Interactive resource`<br>`Moving image`<br>`Sound`<br>`Still image`<br>`Text`<br>`Physical object`<br>`Service`<br>`Mixed`<br>`Other` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
