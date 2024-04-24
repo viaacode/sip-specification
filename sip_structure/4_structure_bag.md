@@ -6,6 +6,8 @@ grand_parent:  1.0
 nav_order:    5
 nav_exclude:  false
 ---
+Retired
+{: .label .label-red }
 # Bag level
 {: .no_toc }
 

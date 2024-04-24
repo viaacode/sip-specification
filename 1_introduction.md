@@ -6,6 +6,8 @@ grand_parent:  SIP Specification
 nav_order:    1
 nav_exclude:  false
 ---
+Retired
+{: .label .label-red }
 # Introduction
 
 This document specifies the meemoo Submission Information Package (SIP), which describes how data and metadata should be packaged when delivered to meemoo for ingest.

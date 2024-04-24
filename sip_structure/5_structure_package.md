@@ -6,6 +6,8 @@ grand_parent:  1.0
 nav_order:    6
 nav_exclude:  false
 ---
+Retired
+{: .label .label-red }
 # Package level
 {: .no_toc }
 

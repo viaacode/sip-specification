@@ -6,6 +6,8 @@ grand_parent:  SIP Specification
 nav_order:    2
 nav_exclude:  false
 ---
+Retired
+{: .label .label-red }
 # Terminology
 
 <dl>
