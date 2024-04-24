@@ -3,7 +3,7 @@ layout:       default
 title:        Package level
 parent:       Structure
 grand_parent:  1.2
-nav_order:    6
+nav_order:    2
 nav_exclude:  false
 ---
 Release Candidate
