@@ -3,7 +3,7 @@ layout:       default
 title:        Profiles
 parent:       1.2
 grand_parent:  SIP Specification 
-nav_order:    8
+nav_order:    5
 nav_exclude:  false
 has_children: true
 ---

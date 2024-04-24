@@ -3,7 +3,7 @@ layout:       default
 title:        Bag level
 parent:       Structure
 grand_parent:  1.2
-nav_order:    5
+nav_order:    1
 nav_exclude:  false
 ---
 Release Candidate
