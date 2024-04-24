@@ -71,7 +71,7 @@ root_directory
 - The `dc+schema.xml` file MUST adhere to the restrictions on cardinality of terms outlined in the table below; if a term is not listed with a restriction on cardinality, it MAY be used multiple times.
 - The `dc+schema.xml` file MUST contain a shared ID with a PREMIS object in the `preservation/premis.xml` file, stored in the `<dcterms:identifier>` element (see [next section](#connecting-the-descriptive-metadata-to-premis)).
 - The `dc+schema.xml` file MUST NOT contain additional IDs besides the shared ID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
-- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
+- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
 - The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
 {: .important }
@@ -92,7 +92,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Title |
 | Description | A name given to the Intellectual Entity. <br>The `title` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -100,7 +100,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Alternative title |
 | Description | An alternative to the main title given to the Intellectual Entity.<br>The `alternative` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -108,7 +108,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Identifier |
 | Description | An unambiguous and unique reference to the Intellectual Entity/Entities present in the SIP.<br>This identifier MUST be used to establish a link between the `dc+schema.xml` file and the relevant PREMIS object in the `preservation/premis.xml` file. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -116,7 +116,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Duration |
 | Description | Duration in time of the Intellectual Entity. |
-| Datatype | [XML Schema duration]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#xsd-duration) |
+| Datatype | [XML Schema duration]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-duration) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -124,7 +124,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Available |
 | Description | The moment that the Intellectual Entity became available. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -132,7 +132,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Description |
 | Description | An account of the Intellectual Entity.<br>The `description` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -140,7 +140,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Abstract |
 | Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -148,7 +148,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Creation date |
 | Description | Creation date of the Intellectual Entity. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -156,7 +156,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Date issued |
 | Description | Date of formal issuance of the Intellectual Entity. |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -164,7 +164,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Publisher |
 | Description | A publisher of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@roleName`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -172,7 +172,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Contributor |
 | Description | A contributor to the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@roleName`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -180,7 +180,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Creator |
 | Description | An author or creator of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@roleName`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -188,7 +188,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Spatial |
 | Description | Spatial coverage information on the Intellectual Entity |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -196,7 +196,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Temporal |
 | Description | Temporal coverage information on the Intellectual Entity |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -204,7 +204,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Subject |
 | Description | Subjects or keywords related to the Intellectual Entity.<br> If the element is present, the applied language MUST be provided by a `@xml:lang` attribute (see requirements above) and there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
@@ -212,7 +212,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Language |
 | Description | The language that the Intellectual Entity is in. |
-| Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#bcp47) |
+| Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#bcp47) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
@@ -220,7 +220,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | License |
 | Description | A legal document giving official permission to meemoo, end users of the meemoo platforms, or any other user, to do something with the Intellectual Entity. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
@@ -228,7 +228,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Rights holder |
 | Description | The person or ogranization that holds the copyright to the Intellectual Entity. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -236,7 +236,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Rights |
 | Description | A copyright notice on the Intellectual Entity. The `rights` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -244,7 +244,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Type |
 | Description | The classification of this Intellectual Entity . |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -275,7 +275,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Role creator, publisher, or contributor |
 | Description | The role with which the creator, publisher, or contributor was involved in creating, publishing or contributing to the digitally reproduced artwork.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Vocabulary | See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3).  |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
@@ -284,7 +284,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Name creator, publisher, or contributor |
 | Description | The name of the creator, publisher, or contributor.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -292,7 +292,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Birth date creator, publisher, or contributor |
 | Description | The creator, publisher, or contributor's date of birth.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -300,7 +300,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Death date creator, publisher, or contributor |
 | Description | The creator, publisher, or contributor's date of death.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -337,7 +337,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Value |
 | Description | The height, width, depth, or weight measurement value. |
 | Cardinality | 1..1 |
-| Datatype | [Float]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#float) |
+| Datatype | [Float]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#float) |
 | Obligation | MUST |
 
 | Element | `metadata/(schema:height|schema:width|schema:depth)/schema:unitCode` |
@@ -345,7 +345,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Unit Code |
 | Description | The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). |
 | Vocabulary | `MMT`, `CMT`, `MTR` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -354,7 +354,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Unit Code |
 | Description | The unit of weight measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes), which MUST be set to `KGM` (kilograms). |
 | Vocabulary | `KGM` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -363,7 +363,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Unit Text |
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `mm`, `cm`, `m` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
@@ -372,7 +372,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Unit Text |
 | Description | A string or text indicating the unit of the weight measurement value, which MUST be set to `kg` (kilograms). Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `kg` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
@@ -380,7 +380,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Art medium |
 | Description | The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -388,7 +388,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Artform |
 | Description | The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -403,7 +403,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Name episode |
 | Description | The name of the episode. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -418,7 +418,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Name archive |
 | Description | The name of the archive.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -433,7 +433,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Name series |
 | Description | The name of the series.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -441,7 +441,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Number series |
 | Description | The number of the series.  |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#integer) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -456,7 +456,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Name subseries  |
 | Description | The name of the subseries.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -471,7 +471,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Name broadcast event |
 | Description |  The name of the broadcast. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -486,7 +486,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Name season |
 | Description |  The name of the season. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -494,7 +494,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | Number season |
 | Description |  Position of the season within an ordered group of seasons. |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#integer) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -503,7 +503,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `mets.xml` | METS v1.22.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core (custom schema) | [dc_basic.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc_basic.xsd)<br>_depends on: [edtf.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/edtf.xsd), [dcterms.xsd](https://github.com/viaacode/sipin-sip-validator/blob/main/app/resources/xsd/dcterms.xsd), [dcmitype.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dcmitype.xsd), [dc.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc.xsd)_|
 

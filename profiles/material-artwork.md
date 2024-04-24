@@ -174,7 +174,7 @@ root_directory
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level (eg. to indicate diverting licenses). 
 - Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [SCHEMA](http://schema.org) elements outlined in the [basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/basic.md %}#dc-requirements).
 - The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) and [SCHEMA](http://schema.org) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
-- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
+- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
 - The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
 ### Validation
@@ -182,7 +182,7 @@ root_directory
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `mets.xml` | METS v1.22.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core with Schema.org | dc+schema.xsd (not yet available) |
 
