@@ -6,15 +6,13 @@ grand_parent:  SIP Specification
 nav_order:    2
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Terminology
 
 <dl>
     <dt>Administrative metadata</dt>
     <dd>Metadata about the origin of content, e.g. which Content Partner delivered the SIP to meemoo.</dd>
-    <dt>Bag</dt>
-    <dd>The topmost layer of the meemoo SIP. It serves as a wrapper around the SIP for transport and follows the <a href="https://www.rfc-editor.org/rfc/rfc8493.html">BagIt standard</a>.</dd>
     <dt>Content</dt>
     <dd>Digital content such as media files and metadata files.</dd>
     <dt>Content Partner (CP)</dt>

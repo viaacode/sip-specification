@@ -6,8 +6,8 @@ grand_parent:  2.0
 nav_order:    7
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Representation level
 {: .no_toc }
 
@@ -26,29 +26,26 @@ Each `/representation_*` directory contains information about the representation
 root_directory
 │   ...
 │
-└──data
-   │   ...
+└──representations
    │
-   └──representations
-      │
-      └──representation_1
-      │  │── mets.xml
-      │  │
-      │  └──data
-      │  │  │   ...
-      │  │
-      │  └──metadata
-      │     │
-      │     └──descriptive
-      │     │  │   ...
-      │     │
-      │     └──preservation
-      │        │   ...
-      │
-      │
-      │
-      └──representation_*
-         │   ...
+   └──representation_1
+   │  │── mets.xml
+   │  │
+   │  └──data
+   │  │  │   ...
+   │  │
+   │  └──metadata
+   │     │
+   │     └──descriptive
+   │     │  │   ...
+   │     │
+   │     └──preservation
+   │        │   ...
+   │
+   │
+   │
+   └──representation_*
+      │   ...
 ```
 
 ## /representation_* (directory)
@@ -99,10 +96,8 @@ A summary of all possible references and their obligation is given in the table 
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID`](#structMap-csip-div-div-representations-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.  |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID`](#structMap-csip-div-div-metadata-dmdid) | MUST | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID`](#structMap-csip-div-div-metadata-admid) | MUST | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
-<!-- | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
 | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 |[`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
-<!-- | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 
 ### \<mets\> section

@@ -6,8 +6,8 @@ grand_parent:  2.0
 nav_order:    6
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Package level
 {: .no_toc }
 
@@ -17,7 +17,7 @@ Release Candidate
 1. TOC
 {:toc}
 
-The package level is stored in the `/data` directory of the [bag](./4_structure_bag.html) and consists of at least a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
+The package level is the top level of the meemoo SIP and consists of at least a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
 It contains information about the IE(s) of the SIP and the SIP as a whole.
 
 The package level may contain a `/documentation` and a `/schemas` directory.
@@ -28,30 +28,28 @@ These two directories are ignored during ingest and will therefore not be archiv
 
 ```plaintext
 root_directory
-│   ...
+└──mets.xml
 │
-└──data
-   │  mets.xml
-   │
-   └──metadata
-   │  │
-   │  └──descriptive
-   │  │  |   ...
-   │  │
-   │  └──preservation
-   │     |   ... 
-   │
-   └──representations
-      │   ...
+└──metadata
+│  │
+│  └──descriptive
+│  │  |   ...
+│  │
+│  └──preservation
+│     |   ... 
+│
+└──representations
+   │   ...
 ```
 
 ***Requirements***
 
-- The `/data` directory MUST contain exactly one `mets.xml` file.
-- The `/data` directory MUST contain exactly one `/metadata` directory.
-- The `/data` directory MUST contain exactly one `/representations` directory.
-- The `/data` directory MAY contain exactly one `/documentation` directory.
-- The `/data` directory MAY contain exactly one `/schemas` directory.
+- The root directory MUST contain exactly one `mets.xml` file.
+- The root directory MUST have the value of the `OBJID` attribute in the `mets.xml` header as directory name. See [`mets/@OBJID`](#OBJID) for more details.
+- The root directory MUST contain exactly one `/metadata` directory.
+- The root directory MUST contain exactly one `/representations` directory.
+- The root directory MAY contain exactly one `/documentation` directory.
+- The root directory MAY contain exactly one `/schemas` directory.
 
 ## mets.xml (file)
 
@@ -100,10 +98,8 @@ A summary of all possible references and their obligation is given in the table 
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/fptr/@FILEID`](#structMap-csip-div-div-schemas-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile. |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title`](#structMap-csip-div-div-representations-fptr-fileid) | SHOULD | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) (or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.)  |
 | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
-<!-- | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
 | [`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
-<!-- | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
 
 
 ### \<mets\> section
@@ -145,10 +141,10 @@ The various requirements are listed in the table below.
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/@OBJID` |
+| <a id="OBJID"></a>Attribute | `mets/@OBJID` |
 |-----------------------|-----------|
 | Name | Package identifier |
-| Description | This is an ID for the METS document. For the package METS, this MUST be the same ID as the one used for the entire bag. |
+| Description | This is an ID for the METS document. For the package METS, this MUST be the same ID as the one used for the entire package folder. |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |

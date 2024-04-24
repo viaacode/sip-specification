@@ -19,7 +19,6 @@ The basic profile supports simple cases consisting of a single media file accomp
 ```plaintext
 root_directory
 │── manifest-md5.txt
-│── bagit.txt
 │
 └── data
     │── mets.xml

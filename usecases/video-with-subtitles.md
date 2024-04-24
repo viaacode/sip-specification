@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Basic
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a video file with subtitles
 
 The following use case describes how to package
@@ -66,28 +66,24 @@ We package the above in a meemoo SIP named `subtitles_d3e1a978-3dd8-4b46-9314-d9
 It has the following directory structure:
 
 ```plaintext
-subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip
-│── manifest-md5.txt
-│── bagit.txt
+subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc.xml
+|   └── preservation
+|       └── premis.xml
 │
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        └──representation_1
-           │── mets.xml
-           └──data
-           |  |── broadcaster_news_20220516.srt
-           |  └── broadcaster_news_20220516.mp4
-           │
-           └──metadata
-              └──preservation
-                 └── premis.xml
+└── representations
+    └──representation_1
+       │── mets.xml
+       └──data
+       |  |── broadcaster_news_20220516.srt
+       |  └── broadcaster_news_20220516.mp4
+       │
+       └──metadata
+          └──preservation
+             └── premis.xml
 ```
 
 ## The metadata

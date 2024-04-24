@@ -3,25 +3,21 @@ layout:       default
 title:        Structure
 parent:       2.0
 grand_parent:  SIP Specification 
-nav_order:    4
+nav_order:    1
 nav_exclude:  false
 has_children: true
 ---
 # SIP structure
 
-The meemoo SIP consists of a hierarchical directory structure with 3 levels:
+The meemoo SIP consists of a hierarchical directory structure with 2 levels:
 
-- the root directory `/` or the _bag level_;
-- the `/data` directory inside the root directory or _package level_;
-- the `/representations` directory inside the `/data` directory or _representation level_.
+- the root directory `/` or _package level_;
+- the `/representations` directory inside the `/` directory or _representation level_.
 
 <figure class="mx-auto">
-  <img src="../../../../../assets/images_spec/sip_structure_20220510.png" alt="meemoo SIP structure" /> 
+  <img src="../../../../../assets/images_spec/sip-structure-2.0.drawio.png" alt="meemoo SIP structure" /> 
   <figcaption>The directory structure of a meemoo SIP.</figcaption>
 </figure>
-
-The [_bag level_]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/4_structure_bag.md %}) is a transport layer and contains essential information for checking the integrity of all files in the SIP.
-It uses a manifest file listing every file in the SIP together with its checksum.
 
 The [_package level_]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}) contains descriptive and preservation information about the SIP's main subject, namely the different IE(s) of which digital representations are being delivered, and preservation information about the SIP as a whole (e.g. the software used to create the SIP).
 In addition, a `mets.xml` file supplies information about the SIP's structure (in particular that of the package level) and administrative information about the SIP's submission (e.g. the organization that submits the SIP).
@@ -45,5 +41,5 @@ This approach results in one main IE (i.e. the Felis Catus Flamens), further sub
 One representation then consists of two pictures, while the other consists of one picture.
 
 <small>
-Continue to [bag level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/4_structure_bag.md %}).
+Continue to [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}).
 </small>

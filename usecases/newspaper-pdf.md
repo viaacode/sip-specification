@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Bibliographic
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a newspaper edition digitised per page (with PDF)
 
 The following use case describes how to package a newspaper edition digitised per page (with PDF file). It includes:
@@ -76,49 +76,45 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│──manifest-md5.txt
-│──bagit.txt
+│──mets.xml
+│──metadata
+|   |──descriptive
+|   |  └──dc.xml
+|   |  └──mods.xml
+|   └──preservation
+|       └──premis.xml
 │
-└──data
-    │──mets.xml
-    │──metadata
-    |   |──descriptive
-    |   |  └──dc.xml
-    |   |  └──mods.xml
-    |   └──preservation
-    |       └──premis.xml
+└──representations
+    │──representation_1
+    │    │──mets.xml
+    │    │──data
+    │    |   |──18950101_0001.tiff
+    │    |   |──18950101_0002.tiff
+    │    │   └──18950101_0003.tiff
+    │    │
+    │    └──metadata
+    │        └──preservation
+    │            └──premis.xml
     │
-    └──representations
-        │──representation_1
-        │    │──mets.xml
-        │    │──data
-        │    |   |──18950101_0001.tiff
-        │    |   |──18950101_0002.tiff
-        │    │   └──18950101_0003.tiff
-        │    │
-        │    └──metadata
-        │        └──preservation
-        │            └──premis.xml
-        │
-        │──representation_2
-        │    │──mets.xml
-        │    │──data
-        │    |   |──18950101_0001.xml
-        │    |   |──18950101_0002.xml
-        │    │   └──18950101_0003.xml
-        │    │
-        │    └──metadata
-        │       └──preservation
-        │          └──premis.xml
-        │
-        └──representation_3
-             │──mets.xml
-             │──data
-             |   └──18950101.pdf
-             │
-             └──metadata
-                └──preservation
-                   └──premis.xml
+    │──representation_2
+    │    │──mets.xml
+    │    │──data
+    │    |   |──18950101_0001.xml
+    │    |   |──18950101_0002.xml
+    │    │   └──18950101_0003.xml
+    │    │
+    │    └──metadata
+    │       └──preservation
+    │          └──premis.xml
+    │
+    └──representation_3
+         │──mets.xml
+         │──data
+         |   └──18950101.pdf
+         │
+         └──metadata
+            └──preservation
+               └──premis.xml
 ```
 
 ## The metadata

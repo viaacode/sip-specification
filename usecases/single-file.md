@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile: Basic
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a single image
 
 The following use case describes how to package a single image file with some basic descriptive metadata.
@@ -50,27 +50,23 @@ We package the above in a meemoo SIP named `basic_deec5d89-3024-4cbd-afcd-e18af4
 It has the following directory structure:
 
 ```plaintext
-basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec.zip
-│── manifest-md5.txt
-│── bagit.txt
+basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc.xml
+|   └── preservation
+|       └── premis.xml
 │
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        └──representation_1
-           │── mets.xml
-           └──data
-           |  └── D523F963.jpg
-           │
-           └──metadata
-              └──preservation
-                 └── premis.xml
+└── representations
+    └──representation_1
+       │── mets.xml
+       └──data
+       |  └── D523F963.jpg
+       │
+       └──metadata
+          └──preservation
+             └── premis.xml
 ```
 
 ## The metadata

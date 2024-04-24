@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Material artwork
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a digitization of a two-dimensional artwork
 
 The following use case describes how to package a reproduction of a two-dimensional artwork such as a painting. 
@@ -82,59 +82,56 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│── manifest-md5.txt
-│── bagit.txt
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc+schema.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        |── representation_1       # overview with frame
-        |   │── mets.xml
-        |   |── data
-        |   │   └── 7m03z1634f_overzichtsopname_metlijst_tiff.tiff
-        |   └──metadata
-        |      |── descriptive    
-        |      |   └── dc+schema.xml
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_2       # overview without frame
-        |   │── mets.xml
-        |   |── data
-        |   │   └── 7m03z1634f_overzichtsopname_zonderlijst_tiff.tif
-        |   └──metadata
-        |      |── descriptive     
-        |      |   └── dc+schema.xml
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_3       # composed stitch 
-        |   │── mets.xml
-        |   |── data
-        |   │   └── 7m03z1634f_stitch_tiff.tif
-        |   └──metadata    
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_4       # stitch 
-        |   │── mets.xml
-        |   |── data
-        |   |   |── 7m03z1634f_deelopname1_tiff.tif
-        |   |   |── 7m03z1634f_deelopname2_tiff.tif
-        |   |   |── ...
-        |   │   └── 7m03z1634f_deelopname9_tiff.tif
-        |   └── metadata
-        |       └── preservation
-        |           └── premis.xml
-        └── representation_5       # target 
-           │── mets.xml
-           |── data
-           │   └── 7m03z1634f_target_tiff.tif
-           └── metadata
-               └── preservation
-                   └── premis.xml
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc+schema.xml
+|   └── preservation
+|       └── premis.xml
+│
+└── representations
+    |── representation_1       # overview with frame
+    |   │── mets.xml
+    |   |── data
+    |   │   └── 7m03z1634f_overzichtsopname_metlijst_tiff.tiff
+    |   └──metadata
+    |      |── descriptive    
+    |      |   └── dc+schema.xml
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_2       # overview without frame
+    |   │── mets.xml
+    |   |── data
+    |   │   └── 7m03z1634f_overzichtsopname_zonderlijst_tiff.tif
+    |   └──metadata
+    |      |── descriptive     
+    |      |   └── dc+schema.xml
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_3       # composed stitch 
+    |   │── mets.xml
+    |   |── data
+    |   │   └── 7m03z1634f_stitch_tiff.tif
+    |   └──metadata    
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_4       # stitch 
+    |   │── mets.xml
+    |   |── data
+    |   |   |── 7m03z1634f_deelopname1_tiff.tif
+    |   |   |── 7m03z1634f_deelopname2_tiff.tif
+    |   |   |── ...
+    |   │   └── 7m03z1634f_deelopname9_tiff.tif
+    |   └── metadata
+    |       └── preservation
+    |           └── premis.xml
+    └── representation_5       # target 
+       │── mets.xml
+       |── data
+       │   └── 7m03z1634f_target_tiff.tif
+       └── metadata
+           └── preservation
+               └── premis.xml
 
 ```
 

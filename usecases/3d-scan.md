@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Material artwork
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a digitization of a three-dimensional artwork
 
 The following use case describes how to package a reproduction of a three-dimensional artwork such as a statue or sculpture. 
@@ -93,76 +93,73 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│── manifest-md5.txt
-│── bagit.txt
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc+schema.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        |── representation_1       # high-poly capture for print
-        |   │── mets.xml
-        |   └── data  
-        |   │   └── qv3bz95m19_ARCH_STL.STL              
-        |   │
-        |   └── metadata
-        |       |── descriptive  
-        |       |   └── dc+schema.xml
-        |       └── preservation
-        |           └── premis.xml
-        |── representation_2       # high-poly capture
-        |   │── mets.xml
-        |   |── data
-        |   |   |── qv3bz95m19_ARCH_OBJ.OBJ       # polygon file    
-        |   |   |── qv3bz95m19_ARCH_TIFF_COLOR.TIFF      # texture image       
-        |   │   └── qv3bz95m19_ARCH_MTL.MTL              # texture mapping file
-        |   │
-        |   └── metadata
-        |       |── descriptive   
-        |       |   └── dc+schema.xml
-        |       └── preservation
-        |           └── premis.xml
-        └──representation_3       # low-poly capture
-        |   │── mets.xml
-        |   |── data
-        |   |   |── qv3bz95m19_VER_OBJ.OBJ       # polygon file    
-        |   |   |── qv3bz95m19_VER_COLOR_BMP.BMP             # texture image       
-        |   │   └── qv3bz95m19_VER_MTL.MTL                   # texture mapping file
-        |   │
-        |   └── metadata
-        |       |── descriptive   
-        |       |   └── dc+schema.xml    
-        |       └──preservation
-        |          └── premis.xml
-        └── representation_4       # quality assessment reference
-        |    │── mets.xml
-        |    |──data
-        |    |  |── qv3bz95m19_REF_OBJ.OBJ               # polygon file    
-        |    |  |── qv3bz95m19_REF_BMP.BMP               # texture image      
-        |    |  |── qv3bz95m19_REF_IJK_BMP.BMP           # UV image     
-        |    │  └── qv3bz95m19_REF_MTL.MTL               # texture mapping file
-        |    │
-        |    └── metadata
-        |       |── descriptive
-        |       |   └── dc+schema.xml    
-        |       └── preservation
-        |           └── premis.xml
-        └── representation_5       # additional photography
-            │── mets.xml
-            |── data
-            |   |── qv3bz95m19_FOTO1_TIFF.TIFF
-            |   |── qv3bz95m19_FOTO2_TIFF.TIFF                   
-            │   └── qv3bz95m19_FOTO3_TIFF.TIFF               
-            │
-            └── metadata
-                |── descriptive
-                |   └── dc+schema.xml    
-                └── preservation
-                    └── premis.xml
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc+schema.xml
+|   └── preservation
+|       └── premis.xml
+│
+└── representations
+    |── representation_1       # high-poly capture for print
+    |   │── mets.xml
+    |   └── data  
+    |   │   └── qv3bz95m19_ARCH_STL.STL              
+    |   │
+    |   └── metadata
+    |       |── descriptive  
+    |       |   └── dc+schema.xml
+    |       └── preservation
+    |           └── premis.xml
+    |── representation_2       # high-poly capture
+    |   │── mets.xml
+    |   |── data
+    |   |   |── qv3bz95m19_ARCH_OBJ.OBJ       # polygon file    
+    |   |   |── qv3bz95m19_ARCH_TIFF_COLOR.TIFF      # texture image       
+    |   │   └── qv3bz95m19_ARCH_MTL.MTL              # texture mapping file
+    |   │
+    |   └── metadata
+    |       |── descriptive   
+    |       |   └── dc+schema.xml
+    |       └── preservation
+    |           └── premis.xml
+    └──representation_3       # low-poly capture
+    |   │── mets.xml
+    |   |── data
+    |   |   |── qv3bz95m19_VER_OBJ.OBJ       # polygon file    
+    |   |   |── qv3bz95m19_VER_COLOR_BMP.BMP             # texture image       
+    |   │   └── qv3bz95m19_VER_MTL.MTL                   # texture mapping file
+    |   │
+    |   └── metadata
+    |       |── descriptive   
+    |       |   └── dc+schema.xml    
+    |       └──preservation
+    |          └── premis.xml
+    └── representation_4       # quality assessment reference
+    |    │── mets.xml
+    |    |──data
+    |    |  |── qv3bz95m19_REF_OBJ.OBJ               # polygon file    
+    |    |  |── qv3bz95m19_REF_BMP.BMP               # texture image      
+    |    |  |── qv3bz95m19_REF_IJK_BMP.BMP           # UV image     
+    |    │  └── qv3bz95m19_REF_MTL.MTL               # texture mapping file
+    |    │
+    |    └── metadata
+    |       |── descriptive
+    |       |   └── dc+schema.xml    
+    |       └── preservation
+    |           └── premis.xml
+    └── representation_5       # additional photography
+        │── mets.xml
+        |── data
+        |   |── qv3bz95m19_FOTO1_TIFF.TIFF
+        |   |── qv3bz95m19_FOTO2_TIFF.TIFF                   
+        │   └── qv3bz95m19_FOTO3_TIFF.TIFF               
+        │
+        └── metadata
+            |── descriptive
+            |   └── dc+schema.xml    
+            └── preservation
+                └── premis.xml
 ```
 
 ## The metadata

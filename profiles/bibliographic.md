@@ -20,47 +20,43 @@ It applies the [MODS XML metadata schema](https://www.loc.gov/standards/mods/) f
 
 ```plaintext
 root_directory
-│──manifest-md5.txt
-│──bagit.txt
+│──mets.xml
+│──metadata
+|   |──descriptive      (at least one of both files must be present)
+|   |  └──dc.xml 
+|   |  └──mods.xml
+|   └──preservation
+|       └──premis.xml
 │
-└──data
+└──representations
+│──representation_1
+│    │──mets.xml
+│    │──data
+│    |   |──file_1.tiff
+│    │   └──...
+│    │
+│    └──metadata
+│        └──preservation
+│            └──premis.xml
+│
+│──representation_2
+│    │──mets.xml
+│    │──data
+│    |   |──file_1.xml
+│    │   └──...
+│    │
+│    └──metadata
+│       └──preservation
+│          └──premis.xml
+│
+└──representation_3
     │──mets.xml
-    │──metadata
-    |   |──descriptive      (at least one of both files must be present)
-    |   |  └──dc.xml 
-    |   |  └──mods.xml
-    |   └──preservation
-    |       └──premis.xml
+    │──data
+    |  └── file_1.pdf
     │
-    └──representations
-        │──representation_1
-        │    │──mets.xml
-        │    │──data
-        │    |   |──file_1.tiff
-        │    │   └──...
-        │    │
-        │    └──metadata
-        │        └──preservation
-        │            └──premis.xml
-        │
-        │──representation_2
-        │    │──mets.xml
-        │    │──data
-        │    |   |──file_1.xml
-        │    │   └──...
-        │    │
-        │    └──metadata
-        │       └──preservation
-        │          └──premis.xml
-        │
-        └──representation_3
-            │──mets.xml
-            │──data
-            |  └── file_1.pdf
-            │
-            └──metadata
-               └──preservation
-                  └── premis.xml
+    └──metadata
+        └──preservation
+            └── premis.xml
 ```
 
 ## Requirements

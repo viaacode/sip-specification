@@ -8,8 +8,8 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Material artwork
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a gigapixel digitization of a two-dimensional artwork
 
 The following use case describes how to package a gigapixel reproduction of a two-dimensional artwork such as a drawing or painting. 
@@ -85,74 +85,71 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│── manifest-md5.txt
-│── bagit.txt
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc+schema.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        |── representation_1       # overview with frame
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_overzichtsopname_metlijst_tiff.tiff
-        |   └──metadata
-        |      |── descriptive    
-        |      |   └── dc+schema.xml   
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_2       # overview without frame
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff
-        |   └──metadata
-        |      |── descriptive     
-        |      |   └── dc+schema.xml   
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_3       # composed stitch 
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_stitch_bigtiff.tiff
-        |   └──metadata
-        |      |── descriptive   
-        |      |   └── dc+schema.xml         
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_4       # composed stitch in PSB
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_stitch_psb.psb
-        |   └──metadata
-        |      |── descriptive   
-        |      |   └── dc+schema.xml         
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_5       # stitch 
-        |   │── mets.xml
-        |   |── data
-        |   |   |── cf9j41p15z_Kolom1_deelopname1_tiff.tiff
-        |   |   |── cf9j41p15z_Kolom1_deelopname2_tiff.tiff
-        |   |   |── ...
-        |   │   └── cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
-        |   └── metadata
-        |       |── descriptive     
-        |       |   └── dc+schema.xml    
-        |       └── preservation
-        |           └── premis.xml
-        └── representation_6       # target 
-           │── mets.xml
-           |── data
-           │   └── cf9j41p15z_target_tiff.tiff
-           └── metadata
-               |── descriptive     
-               |   └── dc+schema.xml    
-               └── preservation
-                   └── premis.xml
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc+schema.xml
+|   └── preservation
+|       └── premis.xml
+│
+└── representations
+    |── representation_1       # overview with frame
+    |   │── mets.xml
+    |   |── data
+    |   │   └── cf9j41p15z_overzichtsopname_metlijst_tiff.tiff
+    |   └──metadata
+    |      |── descriptive    
+    |      |   └── dc+schema.xml   
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_2       # overview without frame
+    |   │── mets.xml
+    |   |── data
+    |   │   └── cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff
+    |   └──metadata
+    |      |── descriptive     
+    |      |   └── dc+schema.xml   
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_3       # composed stitch 
+    |   │── mets.xml
+    |   |── data
+    |   │   └── cf9j41p15z_stitch_bigtiff.tiff
+    |   └──metadata
+    |      |── descriptive   
+    |      |   └── dc+schema.xml         
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_4       # composed stitch in PSB
+    |   │── mets.xml
+    |   |── data
+    |   │   └── cf9j41p15z_stitch_psb.psb
+    |   └──metadata
+    |      |── descriptive   
+    |      |   └── dc+schema.xml         
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_5       # stitch 
+    |   │── mets.xml
+    |   |── data
+    |   |   |── cf9j41p15z_Kolom1_deelopname1_tiff.tiff
+    |   |   |── cf9j41p15z_Kolom1_deelopname2_tiff.tiff
+    |   |   |── ...
+    |   │   └── cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
+    |   └── metadata
+    |       |── descriptive     
+    |       |   └── dc+schema.xml    
+    |       └── preservation
+    |           └── premis.xml
+    └── representation_6       # target 
+       │── mets.xml
+       |── data
+       │   └── cf9j41p15z_target_tiff.tiff
+       └── metadata
+           |── descriptive     
+           |   └── dc+schema.xml    
+           └── preservation
+               └── premis.xml
 
 ```
 

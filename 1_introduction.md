@@ -6,8 +6,8 @@ grand_parent:  SIP Specification
 nav_order:    1
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 
 # Introduction
 
@@ -17,12 +17,8 @@ These collections contain a wealth of content and information stored in various 
 They are accompanied by metadata that is described in a variety of formats.
 Therefore, the current SIP specification was developed to standardize the delivery of (media) content and metadata by meemoo's content partners and increase scalability and sustainability.
 
-The meemoo SIP uses a three-level hierarchical directory structure (_bag - package - representation_) to aggregate and describe media assets, including video, audio, images, captions...
-A meemoo SIP is a valid [BagIt bag](https://www.rfc-editor.org/rfc/rfc8493.html) that contains a valid [E-ARK SIP](https://earksip.dilcis.eu/).
-
-At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
+The meemoo SIP is a valid [E-ARK SIP](https://earksip.dilcis.eu/) and uses a two-level hierarchical directory structure (_package - representation_) to aggregate and describe media assets, including video, audio, images, captions, etc. At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
 One level higher, the _package_ directory _level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.html), such as the work that is being depicted.
-Finally, the _bag_ directory _level_ bundles everything together for transport.
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
@@ -32,6 +28,14 @@ The meemoo SIP specification itself cannot be used for actual ingest in the meem
 Depending on the type of content, specific mappings are required for ingest.
 These mappings consist of additional requirements on top of the current meemoo SIP specification and are captured in the different content profiles.
 In summary, content that is delivered to meemoo for ingest must always be packaged in a meemoo SIP that adheres to a specific content profile.
+
+## Changes compared to version 1.X
+
+TODO
+
+- EARK compliance
+- no more Bag level
+[BagIt File Packaging Format](https://www.rfc-editor.org/rfc/rfc8493.html)
 
 ## How to Read this Specification
 
@@ -45,7 +49,6 @@ To fully understand the basics of this specification, it is advised to be famili
 
 | Abbreviation | Standard |
 | ------------ | -------------- |
-| <a id="bagit"></a>BagIt        | [BagIt File Packaging Format](https://www.rfc-editor.org/rfc/rfc8493.html)|
 | <a id="e-ark-csip"></a>E-ARK CSIP   | [E-ARK Common Specification for Information Packages](https://earkcsip.dilcis.eu/)|
 | <a id="e-ark-sip"></a>E-ARK SIP    | [E-ARK Specification for Submission Information Packages](https://earksip.dilcis.eu/)|
 | <a id="mets"></a>METS         | [Metadata Encoding & Transmission Standard](https://www.loc.gov/standards/mets/mets.xsd)|

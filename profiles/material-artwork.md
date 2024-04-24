@@ -25,7 +25,6 @@ It also allows extensions to the descriptive metadata using [Schema.org](https:/
 ```plaintext
 root_directory
 │── manifest-md5.txt
-│── bagit.txt
 │
 └── data
     │── mets.xml
@@ -85,7 +84,6 @@ root_directory
 ```plaintext
 root_directory
 │── manifest-md5.txt
-│── bagit.txt
 │
 └── data
     │── mets.xml
