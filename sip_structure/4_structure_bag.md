@@ -6,8 +6,6 @@ grand_parent:  1.1
 nav_order:    5
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
 # Bag level
 {: .no_toc }
 

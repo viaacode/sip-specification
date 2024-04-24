@@ -8,8 +8,6 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Material artwork
 ---
-Release Candidate
-{: .label .label-blue }
 # Use Case: a digitization of a two-dimensional artwork
 
 The following use case describes how to package a reproduction of a two-dimensional artwork such as a painting. 
