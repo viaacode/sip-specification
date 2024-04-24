@@ -4,7 +4,7 @@ title:        Bibliographic
 parent:       Profiles
 grand_parent:  2.0
 nav_order:    2
-nav_exclude:  true
+nav_exclude:  false
 ---
 Editor's Draft
 {: .label .label-yellow }

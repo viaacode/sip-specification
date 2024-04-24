@@ -3,7 +3,7 @@ layout:       default
 title:        Use cases
 parent:       2.0
 grand_parent:  SIP Specification 
-nav_order:    9
+nav_order:    6
 nav_exclude:  false
 has_children: true
 ---

@@ -3,7 +3,7 @@ layout:       default
 title:        Package level
 parent:       Structure
 grand_parent:  2.0
-nav_order:    6
+nav_order:    1
 nav_exclude:  false
 ---
 Editor's Draft

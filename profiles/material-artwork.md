@@ -4,7 +4,7 @@ title:        Material artwork
 parent:       Profiles
 grand_parent:  2.0
 nav_order:    3
-nav_exclude:  true
+nav_exclude:  false
 ---
 Editor's Draft
 {: .label .label-yellow }
@@ -24,123 +24,117 @@ It also allows extensions to the descriptive metadata using [Schema.org](https:/
 
 ```plaintext
 root_directory
-│── manifest-md5.txt
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc+schema.xml
+|   └── preservation
+|       └── premis.xml
 │
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc+schema.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        └──representation_1       # overview with frame
-           │── mets.xml
-           └──data
-           │  └── PID_overzichtsopname_metlijst_tiff.tiff
-           │
-           └──metadata
-              |── descriptive     (optional)
-              |   └── dc+schema.xml
-              └──preservation
-                 └── premis.xml
-        └──representation_2       # overview without frame
-           │── mets.xml
-           └──data
-           │  └── PID_overzichtsopname_zonderlijst_tiff.tif
-           │
-           └──metadata
-              |── descriptive     (optional)
-              |   └── dc+schema.xml    
-              └──preservation
-                 └── premis.xml
-        └──representation_3       # composed stitch 
-           │── mets.xml
-           └──data
-           │  └── PID_stitch_tiff.tif
-           │
-           └──metadata
-              |── descriptive     (optional)    
-              |   └── dc+schema.xml    
-              └──preservation
-                 └── premis.xml
-        └──representation_4       # stitch 
-           │── mets.xml
-           └──data
-           |  |── PID_deelopname1_tiff.tif
-           |  |── PID_deelopname2_tiff.tif
-           │  └── ...
-           │
-           └──metadata
-              |── descriptive     (optional)  
-              |   └── dc+schema.xml    
-              └──preservation
-                 └── premis.xml
+└── representations
+   └──representation_1       # overview with frame
+      │── mets.xml
+      └──data
+      │  └── PID_overzichtsopname_metlijst_tiff.tiff
+      │
+      └──metadata
+         |── descriptive     (optional)
+         |   └── dc+schema.xml
+         └──preservation
+            └── premis.xml
+   └──representation_2       # overview without frame
+      │── mets.xml
+      └──data
+      │  └── PID_overzichtsopname_zonderlijst_tiff.tif
+      │
+      └──metadata
+         |── descriptive     (optional)
+         |   └── dc+schema.xml    
+         └──preservation
+            └── premis.xml
+   └──representation_3       # composed stitch 
+      │── mets.xml
+      └──data
+      │  └── PID_stitch_tiff.tif
+      │
+      └──metadata
+         |── descriptive     (optional)    
+         |   └── dc+schema.xml    
+         └──preservation
+            └── premis.xml
+   └──representation_4       # stitch 
+      │── mets.xml
+      └──data
+      |  |── PID_deelopname1_tiff.tif
+      |  |── PID_deelopname2_tiff.tif
+      │  └── ...
+      │
+      └──metadata
+         |── descriptive     (optional)  
+         |   └── dc+schema.xml    
+         └──preservation
+            └── premis.xml
 ```
 
 ### 3D scan
 
 ```plaintext
 root_directory
-│── manifest-md5.txt
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc+schema.xml
+|   └── preservation
+|       └── premis.xml
 │
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc+schema.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        └──representation_1       # high-poly capture for print
-           │── mets.xml
-           └──data  
-           │  └── PID_ARCH_STL.STL              
-           │
-           └──metadata
-              |── descriptive     (optional)
-              |   └── dc+schema.xml
-              └──preservation
-                 └── premis.xml
-        └──representation_2       # high-poly capture
-           │── mets.xml
-           └──data
-           |  |── PID_ARCH_OBJ.OBJ       # polygon file    
-           |  |── PID_ARCH_TIFF_COLOR.TIFF      # texture image       
-           │  └── PID_ARCH_MTL.MTL              # texture mapping file
-           │
-           └──metadata
-              |── descriptive     (optional)
-              |   └── dc+schema.xml
-              └──preservation
-                 └── premis.xml
-        └──representation_3       # low-poly capture
-           │── mets.xml
-           └──data
-           |  |── PID_VER_OBJ.OBJ       # polygon file    
-           |  |── PID_VER_COLOR_BMP.BMP             # texture image       
-           │  └── PID_VER_MTL.MTL                   # texture mapping file
-           │
-           └──metadata
-              |── descriptive     (optional)
-              |   └── dc+schema.xml   
-              └──preservation
-                 └── premis.xml
-        └──representation_4       # quality assessment reference
-           │── mets.xml
-           └──data
-           |  |── PID_REF_OBJ.OBJ               # polygon file    
-           |  |── PID_REF_BMP.BMP               # texture image      
-           |  |── PID_REF_IJK_BMP.BMP           # reference texture image     
-           │  └── PID_REF_MTL.MTL               # texture mapping file
-           │
-           └──metadata
-              |── descriptive     (optional)
-              |   └── dc+schema.xml    
-              └──preservation
-                 └── premis.xml
+└── representations
+   └──representation_1       # high-poly capture for print
+      │── mets.xml
+      └──data  
+      │  └── PID_ARCH_STL.STL              
+      │
+      └──metadata
+         |── descriptive     (optional)
+         |   └── dc+schema.xml
+         └──preservation
+            └── premis.xml
+   └──representation_2       # high-poly capture
+      │── mets.xml
+      └──data
+      |  |── PID_ARCH_OBJ.OBJ       # polygon file    
+      |  |── PID_ARCH_TIFF_COLOR.TIFF      # texture image       
+      │  └── PID_ARCH_MTL.MTL              # texture mapping file
+      │
+      └──metadata
+         |── descriptive     (optional)
+         |   └── dc+schema.xml
+         └──preservation
+            └── premis.xml
+   └──representation_3       # low-poly capture
+      │── mets.xml
+      └──data
+      |  |── PID_VER_OBJ.OBJ       # polygon file    
+      |  |── PID_VER_COLOR_BMP.BMP             # texture image       
+      │  └── PID_VER_MTL.MTL                   # texture mapping file
+      │
+      └──metadata
+         |── descriptive     (optional)
+         |   └── dc+schema.xml   
+         └──preservation
+            └── premis.xml
+   └──representation_4       # quality assessment reference
+      │── mets.xml
+      └──data
+      |  |── PID_REF_OBJ.OBJ               # polygon file    
+      |  |── PID_REF_BMP.BMP               # texture image      
+      |  |── PID_REF_IJK_BMP.BMP           # reference texture image     
+      │  └── PID_REF_MTL.MTL               # texture mapping file
+      │
+      └──metadata
+         |── descriptive     (optional)
+         |   └── dc+schema.xml    
+         └──preservation
+            └── premis.xml
 ```
 
 ## Requirements

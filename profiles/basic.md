@@ -4,7 +4,7 @@ title:        Basic
 parent:       Profiles
 grand_parent:  2.0
 nav_order:    1
-nav_exclude:  true
+nav_exclude:  false
 ---
 Editor's Draft
 {: .label .label-yellow }
@@ -18,26 +18,23 @@ The basic profile supports simple cases consisting of a single media file accomp
 
 ```plaintext
 root_directory
-│── manifest-md5.txt
+│── mets.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc+schema.xml
+|   └── preservation
+|       └── premis.xml
 │
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc+schema.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        └──representation_1
-           │── mets.xml
-           └──data
-           |  |── file_1.xyz
-           │  └── ...
-           │
-           └──metadata
-              └──preservation
-                 └── premis.xml
+└── representations
+    └──representation_1
+        │── mets.xml
+        └──data
+        |  |── file_1.xyz
+        │  └── ...
+        │
+        └──metadata
+          └──preservation
+              └── premis.xml
 ```
 
 ## Requirements
