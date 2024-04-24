@@ -3,7 +3,7 @@ layout:       default
 title:        Representation level
 parent:       Structure
 grand_parent:  2.0
-nav_order:    7
+nav_order:    2
 nav_exclude:  false
 ---
 Editor's Draft
