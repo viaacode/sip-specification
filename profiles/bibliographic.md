@@ -317,8 +317,6 @@ root_directory
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-{: .bg-green-000 }
-
 | Element | `mods:mods/mods:name[@type="corporate"]/mods:namePart` |
 |-----------------------|-----------|
 | Name | Name of a company or organization |
