@@ -54,7 +54,7 @@ basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec
 │── mets.xml
 │── metadata
 |   |── descriptive
-|   |   └── dc.xml
+|   |   └── dc+schema.xml
 |   └── preservation
 |       └── premis.xml
 │
@@ -73,16 +73,16 @@ basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec
 
 In total, the SIP contains 3 metadata files:
 
-| `/data/metadata/descriptive/dc.xml` | Descriptive metadata about the IE residing on _Package level_. |
+| `/data/metadata/descriptive/dc+schema.xml` | Descriptive metadata about the IE residing on _Package level_. |
 | `/data/metadata/preservation/premis.xml` | Preservation metadata about the IE residing on _Package level_. |
 | `/data/representations/representation_1/metadata/preservation/premis.xml` | Preservation metadata about the representation and files residing on _Representation level_. |
 
-### /data/metadata/descriptive/dc.xml
+### /data/metadata/descriptive/dc+schema.xml
 
-The `dc.xml` of the package level describes the IE using the DCTERMS metadata schema.
+The `dc+schema.xml` of the package level describes the IE using the DCTERMS metadata schema.
 It contains minimal metadata such as a title, an identifier, a creation datetime (set to unknown) and a number of keywords.
 
-Note that the identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+Note that the identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -109,7 +109,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 
 The `premis.xml` of the package level describes the IE and its relationship with its representation.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier>` in the `descriptive/dc.xml` file in order to link the two files together.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier>` in the `descriptive/dc+schema.xml` file in order to link the two files together.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
