@@ -53,7 +53,9 @@ To fully understand the basics of this specification, it is advised to be famili
 | <a id="e-ark-sip"></a>E-ARK SIP    | [E-ARK Specification for Submission Information Packages](https://earksip.dilcis.eu/)|
 | <a id="mets"></a>METS         | [Metadata Encoding & Transmission Standard](https://www.loc.gov/standards/mets/mets.xsd)|
 | <a id="dcterms"></a>DCTERMS      | [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)|
-| <a id="premis"></a>PREMIS       | [PREMIS Data Dictionary for Preservation Metadata]([PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/))|
+| <a id="premis"></a>PREMIS       | [PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/)|
+| <a id="schema"></a>Schema       | [Schema.org](https://schema.org/)|
+| <a id="mods"></a>MODS       | [Metadata Object Description Schema](https://www.loc.gov/standards/mods/)|
 
 Metadata elements from these standards are described throughout this specification using tables such as the one below. 
 
