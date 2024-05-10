@@ -79,7 +79,6 @@ root_directory
     │──mets.xml
     │──metadata
     |   |──descriptive
-    |   |  └──dc.xml
     |   |  └──mods.xml
     |   └──preservation
     |       └──premis.xml
@@ -112,43 +111,11 @@ root_directory
 
 In total, the SIP contains 5 metadata files:
 
-|`data/metadata/descriptive/dc.xml`|Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema.|
 |`data/metadata/descriptive/mods.xml`|Descriptive metadata about the IE residing at the _package level_ using the MODS metadata schema.|
 |`data/metadata/preservation/premis.xml`|Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations.|
 |`data/representations/representation_1/metadata/preservation/premis.xml`|Preservation metadata about the representation and TIFF files residing at the _representation level_.|
 |`data/representations/representation_2/metadata/preservation/premis.xml`|Preservation metadata about the representation and ALTO XML files residing at the _representation level_.|
 
-### /data/metadata/descriptive/dc.xml
-
-The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
-It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
-
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
-
-Note that, as opposed to the `mods.xml` file, the `dc.xml` file is optional according to the newspaper SIP profile.
-
-```xml
-<?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns:dcterms="http://purl.org/dc/terms/" xmlns:edtf="http://id.loc.gov/datatypes/edtf/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-
-  <dcterms:title>Le Chat Blanc: 02/08/2022</dcterms:title>
-
-  <dcterms:description xml:lang="nl">Journal Indépendant: Le Chat Blanc: 02/08/2022</dcterms:description>
-
-  <!-- linking id between dc and premis -->
-  <!-- matches the identifier of the premis:object defined in the preservation/premis.xml -->
-  <dcterms:identifier>uuid-e6a138e5-a0fc-41d3-a912-9491a3502f57</dcterms:identifier>
-
-  <dcterms:created xsi:type="edtf:EDTF-level2">XXXX</dcterms:created>
-  <dcterms:issued xsi:type="edtf:EDTF-level0">2022-08-02</dcterms:issued> 
-
-  <dcterms:license>VIAA-PUBLIEK-METADATA-LTD</dcterms:license>
-
-  <dcterms:subject xml:lang="nl">chat blanc</dcterms:subject>
-  <dcterms:subject xml:lang="nl">cats</dcterms:subject>
-
-</metadata> 
-```
 
 ### data/metadata/descriptive/mods.xml
 
@@ -204,7 +171,7 @@ The examples below and in the sample mentioned earlier therefore only serve as a
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains a transcription event that details how the ALTO XML was created from the TIFF files using OCR.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) and with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 
 ```xml

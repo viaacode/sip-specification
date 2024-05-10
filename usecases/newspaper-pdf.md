@@ -83,7 +83,7 @@ root_directory
     │──mets.xml
     │──metadata
     |   |──descriptive
-    |   |  └──dc.xml
+    |   |  └──dc+schema.xml
     |   |  └──mods.xml
     |   └──preservation
     |       └──premis.xml
@@ -125,21 +125,21 @@ root_directory
 
 In total, the SIP contains 6 metadata files:
 
-|`data/metadata/descriptive/dc.xml`|Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema.|
+|`data/metadata/descriptive/dc+schema.xml`|Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema.|
 |`data/metadata/descriptive/mods.xml`|Descriptive metadata about the IE residing at the _package level_ using the MODS metadata schema.|
 |`data/metadata/preservation/premis.xml`|Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations.|
 |`data/representations/representation_1/metadata/preservation/premis.xml`|Preservation metadata about the representation and TIFF files residing at the _representation level_.|
 |`data/representations/representation_2/metadata/preservation/premis.xml`|Preservation metadata about the representation and ALTO XML files residing at the _representation level_.|
 |`data/representations/representation_3/metadata/preservation/premis.xml`|Preservation metadata about the representation and PDF file residing at the _representation level_.|
 
-### /data/metadata/descriptive/dc.xml
+### /data/metadata/descriptive/dc+schema.xml
 
-The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
+The `dc+schema.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
-Note that, as opposed to the `mods.xml` file, the `dc.xml` file is optional according to the newspaper SIP profile.
+Note that, as opposed to the `mods.xml` file, the `dc+schema.xml` file is optional according to the newspaper SIP profile.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -218,7 +218,7 @@ The examples below and in the sample mentioned earlier therefore only serve as a
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains two PREMIS events: a transcription event that details how the ALTO XML was created from the TIFF files using OCR, and a creation event that details how the PDF was created from the ALTO XML and TIFF files.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc.xml` file) and with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) and with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 
 ```xml
