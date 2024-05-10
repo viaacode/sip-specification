@@ -17,8 +17,8 @@ These collections contain a wealth of content and information stored in various 
 They are accompanied by metadata that is described in a variety of formats.
 Therefore, the current SIP specification was developed to standardize the delivery of (media) content and metadata by meemoo's content partners and increase scalability and sustainability.
 
-The meemoo SIP is a valid [E-ARK SIP](https://earksip.dilcis.eu/) and uses a two-level hierarchical directory structure (_package - representation_) to aggregate and describe media assets, including video, audio, images, captions, etc. At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
-One level higher, the _package_ directory _level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.html), such as the work that is being depicted.
+The meemoo SIP is a valid [E-ARK SIP](https://earksip.dilcis.eu/) and uses a two-level hierarchical directory structure (_package_ & _representation_) to aggregate and describe media assets, including video, audio, images, captions, etc. At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
+One level higher, the _package level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.html), such as the work that is being depicted.
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
