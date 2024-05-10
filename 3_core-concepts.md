@@ -75,6 +75,8 @@ Each page is digitised separately as a TIFF file and a JPEG file, resulting in 2
 Finally, OCR is applied to each TIFF file, resulting in yet another 10 ALTO XML files (containing the textual representation of each newspaper page).
 Using the concepts defined above, we view the newspaper edition as a whole as the IE.
 
+
+<!-- TODO: We might want to update this section, since we model it differently in the meantime. -->
 We have one IE (i.e. the newspaper edition) and we can discern between three representations of that IE: a high-resolution representation containing the TIFF files for e.g. reproduction, a low-resolution representation containing the JPEG files for e.g. browse copies on the web and a textual representation containing the ALTO XML files for e.g. searching through the actual textual content of the newspaper pages.
 
 <figure class="mx-auto">
