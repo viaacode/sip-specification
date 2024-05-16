@@ -1406,7 +1406,7 @@ It also contains preservation metadata about the SIP as a whole.
 
 The `/descriptive` directory contains descriptive metadata about the IE(s) at the package level.
 This descriptive metadata is stored in different XML files, depending on the number of IE(s) present in the SIP.
-Examples are `dc+schema.xml`, `mods.xml` and `dc+schema.xml`.
+Examples are `mods.xml` and `dc+schema.xml`.
 These files apply a certain metadata schema, such as [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) or [MODS](https://www.loc.gov/standards/mods/).
 The concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/index.md %}).
 

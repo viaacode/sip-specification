@@ -184,7 +184,7 @@ The examples below and in the sample mentioned earlier therefore only serve as a
 The `premis.xml` of the package level describes the IE and the relationships with its representations.
 It also contains two PREMIS events: a transcription event that details how the ALTO XML was created from the TIFF files using OCR, and a creation event that details how the PDF was created from the ALTO XML and TIFF files.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) and with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<mods:identifier/>` (in the `descriptive/mods.xml` file) in order to link the PREMIS IE object to its descriptions in the two files.
 
 
 ```xml

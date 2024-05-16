@@ -26,8 +26,7 @@ root_directory
 └──data
     │──mets.xml
     │──metadata
-    |   |──descriptive      (at least one of both files must be present)
-    |   |  └──dc+schema.xml 
+    |   |──descriptive
     |   |  └──mods.xml
     |   └──preservation
     |       └──premis.xml
@@ -740,7 +739,6 @@ The XML files that are required by this profile can be validated using the follo
 | `mets.xml` | METS v1.22.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `mods.xml` | MODS v3.7 | [mods-3-7.xsd](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) |
-| `dc+schema.xml` (if no MODS) | Dublin Core (custom schema) | [dc_basic.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc_basic.xsd)<br>_depends on: [edtf.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/edtf.xsd), [dcterms.xsd](https://github.com/viaacode/sipin-sip-validator/blob/main/app/resources/xsd/dcterms.xsd), [dcmitype.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dcmitype.xsd), [dc.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc.xsd)_ |
 
 ## Use Cases
 
