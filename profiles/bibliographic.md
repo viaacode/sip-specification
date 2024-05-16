@@ -22,7 +22,7 @@ It applies the [MODS XML metadata schema](https://www.loc.gov/standards/mods/) f
 root_directory
 │──mets.xml
 │──metadata
-|   |──descriptive      (at least one of both files must be present)
+|   |──descriptive
 |   |  └──mods.xml
 |   └──preservation
 |       └──premis.xml
