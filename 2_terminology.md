@@ -30,13 +30,13 @@ Editor's Draft
     <dt>Package</dt>
     <dd>The middle layer of the meemoo SIP. It consists of a number of directories and metadata files, containing the lowest (i.e. representation) layer of the meemoo SIP.</dd>
     <dt>Package METS</dt>
-    <dd>The metadata file conforming to the <a href="https://www.loc.gov/standards/mets/mets.xsd">METS standard</a> situated at the package level of the SIP (i.e. at <code>/data/mets.xml</code>)</dd>
+    <dd>The metadata file conforming to the <a href="https://www.loc.gov/standards/mets/mets.xsd">METS standard</a> situated at the package level of the SIP (i.e. at <code>/data/METS.xml</code>)</dd>
     <dt>Preservation metadata</dt>
     <dd>Metadata about the context and structure of a digital object. It is an essential part of current digital preservation strategies and data management. Examples include file size, the checksum of a file and how/when the file was created.</dd>
     <dt>Representation</dt>
     <dd>A set of files (including metadata) needed for a complete rendition of an IE. Note that an IE can be represented by multiple representations (e.g. a high quality representation and a low quality representation).</dd>
     <dt>Representation METS</dt>
-    <dd>The metadata file conforming to the <a href="https://www.loc.gov/standards/mets/mets.xsd">METS standard</a> situated at one of the different representation directories of the representation level of the SIP (e.g. at <code>/data/representation/representation_1/mets.xml</code>)</dd>
+    <dd>The metadata file conforming to the <a href="https://www.loc.gov/standards/mets/mets.xsd">METS standard</a> situated at one of the different representation directories of the representation level of the SIP (e.g. at <code>/data/representation/representation_1/METS.xml</code>)</dd>
     <dt>Sidecar</dt>
     <dd>An alternative term for a file exclusively containing metadata.</dd>
     <dt>Structural metadata</dt>

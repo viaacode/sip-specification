@@ -82,7 +82,7 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -91,7 +91,7 @@ root_directory
 │
 └── representations
     |── representation_1       # overview with frame
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   │   └── 7m03z1634f_overzichtsopname_metlijst_tiff.tiff
     |   └──metadata
@@ -100,7 +100,7 @@ root_directory
     |      └── preservation
     |          └── premis.xml
     |── representation_2       # overview without frame
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   │   └── 7m03z1634f_overzichtsopname_zonderlijst_tiff.tif
     |   └──metadata
@@ -109,14 +109,14 @@ root_directory
     |      └── preservation
     |          └── premis.xml
     |── representation_3       # composed stitch 
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   │   └── 7m03z1634f_stitch_tiff.tif
     |   └──metadata    
     |      └── preservation
     |          └── premis.xml
     |── representation_4       # stitch 
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   |   |── 7m03z1634f_deelopname1_tiff.tif
     |   |   |── 7m03z1634f_deelopname2_tiff.tif
@@ -126,7 +126,7 @@ root_directory
     |       └── preservation
     |           └── premis.xml
     └── representation_5       # target 
-       │── mets.xml
+       │── METS.xml
        |── data
        │   └── 7m03z1634f_target_tiff.tif
        └── metadata

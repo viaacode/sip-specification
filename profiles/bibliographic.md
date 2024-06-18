@@ -20,7 +20,7 @@ It applies the [MODS XML metadata schema](https://www.loc.gov/standards/mods/) f
 
 ```plaintext
 root_directory
-│──mets.xml
+│──METS.xml
 │──metadata
 |   |──descriptive
 |   |  └──mods.xml
@@ -29,7 +29,7 @@ root_directory
 │
 └──representations
 │──representation_1
-│    │──mets.xml
+│    │──METS.xml
 │    │──data
 │    |   |──file_1.tiff
 │    │   └──...
@@ -39,7 +39,7 @@ root_directory
 │            └──premis.xml
 │
 │──representation_2
-│    │──mets.xml
+│    │──METS.xml
 │    │──data
 │    |   |──file_1.xml
 │    │   └──...
@@ -49,7 +49,7 @@ root_directory
 │          └──premis.xml
 │
 └──representation_3
-    │──mets.xml
+    │──METS.xml
     │──data
     |  └── file_1.pdf
     │
@@ -732,7 +732,7 @@ root_directory
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `mods.xml` | MODS v3.7 | [mods-3-7.xsd](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) |
 

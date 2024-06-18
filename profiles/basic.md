@@ -18,7 +18,7 @@ The basic profile supports simple cases consisting of a single media file accomp
 
 ```plaintext
 root_directory
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -27,7 +27,7 @@ root_directory
 │
 └── representations
     └──representation_1
-        │── mets.xml
+        │── METS.xml
         └──data
         |  |── file_1.xyz
         │  └── ...
@@ -499,7 +499,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core (custom schema) | [dc_basic.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc_basic.xsd)<br>_depends on: [edtf.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/edtf.xsd), [dcterms.xsd](https://github.com/viaacode/sipin-sip-validator/blob/main/app/resources/xsd/dcterms.xsd), [dcmitype.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dcmitype.xsd), [dc.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc.xsd)_|
 

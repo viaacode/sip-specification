@@ -24,7 +24,7 @@ It also allows extensions to the descriptive metadata using [Schema.org](https:/
 
 ```plaintext
 root_directory
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -33,7 +33,7 @@ root_directory
 │
 └── representations
    └──representation_1       # overview with frame
-      │── mets.xml
+      │── METS.xml
       └──data
       │  └── PID_overzichtsopname_metlijst_tiff.tiff
       │
@@ -43,7 +43,7 @@ root_directory
          └──preservation
             └── premis.xml
    └──representation_2       # overview without frame
-      │── mets.xml
+      │── METS.xml
       └──data
       │  └── PID_overzichtsopname_zonderlijst_tiff.tif
       │
@@ -53,7 +53,7 @@ root_directory
          └──preservation
             └── premis.xml
    └──representation_3       # composed stitch 
-      │── mets.xml
+      │── METS.xml
       └──data
       │  └── PID_stitch_tiff.tif
       │
@@ -63,7 +63,7 @@ root_directory
          └──preservation
             └── premis.xml
    └──representation_4       # stitch 
-      │── mets.xml
+      │── METS.xml
       └──data
       |  |── PID_deelopname1_tiff.tif
       |  |── PID_deelopname2_tiff.tif
@@ -80,7 +80,7 @@ root_directory
 
 ```plaintext
 root_directory
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -89,7 +89,7 @@ root_directory
 │
 └── representations
    └──representation_1       # high-poly capture for print
-      │── mets.xml
+      │── METS.xml
       └──data  
       │  └── PID_ARCH_STL.STL              
       │
@@ -99,7 +99,7 @@ root_directory
          └──preservation
             └── premis.xml
    └──representation_2       # high-poly capture
-      │── mets.xml
+      │── METS.xml
       └──data
       |  |── PID_ARCH_OBJ.OBJ       # polygon file    
       |  |── PID_ARCH_TIFF_COLOR.TIFF      # texture image       
@@ -111,7 +111,7 @@ root_directory
          └──preservation
             └── premis.xml
    └──representation_3       # low-poly capture
-      │── mets.xml
+      │── METS.xml
       └──data
       |  |── PID_VER_OBJ.OBJ       # polygon file    
       |  |── PID_VER_COLOR_BMP.BMP             # texture image       
@@ -123,7 +123,7 @@ root_directory
          └──preservation
             └── premis.xml
    └──representation_4       # quality assessment reference
-      │── mets.xml
+      │── METS.xml
       └──data
       |  |── PID_REF_OBJ.OBJ               # polygon file    
       |  |── PID_REF_BMP.BMP               # texture image      
@@ -154,7 +154,7 @@ root_directory
 ### Package METS
 
 - The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/2.0/material-artwork`.
-- The `TYPE` attribute in the `mets.xml` file MUST be set to
+- The `TYPE` attribute in the `METS.xml` file MUST be set to
   - `Photographs - Digital` (for 2D objects) or
   - `Scanned 3D Objects (output from photogrammetry scanning)` (for 3D objects).
 - The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `OTHER` and `mets/dmdSec/mdRef/@OTHERMDTYPE` attribute must be set to `DC+SCHEMA`.
@@ -174,7 +174,7 @@ root_directory
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core with Schema.org | dc+schema.xsd (not yet available) |
 

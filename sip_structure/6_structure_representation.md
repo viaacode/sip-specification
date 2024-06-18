@@ -29,7 +29,7 @@ root_directory
 └──representations
    │
    └──representation_1
-   │  │── mets.xml
+   │  │── METS.xml
    │  │
    │  └──data
    │  │  │   ...
@@ -50,10 +50,10 @@ root_directory
 
 ## /representation_* (directory)
 
-A `/representation_*` directory consists of at least a `mets.xml` file, a `/data` directory and a `/metadata` directory.
+A `/representation_*` directory consists of at least a `METS.xml` file, a `/data` directory and a `/metadata` directory.
 It contains both descriptive and preservation metadata, as well as the actual media files making up a certain representation of the IE(s) of the SIP.
 
-Each `/representation_*` directory contains its own `mets.xml` file which acts similarly as the package `mets.xml` and serves as an inventory of the files and directories of the representation level.
+Each `/representation_*` directory contains its own `METS.xml` file which acts similarly as the package `METS.xml` and serves as an inventory of the files and directories of the representation level.
 
 A `/representation_*` directory may contain a `/documentation` and a `/schemas` directory. 
 The former may contain additional information aiding the interpretation of the representation, while the latter may contain XML Schema Definition (XSD) files of the metadata schemas used in the representation.
@@ -61,19 +61,19 @@ These two directories are ignored during ingest and will therefore not be archiv
 
 ***Requirements***
 
-- A `/representation_*` directory MUST contain exactly one `mets.xml` file.
+- A `/representation_*` directory MUST contain exactly one `METS.xml` file.
 - A `/representation_*` directory MUST contain exactly one `/metadata` directory.
 - A `/representation_*` directory MUST contain exactly one `/data` directory.
 - A `/representation_*` directory MAY contain exactly one `/documentation` directory.
 - A `/representation_*` directory MAY contain exactly one `/schemas` directory.
 
-## mets.xml (file)
+## METS.xml (file)
 
-The `mets.xml` file at the representation level (also known as the representation mets) generally follows the same structure and requirements as the package mets discussed in the section [package mets.xml](./5_structure_package.html#metsxml-file).
+The `METS.xml` file at the representation level (also known as the representation mets) generally follows the same structure and requirements as the package mets discussed in the section [package METS.xml](./5_structure_package.html#metsxml-file).
 
 ### Elements and internal references
 
-Since the `dmdSec`, `amdSec`, `fileSec` sections follow the same requirements, where possible, as the package `mets.xml` file,  only lists (additional) requirements regarding the `mets`, `metsHdr` and `structMap` sections are covered in a dedicated subsection in the remainder of this section.
+Since the `dmdSec`, `amdSec`, `fileSec` sections follow the same requirements, where possible, as the package `METS.xml` file,  only lists (additional) requirements regarding the `mets`, `metsHdr` and `structMap` sections are covered in a dedicated subsection in the remainder of this section.
 
 Some of these elements, or their child elements, are identified with an identifier, contained in the `@ID` attribute (see the requirements in the sections below).
 These identifiers must be unique within the SIP. 
@@ -83,8 +83,8 @@ Therefore, it contains pointers to the `@ID` identifiers defined in the `<fileSe
 An overview of the different elements and references on the representation level is given in the following figure.
 
 <figure class="mx-auto">
-  <img src="../../../../../assets/images_spec/sip-representation-pointers.svg" alt="Internal references between elements in the mets.xml" /> 
-  <figcaption>Internal references between elements in the representation mets.xml.</figcaption>
+  <img src="../../../../../assets/images_spec/sip-representation-pointers.svg" alt="Internal references between elements in the METS.xml" /> 
+  <figcaption>Internal references between elements in the representation METS.xml.</figcaption>
 </figure>
 
 In addition, 
@@ -322,7 +322,7 @@ Depending on the use-case and the CP, these files can be digital pictures, video
 ***Requirements***
 
 - The `/data` directory MUST NOT contain any subdirectories.
-- All files in the `/data` directory MUST be referenced in the corresponding representation `mets.xml` file.
+- All files in the `/data` directory MUST be referenced in the corresponding representation `METS.xml` file.
 
 ## /metadata (directory)
 

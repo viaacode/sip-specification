@@ -93,7 +93,7 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -102,7 +102,7 @@ root_directory
 │
 └── representations
     |── representation_1       # high-poly capture for print
-    |   │── mets.xml
+    |   │── METS.xml
     |   └── data  
     |   │   └── qv3bz95m19_ARCH_STL.STL              
     |   │
@@ -112,7 +112,7 @@ root_directory
     |       └── preservation
     |           └── premis.xml
     |── representation_2       # high-poly capture
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   |   |── qv3bz95m19_ARCH_OBJ.OBJ       # polygon file    
     |   |   |── qv3bz95m19_ARCH_TIFF_COLOR.TIFF      # texture image       
@@ -124,7 +124,7 @@ root_directory
     |       └── preservation
     |           └── premis.xml
     └──representation_3       # low-poly capture
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   |   |── qv3bz95m19_VER_OBJ.OBJ       # polygon file    
     |   |   |── qv3bz95m19_VER_COLOR_BMP.BMP             # texture image       
@@ -136,7 +136,7 @@ root_directory
     |       └──preservation
     |          └── premis.xml
     └── representation_4       # quality assessment reference
-    |    │── mets.xml
+    |    │── METS.xml
     |    |──data
     |    |  |── qv3bz95m19_REF_OBJ.OBJ               # polygon file    
     |    |  |── qv3bz95m19_REF_BMP.BMP               # texture image      
@@ -149,7 +149,7 @@ root_directory
     |       └── preservation
     |           └── premis.xml
     └── representation_5       # additional photography
-        │── mets.xml
+        │── METS.xml
         |── data
         |   |── qv3bz95m19_FOTO1_TIFF.TIFF
         |   |── qv3bz95m19_FOTO2_TIFF.TIFF                   

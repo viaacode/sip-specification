@@ -67,7 +67,7 @@ It has the following directory structure:
 
 ```plaintext
 subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -76,7 +76,7 @@ subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6
 │
 └── representations
     └──representation_1
-       │── mets.xml
+       │── METS.xml
        └──data
        |  |── broadcaster_news_20220516.srt
        |  └── broadcaster_news_20220516.mp4

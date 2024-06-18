@@ -76,7 +76,7 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│──mets.xml
+│──METS.xml
 │──metadata
 |   |──descriptive
 |   |  └──mods.xml
@@ -85,7 +85,7 @@ root_directory
 │
 └──representations
     │──representation_1
-    │    │──mets.xml
+    │    │──METS.xml
     │    │──data
     │    |   |──18950101_0001.tiff
     │    |   |──18950101_0002.tiff
@@ -96,7 +96,7 @@ root_directory
     │            └──premis.xml
     │
     │──representation_2
-    │    │──mets.xml
+    │    │──METS.xml
     │    │──data
     │    |   |──18950101_0001.xml
     │    |   |──18950101_0002.xml
@@ -107,7 +107,7 @@ root_directory
     │          └──premis.xml
     │
     └──representation_3
-         │──mets.xml
+         │──METS.xml
          │──data
          |   └──18950101.pdf
          │

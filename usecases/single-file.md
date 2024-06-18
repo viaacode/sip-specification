@@ -51,7 +51,7 @@ It has the following directory structure:
 
 ```plaintext
 basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -60,7 +60,7 @@ basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec
 │
 └── representations
     └──representation_1
-       │── mets.xml
+       │── METS.xml
        └──data
        |  └── D523F963.jpg
        │

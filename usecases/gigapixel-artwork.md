@@ -85,7 +85,7 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│── mets.xml
+│── METS.xml
 │── metadata
 |   |── descriptive
 |   |   └── dc+schema.xml
@@ -94,7 +94,7 @@ root_directory
 │
 └── representations
     |── representation_1       # overview with frame
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   │   └── cf9j41p15z_overzichtsopname_metlijst_tiff.tiff
     |   └──metadata
@@ -103,7 +103,7 @@ root_directory
     |      └── preservation
     |          └── premis.xml
     |── representation_2       # overview without frame
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   │   └── cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff
     |   └──metadata
@@ -112,7 +112,7 @@ root_directory
     |      └── preservation
     |          └── premis.xml
     |── representation_3       # composed stitch 
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   │   └── cf9j41p15z_stitch_bigtiff.tiff
     |   └──metadata
@@ -121,7 +121,7 @@ root_directory
     |      └── preservation
     |          └── premis.xml
     |── representation_4       # composed stitch in PSB
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   │   └── cf9j41p15z_stitch_psb.psb
     |   └──metadata
@@ -130,7 +130,7 @@ root_directory
     |      └── preservation
     |          └── premis.xml
     |── representation_5       # stitch 
-    |   │── mets.xml
+    |   │── METS.xml
     |   |── data
     |   |   |── cf9j41p15z_Kolom1_deelopname1_tiff.tiff
     |   |   |── cf9j41p15z_Kolom1_deelopname2_tiff.tiff
@@ -142,7 +142,7 @@ root_directory
     |       └── preservation
     |           └── premis.xml
     └── representation_6       # target 
-       │── mets.xml
+       │── METS.xml
        |── data
        │   └── cf9j41p15z_target_tiff.tiff
        └── metadata

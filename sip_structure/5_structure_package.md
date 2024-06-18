@@ -17,7 +17,7 @@ Editor's Draft
 1. TOC
 {:toc}
 
-The package level is the top level of the meemoo SIP and consists of at least a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
+The package level is the top level of the meemoo SIP and consists of at least a `METS.xml` file, a `/metadata` directory and a `/representations` directory.
 It contains information about the IE(s) of the SIP and the SIP as a whole.
 
 The package level may contain a `/documentation` and a `/schemas` directory.
@@ -28,7 +28,7 @@ These two directories are ignored during ingest and will therefore not be archiv
 
 ```plaintext
 root_directory
-└──mets.xml
+└──METS.xml
 │
 └──metadata
 │  │
@@ -44,34 +44,34 @@ root_directory
 
 ***Requirements***
 
-- The root directory MUST contain exactly one `mets.xml` file.
-- The root directory MUST have the value of the `OBJID` attribute in the `mets.xml` header as directory name. See [`mets/@OBJID`](#OBJID) for more details.
+- The root directory MUST contain exactly one `METS.xml` file.
+- The root directory MUST have the value of the `OBJID` attribute in the `METS.xml` header as directory name. See [`mets/@OBJID`](#OBJID) for more details.
 - The root directory MUST contain exactly one `/metadata` directory.
 - The root directory MUST contain exactly one `/representations` directory.
 - The root directory MAY contain exactly one `/documentation` directory.
 - The root directory MAY contain exactly one `/schemas` directory.
 
-## mets.xml (file)
+## METS.xml (file)
 
 [Metadata Encoding and Transmission Standard](https://www.loc.gov/standards/mets/mets-home.html) (METS) is a metadata standard for encoding descriptive, administrative and structural metadata.
-In the case of the meemoo SIP, the `mets.xml` file's main purpose is to act as an inventory of the files and directories contained within.
+In the case of the meemoo SIP, the `METS.xml` file's main purpose is to act as an inventory of the files and directories contained within.
 Since it is situated at the package-level, it is also known as the _package METS file_.
 
-It should not be confused with the `mets.xml` files situated in their respective [representation folders](./6_structure_representation.html).
-The package `mets.xml` file does not record the internal structure of the different representations in the `/representations` directory.
-It only references the different `mets.xml` files contained in each `/representation_*` directory (where `*` is an integer indicating the number of different representations in the `/representation` directory).
-Each of the `mets.xml` files at the [representation level](./6_structure_representation.html) references its own internal structure.
+It should not be confused with the `METS.xml` files situated in their respective [representation folders](./6_structure_representation.html).
+The package `METS.xml` file does not record the internal structure of the different representations in the `/representations` directory.
+It only references the different `METS.xml` files contained in each `/representation_*` directory (where `*` is an integer indicating the number of different representations in the `/representation` directory).
+Each of the `METS.xml` files at the [representation level](./6_structure_representation.html) references its own internal structure.
 
 ### Elements and internal references
 
-A `mets.xml` file typically consists of a number of fixed elements, outlined below.
+A `METS.xml` file typically consists of a number of fixed elements, outlined below.
 Each of these elements is covered in a dedicated subsection in the remainder of this section.
 
 - `<mets>` element: the root tag; this element contains a number of attributes with information about the type of SIP and its identification.
 - `<metsHdr>` element: this tag mainly covers the agents (such as software or the CP) involved with the creation and submission process of the SIP.
 - `<dmdSec>` element: this tag contains descriptive metadata, either embedded within the tag or with a reference to an external metadata file.
 - `<amdSec>` element: this tag contains preservation metadata, either embedded within the tag or with a reference to an external metadata file.
-- `<fileSec>` element: this tag acts as an inventory of the files that comprise the digital object being described in the `mets.xml` file.
+- `<fileSec>` element: this tag acts as an inventory of the files that comprise the digital object being described in the `METS.xml` file.
 - `<structMap>` element: this tag organizes the digital content represented in the `<fileSec>`, `<dmdSec>`, and `<amdSec>` elements into a coherent hierarchical structure. This is important for a correct comprehension and navigation of digital content with complex relationships between the digital objects, such as newspapers. 
 
 Some of these elements, or their child elements, are identified with an identifier, contained in the `@ID` attribute (see the requirements in the sections below).
@@ -82,8 +82,8 @@ Therefore, it contains pointers to the `@ID` identifiers defined in the `<fileSe
 An overview of the different elements and references on the package level is given in the following figure.
 
 <figure class="mx-auto">
-  <img src="../../../../../assets/images_spec/sip-package-pointers.svg" alt="Internal references between elements in the package mets.xml" /> 
-  <figcaption>Internal references between elements in the mets.xml.</figcaption>
+  <img src="../../../../../assets/images_spec/sip-package-pointers.svg" alt="Internal references between elements in the package METS.xml" /> 
+  <figcaption>Internal references between elements in the METS.xml.</figcaption>
 </figure>
 
 In addition, 
@@ -822,7 +822,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 <!-- | Element | `mets/amdSec/rightsMD` |
 |-----------------------|-----------|
 | Name | Rights metadata |
-| Description | A simple rights statement may be used to describe general permissions for the package.<br><br>Individual representations SHOULD state their specific rights in their representation `mets.xml` file.<br>Standards for rights metadata include [RightsStatements.org](http://rightsstatements.org/), [Europeana rights statements info](https://pro.europeana.eu/page/available-rights-statements), [METS Rights Schema](https://github.com/mets/METS-Rights-Schema) and [PREMIS Rights Entities](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf#page=188).|
+| Description | A simple rights statement may be used to describe general permissions for the package.<br><br>Individual representations SHOULD state their specific rights in their representation `METS.xml` file.<br>Standards for rights metadata include [RightsStatements.org](http://rightsstatements.org/), [Europeana rights statements info](https://pro.europeana.eu/page/available-rights-statements), [METS Rights Schema](https://github.com/mets/METS-Rights-Schema) and [PREMIS Rights Entities](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf#page=188).|
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -845,7 +845,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 
 | Element | `mets/amdSec/rightsMD/mdRef` |
 |-----------------------|-----------|
-| Name | Reference to the document with the rights metadata (when not embedded within the mets.xml file). |
+| Name | Reference to the document with the rights metadata (when not embedded within the METS.xml file). |
 | Description | Reference to the rights metadata file(s) when located in the `/metadata/preservation` directory. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -926,8 +926,8 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 ### \<fileSec\> section
 
 The `fileSec` element (short for 'file section') lists all files of the package level in the SIP.
-It contains references to the representation `mets.xml` files of the different representations, but does not list other files of those representations.
-The listing of other representation files (i.e. metadata files and media files) is left to the respective representation `mets.xml` files.
+It contains references to the representation `METS.xml` files of the different representations, but does not list other files of those representations.
+The listing of other representation files (i.e. metadata files and media files) is left to the respective representation `METS.xml` files.
 
 ***Example***
 
@@ -936,12 +936,12 @@ The listing of other representation files (i.e. metadata files and media files) 
 <fileSec ID="uuid-0c53fd9b-f640-4def-a872-2e4622f691d9">
   <fileGrp USE="Representations/representation_1" ID="uuid-700c97da-3164-4863-9e58-d6d62156052e">
       <file ID="uuid-0fe40ffc-b5f3-465e-af3a-d266d94453b7" MIMETYPE="text/xml" SIZE="4264" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="297f0482f32b2836d2ac7e2ff0a5884d" CHECKSUMTYPE="MD5">
-          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_1/mets.xml" />
+          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_1/METS.xml" />
       </file>
   </fileGrp>
   <fileGrp USE="Representations/representation_2" ID="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c">
       <file ID="uuid-625629a4-e5f8-4087-9114-66e4a943bf50" MIMETYPE="text/xml" SIZE="3865" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="95cd90cad81c9227f76d5f584182b308" CHECKSUMTYPE="MD5">
-          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_2/mets.xml" />
+          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_2/METS.xml" />
       </file>
   </fileGrp>
 </fileSec>
@@ -949,9 +949,9 @@ The listing of other representation files (i.e. metadata files and media files) 
 
 ***Requirements***
 
-- There MUST NOT be more than one `fileSec` element in the `mets.xml` file.
-- The `fileSec` element of the package `mets.xml` file MUST NOT reference anything from the different representation levels, EXCEPT the representation `mets.xml` files.
-- Each representation `mets.xml` MUST be referenced within its own `fileGrp` element within the `fileSec` element of the package `mets.xml`.
+- There MUST NOT be more than one `fileSec` element in the `METS.xml` file.
+- The `fileSec` element of the package `METS.xml` file MUST NOT reference anything from the different representation levels, EXCEPT the representation `METS.xml` files.
+- Each representation `METS.xml` MUST be referenced within its own `fileGrp` element within the `fileSec` element of the package `METS.xml`.
 
 | Element | `mets/fileSec` |
 |-----------------------|-----------|
@@ -987,7 +987,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Attribute | `mets/fileSec/fileGrp[@USE=[starts-with('Representations')]]` |
 |-----------------------|-----------|
 | Name | Representations file group |
-| Description | A pointer to the METS document describing the representation or pointers to the content being transferred must be present in one or more file groups with `mets/fileSec/fileGrp/@USE` attribute value starting with `Representations` followed by the path to the folder where the _representation level_ `mets.xml` file is placed. |
+| Description | A pointer to the METS document describing the representation or pointers to the content being transferred must be present in one or more file groups with `mets/fileSec/fileGrp/@USE` attribute value starting with `Representations` followed by the path to the folder where the _representation level_ `METS.xml` file is placed. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
@@ -1152,10 +1152,10 @@ It provides links between elements and metadata files located elsewhere in the p
             DMDID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911 uuid-7a3443ed-9925-414b-819f-fc4830475e22 uuid-dff9e2ad-ab58-490a-9d80-df6c812404d2"
             ADMID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0" />
         <div ID="uuid-c5cab13b-aced-4024-bbc3-d38c682602d2" LABEL="Representations/representation_1">
-            <mptr xlink:type="simple" xlink:href="./representations/representation_1/mets.xml" LOCTYPE="URL" xlink:title="uuid-700c97da-3164-4863-9e58-d6d62156052e" />
+            <mptr xlink:type="simple" xlink:href="./representations/representation_1/METS.xml" LOCTYPE="URL" xlink:title="uuid-700c97da-3164-4863-9e58-d6d62156052e" />
         </div>
         <div ID="uuid-daeba358-46ee-4363-b2a2-bd745c128f6f" LABEL="Representations/representation_2">
-            <mptr xlink:type="simple" xlink:href="./representations/representation_2/mets.xml" LOCTYPE="URL" xlink:title="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c" />
+            <mptr xlink:type="simple" xlink:href="./representations/representation_2/METS.xml" LOCTYPE="URL" xlink:title="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c" />
         </div>
     </div>
 </structMap>
@@ -1330,7 +1330,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Element | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']` |
 |-----------------------|-----------|
 | Name | Representation division |
-| Description | A package consists of multiple representations, each described by a representation level `mets.xml` file, there should be a discrete representation `\div` element for each representation. <br> Each representation `div` references the representation level `mets.xml` file, documenting the structure of the representation and its content. |
+| Description | A package consists of multiple representations, each described by a representation level `METS.xml` file, there should be a discrete representation `\div` element for each representation. <br> Each representation `div` references the representation level `METS.xml` file, documenting the structure of the representation and its content. |
 | Cardinality | 1..* |
 | Obligation | MUST |
 
@@ -1345,7 +1345,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/@LABEL` |
 |-----------------------|-----------|
 | Name | Representations division label |
-| Description | The package’s representation division `div` element `@LABEL` attribute value must be the path to the representation level `mets.xml` file starting with the value `Representations` followed by the main folder name, e.g. `Representations/representation_1`. |
+| Description | The package’s representation division `div` element `@LABEL` attribute value must be the path to the representation level `METS.xml` file starting with the value `Representations` followed by the main folder name, e.g. `Representations/representation_1`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1353,7 +1353,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Element | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr` |
 |-----------------------|-----------|
 | Name | Representation METS pointer |
-| Description | The division `div` of the specific representation includes one occurrence of the METS pointer `mptr` element, pointing to the appropriate representation `mets.xml` file. |
+| Description | The division `div` of the specific representation includes one occurrence of the METS pointer `mptr` element, pointing to the appropriate representation `METS.xml` file. |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1368,7 +1368,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:href` |
 |-----------------------|-----------|
 | Name | Resource location |
-| Description | Indication of the actual location of the `mets.xml` file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath.<br>One SHOULD use the relative location of the file in this URL. |
+| Description | Indication of the actual location of the `METS.xml` file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath.<br>One SHOULD use the relative location of the file in this URL. |
 | Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1384,7 +1384,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr[@LOCTYPE='URL']` |
 |-----------------------|-----------|
 | Name | Type of locator |
-| Description | Indication of the locator type used to refer to the representation mets.xml files of the different representation levels.<br>It MUST always be used with the value `URL`. |
+| Description | Indication of the locator type used to refer to the representation METS.xml files of the different representation levels.<br>It MUST always be used with the value `URL`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
