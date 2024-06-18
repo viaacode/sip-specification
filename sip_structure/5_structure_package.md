@@ -44,7 +44,7 @@ root_directory
 
 ***Requirements***
 
-- The root directory MUST contain exactly one `METS.xml` file.
+- The root directory MUST contain exactly one `METS.xml` file. The word `METS` in the filename MUST be written in all caps as displayed here.
 - The root directory MUST have the value of the `OBJID` attribute in the `METS.xml` header as directory name. See [`mets/@OBJID`](#OBJID) for more details.
 - The root directory MUST contain exactly one `/metadata` directory.
 - The root directory MUST contain exactly one `/representations` directory.

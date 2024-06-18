@@ -61,7 +61,7 @@ These two directories are ignored during ingest and will therefore not be archiv
 
 ***Requirements***
 
-- A `/representation_*` directory MUST contain exactly one `METS.xml` file.
+- A `/representation_*` directory MUST contain exactly one `METS.xml` file. The word `METS` in the filename MUST be written in all caps as displayed here.
 - A `/representation_*` directory MUST contain exactly one `/metadata` directory.
 - A `/representation_*` directory MUST contain exactly one `/data` directory.
 - A `/representation_*` directory MAY contain exactly one `/documentation` directory.
