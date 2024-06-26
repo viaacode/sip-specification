@@ -105,7 +105,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS version attribute |
 | Description | This attribute indicates which version of MODS is being used.<br>It MUST be set to `3.7` to indicate conformance with MODS v3.7. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -115,7 +115,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS identifier element |
 | Description | A unique identifier for the written work.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -123,7 +123,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS record identifier |
 | Description | This element contains a persistent identifier for the record that describes the written work, which typically originates from the source application.  The record identifier is different from the identifier that identifies the written work itself, which is denoted by `mods:identifier`.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -140,7 +140,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS title element |
 | Description | This element contains the title of the written work.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain a `@type` attribute. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -157,7 +157,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS title type attribute |
 | Description | This attribute indicates the alternative type of title. Its value MUST be set to `alternative`.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | `alternative` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -166,7 +166,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS alternative title other type attribute |
 | Description | This attribute contains the subtype for any alternative title. This attribute MUST be present if `@type` is set to `alternative`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | `incipit`, `incipit brief`, `correspondenten` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -175,7 +175,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS title element |
 | Description | This element contains an alternative title of the written work.<br>Its parent element (`<mods:titleInfo/>`) MUST contain the `@type` attribute set to `alternative`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -192,7 +192,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS language element |
 | Description | This element contains the language code of the language that the work is written in.  |
-| Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#bcp47) |
+| Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#bcp47) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -200,7 +200,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS language element type attribute |
 | Description | This element contains the name of the language that the work is written in.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -210,7 +210,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS type of resource element |
 | Description | This element indicates which type of resource is being described. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | `Newspaper Edition`, `Notated music`, `Text` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -219,7 +219,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS type manuscript |
 | Description | When present and its value is set to `yes`, this attribute indicates that the resource is handwritten. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | `yes` |
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -228,7 +228,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS abstract element |
 | Description | This element contains a summary or description of the content of the written work. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -236,7 +236,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS genre element |
 | Description | This element contains a term or terms that designate a category characterizing a particular style, form, or content of the written work, such as artistic, musical, literary composition, etc. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
@@ -244,7 +244,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS genre authority attribute |
 | Description | The name of an authoritative list of terms whose values are controlled. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -252,7 +252,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS genre authority uri attribute |
 | Description | The URI for the authoritative list (as described above for `mods:mods/mods:genre/@authority`). |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -267,7 +267,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS topic element |
 | Description | A term or phrase representing the primary topic(s) on which the written work is focused. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -275,7 +275,7 @@ root_directory
 |-----------------------|-----------|
 | Name | License element |
 | Description | This element MAY be used to add any licensing info needed. It MUST contain the `@type` attribute, with its value set to `license`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -300,7 +300,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Family name of a person |
 | Description | The family name of a person associated with the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -308,7 +308,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Given name of a person |
 | Description | The given name of a person associated with the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -316,7 +316,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Name of a company or organization |
 | Description | The name of a company or organization associated with the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -326,7 +326,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Role of a person |
 | Description | Designates the relationship (role) of the person or organization to the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3).  |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
@@ -344,7 +344,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS issuance date element |
 | Description | This attribute specifies the type of event that should be associated with the originInfo. This attribute is not required, but if present, its value MUST be set to `publication`, meaning that the origin info is about when the written work was published. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | `publication` |
 | Cardinality | 0..1 |
 | Obligation | MUST |
@@ -360,7 +360,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS creation date element |
 | Description | This element contains the date the written work was created. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -368,7 +368,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS issuance date element |
 | Description | This element contains the date the written work was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#edtf) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -376,7 +376,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS issuance element |
 | Description | This element contains a term that designates how the written work was issued. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -391,7 +391,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS place term text element |
 | Description | This element is used to express place in a textual form.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
@@ -399,7 +399,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS place term code element |
 | Description | This element is used to express place in a coded form.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
 
@@ -407,7 +407,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS place term code authority attribute |
 | Description | The name of an authoritative list of terms whose values are controlled. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -415,7 +415,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS place term code authority uri attribute |
 | Description | The URI for the authoritative list (as described above for `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]/@authority`). |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -432,7 +432,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS physical description note element  |
 | Description |  This element contains a description of the condition of the written work or the statement of responsibility of the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -447,8 +447,8 @@ root_directory
 | Element | `mods:mods/mods:physicalDescription/mods:extent` |
 |-----------------------|-----------|
 | Name | MODS extent element |
-| Description | This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements.<br>For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer).  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Description | This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements.<br>For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#integer).  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -456,7 +456,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS extent element unit attribute |
 | Description | This attribute indicates the physical dimension that is described. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | `cm`, `mm`, `sheets`, `pages` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -465,7 +465,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS form element |
 | Description | This element denotes the physical presentation of the written work, including the physical form, medium or material.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -473,7 +473,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS form type attribute |
 | Description | This attribute denotes the particular type of physical presentation that is being described, such as the physical form, the medium or the material.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -481,7 +481,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS form authority attribute |
 | Description | The name of an authoritative list of terms whose values are controlled. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -489,7 +489,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS form authority uri attribute |
 | Description | The URI for the authoritative list (as described above for `mods:mods/mods:physicalDescription/mods:form/@authority`). |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -506,7 +506,7 @@ root_directory
 |-----------------------|-----------|
 | Name | series number |
 | Description | This element contains the number of the series in which the written work was published. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`.  |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#integer) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -514,7 +514,7 @@ root_directory
 |-----------------------|-----------|
 | Name | page number |
 | Description | This element contains the number of the series in which the written work was published. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`.  |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#integer) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -522,7 +522,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Abraham ID |
 | Description | This element contains the Abraham identifier taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham identifier refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham identifier.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_id`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#id) |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -530,7 +530,7 @@ root_directory
 |-----------------------|-----------|
 | Name | Abraham URI |
 | Description | This element contains the Abraham URI taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham URI refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham URI.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_uri`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. Note that the Abraham URI contains the Abraham identifier. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#uri) |
+| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -538,7 +538,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS relatedItem title element |
 | Description | This element contains the title of the series.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -546,7 +546,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS relatedItem issuance date element |
 | Description | This element contains the date the series was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -554,8 +554,8 @@ root_directory
 
 - A preservation metadata file `preservation/premis.xml` MUST be present at the package level.
 - The `preservation/premis.xml` file MUST follow the [PREMIS](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) metadata schema (v3.0.).
-- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. With this event, the representation containing the TIFF files MUST receive the PREMIS linking object role `source` and the representation containing the ALTO XML files MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
-- If the SIP contains a PDF file (which SHOULD contain all pages of the written work, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
+- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. With this event, the representation containing the TIFF files MUST receive the PREMIS linking object role `source` and the representation containing the ALTO XML files MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
+- If the SIP contains a PDF file (which SHOULD contain all pages of the written work, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
 
 <a id="example-transcription-event"></a>_Example 1: a PREMIS transcription event (linking the TIFF and ALTO XML files)_
 
