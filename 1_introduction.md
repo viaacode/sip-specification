@@ -37,8 +37,7 @@ It does so by applying the following breaking changes compared to versions 1.X (
 - the SIP is no longer packaged using the [BagIt File Packaging Format](https://www.rfc-editor.org/rfc/rfc8493.html), thereby effectively removing the Bag level from the SIP;
 - the METS file names are now required to be capitalized (CSIPSTR4 + CSIPSTR12);
 - the attribute `metsHdr/@OAISPACKAGETYPE` is now required in both the package METS file as well as any representation METS files (CSIP9 + SIP4);
-- the `mets/structMap[@LABEL='CSIP']/div/div` elements of the package METS file are now required to use the (relative) path of the relevant representation METS file (without extension) as the string value of their `@LABEL` attribute (CSIP107);
-- relative paths are now prohibited from using any dot notation format.
+- the `mets/structMap[@LABEL='CSIP']/div/div` elements of the package METS file are now required to use the (relative) path of the relevant representation METS file (without extension) as the string value of their `@LABEL` attribute (CSIP107).
 
 ## How to Read this Specification
 
