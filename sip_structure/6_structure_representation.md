@@ -136,7 +136,7 @@ A summary of all possible references and their obligation is given in the table 
 | <a id="OBJID"></a>Attribute | `mets/@OBJID` |
 |-----------------------|-----------|
 | Name | Representation identifier |
-| Description | This is an ID for the representation METS document. For each representation METS, this MUST be the same ID as the one used for its top level representation folder.|
+| Description | This is an identifier for the representation METS document. Its value MUST be the same as the name of the top level representation folder (e.g., `"representation_1"` for the example above). |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
