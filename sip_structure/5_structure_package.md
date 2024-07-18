@@ -27,7 +27,7 @@ These two directories are ignored during ingest and will therefore not be archiv
 ***Example***
 
 ```plaintext
-root_directory
+uuid-e4eb34c0-4fc6-4395-b61c-0671f8e0b04c                     (= root directory)
 └──METS.xml
 │
 └──metadata
@@ -45,7 +45,7 @@ root_directory
 ***Requirements***
 
 - The root directory MUST contain exactly one `METS.xml` file. The word `METS` in the filename MUST be written in all caps as displayed here.
-- The root directory MUST have the value of the `OBJID` attribute in the `METS.xml` header as directory name. See [`mets/@OBJID`](#OBJID) for more details.
+- The root directory MUST have the value of the `OBJID` attribute in the `METS.xml` header as its directory name. In the example tree structure above, that means that the `OBJID` attribute MUST be `uuid-e4eb34c0-4fc6-4395-b61c-0671f8e0b04c` since that is the name of the root directory. See [`mets/@OBJID`](#OBJID) for more details.
 - The root directory MUST contain exactly one `/metadata` directory.
 - The root directory MUST contain exactly one `/representations` directory.
 - The root directory MAY contain exactly one `/documentation` directory.
@@ -561,17 +561,17 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 
 ```xml
 <dmdSec ID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911">
-  <mdRef LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="metadata/descriptive/dc_1.xml" MIMETYPE="text/xml" SIZE="663" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="cd17cbb2153946c8462e10b337e0e9c1" CHECKSUMTYPE="MD5" />
+  <mdRef LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="./metadata/descriptive/dc_1.xml" MIMETYPE="text/xml" SIZE="663" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="cd17cbb2153946c8462e10b337e0e9c1" CHECKSUMTYPE="MD5" />
 </dmdSec>
 
 <!-- ref to descriptive metadata about IE1 -->
 <dmdSec ID="uuid-7a3443ed-9925-414b-819f-fc4830475e22">
-    <mdRef LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="metadata/descriptive/dc_2.xml" MIMETYPE="text/xml" SIZE="738" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="fbab574560f2d548fd84c6c1fd1cb7f2" CHECKSUMTYPE="MD5" />
+    <mdRef LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="./metadata/descriptive/dc_2.xml" MIMETYPE="text/xml" SIZE="738" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="fbab574560f2d548fd84c6c1fd1cb7f2" CHECKSUMTYPE="MD5" />
 </dmdSec>
 
 <!-- ref to descriptive metadata about IE2 -->
 <dmdSec ID="uuid-dff9e2ad-ab58-490a-9d80-df6c812404d2">
-    <mdRef LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="metadata/descriptive/dc_3.xml" MIMETYPE="text/xml" SIZE="748" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="9d55815152e83db76a32f74990d79cd3" CHECKSUMTYPE="MD5" />
+    <mdRef LOCTYPE="URL" MDTYPE="DC" xlink:type="simple" xlink:href="./metadata/descriptive/dc_3.xml" MIMETYPE="text/xml" SIZE="748" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="9d55815152e83db76a32f74990d79cd3" CHECKSUMTYPE="MD5" />
 </dmdSec>
 ```
 
@@ -701,7 +701,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 <!-- ref to the PREMIS metadata about IE(s)/package -->
 <amdSec>
   <digiprovMD ID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0">
-    <mdRef LOCTYPE="URL" MDTYPE="PREMIS" xlink:type="simple" xlink:href="metadata/preservation/premis.xml" MIMETYPE="text/xml" SIZE="6295" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="01de8b0a874407472a183aeece47505d" CHECKSUMTYPE="MD5" />
+    <mdRef LOCTYPE="URL" MDTYPE="PREMIS" xlink:type="simple" xlink:href="./metadata/preservation/premis.xml" MIMETYPE="text/xml" SIZE="6295" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="01de8b0a874407472a183aeece47505d" CHECKSUMTYPE="MD5" />
   </digiprovMD>
 </amdSec>
 ```
@@ -936,12 +936,12 @@ The listing of other representation files (i.e. metadata files and media files) 
 <fileSec ID="uuid-0c53fd9b-f640-4def-a872-2e4622f691d9">
   <fileGrp USE="Representations/representation_1" ID="uuid-700c97da-3164-4863-9e58-d6d62156052e">
       <file ID="uuid-0fe40ffc-b5f3-465e-af3a-d266d94453b7" MIMETYPE="text/xml" SIZE="4264" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="297f0482f32b2836d2ac7e2ff0a5884d" CHECKSUMTYPE="MD5">
-          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="representations/representation_1/METS.xml" />
+          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_1/METS.xml" />
       </file>
   </fileGrp>
   <fileGrp USE="Representations/representation_2" ID="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c">
       <file ID="uuid-625629a4-e5f8-4087-9114-66e4a943bf50" MIMETYPE="text/xml" SIZE="3865" CREATED="2022-02-16T10:01:15.014+02:00" CHECKSUM="95cd90cad81c9227f76d5f584182b308" CHECKSUMTYPE="MD5">
-          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="representations/representation_2/METS.xml" />
+          <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./representations/representation_2/METS.xml" />
       </file>
   </fileGrp>
 </fileSec>
@@ -1152,10 +1152,10 @@ It provides links between elements and metadata files located elsewhere in the p
             DMDID="uuid-c6a678a7-b4b0-45af-a7d4-33123d9f0911 uuid-7a3443ed-9925-414b-819f-fc4830475e22 uuid-dff9e2ad-ab58-490a-9d80-df6c812404d2"
             ADMID="uuid-4ac13924-fe19-4711-b51f-6b5acc692ec0" />
         <div ID="uuid-c5cab13b-aced-4024-bbc3-d38c682602d2" LABEL="Representations/representation_1">
-            <mptr xlink:type="simple" xlink:href="representations/representation_1/METS.xml" LOCTYPE="URL" xlink:title="uuid-700c97da-3164-4863-9e58-d6d62156052e" />
+            <mptr xlink:type="simple" xlink:href="./representations/representation_1/METS.xml" LOCTYPE="URL" xlink:title="uuid-700c97da-3164-4863-9e58-d6d62156052e" />
         </div>
         <div ID="uuid-daeba358-46ee-4363-b2a2-bd745c128f6f" LABEL="Representations/representation_2">
-            <mptr xlink:type="simple" xlink:href="representations/representation_2/METS.xml" LOCTYPE="URL" xlink:title="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c" />
+            <mptr xlink:type="simple" xlink:href="./representations/representation_2/METS.xml" LOCTYPE="URL" xlink:title="uuid-c0fed1c6-96c8-4f15-9e82-abc7be2e981c" />
         </div>
     </div>
 </structMap>
