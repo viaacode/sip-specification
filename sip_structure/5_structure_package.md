@@ -144,7 +144,7 @@ The various requirements are listed in the table below.
 | <a id="OBJID"></a>Attribute | `mets/@OBJID` |
 |-----------------------|-----------|
 | Name | Package identifier |
-| Description | This is an ID for the METS document. For the package METS, this MUST be the same ID as the one used for the entire package folder.|
+| Description | This is the identifier for the METS document. Its value MUST be the same as the name used for the entire package folder.|
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
