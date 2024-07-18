@@ -59,7 +59,7 @@ Since it is situated at the package-level, it is also known as the _package METS
 
 It should not be confused with the `METS.xml` files situated in their respective [representation folders](./6_structure_representation.html).
 The package `METS.xml` file does not record the internal structure of the different representations in the `/representations` directory.
-It only references the different `METS.xml` files contained in each `/representation_*` directory (where `*` is an integer indicating the number of different representations in the `/representation` directory).
+It only references the different `METS.xml` files contained in each representation directory.
 Each of the `METS.xml` files at the [representation level](./6_structure_representation.html) references its own internal structure.
 
 ### Elements and internal references
@@ -144,7 +144,7 @@ The various requirements are listed in the table below.
 | <a id="OBJID"></a>Attribute | `mets/@OBJID` |
 |-----------------------|-----------|
 | Name | Package identifier |
-| Description | This is an ID for the METS document. For the package METS, this MUST be the same ID as the one used for the entire package folder. |
+| Description | This is the identifier for the METS document. Its value MUST be the same as the name used for the entire package folder.|
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |

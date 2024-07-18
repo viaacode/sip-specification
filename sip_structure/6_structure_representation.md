@@ -17,8 +17,8 @@ Editor's Draft
 1. TOC
 {:toc}
 
-The representation level consists of at least one `/representation_*` directory (where `*` is a positive integer increasing by 1 for each additional representation).
-Each `/representation_*` directory contains information about the representation of (one of) the IE(s) of the package level, together with the media files making up the representation.
+The representation level consists of at least one representation directory (in the remainder of this text we will use `representation_1` as an example).
+Each representation directory contains information about the representation of (one of) the IE(s) of the package level, together with the media files making up the representation.
 
 ***Example***
 
@@ -48,24 +48,26 @@ root_directory
       │   ...
 ```
 
-## /representation_* (directory)
+## /representation_1 (directory)
 
-A `/representation_*` directory consists of at least a `METS.xml` file, a `/data` directory and a `/metadata` directory.
+A representation directory consists of at least a `METS.xml` file, a `/data` directory and a `/metadata` directory.
 It contains both descriptive and preservation metadata, as well as the actual media files making up a certain representation of the IE(s) of the SIP.
 
-Each `/representation_*` directory contains its own `METS.xml` file which acts similarly as the package `METS.xml` and serves as an inventory of the files and directories of the representation level.
+Each representation directory contains its own `METS.xml` file which acts similarly as the package `METS.xml` and serves as an inventory of the files and directories of the representation level.
 
-A `/representation_*` directory may contain a `/documentation` and a `/schemas` directory. 
+
+A representation directory may contain a `/documentation` and a `/schemas` directory. 
 The former may contain additional information aiding the interpretation of the representation, while the latter may contain XML Schema Definition (XSD) files of the metadata schemas used in the representation.
 These two directories are ignored during ingest and will therefore not be archived.
 
 ***Requirements***
 
-- A `/representation_*` directory MUST contain exactly one `METS.xml` file. The word `METS` in the filename MUST be written in all caps as displayed here.
-- A `/representation_*` directory MUST contain exactly one `/metadata` directory.
-- A `/representation_*` directory MUST contain exactly one `/data` directory.
-- A `/representation_*` directory MAY contain exactly one `/documentation` directory.
-- A `/representation_*` directory MAY contain exactly one `/schemas` directory.
+- A representation directory MUST contain exactly one `METS.xml` file. The word `METS` in the filename MUST be written in all caps as displayed here.
+- The top level representation directory MUST have the value of the `OBJID` attribute in the METS.xml header as directory name. See [`mets/@OBJID`](#OBJID) for more details.
+- A representation directory MUST contain exactly one `/metadata` directory.
+- A representation directory MUST contain exactly one `/data` directory.
+- A representation directory MAY contain exactly one `/documentation` directory.
+- A representation directory MAY contain exactly one `/schemas` directory.
 
 ## METS.xml (file)
 
@@ -131,11 +133,11 @@ A summary of all possible references and their obligation is given in the table 
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/@OBJID` |
+| <a id="OBJID"></a>Attribute | `mets/@OBJID` |
 |-----------------------|-----------|
 | Name | Representation identifier |
-| Description | This is an ID for the METS document. For the representation METS, this MUST be the same name as the one used for the corresponding representation directory. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
+| Description | This is an identifier for the representation METS document. Its value MUST be the same as the name of the top level representation folder (e.g., `"representation_1"` for the example above). |
+| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
