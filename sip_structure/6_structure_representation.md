@@ -264,15 +264,18 @@ A summary of all possible references and their obligation is given in the table 
 
 ### \<dmdSec\> section
 
-`dmdSec` section follows the same requirements, where possible, as the package `mets.xml` file. See [dmdSec Section]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package %}#dmdsec-section)
+`dmdSec` section follows the same requirements, where possible, as the package `mets.xml` file.
+See [dmdSec Section]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#dmdsec-section)
 
 ### \<amdSec>\ section
 
-`amdSec` section follows the same requirements, where possible, as the package `mets.xml` file. See [dmdSec Section]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package %}#amdsec-section)
+`amdSec` section follows the same requirements, where possible, as the package `mets.xml` file.
+See [dmdSec Section]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#amdsec-section)
 
 ### \<fileSec>\ section
 
-`fileSec` section follows the same requirements, where possible, as the package `mets.xml` file. See [dmdSec Section]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package %}#filesec-section)
+`fileSec` section follows the same requirements, where possible, as the package `mets.xml` file.
+See [dmdSec Section]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#filesec-section)
 
 ### \<structMap\> section
 
