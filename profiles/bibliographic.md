@@ -165,11 +165,10 @@ root_directory
 | Attribute | `mods:mods/mods:titleInfo[@type="alternative"]/@otherType` |
 |-----------------------|-----------|
 | Name | MODS alternative title other type attribute |
-| Description | This attribute contains the subtype for any alternative title. This attribute MUST be present if `@type` is set to `alternative`. |
+| Description | This attribute contains the subtype for any alternative title. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
-| Vocabulary | `incipit`, `incipit brief`, `correspondenten` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Element | `mods:mods/mods:titleInfo[@type="alternative"]/mods:title` |
 |-----------------------|-----------|
