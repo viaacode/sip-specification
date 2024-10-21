@@ -88,14 +88,15 @@ root_directory
 
 ### Package Preservation Metadata
 
-- The package `preservation/premis.xml` MUST contain a `<premis:object>` for the carrier representation;
-- A structural `<premis:relationship>`  of type 'is represented by' MUST exist between the `<premis:object>` of the intellectual entity and the `<premis:object>` of the carrier representation (see [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#premis-relationships) for more information);
-- A structural `<premis:relationship>`  of type 'represents' MUST exist between the `<premis:object>` of the carrier representation and the `<premis:object>` of the intellectual entity (see [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#premis-relationships) for more information);
+- If the SIP needs to contain descriptive metadata about the carrier and its reels themselves, the package `preservation/premis.xml` MUST contain a `<premis:object>` for the carrier representation;
+- If a carrier representation is present, a structural `<premis:relationship>`  of type 'is represented by' MUST exist between the `<premis:object>` of the intellectual entity and the `<premis:object>` of the carrier representation (see [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#premis-relationships) for more information);
+- If a carrier representation is present, a structural `<premis:relationship>`  of type 'represents' MUST exist between the `<premis:object>` of the carrier representation and the `<premis:object>` of the intellectual entity (see [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#premis-relationships) for more information);
 - Any descriptive metadata about the physical film's reel(s) MUST be included as part of the carrier representation `<premis:object>` in separate `<premis:significantProperties>` elements;
 - If descriptive metadata about the reel(s) is included, the metadata field name MUST be placed in a `<premis:significantPropertiesType>` element with the corresponding metadata field value in a `<premis:significantPropertiesValue>` element (both nested in one of the aforementioned `<premis:significantProperties>` elements);
 - The carrier representation `<premis:object>` MUST contain the carrier type in a `<premis:storageMedium>` element, nested inside a `<premis:storage>` element.
+- If the SIP contains a `<premis:object>` for the carrier representation, any events related to the handling of the real-life, physical carrier (e.g. registration, check-out, digitization...) MUST refer to the `<premis:object>` of the carrier representation with the use of a `<premis:linkingObjectIdentifier>` element.
 
-The example below contains an illustration of a simplified carrier representation (preceded by its intellectual entity) in PREMIS:
+The example below contains an illustration of a simplified carrier representation (preceded by its intellectual entity) and a  in PREMIS:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -179,6 +180,57 @@ The example below contains an illustration of a simplified carrier representatio
         </premis:relationship>
 
     </premis:object>
+
+    <!-- registration event -->
+    <premis:event>
+        <premis:eventIdentifier>
+
+            <premis:eventIdentifierType>UUID</premis:eventIdentifierType>
+            <premis:eventIdentifierValue>uuid-aba62b7b-dd7a-43cf-b077-45f8b96deae8</premis:eventIdentifierValue>
+
+        </premis:eventIdentifier>
+        <premis:eventType valueURI="https://data.hetarchief.be/id/event-type/registration">
+      registration
+    </premis:eventType>
+        <premis:eventDateTime>
+      2021-04-02T09:04:04
+    </premis:eventDateTime>
+        <premis:eventDetailInformation>
+            <premis:eventDetail>Base Scratching remarks: Light scratches, lines and stripes. Some cables. vinegar date: 2021-06-30 pH value:PH 4.8</premis:eventDetail>
+            <premis:eventDetailExtension xmlns:schema="https://schema.org/">
+                <schema:name>estimate_preparation_time_for_digitisation</schema:name>
+                <schema:value>1:30:00</schema:value>
+            </premis:eventDetailExtension>
+            <premis:eventDetailExtension xmlns:schema="https://schema.org/">
+                <schema:name>estimate_manual_cleaning_time</schema:name>
+                <schema:value>0:00:00</schema:value>
+            </premis:eventDetailExtension>
+            <premis:eventDetailExtension xmlns:schema="https://schema.org/">
+                <schema:name>physical_state_film</schema:name>
+                <schema:value>film in good state</schema:value>
+            </premis:eventDetailExtension>
+        </premis:eventDetailInformation>
+
+        <premis:eventOutcomeInformation>
+            <premis:eventOutcome
+                valueURI="http://id.loc.gov/vocabulary/preservation/eventOutcome/suc">success</premis:eventOutcome>
+        </premis:eventOutcomeInformation>
+        
+        <premis:linkingAgentIdentifier>
+            <premis:linkingAgentIdentifierType>MEEMOO-OR-ID</premis:linkingAgentIdentifierType>
+            <premis:linkingAgentIdentifierValue>OR-jw86m54</premis:linkingAgentIdentifierValue>
+            <premis:linkingAgentRole
+                valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp">implementer</premis:linkingAgentRole>
+        </premis:linkingAgentIdentifier>
+
+        <!-- reference to the premis:Representation object of the carrier representation -->
+        <premis:linkingObjectIdentifier>
+            <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+            <premis:linkingObjectIdentifierValue>uuid-e2f092de-f800-486c-a291-3160ce740544</premis:linkingObjectIdentifierValue>
+            <premis:linkingObjectRole
+                valueURI="http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou">source</premis:linkingObjectRole>
+        </premis:linkingObjectIdentifier>
+    </premis:event>
 
 </premis:premis>
 ```
