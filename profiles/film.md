@@ -93,10 +93,10 @@ root_directory
 - If a carrier representation is present, a structural `<premis:relationship>`  of type 'represents' MUST exist between the `<premis:object>` of the carrier representation and the `<premis:object>` of the intellectual entity (see [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#premis-relationships) for more information);
 - Any descriptive metadata about the physical film's reel(s) MUST be included as part of the carrier representation `<premis:object>` in separate `<premis:significantProperties>` elements;
 - If descriptive metadata about the reel(s) is included, the metadata field name MUST be placed in a `<premis:significantPropertiesType>` element with the corresponding metadata field value in a `<premis:significantPropertiesValue>` element (both nested in one of the aforementioned `<premis:significantProperties>` elements);
-- The carrier representation `<premis:object>` MUST contain the carrier type in a `<premis:storageMedium>` element, nested inside a `<premis:storage>` element.
-- If the SIP contains a `<premis:object>` for the carrier representation, any events related to the handling of the real-life, physical carrier (e.g. registration, check-out, digitization...) MUST refer to the `<premis:object>` of the carrier representation with the use of a `<premis:linkingObjectIdentifier>` element.
+- The carrier representation `<premis:object>` MUST contain the carrier type in a `<premis:storageMedium>` element, nested inside a `<premis:storage>` element;
+- If the SIP contains a `<premis:object>` for the carrier representation, any events related to the handling of the real-life, physical carrier (e.g. registration, check-out, digitization...) MUST refer to the `<premis:object>` of the carrier representation with the use of a `<premis:linkingObjectIdentifier>` element (see [Adding provenance of representations](https://developer.meemoo.be/docs/diginstroom/sip/2.0/sip_structure/5_structure_package.html#adding-provenance-of-representations) for more information regarding the use of PREMIS events in the SIP).
 
-The example below contains an illustration of a simplified carrier representation (preceded by its intellectual entity) and a  in PREMIS:
+The example below contains an illustration of a simplified carrier representation (preceded by its intellectual entity) and a registration event involving the carrier representation in PREMIS:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
