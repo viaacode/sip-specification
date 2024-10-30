@@ -29,17 +29,6 @@ Depending on the type of content, specific mappings are required for ingest.
 These mappings consist of additional requirements on top of the current meemoo SIP specification and are captured in the different content profiles.
 In summary, content that is delivered to meemoo for ingest must always be packaged in a meemoo SIP that adheres to a specific content profile.
 
-## Changes compared to version 1.X
-
-Version 2.1 of the meemoo SIP introduces conformance with the official [E-ARK (C)SIP specification (v2.2.1)](https://dilcis.eu/specifications/).
-It does so by applying the following breaking changes compared to versions 1.X (references to relevant E-ARK requirements are added between parentheses where possible):
-
-- the SIP is no longer packaged using the [BagIt File Packaging Format](https://www.rfc-editor.org/rfc/rfc8493.html), thereby effectively removing the Bag level from the SIP;
-- the METS file names are now required to be capitalized ([CSIPSTR4](https://earkcsip.dilcis.eu/#CSIPSTR4) and [CSIPSTR12](https://earkcsip.dilcis.eu/#CSIPSTR12));
-- the attribute `metsHdr/@OAISPACKAGETYPE` is now required in both the package METS file as well as any representation METS files ([CSIP9](https://earkcsip.dilcis.eu/#CSIP9) and [SIP4](https://earksip.dilcis.eu/#SIP4));
-- the `mets/structMap[@LABEL='CSIP']/div/div` elements of the package METS file are now required to use the (relative) path of the relevant representation METS file (without extension) as the string value of their `@LABEL` attribute ([CSIP107](https://earkcsip.dilcis.eu/#CSIP107));
-- representation directories are no longer required to follow the `representation_*` format.
-
 ## How to Read this Specification
 
 This document is primarily intended for the following audiences:

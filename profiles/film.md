@@ -15,9 +15,10 @@ This profile dictates how the media files (in file formats such as ZIP, MOV and 
 
 It mainly applies the [DCTERMS metadata schema](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) for descriptive metadata and allows extensions using [Schema.org](https://schema.org), thereby resembling the [Basic profile](https://data.hetarchief.be/id/sip/2.1/basic). 
 
-Its additions lie in the introduction of a separate representation to denote the physical carrier(s) (a so-called 'carrier representation') and custom film-specific metadata (using `<premis:significantProperties>` elements in the package PREMIS file) to describe physical aspects of this/these carrier(s).
+Its additions lie in the introduction of a separate PREMIS representation to denote the physical carrier(s) (a so-called 'carrier representation') and custom film-specific metadata (using `<premis:significantProperties>` elements in the package PREMIS file) to describe physical aspects of this/these carrier(s).
+
 This carrier representation was added to facilitate the description of the physical carrier(s), since the PREMIS metadata schema itself doesn't offer this possibility directly.
-Please note, however, that the carrier representation as such is not reflected by a representation folder in the `representations` directory, given that it is used purely for the addition of descriptive metadata about the carrier(s).
+Please note that, as a result, the carrier representation as such is not reflected by a representation folder in the `representations` directory, given that it is used purely for the addition of descriptive metadata about the carrier(s) and does not contain any files itself..
 
 **Permalink:** <https://data.hetarchief.be/id/sip/2.1/film>
 
@@ -28,7 +29,7 @@ root_directory
 ├── METS.xml
 ├── metadata
 │   ├── descriptive
-│   │   └── dc_schema.xml
+│   │   └── dc+schema.xml
 │   └── preservation
 │       └── premis.xml                                  # package PREMIS
 │
@@ -64,7 +65,7 @@ root_directory
 ### General
 
 - A SIP MUST contain content of exactly one digitised film, consisting of one or more image and/or audio reels.
-- Each MKV or MOV, or set of DPX files (for QC) contained in their respective representation directories MUST represent exactly one image or audio reel.
+- Each MKV, MOV, or set of DPX files (for QC) contained in their respective representation directories MUST represent exactly one image or audio reel.
 - There MUST be exactly one IE present in the SIP, i.e. the digitised film.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
 - There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
@@ -73,28 +74,29 @@ root_directory
   - The value of element `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` MUST be set to `MD5`.
   - The value of attribute `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5"`.
   - The value of all `//*/@CHECKSUMTYPE` attributes in the `METS.xml` files MUST be set to `MD5`.
-- There SHOULD be descriptive metadata about the carrier(s) (i.e. the reel(s)) at the package level in the `preservation/premis.xml` file.
+- Descriptive metadata about the IE MUST be specified at the package level in the `dc+schema.xml` file.
+- Descriptive metadata about the carrier(s) (i.e. the reel(s)) MUST be specified at the package level in the `preservation/premis.xml` file.
 
 ### Package METS
 
 - The `/mets/@TYPE` attribute MUST be set to `Video – File-based and Physical Media`.
 - The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/2.1/film`.
-- The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `OTHER` and the `mets/dmdSec/mdRef/@OTHERMDTYPE` MUST be set to `dc_schema`.
+- The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `OTHER` and the `mets/dmdSec/mdRef/@OTHERMDTYPE` MUST be set to `dc+schema`.
 
 ### Package Descriptive Metadata
 
-- A descriptive metadata file `descriptive/dc_schema.xml` describing the IE  MUST be present at the package level.
-- Descriptive metadata in the `descriptive/dc_schema.xml` MUST be limited to the DCTERMS and SCHEMA elements outlined in the [basic profile](https://developer.meemoo.be/docs/diginstroom/sip/2.1/profiles/basic.html#dc-requirements).
-- The DCTERMS and SCHEMA metadata in the `descriptive/dc_schema.xml` file MUST follow the [basic profile requirements](https://developer.meemoo.be/docs/diginstroom/sip/2.1/profiles/basic.html#dc-requirements) regarding the use of elements and attributes.
+- A descriptive metadata file `descriptive/dc+schema.xml` describing the IE  MUST be present at the package level.
+- Descriptive metadata in the `descriptive/dc+schema.xml` MUST be limited to the DCTERMS and SCHEMA elements outlined in the [basic profile](https://developer.meemoo.be/docs/diginstroom/sip/2.1/profiles/basic.html#dc-requirements).
+- The DCTERMS and SCHEMA metadata in the `descriptive/dc+schema.xml` file MUST follow the [basic profile requirements](https://developer.meemoo.be/docs/diginstroom/sip/2.1/profiles/basic.html#dc-requirements) regarding the use of elements and attributes.
 
 ### Package Preservation Metadata
 
-The addition of a separate representation for the carrier(s) (i.e. the carrier representation) leads to a number of additional requirements in the package `premis.xml` file.
+The addition of a separate PREMIS representation for the carrier(s) (i.e. the carrier representation) leads to a number of additional requirements in the package `premis.xml` file.
 The section below outlines the high level requirements, while the section [Describing a carrier within the carrier representation](#describing-a-carrier-within-the-carrier-representation) contains a more detailed discussion of the possibilities offered by the carrier representation, divided into [a general intro](#introduction) and [a normative summary of requirements](#normative-summary).
 
-- If the SIP needs to contain descriptive metadata about the carrier and its reels themselves, the package `preservation/premis.xml` MUST contain a `<premis:object>` for the carrier representation;
-- A structural `<premis:relationship>`  of type 'is represented by' MUST exist between the `<premis:object>` of the intellectual entity and the `<premis:object>` of the carrier representation (see [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#premis-relationships) for more information);
-- A structural `<premis:relationship>`  of type 'represents' MUST exist between the `<premis:object>` of the carrier representation and the `<premis:object>` of the intellectual entity (see [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#premis-relationships) for more information).
+- The following relationships MUST be present between the `<premis:object>` of the intellectual entity and that of the carrier representation (see also [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#premis-relationships) for more information):
+  - A structural `<premis:relationship>`  of type 'is represented by';
+  - A structural `<premis:relationship>`  of type 'represents'.
 
 _Example 1: an example `<premis:object>` of a carrier representation together the relationships between the Intellectual Entity and the carrier representation_
 
@@ -200,11 +202,11 @@ premis:premis
 
 ##### Normative summary
 
+- There MUST be a carrier representation in the package premis.xml, reflected by a <premis:object>;
 - Any descriptive metadata about the physical film's reel(s) MUST be included as part of the carrier representation `<premis:object>`;
 - Any descriptive metadata in the carrier representation `<premis:object>` MUST be placed in separate `<premis:significantProperties>` elements;
 - Each `<premis:significantProperties>` element MUST contain a `<premis:significantPropertiesType>` element (for the metadata field name) and a `<premis:significantPropertiesValue>` element (for the metadata field value);
-- Each digitized reel in the SIP MUST be reflected in the carrier representation `<premis:object>`;
-- Each digitized reel in the carrier representation `<premis:object>` MUST be placed in a separate `<premis:storageMedium>` element;
+- Each digitized reel in the SIP MUST be reflected in the carrier representation `<premis:object>` by using separate `<premis:storageMedium>` elements;
 - Each `<premis:storageMedium>` element MUST contain a `<premis:storage>` element with the specific carrier type of a reel;
 - Any events related to the handling of the real-life, physical carrier(s) MUST refer to the carrier representation `<premis:object>` with a `<premis:linkingObjectIdentifier>` element (see [Adding provenance of representations](https://developer.meemoo.be/docs/diginstroom/sip/2.1/sip_structure/5_structure_package.html#adding-provenance-of-representations);
 
@@ -354,7 +356,7 @@ The XML files that are required by this profile can be validated using the follo
 | File | Format | XML Schema |
 | `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
-| `dc_schema.xml` | Dublin Core with Schema.org | dc_schema.xsd (not yet available) |
+| `dc+schema.xml` | Dublin Core with Schema.org | dc+schema.xsd (not yet available) |
 
 ## Use Cases
 
