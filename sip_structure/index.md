@@ -17,7 +17,7 @@ The meemoo SIP consists of a hierarchical directory structure with 2 levels:
 - the `/representations` directory inside the `/` directory or _representation level_.
 
 <figure class="mx-auto">
-  <img src="../../../../../assets/images_spec/sip-structure-2.1.drawio.png" alt="meemoo SIP structure" /> 
+  <img src="../../../../../assets/images_spec/sip-structure-2.0.drawio.png" alt="meemoo SIP structure" /> 
   <figcaption>The directory structure of a meemoo SIP.</figcaption>
 </figure>
 
