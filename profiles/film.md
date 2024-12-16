@@ -11,14 +11,14 @@ Editor's Draft
 # Profile: Film 
 
 The film profile supports the ingest of digitised film stored on one or more image and/or audio reels. 
-This profile dictates how the media files (in file formats such as ZIP, MOV and DPX), their metadata, and the relationships between them, should be expressed and organized.
+This profile dictates how the media files (in file formats such as MKV, MOV, JPEG and PDF), their metadata, and the relationships between them, should be expressed and organized.
 
 It mainly applies the [DCTERMS metadata schema](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) for descriptive metadata and allows extensions using [Schema.org](https://schema.org), thereby resembling the [Basic profile](https://data.hetarchief.be/id/sip/2.1/basic). 
 
 Its additions lie in the introduction of a separate PREMIS representation to denote the physical carrier(s) (a so-called 'carrier representation') and custom film-specific metadata (using `<premis:significantProperties>` elements in the package PREMIS file) to describe physical aspects of this/these carrier(s).
 
 This carrier representation was added to facilitate the description of the physical carrier(s), since the PREMIS metadata schema itself doesn't offer this possibility directly.
-Please note that, as a result, the carrier representation as such is not reflected by a representation folder in the `representations` directory, given that it is used purely for the addition of descriptive metadata about the carrier(s) and does not contain any files itself..
+Please note that, as a result, the carrier representation as such is not reflected by a representation folder in the `representations` directory, given that it is used purely for the addition of descriptive metadata about the carrier(s) and does not contain any files itself.
 
 **Permalink:** <https://data.hetarchief.be/id/sip/2.1/film>
 
@@ -29,7 +29,7 @@ root_directory
 ├── METS.xml
 ├── metadata
 │   ├── descriptive
-│   │   └── dc+schema.xml
+│   │   └── dc+schema.xml                               # descriptive metadata about the content of the film
 │   └── preservation
 │       └── premis.xml                                  # package PREMIS
 │
@@ -38,7 +38,7 @@ root_directory
     ├── representation_1
     │   ├── METS.xml
     │   ├── data
-    │   │   └── master.zip                              # ZIP containing DPX files
+    │   │   └── master.mkv                              # archive master
     │   └── metadata
     │       └── preservation
     │           └── premis.xml
@@ -46,15 +46,23 @@ root_directory
     ├── representation_2
     │   ├── METS.xml
     │   ├── data
-    │   │   └── mezzanine.mov                           # Playable mezzanine
+    │   │   └── mezzanine.mov                           # mezzanine
     │   └── metadata
     │       └── preservation
     │           └── premis.xml
     │
-    └── representation_3
+    ├── representation_3
+    │   ├── METS.xml
+    │   ├── data
+    │   │   └── scan.jpeg                               # scan(s) of the reel's container (if present) in JPEG
+    │   └── metadata
+    │       └── preservation
+    │           └── premis.xml
+    │
+    └── representation_4
         ├── METS.xml
         ├── data
-        │   └── QC.dpx                                  # DPX for QC
+        │   └── scan.pdf                                # scan(s) of the reel's container (if present) in PDF
         └── metadata
             └── preservation
                 └── premis.xml
@@ -65,7 +73,7 @@ root_directory
 ### General
 
 - A SIP MUST contain content of exactly one digitised film, consisting of one or more image and/or audio reels.
-- Each MKV, MOV, or set of DPX files (for QC) contained in their respective representation directories MUST represent exactly one image or audio reel.
+- Each MKV, MOV, or set of scans (either in JPG and/or in PDF) contained in their respective representation directories MUST represent exactly one image or audio reel.
 - There MUST be exactly one IE present in the SIP, i.e. the digitised film.
 - There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
 - There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
