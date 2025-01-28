@@ -300,13 +300,21 @@ root_directory
 | Name | Family name of a person |
 | Description | The family name of a person associated with the written work.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
 
 | Element | `mods:mods/mods:name[@type="personal"]/mods:namePart[@type="given"]` |
 |-----------------------|-----------|
 | Name | Given name of a person |
 | Description | The given name of a person associated with the written work.  |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | SHOULD |
+
+| Element | `mods:mods/mods:name[@type="personal"]/mods:namePart` |
+|-----------------------|-----------|
+| Name | Name of a person |
+| Description | The full name of a person associated with the written work.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
