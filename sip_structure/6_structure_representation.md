@@ -96,7 +96,7 @@ A summary of all possible references and their obligation is given in the table 
 
 | Pointer | Obligation | Target |
 | ------- | ---------- | ---------- |
-| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID`](#structMap-csip-div-div-representations-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.  |
+| [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID`](#structMap-csip-div-div-data-fptr-fileid) | MUST | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](./5_structure_package.html#file-id) if allowed by the profile.  |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@DMDID`](#structMap-csip-div-div-metadata-dmdid) | MUST | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Metadata']/@ADMID`](#structMap-csip-div-div-metadata-admid) | MUST | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 <!-- | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
@@ -262,6 +262,24 @@ A summary of all possible references and their obligation is given in the table 
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
+### \<dmdSec\> section
+
+`dmdSec` section follows the same requirements, where possible, as the package `mets.xml` file.
+
+See [dmdSec Section](./5_structure_package.html#dmdsec-section).
+
+### \<amdSec>\ section
+
+`amdSec` section follows the same requirements, where possible, as the package `mets.xml` file.
+
+See [amdSec Section](./5_structure_package.html#amdsec-section).
+
+### \<fileSec>\ section
+
+`fileSec` section follows the same requirements, where possible, as the package `mets.xml` file.
+
+See [fileSec Section](./5_structure_package.html#filesec-section).
+
 ### \<structMap\> section
 
 The `structMap` element outlines the hierarchical structure of the representation level of the SIP.
@@ -314,7 +332,7 @@ Its requirements are very similar to the package level, however, instead of poin
 | <a id="structMap-csip-div-div-data-fptr-fileid"></a>Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations']/fptr/@FILEID` |
 |-----------------------|-----------|
 | Name | Content division file group references |
-| Description | The pointer to the identifier for the `Representations` file group. |
+| Description | The pointer to the identifier for the `Representations` file group.<br>MUST point to any [`mets/fileSec/fileGrp/@ID`](./5_structure_package.html#fileGrp-id) or [`mets/fileSec/fileGrp/file/@ID`](./5_structure_package.html#file-id). |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |

@@ -118,7 +118,7 @@ root_directory
 | Element | `mods:mods/mods:identifier[not(@type)]` |
 |-----------------------|-----------|
 | Name | MODS identifier element |
-| Description | A unique identifier for the written work.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
+| Description | A unique identifier for the written work.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file. See [premis:objectIdentifier]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#premis-object-objectIdentifier-objectIdentifierValue).<br>This metadata element MUST NOT contain any attributes.  |
 | Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |

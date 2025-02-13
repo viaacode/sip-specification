@@ -1589,7 +1589,7 @@ The table below gives an overview of the different relationship types that can b
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
+| <a id="premis-object-objectIdentifier-objectIdentifierValue"></a>Element | `premis:premis/premis:object/premis:objectIdentifier/premis:objectIdentifierValue` |
 |-----------------------|-----------|
 | Name | Object identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS object. |
