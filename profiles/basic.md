@@ -360,7 +360,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `mm`, `cm`, `m` |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `metadata/schema:weight/schema:unitText` |
@@ -369,7 +369,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Description | A string or text indicating the unit of the weight measurement value, which MUST be set to `kg` (kilograms). Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `kg` |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `metadata/schema:artMedium[@xml:lang=*]` |
