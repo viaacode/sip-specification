@@ -1806,7 +1806,7 @@ TODO: figure out the IDs
 | Name | Event datetime  |
 | Description | The moment on which the event occurred. |
 | Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#xsd-datetime) |
-| Cardinality | 0..1 |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:event/premis:eventDetailInformation` |
