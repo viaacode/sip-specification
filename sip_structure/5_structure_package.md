@@ -1306,7 +1306,7 @@ It provides links between elements and metadata files located elsewhere in the p
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']` |
+| Attribute | `mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Schemas']/@LABEL` |
 |-----------------------|-----------|
 | Name | Schema division label |
 | Description | The schemas `div` element’s `@LABEL` attribute value MUST be `Schemas`. |
