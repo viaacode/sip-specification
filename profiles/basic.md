@@ -232,7 +232,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `metadata/dcterms:rights` |
+| Element | `metadata/dcterms:rights[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Rights |
 | Description | A copyright notice on the Intellectual Entity. The `rights` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
