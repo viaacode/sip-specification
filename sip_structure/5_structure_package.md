@@ -180,7 +180,7 @@ The various requirements are listed in the table below.
 | Name | Other content information type specification |
 | Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/2.1/basic` for the basic content profile which can be found on [its content profile page]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/basic.md %}).<br>ote that the sample above has the value of the basic profile as an example. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
-| Vocabulary | `https://data.hetarchief.be/id/sip/1.0/basic`<br>`https://data.hetarchief.be/id/sip/2.1/newspaper`<br>`https://data.hetarchief.be/id/sip/2.1/material-artwork` |
+| Vocabulary | `https://data.hetarchief.be/id/sip/2.1/basic`<br>`https://data.hetarchief.be/id/sip/2.1/bibliographic`<br>`https://data.hetarchief.be/id/sip/2.1/material-artwork`<br>`https://data.hetarchief.be/id/sip/2.1/film` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
