@@ -449,7 +449,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart` |
 |-----------------------|-----------|
 | Name | Has subseries |
-| Description | Indicates a subseries that is part of this series.  |
+| Description | Indicates a creative work that is part of this series.  |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
