@@ -359,7 +359,7 @@ root_directory
 | Element | `mods:mods/mods:originInfo/mods:publisher` |
 |-----------------------|-----------|
 | Name | MODS publisher element |
-| Description | The publisher of the written work, e.g., when and where it was created or published  |
+| Description | The publisher of the written work. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
