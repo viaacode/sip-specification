@@ -217,7 +217,7 @@ root_directory
 | Attribute | `mods:mods/mods:typeOfResource/@manuscript` |
 |-----------------------|-----------|
 | Name | MODS type manuscript |
-| Description | When present and its value is set to `yes`, this attribute indicates that the resource is handwritten. |
+| Description | When present and its value is set to `yes`, this attribute indicates that the resource is in handwriting or typescript. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Vocabulary | `yes` |
 | Cardinality | 0..1 |
