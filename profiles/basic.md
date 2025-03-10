@@ -92,7 +92,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-| Element | `metadata/dcterms:alternative` |
+| Element | `metadata/dcterms:alternative[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Alternative title |
 | Description | An alternative to the main title given to the Intellectual Entity.<br>The `alternative` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
