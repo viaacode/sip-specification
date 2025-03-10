@@ -502,14 +502,14 @@ root_directory
 
 #### Related items
 
-| Element | `mods:mods/mods:relatedItem` |
+| Element | `mods:mods/mods:relatedItem[not(@type)]` |
 |-----------------------|-----------|
 | Name | MODS related item element |
 | Description | This element refers to another work related to the written work in any way.<br>The `@type` attribute MUST NOT be set. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `mods:mods/mods:relatedItem/mods:identifier[@type="MEEMOO-LOCAL-ID"]` |
+| Element | `mods:mods/mods:relatedItem[not(@type)]/mods:identifier[@type="MEEMOO-LOCAL-ID"]` |
 |-----------------------|-----------|
 | Name | related item identifier |
 | Description | This element contains the main local identifier of another object to which it is related. <br>The `@type` attribute MUST be set to `MEEMOO-LOCAL-ID`, while the attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST NOT be set .  |
