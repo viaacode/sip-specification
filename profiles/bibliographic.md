@@ -188,7 +188,7 @@ root_directory
 |-----------------------|-----------|
 | Name | MODS language element |
 | Description | This element contains information about the language that the work is written in. |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | MAY |
 
 | Element | `mods:mods/mods:language/mods:languageTerm[@type="code"]` |
