@@ -220,6 +220,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 |-----------------------|-----------|
 | Name | License |
 | Description | A legal document giving official permission to meemoo, end users of the meemoo platforms, or any other user, to do something with the Intellectual Entity. |
+| Vocabulary | See the lists of [licenses](https://developer.meemoo.be/docs/metadata/viaa/licenties.html)  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | SHOULD |
