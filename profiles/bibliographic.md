@@ -193,15 +193,15 @@ root_directory
 
 | Element | `mods:mods/mods:language/mods:languageTerm[@type="code"]` |
 |-----------------------|-----------|
-| Name | MODS language element |
+| Name | MODS language code element |
 | Description | This element contains the language code of the language that the work is written in.  |
 | Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#bcp47) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `mods:mods/mods:language/mods:languageTerm/@type` |
+| Element | `mods:mods/mods:language/mods:languageTerm[@type="text"]` |
 |-----------------------|-----------|
-| Name | MODS language element type attribute |
+| Name | MODS language text element |
 | Description | This element contains the name of the language that the work is written in.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
