@@ -96,6 +96,31 @@ root_directory
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the IE  MUST be present at the package level.
 - Descriptive metadata in the `descriptive/dc+schema.xml` MUST be limited to the DCTERMS and SCHEMA elements outlined in the [basic profile](https://developer.meemoo.be/docs/diginstroom/sip/2.1/profiles/basic.html#dc-requirements).
 - The DCTERMS and SCHEMA metadata in the `descriptive/dc+schema.xml` file MUST follow the [basic profile requirements](https://developer.meemoo.be/docs/diginstroom/sip/2.1/profiles/basic.html#dc-requirements) regarding the use of elements and attributes.
+- In addition to the elements and requirements outlined in the basic profile, the film profile allows the use of the elements outlined below:
+
+| Element | `metadata/schema:countryOfOrigin` |
+|-----------------------|-----------|
+| Name | Country of origin |
+| Description | The country of origin of the film, i.e. where the film was created. |
+| Datatype | [ISO 3166]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#iso3166) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
+
+| Element | `metadata/schema:creditText` |
+|-----------------------|-----------|
+| Name | Credit text |
+| Description | Text that can be used to credit person(s) and/or organization(s) associated with a film. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/schema:genre` |
+|-----------------------|-----------|
+| Name | Genre |
+| Description | Genre of the film. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 ### Package Preservation Metadata
 
@@ -175,12 +200,11 @@ _Example 1: an example `<premis:object>` of a carrier representation together th
 
 The carrier representation lends itself to the addition of descriptive metadata about the carriers themselves.
 This can be achieved by using `<premis:significantProperties>` elements nested inside of the `<premis:object>` of the carrier representation.
-In turn each of these elements consists of a `<premis:significantPropertiesType>` element (for the metadata field name) and a `<premis:significantPropertiesValue>` element (for the metadata field value).
-As a result, each `<premis:significantProperties>` element contains exactly one descriptive metadata about a carrier (e.g. its material type, its film base etc.).
+In turn each of these elements consists of either a `<premis:significantPropertiesType>` element (for the metadata field name) and a `<premis:significantPropertiesValue>` element (for the metadata field value), or a `<premis:significantPropertiesExtension>` element that allows the use of external metadata schemas inside the element.
 
 In addition to the use outlined above, we require that a carrier representation specifies the carrier type of each digitised reel the SIP contains. 
 These carrier types are located in separate `<premis:storage>` elements that each contain exactly one `<premis:storageMedium>` element.
-It is currently impossible to add other descriptive metadata at this finer grained level, meaning that other descriptive metadata about the reels must be added via the construction in the previous paragraph.
+It is currently impossible to add other descriptive metadata at this finer grained level, meaning that other descriptive metadata about the reels must be added via one of the the constructions outlined in the previous paragraph.
 
 Finally, the carrier representation is also used in relevant events related to the handling of the real-life, physical carrier (e.g. registration, check-out, digitization...).
 
@@ -201,6 +225,9 @@ premis:premis
     │   ├── premis:significantPropertiesType
     │   └── premis:significantPropertiesValue
     │
+    ├── premis:significantProperties                      # Descriptive metadata
+    │   └── premis:significantPropertiesExtension
+    │
     ├── premis:storage                                    # Carrier type of reel 1
     │   └── premis:storageMedium
     │
@@ -210,10 +237,11 @@ premis:premis
 
 ##### Normative summary
 
-- There MUST be a carrier representation in the package premis.xml, reflected by a <premis:object>;
+- There MUST be a carrier representation in the package premis.xml, reflected by a `<premis:object>`;
 - Any descriptive metadata about the physical film's reel(s) MUST be included as part of the carrier representation `<premis:object>`;
 - Any descriptive metadata in the carrier representation `<premis:object>` MUST be placed in separate `<premis:significantProperties>` elements;
-- Each `<premis:significantProperties>` element MUST contain a `<premis:significantPropertiesType>` element (for the metadata field name) and a `<premis:significantPropertiesValue>` element (for the metadata field value);
+- Each `<premis:significantProperties>` element MUST either contain a combination of a `<premis:significantPropertiesType>` element (for the metadata field name) and a `<premis:significantPropertiesValue>` element (for the metadata field value), or a `<premis:significantPropertiesExtension>` element with the use of external metadata schemas;
+- If a `<premis:significantPropertiesExtension>` element is used, it MUST declare the namespaces of the external metadata schemas using the `@xmlns` attribute;
 - Each digitized reel in the SIP MUST be reflected in the carrier representation `<premis:object>` by using separate `<premis:storageMedium>` elements;
 - Each `<premis:storageMedium>` element MUST contain a `<premis:storage>` element with the specific carrier type of a reel;
 - Any events related to the handling of the real-life, physical carrier(s) MUST refer to the carrier representation `<premis:object>` with a `<premis:linkingObjectIdentifier>` element (see [Adding provenance of representations](https://developer.meemoo.be/docs/diginstroom/sip/2.1/sip_structure/5_structure_package.html#adding-provenance-of-representations);
@@ -277,6 +305,18 @@ _Example 4_ below contains an illustration of a simplified carrier representatio
         <premis:significantProperties>
             <premis:significantPropertiesType>film_base</premis:significantPropertiesType>
             <premis:significantPropertiesValue>acetate</premis:significantPropertiesValue>
+        </premis:significantProperties>
+
+        <!-- descriptive metadata using Schema in a nested <premis:significantPropertiesExtension> element -->
+        <premis:significantProperties>
+            <premis:significantPropertiesExtension xmlns:schema='https://schema.org'>
+                <schema:duration>0:04:55</schema:duration>
+                <schema:material>Original positive</schema:material>
+                <schema:size>
+                    <schema:unitCode>MTR</schema:unitCode>
+                    <schema:QuantitativeValue>135</schema:QuantitativeValue>
+                </schema:size>
+            </premis:significantPropertiesExtension>
         </premis:significantProperties>
 
         <!-- indication of the carrier type -->
