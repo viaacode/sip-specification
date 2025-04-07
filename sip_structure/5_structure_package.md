@@ -331,9 +331,9 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 | Element | `mets/metsHdr/agent[@ROLE='ARCHIVIST']` |
 |-----------------------|-----------|
 | Name | Archival creator agent |
-| Description | A wrapper element that enables to encode the name of the person/people or CP that originally created the content being transferred. This can be different from the CP tasked with preparing and sending the SIP to meemoo (cf. 'submitting agent' below). |
-| Cardinality | 0..1 |
-| Obligation | MAY |
+| Description | A wrapper element that enables to encode the name of the person/people or CP that originally created the content being transferred. This can be different from the SP tasked with preparing and sending the SIP to meemoo (cf. 'submitting agent' below). |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 | Attribute | `mets/metsHdr/agent[@ROLE='ARCHIVIST']/@ROLE` |
 |-----------------------|-----------|
