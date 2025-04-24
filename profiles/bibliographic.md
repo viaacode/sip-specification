@@ -189,15 +189,15 @@ root_directory
 
 | Element | `mods:mods/mods:language/mods:languageTerm[@type="code"]` |
 |-----------------------|-----------|
-| Name | MODS language element |
+| Name | MODS language code element |
 | Description | This element contains the language code of the language that the work is written in.  |
 | Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#bcp47) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
-| Element | `mods:mods/mods:language/mods:languageTerm/@type` |
+| Element | `mods:mods/mods:language/mods:languageTerm[@type="text"]` |
 |-----------------------|-----------|
-| Name | MODS language element type attribute |
+| Name | MODS language text element |
 | Description | This element contains the name of the language that the work is written in.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Cardinality | 1..1 |
@@ -217,7 +217,7 @@ root_directory
 | Attribute | `mods:mods/mods:typeOfResource/@manuscript` |
 |-----------------------|-----------|
 | Name | MODS type manuscript |
-| Description | When present and its value is set to `yes`, this attribute indicates that the resource is handwritten. |
+| Description | When present and its value is set to `yes`, this attribute indicates that the resource is in handwriting or typescript. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Vocabulary | `yes` |
 | Cardinality | 0..1 |
@@ -359,7 +359,7 @@ root_directory
 | Element | `mods:mods/mods:originInfo/mods:publisher` |
 |-----------------------|-----------|
 | Name | MODS publisher element |
-| Description | The publisher of the written work, e.g., when and where it was created or published  |
+| Description | The publisher of the written work. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -502,14 +502,14 @@ root_directory
 
 #### Related items
 
-| Element | `mods:mods/mods:relatedItem` |
+| Element | `mods:mods/mods:relatedItem[not(@type)]` |
 |-----------------------|-----------|
 | Name | MODS related item element |
 | Description | This element refers to another work related to the written work in any way.<br>The `@type` attribute MUST NOT be set. |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `mods:mods/mods:relatedItem/mods:identifier[@type="MEEMOO-LOCAL-ID"]` |
+| Element | `mods:mods/mods:relatedItem[not(@type)]/mods:identifier[@type="MEEMOO-LOCAL-ID"]` |
 |-----------------------|-----------|
 | Name | related item identifier |
 | Description | This element contains the main local identifier of another object to which it is related. <br>The `@type` attribute MUST be set to `MEEMOO-LOCAL-ID`, while the attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST NOT be set .  |
