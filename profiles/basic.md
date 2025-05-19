@@ -159,7 +159,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Element | `metadata/dcterms:publisher` |
 |-----------------------|-----------|
 | Name | Publisher |
-| Description | A publisher of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@roleName`. |
+| Description | A publisher of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@schema:roleName`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -167,7 +167,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Element | `metadata/dcterms:contributor` |
 |-----------------------|-----------|
 | Name | Contributor |
-| Description | A contributor to the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@roleName`. |
+| Description | A contributor to the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@schema:roleName`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -175,7 +175,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Element | `metadata/dcterms:creator` |
 |-----------------------|-----------|
 | Name | Creator |
-| Description | An author or creator of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@roleName`. |
+| Description | An author or creator of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@schema:roleName`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
@@ -267,7 +267,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Attribute | `metadata/(schema:creator|schema:publisher|schema:contributor)/@roleName` |
+| Attribute | `metadata/(schema:creator|schema:publisher|schema:contributor)/@schema:roleName` |
 |-----------------------|-----------|
 | Name | Role creator, publisher, or contributor |
 | Description | The role with which the creator, publisher, or contributor was involved in creating, publishing or contributing to the digitally reproduced artwork.  |
