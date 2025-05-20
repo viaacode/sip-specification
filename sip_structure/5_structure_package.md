@@ -1876,11 +1876,11 @@ TODO: figure out the IDs
 | Element | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingAgentRole` |
 |-----------------------|-----------|
 | Name | Linking agent role |
-| Description | The role that the agent played in relation to the event. |
+| Description | The role that the agent played in relation to the event. <br><br> Exactly one linking agent identifier must have the the implementer role.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS Event Related Agent Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole))  |
 | Vocabulary | `authorizer`<br>`executing program`<br>`implementer`<br>`validator`<br><br>`player`<br>... |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Attribute | `premis:premis/premis:event/premis:linkingAgentIdentifier/premis:linkingAgentRole/@valueURI` |
 |-----------------------|-----------|
