@@ -1427,7 +1427,7 @@ This ID is stored in the `<premis:objectIdentifier>` element of the relevant PRE
 On the package level, the preservation metadata is used to express
 
 - what the different IEs are contained in the SIP; and 
-- how they relate to eachother and to possible representations. 
+- how they relate to each other and to possible representations. 
 
 ***Example***
 
