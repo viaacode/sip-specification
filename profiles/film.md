@@ -18,7 +18,12 @@ It mainly applies the [DCTERMS metadata schema](https://www.dublincore.org/schem
 Its additions lie in the introduction of a separate PREMIS representation to denote the physical carrier(s) (a so-called 'carrier representation') and custom film-specific metadata (using `<premis:significantProperties>` elements in the package PREMIS file) to describe physical aspects of this/these carrier(s).
 
 This carrier representation was added to facilitate the description of the physical carrier(s), since the PREMIS metadata schema itself doesn't offer this possibility directly.
-Please note that, as a result, the carrier representation as such is not reflected by a representation folder in the `representations` directory, given that it is used purely for the addition of descriptive metadata about the carrier(s) and does not contain any files itself.
+Please note that, as a result, the carrier representation as such is not reflected by a representation folder in the `representations` directory, given that it is used purely for the addition of descriptive metadata about the carrier(s) and does not contain any files itself. Use the relationship sub types `has carrier copy` and `is carrier copy of` between the IE and the carrier representation.
+
+| Direction | Relationship type | Relationship subtype | Reciprocal/inverse relationship | Description |
+|-------------------|----------------------|---------------------------------|-------------|
+| From IE to carrier | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`has carrier copy`](https://data.hetarchief.be/ns/object/hasCarrierCopy) | [`is carrier copy of`](https://data.hetarchief.be/ns/object/isCarrierCopyOf) | A IE is represented by a carrier representation. |
+
 
 **Permalink:** <https://data.hetarchief.be/id/sip/2.1/film>
 

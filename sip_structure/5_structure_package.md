@@ -1427,7 +1427,7 @@ This ID is stored in the `<premis:objectIdentifier>` element of the relevant PRE
 On the package level, the preservation metadata is used to express
 
 - what the different IEs are contained in the SIP; and 
-- how they relate to eachother and to possible representations. 
+- how they relate to each other and to possible representations. 
 
 ***Example***
 
@@ -1528,9 +1528,10 @@ The table below gives an overview of the different relationship types that can b
 
 | Direction | Relationship type | Relationship subtype | Reciprocal/inverse relationship | Description |
 |-------------------|----------------------|---------------------------------|-------------|
-| From (main) IE to (sub) IE | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`has part`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp) | [`is part of`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp) | A a larger IE, such as the main IE, has another IE as a part. |
-| From (sub) IE to (main) IE | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`is part of`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp) | [`has part`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp) | A subIE is part of a larger main IE. |
-| From IE to Representation | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`is represented by`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr) | [`represents`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep) | The IE object is represented by one of its representations |
+| From (main) IE to (sub) IE | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`has part`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp) | [`is part of`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp) | A larger IE, such as the main IE, has another IE as a part. |
+| From IE to Representation | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`is represented by`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr) | [`represents`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep) | A IE object is represented by one of its representations. |
+| From IE to master | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`has master copy`](https://data.hetarchief.be/ns/object/hasMasterCopy) | [`is master copy of`](https://data.hetarchief.be/ns/object/isMasterCopyOf) | A IE object is represented by a high resolution master copy. |
+| From IE to mezzanine | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`has mezzanine copy`](https://data.hetarchief.be/ns/object/hasMezzanineCopy) | [`is mezzanine copy of`](https://data.hetarchief.be/ns/object/isMezzanineCopyOf) | A IE object is represented by a mezzanine copy. |
 
 ***Requirements***
 
