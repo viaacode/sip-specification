@@ -15,7 +15,7 @@ This profile dictates how the media files (in file formats such as MKV, MOV, JPE
 
 It mainly applies the [DCTERMS metadata schema](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) for descriptive metadata and allows extensions using [Schema.org](https://schema.org), thereby resembling the [Basic profile](https://data.hetarchief.be/id/sip/2.1/basic). 
 
-Its additions lie in the introduction of a separate PREMIS representation to denote the physical carrier(s) (a so-called 'carrier representation') and custom film-specific metadata (using `<premis:significantProperties>` elements in the package PREMIS file) to describe physical aspects of this/these carrier(s).
+Its additions lie in the introduction of a separate PREMIS representation to denote the physical carrier(s) (a so-called 'carrier representation') and custom film-specific metadata (using a `<premis:significantPropertiesExtension>` element in the package PREMIS file) to describe physical aspects of this/these carrier(s).
 
 This carrier representation was added to facilitate the description of the physical carrier(s), since the PREMIS metadata schema itself doesn't offer this possibility directly.
 Please note that, as a result, the carrier representation as such is not reflected by a representation folder in the `representations` directory, given that it is used purely for the addition of descriptive metadata about the carrier(s) and does not contain any files itself. Use the relationship sub types `has carrier copy` and `is carrier copy of` between the IE and the carrier representation.
@@ -130,90 +130,66 @@ root_directory
 ### Package Preservation Metadata
 
 The addition of a separate PREMIS representation for the carrier(s) (i.e. the carrier representation) leads to a number of additional requirements in the package `premis.xml` file.
-The section below outlines the high level requirements, while the section [Describing a carrier within the carrier representation](#describing-a-carrier-within-the-carrier-representation) contains a more detailed discussion of the possibilities offered by the carrier representation, divided into [a general intro](#introduction) and [a normative summary of requirements](#normative-summary).
+The section below outlines the high level requirements, while the section [Describing a carrier within the carrier representation](#describing-a-carrier-within-the-carrier-representation) contains a more detailed discussion of the possibilities offered by the carrier representation.
 
 - The following relationships MUST be present between the `<premis:object>` of the intellectual entity and that of the carrier representation (see also [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#premis-relationships) for more information):
-  - A structural `<premis:relationship>`  of type 'is represented by';
-  - A structural `<premis:relationship>`  of type 'represents'.
+  - A structural `<premis:relationship>`  of type 'has carrier copy';
+  - A structural `<premis:relationship>`  of type 'is carrier copy of'.
 
 _Example 1: an example `<premis:object>` of a carrier representation together the relationships between the Intellectual Entity and the carrier representation_
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:premis="http://www.loc.gov/premis/v3" xmlns:haObj="https://data.hetarchief.be/ns/object/"
-    xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
 
-    <!-- IE for the film as a whole -->
-    <premis:object
-        xsi:type="premis:intellectualEntity">
+<!-- IE for the film as a whole -->
+<premis:object
+    xsi:type="premis:intellectualEntity">
 
-        <premis:objectIdentifier>
-            <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-            <premis:objectIdentifierValue>uuid-b1c5fa36-6bb6-460b-836b-ade5541fe89e</premis:objectIdentifierValue>
-        </premis:objectIdentifier>
+    <premis:objectIdentifier>
+        <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+        <premis:objectIdentifierValue>uuid-intellectual-entity</premis:objectIdentifierValue>
+    </premis:objectIdentifier>
 
-        <!-- relationship between the IE and its carrier representation -->
-        <premis:relationship>
-            <premis:relationshipType authority="relationshipType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-            <premis:relationshipSubType authority="relationshipSubType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is
-                represented
-                by</premis:relationshipSubType>
-            <premis:relatedObjectIdentifier>
-                <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-                <premis:relatedObjectIdentifierValue>uuid-e2f092de-f800-486c-a291-3160ce740544</premis:relatedObjectIdentifierValue>
-            </premis:relatedObjectIdentifier>
-        </premis:relationship>
+    <!-- relationship between the IE and its carrier representation -->
+    <premis:relationship>
+        <premis:relationshipType>structural</premis:relationshipType>
+        <premis:relationshipSubType>has carrier copy</premis:relationshipSubType>
+        <premis:relatedObjectIdentifier>
+            <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+            <premis:relatedObjectIdentifierValue>uuid-carrier-representation</premis:relatedObjectIdentifierValue>
+        </premis:relatedObjectIdentifier>
+    </premis:relationship>
 
-    </premis:object>
+</premis:object>
 
-    <!-- PREMIS object for the carrier representation itself -->
-    <premis:object xsi:type="premis:representation">
+<!-- PREMIS object for the carrier representation -->
+<premis:object xsi:type="premis:representation">
+    <premis:objectIdentifier>
+        <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
+        <premis:objectIdentifierValue>uuid-carrier-representation</premis:objectIdentifierValue>
+    </premis:objectIdentifier>
 
-        <premis:objectIdentifier>
-            <premis:objectIdentifierType>UUID</premis:objectIdentifierType>
-            <premis:objectIdentifierValue>uuid-e2f092de-f800-486c-a291-3160ce740544</premis:objectIdentifierValue>
-        </premis:objectIdentifier>
-
-        <!-- relationship between the carrier representation and its IE -->
-        <premis:relationship>
-            <premis:relationshipType authority="relationshipType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-            <premis:relationshipSubType authority="relationshipSubType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">
-                represents</premis:relationshipSubType>
-            <premis:relatedObjectIdentifier>
-                <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-                <premis:relatedObjectIdentifierValue>uuid-b1c5fa36-6bb6-460b-836b-ade5541fe89e</premis:relatedObjectIdentifierValue>
-            </premis:relatedObjectIdentifier>
-        </premis:relationship>
-
-    </premis:object>
-
-</premis:premis>
+    <!-- relationship between the carrier representation and its IE -->
+    <premis:relationship>
+        <premis:relationshipType>structural</premis:relationshipType>
+        <premis:relationshipSubType>is carrier copy of</premis:relationshipSubType>
+        <premis:relatedObjectIdentifier>
+            <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
+            <premis:relatedObjectIdentifierValue>uuid-intellectual-entity</premis:relatedObjectIdentifierValue>
+        </premis:relatedObjectIdentifier>
+    </premis:relationship>
+</premis:object>
 ```
 
 #### Describing a carrier within the carrier representation
 
-##### Introduction
+The carrier representation is described using the `<premis:significantPropertiesExtension>` element. A custom schema is defined inside this extension to capture structural and descriptive metadata of the carrier. The schema uses the `hasip` namespace and is specified below.
 
-The carrier representation lends itself to the addition of descriptive metadata about the carriers themselves.
-This can be achieved by using `<premis:significantProperties>` elements nested inside of the `<premis:object>` of the carrier representation.
-In turn each of these elements consists of either a `<premis:significantPropertiesType>` element (for the metadata field name) and a `<premis:significantPropertiesValue>` element (for the metadata field value), or a `<premis:significantPropertiesExtension>` element that allows the use of external metadata schemas inside the element.
+| Prefix | URI                                |
+| ------ | ---------------------------------- |
+| hasip  | [https://data.hetarchief.be/ns/sip/](https://data.hetarchief.be/ns/sip/) |
 
-In addition to the use outlined above, we require that a carrier representation specifies the carrier type of each digitised reel the SIP contains. 
-These carrier types are located in separate `<premis:storage>` elements that each contain exactly one `<premis:storageMedium>` element.
-It is currently impossible to add other descriptive metadata at this finer grained level, meaning that other descriptive metadata about the reels must be added via one of the the constructions outlined in the previous paragraph.
 
-Finally, the carrier representation is also used in relevant events related to the handling of the real-life, physical carrier (e.g. registration, check-out, digitization...).
-
-_Example 2: hierarchical listing of a package `premis.xml` file with an Intellectual Entity and a Carrier Representation consisting of 2 pieces of descriptive metadata and the carrier type of its two reels_
+_Example 2: hierarchical listing of a package `premis.xml` file with an Intellectual Entity and a Carrier Representation._
 
 ```text
 premis:premis
@@ -221,31 +197,153 @@ premis:premis
 ├── premis:object xsi:type="premis:intellectualEntity"    # Intellectual Entity
 │
 └── premis:object xsi:type="premis:representation"        # Carrier Representation
-    │
-    ├── premis:significantProperties                      # Descriptive metadata
-    │   ├── premis:significantPropertiesType
-    │   └── premis:significantPropertiesValue
-    │
-    ├── premis:significantProperties                      # Descriptive metadata
-    │   ├── premis:significantPropertiesType
-    │   └── premis:significantPropertiesValue
-    │
-    ├── premis:significantProperties                      # Descriptive metadata
-    │   └── premis:significantPropertiesExtension
-    │
-    ├── premis:storage                                    # Carrier type of reel 1
-    │   └── premis:storageMedium
-    │
-    └── premis:storage                                    # Carrier type of reel 2
-        └── premis:storageMedium
+    └── premis:significantProperties
+        └── premis:significantPropertiesExtension
+            └── ...                                       # Carrier representation description
 ```
+
+
+<!-- <inLanguage>Silent Movie</inLanguage> -->
+
+
+| Element     | `premis:premis/premis:object[@xsi:type='premis:representation']/premis:significantProperties/premis:significantPropertiesExtension[@xmlns:hasip='https://data.hetarchief.be/ns/sip/']` |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Name        | PREMIS significant properties extension                                                                                             |
+| Description | This extension contains structural and descriptive metadata of the carrier representation. It must declare the `hasip` namespace. |
+| Cardinality | 1..1                                                                                                                                |
+| Obligation  | MUST                                                                                                                                |
+
+The following elements paths are relative to the `<premis:significantPropertiesExtension>` element.
+
+| Element     | `premis:significantPropertiesExtension/hasip:numberOfReels`                                                           |
+| ----------- | ------------------------------------------------------------------------------- |
+| Name        | Number of reels                                                                 |
+| Description | The number of image and audio reels that make up the carrier.                   |
+| Datatype    | [`xsd:nonNegativeInteger`](http://www.w3.org/2001/XMLSchema#nonNegativeInteger) |
+| Cardinality | 0..1                                                                            |
+| Obligation  | MAY                                                                             |
+
+| Element     | `premis:significantPropertiesExtension/hasip:hasMissingAudioReels`                              |
+| ----------- | --------------------------------------------------------- |
+| Name        | Has missing audio reels                                   |
+| Description | Whether there are one or more audio reel missing.          |
+| Datatype    | [`xsd:boolean`](http://www.w3.org/2001/XMLSchema#boolean) |
+| Cardinality | 0..1                                                      |
+| Obligation  | MAY                                                       |
+
+| Element     | `premis:significantPropertiesExtension/hasip:hasMissingImageReels`                                             |
+| ----------- | ------------------------------------------------------------------------ |
+| Name        | Has missing image reels                                                  |
+| Description | This element indicates whether there are one or more image reel missing. |
+| Datatype    | [`xsd:boolean`](http://www.w3.org/2001/XMLSchema#boolean)                |
+| Cardinality | 0..1                                                                     |
+| Obligation  | MAY                                                                      |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt`                                       |
+| ----------- | ------------------------------------------------------ |
+| Name        | Stored at                                              |
+| Description | This element contains the reels making up the carrier. |
+| Cardinality | 1..*                                                   |
+| Obligation  | MUST                                                   |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/hasip:imageReel`              |
+| ----------- | --------------------------------------------- |
+| Name        | Image reel                                    |
+| Description | A reel with (part of) the carrier image on it |
+| Cardinality | 0..*                                          |
+| Obligation  | MAY                                           |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/hasip:audioReel`              |
+| ----------- | --------------------------------------------- |
+| Name        | Audio reel                                    |
+| Description | A reel with (part of) the carrier audio on it |
+| Cardinality | 0..*                                          |
+| Obligation  | MAY                                           |
+
+| Element | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:identifier` |
+| ----------- | ----------------------------------------------------------------------- |
+| Name | Identifier |
+| Description | The identifier of the image or audio reel |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:medium` |
+| ----------- | ------------------------------------------------------------------- |
+| Name        | Storage medium                                                      |
+| Description | The physical medium on which the Object is stored (e.g., magnetic tape, hard disk, CD-ROM, DVD).                                                                |
+| Datatype    | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 1..1                                                                |
+| Obligation  | MUST                                                                |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:aspectRatio` |
+| ----------- | ------------------------------------------------------------------------ |
+| Name        | Aspect ratio                                                             |
+| Description | The aspect ratio of the reel. Not to be confused with the aspect ratio of the digitized film.                                                                      |
+| Datatype    | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)                                                                     |
+| Cardinality | 0..1                                                                     |
+| Obligation  | MAY                                                                      |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:material` |
+| ----------- | --------------------------------------------------------------------- |
+| Name        | Material                                                              |
+| Description | The base material that makes up the carrier.                                                                  |
+| Datatype    | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)                                                                  |
+| Cardinality | 0..1                                                                  |
+| Obligation  | MAY                                                                   |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:preservationProblem` |
+| ----------- | -------------------------------------------------------------------------------- |
+| Name        | Preservation problem                                                             |
+| Description | Any preservation problems encountered during the digitization of the film.                                                                             |
+| Datatype    | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 0..*                                                                             |
+| Obligation  | MAY                                                                              |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:stockType` |
+| ----------- | ---------------------------------------------------------------------- |
+| Name        | Stock type                                                             |
+| Description | The stock type refers to the specific kind of film material used—such as negative, positive, interpositive, or internegative—each designed for a particular stage of image/sound capture, duplication, or projection.                                                                   |
+| Datatype    | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 0..1                                                                   |
+| Obligation  | MAY                                                                    |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:coloringType` |
+| ----------- | ------------------------------------------------------------------------- |
+| Name        | Coloring type                                                             |
+| Description | Indication of the coloring of the image reel.   |
+| Datatype    | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string); fixed vocabulary   |
+| Vocabulary  | `BandW`, `Color`, `Colorized`, `Composite`, `UnknownColorType` |
+| Cardinality | 0..*                                                                      |
+| Obligation  | MAY                                                                       |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/hasip:imageReel/hasip:hasCaptioning` |
+| ----------- | ---------------------------------------------------- |
+| Name        | Has captioning                                       |
+| Description | This element contains the open captions of the film. |
+| Cardinality | 0..*                                                 |
+| Obligation  | MAY                                                  |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/hasip:imageReel/hasip:hasCaptioning/hasip:openCaptions` |
+| ----------- | --------------------------------------------------------------------------- |
+| Name        | Open captions |
+| Description | Indicates the (embedded) captioning of an image reel. |
+| Cardinality | 0..*                                                                        |
+| Obligation  | MAY                                                                        |
+
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/hasip:imageReel/hasip:hasCaptioning/hasip:openCaptions/hasip:inLanguage` |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| Name        | Open captions language  |
+| Description | The language the open captions are in. |
+| Datatype    | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#bcp47) |
+| Cardinality | 0..*                                                                                         |
+| Obligation  | MAY                                                                                         |
 
 ##### Normative summary
 
 - There MUST be a carrier representation in the package premis.xml, reflected by a `<premis:object>`;
 - Any descriptive metadata about the physical film's reel(s) MUST be included as part of the carrier representation `<premis:object>`;
-- Any descriptive metadata in the carrier representation `<premis:object>` MUST be placed in separate `<premis:significantProperties>` elements;
-- Each `<premis:significantProperties>` element MUST either contain a combination of a `<premis:significantPropertiesType>` element (for the metadata field name) and a `<premis:significantPropertiesValue>` element (for the metadata field value), or a `<premis:significantPropertiesExtension>` element with the use of external metadata schemas;
+- Each `<premis:significantPropertiesExtension>` element MUST use the schema described above;
 - If a `<premis:significantPropertiesExtension>` element is used, it MUST declare the namespaces of the external metadata schemas using the `@xmlns` attribute;
 - Each digitized reel in the SIP MUST be reflected in the carrier representation `<premis:object>` by using separate `<premis:storageMedium>` elements;
 - Each `<premis:storageMedium>` element MUST contain a `<premis:storage>` element with the specific carrier type of a reel;
