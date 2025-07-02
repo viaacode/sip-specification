@@ -308,7 +308,7 @@ The following elements paths are relative to the `<premis:significantPropertiesE
 | Cardinality | 0..1                                                                   |
 | Obligation  | MAY                                                                    |
 
-| Element     | `premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:coloringType` |
+| Element     | `premis:significantPropertiesExtension/hasip:storedAt/hasip:imageReel/hasip:coloringType` |
 | ----------- | ------------------------------------------------------------------------- |
 | Name        | Coloring type                                                             |
 | Description | Indication of the coloring of the image reel.   |
@@ -321,7 +321,7 @@ The following elements paths are relative to the `<premis:significantPropertiesE
 | ----------- | ---------------------------------------------------- |
 | Name        | Has captioning                                       |
 | Description | This element contains the open captions of the film. |
-| Cardinality | 0..*                                                 |
+| Cardinality | 0..1                                                 |
 | Obligation  | MAY                                                  |
 
 | Element     | `premis:significantPropertiesExtension/hasip:storedAt/hasip:imageReel/hasip:hasCaptioning/hasip:openCaptions` |
