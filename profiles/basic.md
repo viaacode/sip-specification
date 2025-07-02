@@ -241,8 +241,18 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Type |
 | Description | The classification of this Intellectual Entity . |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
-| Obligation | MAY |
+| Vocabulary | `Audio`, `DVD`, `DVDChapter`, `Film`, `Image`, `NewspaperIssue`, `NewspaperIssuePage`, `Video`, `SilentFilm`, `SoundFilm` |
+| Cardinality | 1..1 |
+| Obligation | MUST |
+
+| Element | `metadata/dcterms:format` |
+|-----------------------|-----------|
+| Name | Format |
+| Description | The format of this Intellectual Entity . |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Vocabulary | `audio`, `video`, `film`, `paper`, `newspaper`, `newspaperpage`, `videofragment`, `audiofragment`  |
+| Cardinality | 1..1 |
+| Obligation | MUST |
 
 #### Schema.org elements
 
