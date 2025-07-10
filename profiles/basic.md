@@ -188,7 +188,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Cardinality | 0..* |
 | Obligation | MAY |
 
-| Element | `metadata/dcterms:temporal` |
+| Element | `metadata/dcterms:temporal[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Temporal |
 | Description | Temporal coverage information on the Intellectual Entity |

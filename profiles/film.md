@@ -111,7 +111,7 @@ root_directory
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-| Element | `metadata/schema:creditText` |
+| Element | `metadata/schema:creditText[@xml:lang=*]` |
 |-----------------------|-----------|
 | Name | Credit text |
 | Description | Text that can be used to credit person(s) and/or organization(s) associated with a film. |
