@@ -69,6 +69,8 @@ root_directory
 - The `dc+schema.xml` file MUST NOT contain additional IDs besides the shared ID in the `<dcterms:identifier>`; these MUST be added in the `preservation/premis.xml` file.
 - Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
 - The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
+- For some elements the value of the `@xml:lang` attribute MUST be unique for that element. These are marked with a unique language tag. [^1]
+
 
 {: .important }
 For elements that require the `@xml:lang` attribute, it is still necessary to supply an element with `@xml:lang` set to `nl` even if there is no Dutch content available (e.g., the original title is in English or French and no translation was ever made, or the title is the same in both languages). In that case, a title in another language can be copied as if it were Dutch. 
@@ -89,7 +91,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Title |
 | Description | A name given to the Intellectual Entity. <br>The `title` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/dcterms:alternative[@xml:lang=*]` |
@@ -129,7 +131,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Description |
 | Description | An account of the Intellectual Entity.<br>The `description` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/dcterms:abstract[@xml:lang=*]` |
@@ -137,7 +139,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Abstract |
 | Description | A long description of the Intellectual Entity.<br>The `abstract` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 0..1 [^1] |
 | Obligation | MAY |
 
 | Element | `metadata/dcterms:created` |
@@ -233,7 +235,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Rights |
 | Description | A copyright notice on the Intellectual Entity. The `rights` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
+| Cardinality | 0..* |
 | Obligation | SHOULD |
 
 | Element | `metadata/dcterms:type` |
@@ -291,7 +293,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Name creator, publisher, or contributor |
 | Description | The name of the creator, publisher, or contributor. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/(schema:creator|schema:publisher|schema:contributor)/schema:birthDate` |
@@ -410,7 +412,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Name episode |
 | Description | The name of the episode. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:ArchiveComponent]` |
@@ -425,7 +427,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Name archive |
 | Description | The name of the archive. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]` |
@@ -440,7 +442,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Name series |
 | Description | The name of the series. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:position` |
@@ -463,7 +465,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Name subseries  |
 | Description | The name of the subseries. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:BroadcastEvent]` |
@@ -478,7 +480,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Name broadcast event |
 | Description |  The name of the broadcast. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]` |
@@ -493,7 +495,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Name season |
 | Description |  The name of the season. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 1..* [^1] |
 | Obligation | MUST |
 
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:seasonNumber` |
@@ -556,3 +558,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 Some use cases that implement this profile are:
 
 {% include _usecases.liquid  %}
+
+---
+
+[^1]: Unique language tag required
