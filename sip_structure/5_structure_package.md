@@ -1774,8 +1774,8 @@ TODO: figure out the IDs
 | Element | `premis:premis/premis:event/premis:eventIdentifier` |
 |-----------------------|-----------|
 | Name | Event identifier |
-| Description | This element contains event identifier information.<br><br>At least one event identifier MUST be present to uniquely identify the event. |
-| Cardinality | 1..* |
+| Description | This element contains event identifier information. |
+| Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:event/premis:eventIdentifier/premis:eventIdentifierType` |
