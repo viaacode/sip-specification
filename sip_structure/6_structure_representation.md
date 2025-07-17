@@ -575,7 +575,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship types. Its value MUST be set to `"relationshipType"`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authorityURI` |
 |-----------------------|-----------|
@@ -583,7 +583,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType"`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@valueURI` |
 |-----------------------|-----------|
@@ -591,7 +591,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>For the `structural` relationship type, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipType/str"`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType` |
 |-----------------------|-----------|
@@ -607,16 +607,16 @@ The table below gives an overview of the different relationship types that can b
 | Name | Relationship subtype authority attribute |
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship subtypes. Its value MUST be set to `"relationshipSubType"`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authorityURI` |
 |-----------------------|-----------|
 | Name | Relationship subtype authority URI |
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType"`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@valueURI` |
 |-----------------------|-----------|
@@ -624,8 +624,8 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `represents` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep"`.<br>If the `includes` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc"`.<br>If the `is included in` relationship subtype is being used, this attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi"` |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri); fixed vocabulary |
 | Vocabulary | `"http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc"`<br>`"http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi"` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+| Cardinality | 0..1 |
+| Obligation | MAY |
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
 |-----------------------|-----------|
@@ -679,7 +679,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different message digest algorithms. Its value MUST be set to `"cryptographicHashFunctions"`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Attribute | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@authorityURI` |
 |-----------------------|-----------|
@@ -687,7 +687,7 @@ The table below gives an overview of the different relationship types that can b
 | Description |  This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions"`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Attribute | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` |
 |-----------------------|-----------|
@@ -719,7 +719,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | File format identification |
 | Description | This element contains information about the format of the file object. At least one of `premis:formatDesignation` or `premis:formatRegistry` MUST be present. |
 | Cardinality | 1..1 |
-| Obligation | SHOULD |
+| Obligation | MUST |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatDesignation` |
 |-----------------------|-----------|
