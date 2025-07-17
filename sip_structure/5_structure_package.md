@@ -1618,7 +1618,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Relationship type authority attribute |
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship types. Its value MUST be set to `relationshipType`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@authorityURI` |
@@ -1626,7 +1626,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Relationship type authority URI |
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri) |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipType/@valueURI` |
@@ -1635,7 +1635,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `structural` relationship type is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/str`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri); fixed vocabulary |
 | Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipType/str` |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType` |
@@ -1652,7 +1652,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Relationship subtype authority attribute |
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship subtypes. Its value MUST be set to `relationshipSubType`. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@authorityURI` |
@@ -1660,7 +1660,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Relationship subtype authority URI |
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri) |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | MUST |
 
 | Attribute | `premis:premis/premis:object/premis:relationship/premis:relationshipSubType/@valueURI` |
@@ -1669,7 +1669,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `is represented by` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`.<br>If the `has part` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`.<br>If the `is part of` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri); fixed vocabulary |
 | Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:object/premis:relationship/premis:relatedObjectIdentifier` |
