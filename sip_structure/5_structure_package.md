@@ -1799,6 +1799,8 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | PREMIS event type |
 | Description | The specific type of the event. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string); fixed vocabulary |
+| Vocabulary | `baking`<br>`calibration`<br>`check-in`<br>`check-out`<br>`cleaning`<br>`compression`<br>`decompression`<br>`editing`<br>`format-identification`<br>`ingest`<br>`inspection`<br>`registration`<br>`transcoding`<br>`transcription`<br>`transfer`<br>`transform`<br>`digital-transfer`<br>`digitization`<br>`quality-control`<br>`repair`<br>`validation`<br>`migration`<br>`creation` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
