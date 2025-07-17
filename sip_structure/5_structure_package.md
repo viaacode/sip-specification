@@ -1822,7 +1822,7 @@ TODO: figure out the IDs
 | Name | Event detail  |
 | Description | Additional information as unstructured text. Multiple details should be recorded in independent `premis:eventDetailInformation` containers instead of repeating the `premis:eventDetail` element. |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
+| Cardinality | 0..1 |
 | Obligation | MUST |
 
 | Element | `premis:premis/premis:event/premis:eventOutcomeInformation` |
