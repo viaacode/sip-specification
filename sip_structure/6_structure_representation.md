@@ -717,7 +717,7 @@ The table below gives an overview of the different relationship types that can b
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format` |
 |-----------------------|-----------|
 | Name | File format identification |
-| Description | This element contains information about the format of the file object. |
+| Description | This element contains information about the format of the file object. At least one of `premis:formatDesignation` or `premis:formatRegistry` MUST be present. |
 | Cardinality | 1..1 |
 | Obligation | SHOULD |
 
