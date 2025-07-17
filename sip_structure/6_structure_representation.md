@@ -718,7 +718,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | File format identification |
 | Description | This element contains information about the format of the file object. |
-| Cardinality | 0..1 |
+| Cardinality | 1..1 |
 | Obligation | SHOULD |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatDesignation` |
