@@ -398,6 +398,22 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Cardinality | 0..* |
 | Obligation | MAY |
 
+| Element | `metadata/schema:creditText[@xml:lang=*]` |
+|-----------------------|-----------|
+| Name | Credit text |
+| Description | Text that can be used to credit person(s) and/or organization(s) associated with this Intellectual Entity. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
+| Element | `metadata/schema:genre[@xml:lang=*]` |
+|-----------------------|-----------|
+| Name | Genre |
+| Description | Genre of this Intellectual Entity. The `genre` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Cardinality | 0..* |
+| Obligation | MAY |
+
 | Element | `metadata/schema:isPartOf[@xsi:type=schema:Episode]` |
 |-----------------------|-----------|
 | Name | Is part of episode |
