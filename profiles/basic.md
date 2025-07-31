@@ -250,7 +250,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 | Name | Format |
 | Description | The format of this Intellectual Entity . |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Vocabulary | `audio`, `video`, `film`, `paper`, `newspaper`, `newspaperpage`, `videofragment`, `audiofragment`  |
+| Vocabulary | `audio`, `video`, `film`, `paper`, `newspaper`, `newspaperpage`, `videofragment`, `audiofragment`, `image`  |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
