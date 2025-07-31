@@ -669,7 +669,8 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Message digest algorithm |
 | Description | This element details which algorithm is used to construct the message digest for the digital file object present. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string); fixed vocabulary |
+| Vocabulary | `MD5` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -694,9 +695,9 @@ The table below gives an overview of the different relationship types that can b
 | Name | Message digest algorithm value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
-| Vocabulary | `Adler-32`<br>`CRC32`<br>`HAVAL`<br>`MD2`<br>`MD5`<br>`MNP`<br>`SHA-1`<br>`SHA-256`<br>`SHA-384`<br>`SHA-512`<br>`TIGER`<br>`unknown`<br>`Whirlpool` |
+| Vocabulary | `http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5` |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigest` |
 |-----------------------|-----------|
