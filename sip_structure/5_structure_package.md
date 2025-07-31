@@ -1735,7 +1735,7 @@ TODO: figure out the IDs
         <premis:linkingAgentIdentifier>
             <premis:linkingAgentIdentifierType>UUID</premis:linkingAgentIdentifierType>
             <premis:linkingAgentIdentifierValue>uuid-1cc1fe7a-da78-4c53-847a-0fd141ce2d3b</premis:linkingAgentIdentifierValue>
-            <premis:linkingAgentRole>player</premis:linkingAgentRole>
+            <premis:linkingAgentRole>instrument</premis:linkingAgentRole>
         </premis:linkingAgentIdentifier>
         <premis:linkingObjectIdentifier>
             <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
@@ -1881,7 +1881,7 @@ TODO: figure out the IDs
 | Name | Linking agent role |
 | Description | The role that the agent played in relation to the event. <br><br> Exactly one linking agent identifier must have the the implementer role.  |
 | Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS Event Related Agent Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole))  |
-| Vocabulary | `authorizer`<br>`executing program`<br>`implementer`<br>`validator`<br><br>`player`<br>... |
+| Vocabulary | `authorizer`<br>`executing program`<br>`implementer`<br>`validator`<br>`instrument`<br> |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
