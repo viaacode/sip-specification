@@ -780,7 +780,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used. Its value MUST be set to `"http://id.loc.gov/vocabulary/preservation/formatRegistryRole"`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:format/premis:formatRegistry/premis:formatRegistryRole/@valueURI` |
 |-----------------------|-----------|
@@ -788,7 +788,7 @@ The table below gives an overview of the different relationship types that can b
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>This attribute's value MUST be set to `"http://id.loc.gov/vocabulary/preservation/formatRegistryRole/spe"`. |
 | Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
 | Cardinality | 0..1 |
-| Obligation | MUST |
+| Obligation | MAY |
 
 | Element | `premis:premis/premis:object[@xsi:type="premis:file"]/premis:originalName` |
 |-----------------------|-----------|
