@@ -8,8 +8,7 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Material artwork
 ---
-Editor's Draft
-{: .label .label-yellow }
+
 # Use Case: a gigapixel digitization of a two-dimensional artwork
 
 The following use case describes how to package a gigapixel reproduction of a two-dimensional artwork such as a drawing or painting. 

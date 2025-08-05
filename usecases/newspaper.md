@@ -8,8 +8,7 @@ nav_exclude:  false
 has_children: false
 sip_profile:  Bibliographic
 ---
-Editor's Draft
-{: .label .label-yellow }
+
 # Use Case: a newspaper edition digitised per page (without PDF)
 
 The following use case describes how to package a newspaper edition digitised per page (without PDF file). It includes:

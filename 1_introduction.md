@@ -6,8 +6,7 @@ grand_parent:  SIP Specification
 nav_order:    1
 nav_exclude:  false
 ---
-Editor's Draft
-{: .label .label-yellow }
+
 
 # Introduction
 

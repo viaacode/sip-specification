@@ -6,8 +6,7 @@ grand_parent:  2.1
 nav_order:    4
 nav_exclude:  false
 ---
-Editor's Draft
-{: .label .label-yellow }
+
 # Profile: Film 
 
 The film profile supports the ingest of digitised film stored on one or more image and/or audio reels. 
