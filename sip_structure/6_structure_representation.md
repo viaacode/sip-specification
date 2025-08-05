@@ -6,8 +6,7 @@ grand_parent:  2.0
 nav_order:    2
 nav_exclude:  false
 ---
-Editor's Draft
-{: .label .label-yellow }
+
 # Representation level
 {: .no_toc }
 

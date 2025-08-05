@@ -7,8 +7,7 @@ nav_order:    4
 nav_exclude:  false
 has_children: true
 ---
-Editor's Draft
-{: .label .label-yellow }
+
 # SIP structure
 
 The meemoo SIP consists of a hierarchical directory structure with 2 levels:
