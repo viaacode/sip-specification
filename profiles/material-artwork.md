@@ -2,7 +2,7 @@
 layout:       default
 title:        Material artwork
 parent:       Profiles
-grand_parent:  2.0
+grand_parent:  2.1
 nav_order:    3
 nav_exclude:  false
 ---
@@ -16,7 +16,7 @@ This includes photographic registration of 2D artworks, such as paintings or dra
 This content profile specifies how to package different media files (e.g., TIFF, JPEG, OBJ or MTL), their metadata and the relationships between them in a meemoo SIP package.
 It also allows extensions to the descriptive metadata using [Schema.org](https://schema.org).
 
-**Permalink:** <https://data.hetarchief.be/id/sip/2.0/material-artwork>
+**Permalink:** <https://data.hetarchief.be/id/sip/2.1/material-artwork>
 
 ## Example Directory structure
 
@@ -153,7 +153,7 @@ root_directory
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/2.0/material-artwork`.
+- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/2.1/material-artwork`.
 - The `TYPE` attribute in the `METS.xml` file MUST be set to
   - `Photographs - Digital` (for 2D objects) or
   - `Scanned 3D Objects (output from photogrammetry scanning)` (for 3D objects).
@@ -164,9 +164,9 @@ root_directory
 
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the IE MUST be present at the package level.
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level (e.g. to indicate diverting licenses). 
-- Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [SCHEMA](http://schema.org) elements outlined in the [basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/profiles/basic.md %}#dc-requirements).
-- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) and [SCHEMA](http://schema.org) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
-- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
+- Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [SCHEMA](http://schema.org) elements outlined in the [basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/basic.md %}#dc-requirements).
+- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) and [SCHEMA](http://schema.org) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
+- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
 - The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
 ### Validation

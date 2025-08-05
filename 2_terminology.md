@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Terminology
-parent:       2.0
+parent:       2.1
 grand_parent:  SIP Specification 
 nav_order:    2
 nav_exclude:  false
@@ -51,11 +51,11 @@ Editor's Draft
     <dd><a href="https://www.w3.org/XML/Schema">XML Schema Definition</a> is a way to formally describe the elements in a XML document. It can be used for validation against existing metadata schemas and standards.</dd>
 </dl>
 
-## Datatypes
+## Data types
 
-In the context of noting metadata values, the following datatypes are mentioned throughout this specification:
+In the context of noting metadata values, the following data types are mentioned throughout this specification:
 
-| Datatype       | Definition |
+| Data type       | Definition |
 | -------------- | ---------- |
 | <a id="integer"></a>Integer | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
 | <a id="float"></a>Float        | A number which provides a standardized format for expressing fractional values with a moderate level of precision. Represent decimal numbers as single-precision 32-bit floating-point values, adhering to the IEEE 754 standard according to [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#float). |
@@ -66,12 +66,13 @@ In the context of noting metadata values, the following datatypes are mentioned 
 | <a id="edtf"></a>EDTF           | Date and time, following the [Extended Date Time Format](https://www.loc.gov/standards/datetime/) up to level 1 plus the value `XXXX` to indicate an unknown date. All [XML Schema datetimes](#xsd-datetime) dates are also valid EDTF dates. |
 | <a id="mimetype"></a>IANA mime type | Media types defined by the [Internet Assigned Numbers Authority](https://www.iana.org/assignments/media-types/media-types.xhtml). |
 | <a id="md5"></a>MD5        | String result from applying the MD5 message-digest algorithm to a digital file object. |
-| <a id="id"></a>ID | A string identifier consisting of alphanumerical characters (i.e. letters, digits, underscores, hyphens and periods), defined as the NCName datatype in the [XSD Datatypes specification](https://www.w3.org/TR/xmlschema11-2/#NCName).<br><br>Every ID MUST start with a letter or an underscore and it MUST be unique within the SIP. |
+| <a id="id"></a>ID | A string identifier consisting of alphanumerical characters (i.e. letters, digits, underscores, hyphens and periods), defined as the NCName data type in the [XSD Datatypes specification](https://www.w3.org/TR/xmlschema11-2/#NCName).<br><br>Every ID MUST start with a letter or an underscore and it MUST be unique within the SIP. |
 | <a id="uuid"></a>UUID           | A Universally Unique Identifier as defined in [RFC4122](https://datatracker.ietf.org/doc/html/rfc4122). Note that a UUID is also an instance of an ID, if it starts with a letter or an underscore.|
 | <a id="or-id"></a>OR-id            | Organisation ID; a unique sequence of 10 Unicode ([UTF-8](https://datatracker.ietf.org/doc/html/rfc3629)) characters attributed by meemoo to each of its Content Partners. Note that an OR-id is also an instance of an ID. |
 | <a id="uri"></a>URI            | A Uniform Resource Identifier as defined in [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986), which extends the URL. |
 | <a id="url"></a>URL            | A Uniform Resource Locator as defined in [RFC1738](https://datatracker.ietf.org/doc/html/rfc1738). |
+| <a id="iso3166"></a>ISO 3166| An ISO 3166 country code as defined by [ISO](https://www.iso.org/iso-3166-country-codes.html). An online list is available for browsing on [the ISO Online Browsing Platform](https://www.iso.org/obp/ui/#search/code/).  |
 
 <small>
-Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/3_core-concepts.md %}).
+Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/3_core-concepts.md %}).
 </small>

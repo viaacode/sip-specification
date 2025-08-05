@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Structure
-parent:       2.0
+parent:       2.1
 grand_parent:  SIP Specification 
 nav_order:    4
 nav_exclude:  false
@@ -21,10 +21,10 @@ The meemoo SIP consists of a hierarchical directory structure with 2 levels:
   <figcaption>The directory structure of a meemoo SIP.</figcaption>
 </figure>
 
-The [_package level_]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}) contains descriptive and preservation information about the SIP's main subject, namely the different IE(s) of which digital representations are being delivered, and preservation information about the SIP as a whole (e.g. the software used to create the SIP).
+The [_package level_]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}) contains descriptive and preservation information about the SIP's main subject, namely the different IE(s) of which digital representations are being delivered, and preservation information about the SIP as a whole (e.g. the software used to create the SIP).
 In addition, a `METS.xml` file supplies information about the SIP's structure (in particular that of the package level) and administrative information about the SIP's submission (e.g. the organization that submits the SIP).
 
-The [_representation level_]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/6_structure_representation.md %}) contains the media files, grouped in representation folders.
+The [_representation level_]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}) contains the media files, grouped in representation folders.
 Each representation folder also contains its own `METS.xml` file, together with descriptive and preservation information about a specific representation of the IE(s) of the SIP situated at the _package level_ and preservation information about the media files.
 
 ## Running example
@@ -43,5 +43,5 @@ This approach results in one main IE (i.e. the Felis Catus Flamens), further sub
 One representation then consists of two pictures, while the other consists of one picture.
 
 <small>
-Continue to [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}).
+Continue to [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}).
 </small>
