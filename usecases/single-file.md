@@ -2,18 +2,16 @@
 layout:       default
 title:        Single file
 parent:       Use cases
-grand_parent:  1.0
+grand_parent:  1.1
 nav_order:    1
 nav_exclude:  false
 has_children: false
 sip_profile: Basic
 ---
-Retired
-{: .label .label-red }
 # Use Case: a single image
 
 The following use case describes how to package a single image file with some basic descriptive metadata.
-It illustrates the most minimal implementation that conforms to meemoo's SIP specification and the [**Basic content profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/basic.md %}).
+It illustrates the most minimal implementation that conforms to meemoo's SIP specification and the [**Basic content profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).
 
 A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec/).
 
@@ -86,11 +84,11 @@ In total, the SIP contains 3 metadata files:
 The `dc.xml` of the package level describes the IE using the DCTERMS metadata schema.
 It contains minimal metadata such as a title, an identifier, a creation datetime (set to unknown) and a number of keywords.
 
-Note that the identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+Note that the identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo)).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns="https://data.hetarchief.be/id/sip/1.0/basic" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
+<metadata xmlns="https://data.hetarchief.be/id/sip/1.1/basic" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
   <!-- general title for the resource -->
   <dcterms:title xml:lang="nl">Felis Catus Flamens sitting on a cat tree</dcterms:title>
@@ -228,5 +226,5 @@ It also describes the various relationships between these objects:
 ```
 
 <small>
-Continue to [Video file with subtitles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/usecases/video-with-subtitles.md %}).
+Continue to [Video file with subtitles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/usecases/video-with-subtitles.md %}).
 </small>

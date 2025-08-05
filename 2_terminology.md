@@ -1,13 +1,11 @@
 ---
 layout:       default
 title:        Terminology
-parent:       1.0
-grand_parent:  SIP Specification
+parent:       1.1
+grand_parent:  SIP Specification 
 nav_order:    2
 nav_exclude:  false
 ---
-Retired
-{: .label .label-red }
 # Terminology
 
 <dl>
@@ -59,7 +57,8 @@ In the context of noting metadata values, the following datatypes are mentioned 
 
 | Datatype       | Definition |
 | -------------- | ---------- |
-| <a id="integer"></a>Integer        | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
+| <a id="integer"></a>Integer | An arbitrary-size non negative integer number as defined in [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#nonNegativeInteger). |
+| <a id="float"></a>Float        | A number which provides a standardized format for expressing fractional values with a moderate level of precision. Represent decimal numbers as single-precision 32-bit floating-point values, adhering to the IEEE 754 standard according to [XML Schema Part 2:Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#float). |
 | <a id="string"></a>String         | A sequence of zero or more Unicode (UTF-8) characters, usually wrapped in double quotes, using backslash escapes (if necessary). A character is represented as a single character string. |
 | <a id="xsd-datetime"></a>XML Schema datetime            | Date and time notation according to the [XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#dateTime) standard. Compatible with [ISO 8601:2004](https://www.iso.org/standard/40874.html). |
 | <a id="xsd-duration"></a>XML Schema duration            | Duration of time notation according to the [XML Schema Part 2: Datatypes Second Edition](https://www.w3.org/TR/xmlschema-2/#duration) standard. Compatible with [ISO 8601:2004](https://www.iso.org/standard/40874.html). |
@@ -74,5 +73,5 @@ In the context of noting metadata values, the following datatypes are mentioned 
 | <a id="url"></a>URL            | A Uniform Resource Locator as defined in [RFC1738](https://datatracker.ietf.org/doc/html/rfc1738). |
 
 <small>
-Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/3_core-concepts.md %}).
+Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/3_core-concepts.md %}).
 </small>

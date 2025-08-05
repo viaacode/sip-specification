@@ -1,13 +1,11 @@
 ---
 layout:       default
 title:        Introduction
-parent:       1.0
-grand_parent:  SIP Specification
+parent:       1.1
+grand_parent:  SIP Specification 
 nav_order:    1
 nav_exclude:  false
 ---
-Retired
-{: .label .label-red }
 # Introduction
 
 This document specifies the meemoo Submission Information Package (SIP), which describes how data and metadata should be packaged when delivered to meemoo for ingest.
@@ -84,5 +82,5 @@ The cardinality is expressed with syntax from the [Unified Modeling Language](ht
 | `m..n`       | At least m but no more than n instances.                                         |
 
 <small>
-Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}).
+Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}).
 </small>

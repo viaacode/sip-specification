@@ -2,12 +2,10 @@
 layout:       default
 title:        Bag level
 parent:       Structure
-grand_parent:  1.0
+grand_parent:  1.1
 nav_order:    5
 nav_exclude:  false
 ---
-Retired
-{: .label .label-red }
 # Bag level
 {: .no_toc }
 
@@ -102,7 +100,7 @@ Tag-File-Character-Encoding: UTF-8
 
 The `/data` directory contains the content of the bag divided across a number of different files and directories.
 Each `/data` directory MUST contain exactly one package, consisting of the combination of a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
-See the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}) for more information and the requirements of the `/data` directory.
+See the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}) for more information and the requirements of the `/data` directory.
 
 ***Example***
 
@@ -120,5 +118,5 @@ root_directory
 ```
 
 <small>
-Continue to [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/5_structure_package.md %}).
+Continue to [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}).
 </small>

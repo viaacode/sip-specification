@@ -1,13 +1,11 @@
 ---
 layout:       default
 title:        Core concepts
-parent:       1.0
-grand_parent:  SIP Specification
+parent:       1.1
+grand_parent:  SIP Specification 
 nav_order:    3
 nav_exclude:  false
 ---
-Retired
-{: .label .label-red }
 # Core Concepts
 {: .no_toc }
 
@@ -53,7 +51,7 @@ Examples of these three concepts are given in the table below.
 
 A generic data model is necessary to ensure a scalable SIP design to current and future use cases.
 However, not every utilization of this model is allowed at ingest in the meemoo archive.
-Depending on the type of content, a specific mapping is required, which is captured in the different [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/profiles/index.md %}).
+Depending on the type of content, a specific mapping is required, which is captured in the different [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/index.md %}).
 A content profile determines
 
 - whether an IE is subdivided further into other IEs (i.e. nesting of IEs);
@@ -83,5 +81,5 @@ We have one IE (i.e. the newspaper edition) and we can discern between three rep
 </figure>
 
 <small>
-Continue to [Structure]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/sip_structure/index.md %}).
+Continue to [Structure]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/index.md %}).
 </small>
