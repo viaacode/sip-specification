@@ -6,8 +6,7 @@ grand_parent:  SIP Specification
 nav_order:    3
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
+
 # Core Concepts
 {: .no_toc }
 

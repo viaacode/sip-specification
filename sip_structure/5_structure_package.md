@@ -6,8 +6,7 @@ grand_parent:  1.2
 nav_order:    2
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
+
 # Package level
 {: .no_toc }
 
