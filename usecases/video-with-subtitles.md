@@ -2,12 +2,14 @@
 layout:       default
 title:        Video file with subtitles
 parent:       Use cases
-grand_parent:  1.1
+grand_parent:  1.2
 nav_order:    2
 nav_exclude:  false
 has_children: false
 sip_profile:  Basic
 ---
+Release Candidate
+{: .label .label-blue }
 # Use Case: a video file with subtitles
 
 The following use case describes how to package
@@ -16,7 +18,7 @@ The following use case describes how to package
 - a subtitle file; and
 - some basic descriptive metadata.
 
-It uses the [**Basic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}).
+It uses the [**Basic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/basic.md %}).
 
 A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6/).
 
@@ -72,7 +74,7 @@ subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip
     │── mets.xml
     │── metadata
     |   |── descriptive
-    |   |   └── dc.xml
+    |   |   └── dc+schema.xml
     |   └── preservation
     |       └── premis.xml
     │
@@ -92,20 +94,20 @@ subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6.zip
 
 In total, the SIP contains 3 metadata files:
 
-| `/data/metadata/descriptive/dc.xml` | Descriptive metadata about the IE residing at the _Package level_. |
+| `/data/metadata/descriptive/dc+schema.xml` | Descriptive metadata about the IE residing at the _Package level_. |
 | `/data/metadata/preservation/premis.xml` | Preservation metadata about the IE residing at the _Package level_. |
 | `/data/representations/representation_1/metadata/preservation/premis.xml` | Preservation metadata about the representation and files residing at the _Representation level_. |
 
-### /data/metadata/descriptive/dc.xml
+### /data/metadata/descriptive/dc+schema.xml
 
-The `dc.xml` of the package level describes the IE using the DCTERMS metadata schema.
+The `dc+schema.xml` of the package level describes the IE using the DCTERMS metadata schema.
 It contains minimal metadata such as a title, an identifier, a creation and an issued datetime...
 
-Note that the identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+Note that the identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo)).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns="https://data.hetarchief.be/id/sip/1.1/basic" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
+<metadata xmlns="https://data.hetarchief.be/id/sip/1.2/basic" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:schema="https://schema.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
 
   <dcterms:title xml:lang="nl">the title of the episode</dcterms:title>
 
@@ -135,7 +137,7 @@ Note that the identifier is used to link the `dc.xml` file to the corresponding 
 The `premis.xml` of the package level describes the IE and its relationship with its representation.
 It also contains an example of an additional identifier added by the CP.
 
-Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier>` in the `descriptive/dc.xml` file in order to link the two files together.
+Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier>` in the `descriptive/dc+schema.xml` file in order to link the two files together.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

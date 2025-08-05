@@ -1,11 +1,14 @@
 ---
 layout:       default
 title:        Introduction
-parent:       1.1
+parent:       1.2
 grand_parent:  SIP Specification 
 nav_order:    1
 nav_exclude:  false
 ---
+Release Candidate
+{: .label .label-blue }
+
 # Introduction
 
 This document specifies the meemoo Submission Information Package (SIP), which describes how data and metadata should be packaged when delivered to meemoo for ingest.
@@ -23,7 +26,7 @@ Finally, the _bag_ directory _level_ bundles everything together for transport.
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
-Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), and [PREMIS](https://www.loc.gov/standards/premis/).
+Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [MODS](https://www.loc.gov/standards/mods/), and [PREMIS](https://www.loc.gov/standards/premis/).
 
 The meemoo SIP specification itself cannot be used for actual ingest in the meemoo archive.
 Depending on the type of content, specific mappings are required for ingest.
@@ -47,6 +50,7 @@ To fully understand the basics of this specification, it is advised to be famili
 | <a id="e-ark-sip"></a>E-ARK SIP    | [E-ARK Specification for Submission Information Packages](https://earksip.dilcis.eu/)|
 | <a id="mets"></a>METS         | [Metadata Encoding & Transmission Standard](https://www.loc.gov/standards/mets/mets.xsd)|
 | <a id="dcterms"></a>DCTERMS      | [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)|
+| <a id="mods"></a>MODS      | [Metadata Object Description Schema](https://www.loc.gov/standards/mods/)|
 | <a id="premis"></a>PREMIS       | [PREMIS Data Dictionary for Preservation Metadata]([PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/))|
 
 Metadata elements from these standards are described throughout this specification using tables such as the one below. 
@@ -82,5 +86,5 @@ The cardinality is expressed with syntax from the [Unified Modeling Language](ht
 | `m..n`       | At least m but no more than n instances.                                         |
 
 <small>
-Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}).
+Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}).
 </small>
