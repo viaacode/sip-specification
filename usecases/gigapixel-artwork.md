@@ -2,14 +2,14 @@
 layout:       default
 title:        Gigapixel artwork
 parent:       Use cases
-grand_parent:  1.2
+grand_parent:  2.0
 nav_order:    6
 nav_exclude:  false
 has_children: false
 sip_profile:  Material artwork
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a gigapixel digitization of a two-dimensional artwork
 
 The following use case describes how to package a gigapixel reproduction of a two-dimensional artwork such as a drawing or painting. 
@@ -21,7 +21,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/material-artwork.md %}).
+It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/profiles/material-artwork.md %}).
 
 ## The content
 
@@ -57,7 +57,7 @@ Since the metadata only describes a single artwork, we can consider it as the si
 
 We can distinguish a couple of file sets (in the TIFF or PSB file format) that represent the work in some manner: an overview with frame, an overview without frame, a stitched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
 
-Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/3_core-concepts.md %}):
+Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/3_core-concepts.md %}):
 
 |_Intellectual Entity_|the 'Uur- en kalenderwijzerplaat' |
 |_Representation 1_| the access copy of the painting with frame |
@@ -85,74 +85,71 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│── manifest-md5.txt
-│── bagit.txt
-└── data
-    │── mets.xml
-    │── metadata
-    |   |── descriptive
-    |   |   └── dc+schema.xml
-    |   └── preservation
-    |       └── premis.xml
-    │
-    └── representations
-        |── representation_1       # overview with frame
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_overzichtsopname_metlijst_tiff.tiff
-        |   └──metadata
-        |      |── descriptive    
-        |      |   └── dc+schema.xml   
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_2       # overview without frame
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff
-        |   └──metadata
-        |      |── descriptive     
-        |      |   └── dc+schema.xml   
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_3       # composed stitch 
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_stitch_bigtiff.tiff
-        |   └──metadata
-        |      |── descriptive   
-        |      |   └── dc+schema.xml         
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_4       # composed stitch in PSB
-        |   │── mets.xml
-        |   |── data
-        |   │   └── cf9j41p15z_stitch_psb.psb
-        |   └──metadata
-        |      |── descriptive   
-        |      |   └── dc+schema.xml         
-        |      └── preservation
-        |          └── premis.xml
-        |── representation_5       # stitch 
-        |   │── mets.xml
-        |   |── data
-        |   |   |── cf9j41p15z_Kolom1_deelopname1_tiff.tiff
-        |   |   |── cf9j41p15z_Kolom1_deelopname2_tiff.tiff
-        |   |   |── ...
-        |   │   └── cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
-        |   └── metadata
-        |       |── descriptive     
-        |       |   └── dc+schema.xml    
-        |       └── preservation
-        |           └── premis.xml
-        └── representation_6       # target 
-           │── mets.xml
-           |── data
-           │   └── cf9j41p15z_target_tiff.tiff
-           └── metadata
-               |── descriptive     
-               |   └── dc+schema.xml    
-               └── preservation
-                   └── premis.xml
+│── METS.xml
+│── metadata
+|   |── descriptive
+|   |   └── dc+schema.xml
+|   └── preservation
+|       └── premis.xml
+│
+└── representations
+    |── representation_1       # overview with frame
+    |   │── METS.xml
+    |   |── data
+    |   │   └── cf9j41p15z_overzichtsopname_metlijst_tiff.tiff
+    |   └──metadata
+    |      |── descriptive    
+    |      |   └── dc+schema.xml   
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_2       # overview without frame
+    |   │── METS.xml
+    |   |── data
+    |   │   └── cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff
+    |   └──metadata
+    |      |── descriptive     
+    |      |   └── dc+schema.xml   
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_3       # composed stitch 
+    |   │── METS.xml
+    |   |── data
+    |   │   └── cf9j41p15z_stitch_bigtiff.tiff
+    |   └──metadata
+    |      |── descriptive   
+    |      |   └── dc+schema.xml         
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_4       # composed stitch in PSB
+    |   │── METS.xml
+    |   |── data
+    |   │   └── cf9j41p15z_stitch_psb.psb
+    |   └──metadata
+    |      |── descriptive   
+    |      |   └── dc+schema.xml         
+    |      └── preservation
+    |          └── premis.xml
+    |── representation_5       # stitch 
+    |   │── METS.xml
+    |   |── data
+    |   |   |── cf9j41p15z_Kolom1_deelopname1_tiff.tiff
+    |   |   |── cf9j41p15z_Kolom1_deelopname2_tiff.tiff
+    |   |   |── ...
+    |   │   └── cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
+    |   └── metadata
+    |       |── descriptive     
+    |       |   └── dc+schema.xml    
+    |       └── preservation
+    |           └── premis.xml
+    └── representation_6       # target 
+       │── METS.xml
+       |── data
+       │   └── cf9j41p15z_target_tiff.tiff
+       └── metadata
+           |── descriptive     
+           |   └── dc+schema.xml    
+           └── preservation
+               └── premis.xml
 
 ```
 
@@ -174,7 +171,7 @@ In total, the SIP contains 13 metadata files:
 The `dc+schema.xml` of the package level describes the IE using [the DCTERMS]((https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)) and the [Schema](schema.org/) metadata models.
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance, and additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
 
-The identifier in the `<dcterms:identifier/>` element is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier in the `<dcterms:identifier/>` element is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>

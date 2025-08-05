@@ -2,14 +2,14 @@
 layout:       default
 title:        Newspaper edition (without PDF)
 parent:       Use cases
-grand_parent:  1.2
+grand_parent:  2.0
 nav_order:    4
 nav_exclude:  false
 has_children: false
-sip_profile:  Newspaper
+sip_profile:  Bibliographic
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 # Use Case: a newspaper edition digitised per page (without PDF)
 
 The following use case describes how to package a newspaper edition digitised per page (without PDF file). It includes:
@@ -19,7 +19,7 @@ The following use case describes how to package a newspaper edition digitised pe
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**Newspaper SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/bibliographic.md %}).
+It uses the [**Bibliographic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/profiles/bibliographic.md %}).
 
 A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/newspaper_c44a0b0d-6e2f-4af2-9dab-3a9d447288d0/).
 
@@ -72,39 +72,35 @@ It has the following directory structure:
 
 ```plaintext
 root_directory
-│──manifest-md5.txt
-│──bagit.txt
+│──METS.xml
+│──metadata
+|   |──descriptive
+|   |  └──mods.xml
+|   └──preservation
+|       └──premis.xml
 │
-└──data
-    │──mets.xml
-    │──metadata
-    |   |──descriptive
-    |   |  └──mods.xml
-    |   └──preservation
-    |       └──premis.xml
+└──representations
+    │──representation_1
+    │    │──METS.xml
+    │    │──data
+    │    |   |──18950101_0001.tiff
+    │    |   |──18950101_0002.tiff
+    │    │   └──18950101_0003.tiff
+    │    │
+    │    └──metadata
+    │        └──preservation
+    │            └──premis.xml
     │
-    └──representations
-        │──representation_1
-        │    │──mets.xml
-        │    │──data
-        │    |   |──18950101_0001.tiff
-        │    |   |──18950101_0002.tiff
-        │    │   └──18950101_0003.tiff
-        │    │
-        │    └──metadata
-        │        └──preservation
-        │            └──premis.xml
-        │
-        └──representation_2
-             │──mets.xml
-             │──data
-             |   |──18950101_0001.xml
-             |   |──18950101_0002.xml
-             │   └──18950101_0003.xml
-             │
-             └──metadata
-                └──preservation
-                   └──premis.xml
+    └──representation_2
+         │──METS.xml
+         │──data
+         |   |──18950101_0001.xml
+         |   |──18950101_0002.xml
+         │   └──18950101_0003.xml
+         │
+         └──metadata
+            └──preservation
+               └──premis.xml
 ```
 
 ## The metadata
@@ -116,13 +112,12 @@ In total, the SIP contains 5 metadata files:
 |`data/representations/representation_1/metadata/preservation/premis.xml`|Preservation metadata about the representation and TIFF files residing at the _representation level_.|
 |`data/representations/representation_2/metadata/preservation/premis.xml`|Preservation metadata about the representation and ALTO XML files residing at the _representation level_.|
 
-
 ### data/metadata/descriptive/mods.xml
 
 The `mods.xml` of the package level describes the IE using [the MODS metadata schema](https://www.loc.gov/standards/mods/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
 
 Note that only a subset of MODS elements are obligatory in the newspaper SIP profile.
 The examples below and in the sample mentioned earlier therefore only serve as an illustration of possible elements rather than as an exhaustive list of obligatory elements.

@@ -1,13 +1,13 @@
 ---
 layout:       default
 title:        Introduction
-parent:       1.2
+parent:       2.0
 grand_parent:  SIP Specification 
 nav_order:    1
 nav_exclude:  false
 ---
-Release Candidate
-{: .label .label-blue }
+Editor's Draft
+{: .label .label-yellow }
 
 # Introduction
 
@@ -17,21 +17,28 @@ These collections contain a wealth of content and information stored in various 
 They are accompanied by metadata that is described in a variety of formats.
 Therefore, the current SIP specification was developed to standardize the delivery of (media) content and metadata by meemoo's content partners and increase scalability and sustainability.
 
-The meemoo SIP uses a three-level hierarchical directory structure (_bag - package - representation_) to aggregate and describe media assets, including video, audio, images, captions...
-A meemoo SIP is a valid [BagIt bag](https://www.rfc-editor.org/rfc/rfc8493.html) that contains a valid [E-ARK SIP](https://earksip.dilcis.eu/).
-
-At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
-One level higher, the _package_ directory _level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.html), such as the work that is being depicted.
-Finally, the _bag_ directory _level_ bundles everything together for transport.
+The meemoo SIP is a valid [E-ARK SIP](https://earksip.dilcis.eu/) and uses a two-level hierarchical directory structure (_package_ & _representation_) to aggregate and describe media assets, including video, audio, images, captions, etc. At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
+One level higher, the _package level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.html), such as the work that is being depicted.
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
-Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [MODS](https://www.loc.gov/standards/mods/), and [PREMIS](https://www.loc.gov/standards/premis/).
+Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), and [PREMIS](https://www.loc.gov/standards/premis/).
 
 The meemoo SIP specification itself cannot be used for actual ingest in the meemoo archive.
 Depending on the type of content, specific mappings are required for ingest.
 These mappings consist of additional requirements on top of the current meemoo SIP specification and are captured in the different content profiles.
 In summary, content that is delivered to meemoo for ingest must always be packaged in a meemoo SIP that adheres to a specific content profile.
+
+## Changes compared to version 1.X
+
+Version 2.0 of the meemoo SIP introduces conformance with the official [E-ARK (C)SIP specification (v2.2.0)](https://dilcis.eu/specifications/).
+It does so by applying the following breaking changes compared to versions 1.X (references to relevant E-ARK requirements are added between parentheses where possible):
+
+- the SIP is no longer packaged using the [BagIt File Packaging Format](https://www.rfc-editor.org/rfc/rfc8493.html), thereby effectively removing the Bag level from the SIP;
+- the METS file names are now required to be capitalized ([CSIPSTR4](https://earkcsip.dilcis.eu/#CSIPSTR4) and [CSIPSTR12](https://earkcsip.dilcis.eu/#CSIPSTR12));
+- the attribute `metsHdr/@OAISPACKAGETYPE` is now required in both the package METS file as well as any representation METS files ([CSIP9](https://earkcsip.dilcis.eu/#CSIP9) and [SIP4](https://earksip.dilcis.eu/#SIP4));
+- the `mets/structMap[@LABEL='CSIP']/div/div` elements of the package METS file are now required to use the (relative) path of the relevant representation METS file (without extension) as the string value of their `@LABEL` attribute ([CSIP107](https://earkcsip.dilcis.eu/#CSIP107));
+- representation directories are no longer required to follow the `representation_*` format.
 
 ## How to Read this Specification
 
@@ -45,13 +52,13 @@ To fully understand the basics of this specification, it is advised to be famili
 
 | Abbreviation | Standard |
 | ------------ | -------------- |
-| <a id="bagit"></a>BagIt        | [BagIt File Packaging Format](https://www.rfc-editor.org/rfc/rfc8493.html)|
 | <a id="e-ark-csip"></a>E-ARK CSIP   | [E-ARK Common Specification for Information Packages](https://earkcsip.dilcis.eu/)|
 | <a id="e-ark-sip"></a>E-ARK SIP    | [E-ARK Specification for Submission Information Packages](https://earksip.dilcis.eu/)|
 | <a id="mets"></a>METS         | [Metadata Encoding & Transmission Standard](https://www.loc.gov/standards/mets/mets.xsd)|
 | <a id="dcterms"></a>DCTERMS      | [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)|
-| <a id="mods"></a>MODS      | [Metadata Object Description Schema](https://www.loc.gov/standards/mods/)|
-| <a id="premis"></a>PREMIS       | [PREMIS Data Dictionary for Preservation Metadata]([PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/))|
+| <a id="premis"></a>PREMIS       | [PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/)|
+| <a id="schema"></a>Schema       | [Schema.org](https://schema.org/)|
+| <a id="mods"></a>MODS       | [Metadata Object Description Schema](https://www.loc.gov/standards/mods/)|
 
 Metadata elements from these standards are described throughout this specification using tables such as the one below. 
 
@@ -86,5 +93,5 @@ The cardinality is expressed with syntax from the [Unified Modeling Language](ht
 | `m..n`       | At least m but no more than n instances.                                         |
 
 <small>
-Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}).
+Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}).
 </small>
