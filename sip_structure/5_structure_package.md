@@ -289,7 +289,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent type |
 | Description | The type of the SIP creator software agent.<br>This value MUST be set to `OTHER`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
 | Vocabulary | `OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1992,12 +1992,11 @@ TODO: figure out the IDs
 
 ## /representations (directory)
 
-The `/representations` directory contains a separate `/representation_*` (where `*` is a positive integer increasing by 1 for each additional representation) directory for each representation of (the) IE(s) of the package level.
+The `/representations` directory contains a separate directory for each representation of (the) IE(s) of the package level.
 
 ***Requirements***
 
-- The `/representations` directory MUST at least contain one `/representation_*` directory.
-- The different subdirectories in the `/representations` directory MUST be named `/representation_*`, with `*` being a positive integer that is incremented by 1 for each additional representation in the `/representations` directory.
+- The `/representations` directory MUST contain at least one directory.
 
 <small>
 Continue to [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}).
