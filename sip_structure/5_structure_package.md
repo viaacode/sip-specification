@@ -289,7 +289,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent type |
 | Description | The type of the SIP creator software agent.<br>This value MUST be set to `OTHER`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}#string) |
+| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/2_terminology.md %}#string) |
 | Vocabulary | `OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
