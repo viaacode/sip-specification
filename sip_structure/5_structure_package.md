@@ -43,12 +43,21 @@ uuid-e4eb34c0-4fc6-4395-b61c-0671f8e0b04c                     (= root directory)
 
 ***Requirements***
 
-- The root directory MUST contain exactly one `METS.xml` file. The word `METS` in the filename MUST be written in all caps as displayed here.
+{% assign package_contraints = site.data.GENERAL | where_exp: "c",
+"c.Level == 'Package'" %}
+{% assign general_contraints = package_contraints | where_exp: "c",
+"c.Path == '/'" %}
+
+{% for constraint in general_contraints %}
+- {{ constraint.Description }} [{{ constraint.ID }}]
+{% endfor %}
+
+<!-- - The root directory MUST contain exactly one `METS.xml` file. The word `METS` in the filename MUST be written in all caps as displayed here.
 - The root directory MUST have the value of the `OBJID` attribute in the `METS.xml` header as its directory name. In the example tree structure above, that means that the `OBJID` attribute MUST be `uuid-e4eb34c0-4fc6-4395-b61c-0671f8e0b04c` since that is the name of the root directory. See [`mets/@OBJID`](#OBJID) for more details.
 - The root directory MUST contain exactly one `/metadata` directory.
 - The root directory MUST contain exactly one `/representations` directory.
 - The root directory MAY contain exactly one `/documentation` directory.
-- The root directory MAY contain exactly one `/schemas` directory.
+- The root directory MAY contain exactly one `/schemas` directory. -->
 
 ## METS.xml (file)
 
@@ -132,6 +141,20 @@ The various requirements are listed in the table below.
 ```
 
 ***Requirements***
+
+{% assign mets_contraints = package_contraints | where_exp: "c",
+"c.Path == '/METS.xml'" %}
+
+{% for constraint in mets_contraints %}
+| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | `mets/@csip:CONTENTINFORMATIONTYPE` |
+|-----------------------|-----------|
+| Name | {{ constraint.Name }} |
+| Description | {{ constraint.Description }} |
+| Datatype | {{ constraint.Datatype }} |{% if constraint.Vocabulary %}
+| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
+| Cardinality | {{ constraint.Cardinality }} |
+| Obligation | {{ constraint.Obligation }} |
+{% endfor %}
 
 | Element | `mets` |
 |-----------------------|-----------|
