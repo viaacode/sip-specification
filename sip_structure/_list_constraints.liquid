@@ -1,0 +1,2 @@
+{% for constraint in include.constraints %}
+| <a id="{{ constraint.ID }}">#{{ constraint.ID }}</a> | {{ constraint.Description }} |{% endfor %}

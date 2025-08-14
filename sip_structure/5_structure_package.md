@@ -7,6 +7,9 @@ nav_order:    1
 nav_exclude:  false
 ---
 
+{% assign package_constraints = site.data.2_1.GENERAL | where_exp: "c",
+"c.Level == 'Package'" %}
+
 # Package level
 {: .no_toc }
 
@@ -43,14 +46,10 @@ uuid-e4eb34c0-4fc6-4395-b61c-0671f8e0b04c                     (= root directory)
 
 ***Requirements***
 
-{% assign package_constraints = site.data.GENERAL | where_exp: "c",
-"c.Level == 'Package'" %}
 {% assign general_constraints = package_constraints | where_exp: "c",
 "c.Path == '/'" %}
 
-{% for constraint in general_constraints %}
-- {{ constraint.Description }} <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a>
-{% endfor %}
+{% include_relative _list_constraints.liquid constraints = general_constraints %}
 
 ## METS.xml (file)
 
@@ -135,19 +134,10 @@ The various requirements are listed in the table below.
 
 ***Requirements***
 
-{% assign mets_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'mets'" %}
 
-{% for constraint in mets_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 ### \<metsHdr\> section
 
@@ -178,19 +168,10 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 
 ***Requirements***
 
-{% assign metsHdr_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'metsHdr'" %}
 
-{% for constraint in metsHdr_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 ### \<dmdSec\> section
 
@@ -218,19 +199,10 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 
 ***Requirements***
 
-{% assign dmdSec_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'dmdSec'" %}
 
-{% for constraint in dmdSec_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 ### \<amdSec\> section
 
@@ -251,19 +223,10 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 
 ***Requirements***
 
-{% assign amdSec_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'amdSec'" %}
 
-{% for constraint in amdSec_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 ### \<fileSec\> section
 
@@ -294,29 +257,15 @@ The listing of other representation files (i.e. metadata files and media files) 
 {% assign fileSec_constraints = package_constraints | where_exp: "c",
 "c.Section == 'fileSec'" %}
 
-{% assign fileSec_general_constraints = fileSec_constraints | where_exp: "c",
+{% assign constraints = fileSec_constraints | where_exp: "c",
 "c.Type == 'General'" %}
 
-{% for constraint in fileSec_general_constraints %}
-{% assign eark_ids = constraint.EARK_ID | split: ";" %}
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
-- {{ constraint.Description }} <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a> 
-{% for id in eark_ids -%}<a href="{{ id }}">[https://earkcsip.dilcis.eu/#{{ id }}]</a>{% endfor %}
-{% endfor %}
-
-{% assign fileSec_mets_constraints = fileSec_constraints | where_exp: "c",
+{% assign constraints = fileSec_constraints | where_exp: "c",
 "c.Path == '/METS.xml'" %}
 
-{% for constraint in fileSec_mets_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 ### \<structMap\> section
 
@@ -344,19 +293,10 @@ It provides links between elements and metadata files located elsewhere in the p
 
 ***Requirements***
 
-{% assign structMap_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'structMap'" %}
 
-{% for constraint in structMap_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 
 ## /metadata (directory)
@@ -366,12 +306,10 @@ It also contains preservation metadata about the SIP as a whole.
 
 ***Requirements***
 
-{% assign metadata_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'metadata'" %}
 
-{% for constraint in metadata_constraints %}
-- {{ constraint.Description }} <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a>
-{% endfor %}
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### /descriptive (directory)
 
@@ -387,12 +325,10 @@ The `/preservation` directory contains preservation metadata about the IE(s) at 
 
 ***Requirements***
 
-{% assign metadata_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'preservation'" %}
 
-{% for constraint in metadata_constraints %}
-- {{ constraint.Description }} <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a>
-{% endfor %}
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 The `premis.xml` file at the package-level contains preservation metadata about the IE(s) of the SIP, and about the SIP as a whole.
 It also contains any additional IDs related to the IE(s) of the SIP.
@@ -515,19 +451,10 @@ The table below gives an overview of the different relationship types that can b
 
 ***Requirements***
 
-{% assign premis_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'premis'" %}
 
-{% for constraint in premis_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Adding provenance of representations
 
@@ -600,19 +527,10 @@ TODO: figure out the IDs
 </premis:premis>
 ```
 
-{% assign premis_event_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'premisEvent'" %}
 
-{% for constraint in premis_event_constraints %}
-| <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
-|-----------------------|-----------|
-| Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
-| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
-| Cardinality | {{ constraint.Cardinality }} |
-| Obligation | {{ constraint.Obligation }} |
-{% endfor %}
+{% include_relative _constraints.liquid constraints = constraints %}
 
 ## /representations (directory)
 
@@ -620,12 +538,10 @@ The `/representations` directory contains a separate directory for each represen
 
 ***Requirements***
 
-{% assign representations_constraints = package_constraints | where_exp: "c",
+{% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'representations'" %}
 
-{% for constraint in representations_constraints %}
-- {{ constraint.Description }} <a id="{{ constraint.ID }}">[{{ constraint.ID }}]</a>
-{% endfor %}
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 <small>
 Continue to [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}).

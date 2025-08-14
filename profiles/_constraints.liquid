@@ -1,0 +1,11 @@
+{% for constraint in include.constraints %}
+    {% assign eark_ids = constraint.EARK_ID | split: ";" %}
+| <a id="{{ constraint.ID }}">#{{ constraint.ID }}</a> | {{ constraint.Type }}<br>{{ constraint.XPath }} |
+|-----------------------|-----------|
+| Name | {{ constraint.Name }} |
+| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
+| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
+| Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
+| Cardinality | {{ constraint.Cardinality }} |
+| Obligation | {{ constraint.Obligation }} |
+{% endfor %}
