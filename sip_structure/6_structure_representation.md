@@ -7,7 +7,7 @@ nav_order:    2
 nav_exclude:  false
 ---
 
-{% assign rep_constraints = site.data.2_1.GENERAL | where_exp: "c",
+{% assign rep_constraints = site.data.2_1._data.GENERAL | where_exp: "c",
 "c.Level == 'Representation'" %}
 
 # Representation level
