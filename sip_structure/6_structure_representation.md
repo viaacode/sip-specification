@@ -112,7 +112,7 @@ A summary of all possible references and their obligation is given in the table 
       xmlns:xlink="http://www.w3.org/1999/xlink"
       OBJID="representation_1"
       TYPE="Photographs – Digital"
-      PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP.xml" xsi:schemaLocation="https://www.w3.org./1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd  http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd ">
+      PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml" xsi:schemaLocation="https://www.w3.org./1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd  http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd ">
 
 <metsHdr>...</metsHdr>
 <dmdSec>...</dmdSec>
@@ -160,7 +160,7 @@ A summary of all possible references and their obligation is given in the table 
 | Attribute | `mets/@PROFILE` |
 |-----------------------|-----------|
 | Name | METS profile |
-| Description | The URL of the E-ARK METS profile that the SIP conforms with.<br>This URL MUST be set to [`https://earksip.dilcis.eu/profile/E-ARK-SIP.xml`](https://earksip.dilcis.eu/profile/E-ARK-SIP.xml) to indicate conformance with the E-ARK specification. |
+| Description | The URL of the E-ARK METS profile that the SIP conforms with.<br>This URL MUST be set to [`https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml`](https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml) to indicate conformance with the E-ARK specification. |
 | Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
