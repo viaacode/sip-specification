@@ -6,6 +6,7 @@ grand_parent:  2.1
 nav_order:    2
 nav_exclude:  false
 ---
+{% assign bib_constraints = site.data.2_1._data.BIBLIOGRAPHIC_PROFILE %}
 
 # Profile: Bibliographic 
 
@@ -59,526 +60,123 @@ root_directory
 
 ## Requirements
 
+{% assign package_constraints = bib_constraints | where_exp: "c",
+"c.Level == 'Package'" %}
+
+{% assign rep_constraints = bib_constraints | where_exp: "c",
+"c.Level == 'Representation'" %}
+
 ### General
 
-- A SIP MUST contain content of exactly one written work of type
-  - newspaper edition;
-  - book;
-  - letter;
-  - notated music;
-  - magazine issue; or
-  - manuscript.
-- The content MUST be digitised per page, i.e. each TIFF and/or ALTO XML file contained in their respective representation directories MUST represent exactly one page.
-  - <a id="pdf"></a>An exception to this requirement MAY be made with regards to a PDF file: it is RECOMMENDED to only use a single PDF that contains the entire contents (i.e. all pages are present in one single PDF file).
-- There MUST be exactly one IE present in the SIP, i.e. the written work.
-- There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
-- There MUST be preservation metadata at the representation level in the respective `preservation/premis.xml` files.
-- Preservation metadata in the SIP MUST be limited to the PREMIS metadata schema.
-- Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
-  - The value of element `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` MUST be set to `MD5`.
-  - The value of attribute `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5"`.
-- There MAY be descriptive metadata at the representation level (e.g. information about the representations, such as a title or a description).
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'general'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
+
+Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
+
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'md5'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/2.1/bibliographic`.
-- The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `MODS`.
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'mets'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### Package Descriptive Metadata
 
-- A `descriptive/mods.xml` descriptive metadata file MUST be present at the package level.
-- The `descriptive/mods.xml` file MUST follow the [MODS](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) metadata schema (v3.7).
-- The `descriptive/mods.xml` file MUST contain a shared identifier with the `preservation/premis.xml` to indicate which PREMIS object is being described in the `descriptive/mods.xml` file.
-- The MODS metadata in `descriptive/mods.xml` MUST be limited to the elements and attributes outlined below.
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'descriptive'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 #### General information
 
-| Element | `mods:mods` |
-|-----------------------|-----------|
-| Name | MODS root element |
-| Description | This root element MUST contain the XML schema namespace of [MODS](http://www.loc.gov/mods/v3).<br>It MUST NOT contain any other XML schema namespaces besides MODS. |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'mods'" %}
 
-| Attribute | `mods:mods/@version` |
-|-----------------------|-----------|
-| Name | MODS version attribute |
-| Description | This attribute indicates which version of MODS is being used.<br>It MUST be set to `3.7` to indicate conformance with MODS v3.7. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### The main identifiers
 
-| Element | `mods:mods/mods:identifier[not(@type)]` |
-|-----------------------|-----------|
-| Name | MODS identifier element |
-| Description | A unique identifier for the written work.<br>This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.<br>This metadata element MUST NOT contain any attributes.  |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#id) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsIdentifier'" %}
 
-| Element | `mods:mods/mods:recordInfo/mods:recordIdentifier` |
-|-----------------------|-----------|
-| Name | MODS record identifier |
-| Description | This element contains a persistent identifier for the record that describes the written work, which typically originates from the source application.  The record identifier is different from the identifier that identifies the written work itself, which is denoted by `mods:identifier`.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Information on the main title 
 
-| Element | `mods:mods/mods:titleInfo[not(@type)]` |
-|-----------------------|-----------|
-| Name | MODS main titleInfo element |
-| Description | This element contains information about the main title of the written work.<br>This element MUST NOT contain a `@type` attribute in order to designate the main title and differentiate it from other optional `<mods:titleInfo/>` elements. |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsTitle'" %}
 
-| Element | `mods:mods/mods:titleInfo[not(@type)]/mods:title` |
-|-----------------------|-----------|
-| Name | MODS title element |
-| Description | This element contains the title of the written work.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain a `@type` attribute. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Information on alternative titles
 
-| Element | `mods:mods/mods:titleInfo[@type="alternative"]` |
-|-----------------------|-----------|
-| Name | MODS alternative titleInfo element |
-| Description | This element contains alternative information about the title of the written work (e.g., alternative titles for a newspaper or magazine).<br>This element MUST contain a `@type` attribute set to `alternative` and the attribute `@otherType` MUST be present. |
-| Cardinality | 0..* |
-| Obligation | MAY |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsAlternativeTitle'" %}
 
-| Attribute | `mods:mods/mods:titleInfo[@type="alternative"]/@type` |
-|-----------------------|-----------|
-| Name | MODS title type attribute |
-| Description | This attribute indicates the alternative type of title. Its value MUST be set to `alternative`.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Vocabulary | `alternative` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mods:mods/mods:titleInfo[@type="alternative"]/@otherType` |
-|-----------------------|-----------|
-| Name | MODS alternative title other type attribute |
-| Description | This attribute contains the subtype for any alternative title. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:titleInfo[@type="alternative"]/mods:title` |
-|-----------------------|-----------|
-| Name | MODS title element |
-| Description | This element contains an alternative title of the written work.<br>Its parent element (`<mods:titleInfo/>`) MUST contain the `@type` attribute set to `alternative`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Information on language
 
-| Element | `mods:mods/mods:language` |
-|-----------------------|-----------|
-| Name | MODS language element |
-| Description | This element contains information about the language that the work is written in. |
-| Cardinality | 0..1 |
-| Obligation | MAY |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsLanguage'" %}
 
-| Element | `mods:mods/mods:language/mods:languageTerm[@type="code"]` |
-|-----------------------|-----------|
-| Name | MODS language code element |
-| Description | This element contains the language code of the language that the work is written in.  |
-| Datatype | [BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#bcp47) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-| Element | `mods:mods/mods:language/mods:languageTerm[@type="text"]` |
-|-----------------------|-----------|
-| Name | MODS language text element |
-| Description | This element contains the name of the language that the work is written in.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### General description of the written work
 
-| Element | `mods:mods/mods:typeOfResource` |
-|-----------------------|-----------|
-| Name | MODS type of resource element |
-| Description | This element indicates which type of resource is being described. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Vocabulary | `Newspaper Edition`, `Notated music`, `Text` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsDescription'" %}
 
-| Attribute | `mods:mods/mods:typeOfResource/@manuscript` |
-|-----------------------|-----------|
-| Name | MODS type manuscript |
-| Description | When present and its value is set to `yes`, this attribute indicates that the resource is in handwriting or typescript. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Vocabulary | `yes` |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:abstract` |
-|-----------------------|-----------|
-| Name | MODS abstract element |
-| Description | This element contains a summary or description of the content of the written work. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-| Element | `mods:mods/mods:genre` |
-|-----------------------|-----------|
-| Name | MODS genre element |
-| Description | This element contains a term or terms that designate a category characterizing a particular style, form, or content of the written work, such as artistic, musical, literary composition, etc. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
-| Obligation | SHOULD |
-
-| Attribute | `mods:mods/mods:genre/@authority` |
-|-----------------------|-----------|
-| Name | MODS genre authority attribute |
-| Description | The name of an authoritative list of terms whose values are controlled. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mods:mods/mods:genre/@authorityURI` |
-|-----------------------|-----------|
-| Name | MODS genre authority uri attribute |
-| Description | The URI for the authoritative list (as described above for `mods:mods/mods:genre/@authority`). |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-| Element | `mods:mods/mods:subject` |
-|-----------------------|-----------|
-| Name | MODS subject element |
-| Description | This element contains information about the subject matter of the written work. |
-| Cardinality | 0..* |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:subject/mods:topic` |
-|-----------------------|-----------|
-| Name | MODS topic element |
-| Description | A term or phrase representing the primary topic(s) on which the written work is focused. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:note[@type="license"]` |
-|-----------------------|-----------|
-| Name | License element |
-| Description | This element MAY be used to add any licensing info needed. It MUST contain the `@type` attribute, with its value set to `license`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
-| Obligation | MAY |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Information on people or organizations related to the written work
 
-| Element | `mods:mods/mods:name` |
-|-----------------------|-----------|
-| Name | MODS name element |
-| Description | A person or company associated with the written work.  |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsName'" %}
 
-| Attribute | `mods:mods/mods:name/@type` |
-|-----------------------|-----------|
-| Name | MODS name type attribute |
-| Description | This attributed indicates whether the name belongs to a person (`personal`) or to an organization or company (`corporate`).  |
-| Vocabulary | `personal`, `corporate` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:name[@type="personal"]/mods:namePart[@type="family"]` |
-|-----------------------|-----------|
-| Name | Family name of a person |
-| Description | The family name of a person associated with the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-| Element | `mods:mods/mods:name[@type="personal"]/mods:namePart[@type="given"]` |
-|-----------------------|-----------|
-| Name | Given name of a person |
-| Description | The given name of a person associated with the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-| Element | `mods:mods/mods:name[@type="personal"]/mods:namePart` |
-|-----------------------|-----------|
-| Name | Name of a person |
-| Description | The full name of a person associated with the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:name[@type="corporate"]/mods:namePart` |
-|-----------------------|-----------|
-| Name | Name of a company or organization |
-| Description | The name of a company or organization associated with the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-<!-- TODO: link to thesaurus once available -->
-
-| Element | `mods:mods/mods:name/mods:role/mods:roleTerm[@type="text"]` |
-|-----------------------|-----------|
-| Name | Role of a person |
-| Description | Designates the relationship (role) of the person or organization to the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Vocabulary | See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3).  |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Information on the written work's origin
 
-| Element | `mods:mods/mods:originInfo` |
-|-----------------------|-----------|
-| Name | MODS originInfo element |
-| Description | This element contains information about the written work's origin, e.g., when and where it was created or published  |
-| Cardinality | 1..* |
-| Obligation | MUST |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsOrigin'" %}
 
-| Attribute | `mods:mods/mods:originInfo/@eventType` |
-|-----------------------|-----------|
-| Name | MODS issuance date element |
-| Description | This attribute specifies the type of event that should be associated with the originInfo. This attribute is not required, but if present, its value MUST be set to `publication`, meaning that the origin info is about when the written work was published. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Vocabulary | `publication` |
-| Cardinality | 0..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:originInfo/mods:publisher` |
-|-----------------------|-----------|
-| Name | MODS publisher element |
-| Description | The publisher of the written work. |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:originInfo/mods:dateCreated[@encoding="edtf"]` |
-|-----------------------|-----------|
-| Name | MODS creation date element |
-| Description | This element contains the date the written work was created. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:originInfo/mods:dateIssued[@encoding="edtf"]` |
-|-----------------------|-----------|
-| Name | MODS issuance date element |
-| Description | This element contains the date the written work was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:originInfo/mods:issuance` |
-|-----------------------|-----------|
-| Name | MODS issuance element |
-| Description | This element contains a term that designates how the written work was issued. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:originInfo/mods:place` |
-|-----------------------|-----------|
-| Name | MODS place element |
-| Description | This element contains the place the written work was issued. |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="text"]` |
-|-----------------------|-----------|
-| Name | MODS place term text element |
-| Description | This element is used to express place in a textual form.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
-| Obligation | SHOULD |
-
-| Element | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]` |
-|-----------------------|-----------|
-| Name | MODS place term code element |
-| Description | This element is used to express place in a coded form.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
-| Obligation | SHOULD |
-
-| Attribute | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]/@authority` |
-|-----------------------|-----------|
-| Name | MODS place term code authority attribute |
-| Description | The name of an authoritative list of terms whose values are controlled. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]/@authorityURI` |
-|-----------------------|-----------|
-| Name | MODS place term code authority uri attribute |
-| Description | The URI for the authoritative list (as described above for `mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type="code"]/@authority`). |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Information on the written work's physical characteristics
 
-| Element | `mods:mods/mods:physicalDescription` |
-|-----------------------|-----------|
-| Name | MODS physical description element |
-| Description | This element is used to express physical characteristics of the written work.  |
-| Cardinality | 0..1 |
-| Obligation | MAY |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsPhysical'" %}
 
-| Element | `mods:mods/mods:physicalDescription/mods:note` |
-|-----------------------|-----------|
-| Name | MODS physical description note element  |
-| Description |  This element contains a description of the condition of the written work or the statement of responsibility of the written work.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:physicalDescription/mods:note/@type` |
-|-----------------------|-----------|
-| Name | MODS physical description note type attribute  |
-| Description |  This attribute indicates whether the note describes the condition of the written work of dictates the statement of responsibility. Its value MUST be either `statement of responsibility` or `condition`.  |
-| Vocabulary | `statement of responsibility`, `condition` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:physicalDescription/mods:extent` |
-|-----------------------|-----------|
-| Name | MODS extent element |
-| Description | This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements.<br>For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer).  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
-| Obligation | MAY |
-
-| Attribute | `mods:mods/mods:physicalDescription/mods:extent/@unit` |
-|-----------------------|-----------|
-| Name | MODS extent element unit attribute |
-| Description | This attribute indicates the physical dimension that is described. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Vocabulary | `cm`, `mm`, `sheets`, `pages` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Element | `mods:mods/mods:physicalDescription/mods:form` |
-|-----------------------|-----------|
-| Name | MODS form element |
-| Description | This element denotes the physical presentation of the written work, including the physical form, medium or material.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..* |
-| Obligation | MAY |
-
-| Attribute | `mods:mods/mods:physicalDescription/mods:form/@type` |
-|-----------------------|-----------|
-| Name | MODS form type attribute |
-| Description | This attribute denotes the particular type of physical presentation that is being described, such as the physical form, the medium or the material.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Attribute | `mods:mods/mods:physicalDescription/mods:form/@authority` |
-|-----------------------|-----------|
-| Name | MODS form authority attribute |
-| Description | The name of an authoritative list of terms whose values are controlled. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mods:mods/mods:physicalDescription/mods:form/@authorityURI` |
-|-----------------------|-----------|
-| Name | MODS form authority uri attribute |
-| Description | The URI for the authoritative list (as described above for `mods:mods/mods:physicalDescription/mods:form/@authority`). |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Related items
 
-| Element | `mods:mods/mods:relatedItem[not(@type)]` |
-|-----------------------|-----------|
-| Name | MODS related item element |
-| Description | This element refers to another work related to the written work in any way.<br>The `@type` attribute MUST NOT be set. |
-| Cardinality | 0..1 |
-| Obligation | MAY |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsRelated'" %}
 
-| Element | `mods:mods/mods:relatedItem[not(@type)]/mods:identifier[@type="MEEMOO-LOCAL-ID"]` |
-|-----------------------|-----------|
-| Name | related item identifier |
-| Description | This element contains the main local identifier of another object to which it is related. <br>The `@type` attribute MUST be set to `MEEMOO-LOCAL-ID`, while the attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST NOT be set .  |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#id) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 #### Information on the work series
 
-| Element | `mods:mods/mods:relatedItem[@type="series"]` |
-|-----------------------|-----------|
-| Name | MODS related series element |
-| Description | This element contains information about the series that the written work is part of or related to.<br>The `@type` attribute MUST be set to `series`. |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'modsSeries'" %}
 
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="number"]` |
-|-----------------------|-----------|
-| Name | series number |
-| Description | This element contains the number of the series in which the written work was published. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`.  |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="page"]` |
-|-----------------------|-----------|
-| Name | page number |
-| Description | This element contains the number of the series in which the written work was published. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`.  |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="abraham_id"]` |
-|-----------------------|-----------|
-| Name | Abraham ID |
-| Description | This element contains the Abraham identifier taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham identifier refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham identifier.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_id`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#id) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:identifier[@type="abraham_uri"]` |
-|-----------------------|-----------|
-| Name | Abraham URI |
-| Description | This element contains the Abraham URI taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham URI refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham URI.<br><br>This element MUST contain the `@type` attribute, with its value set to `abraham_uri`. The `@type` attribute of its parent element (i.e. `<mets:relatedItem/>`) MUST be set to `series`. Note that the Abraham URI contains the Abraham identifier. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:titleInfo/mods:title` |
-|-----------------------|-----------|
-| Name | MODS relatedItem title element |
-| Description | This element contains the title of the series.<br>Its parent element (`<mods:titleInfo/>`) MUST NOT contain any attributes. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
-
-| Element | `mods:mods/mods:relatedItem[@type="series"]/mods:originInfo/mods:dateIssued[@encoding="edtf"]` |
-|-----------------------|-----------|
-| Name | MODS relatedItem issuance date element |
-| Description | This element contains the date the series was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf) |
-| Cardinality | 0..1 |
-| Obligation | MAY |
+{% include_relative _constraints.liquid constraints = constraints %}
 
 ### Package Preservation Metadata
 
-- A preservation metadata file `preservation/premis.xml` MUST be present at the package level.
-- The `preservation/premis.xml` file MUST follow the [PREMIS](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) metadata schema (v3.0.).
-- If the SIP contains ALTO XML files, the `preservation/premis.xml` file MUST contain a PREMIS event of type `transcription` to link the TIFF and ALTO XML files. With this event, the representation containing the TIFF files MUST receive the PREMIS linking object role `source` and the representation containing the ALTO XML files MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
-- If the SIP contains a PDF file (which SHOULD contain all pages of the written work, cf. [supra](#pdf), the `preservation/premis.xml` file MUST contain a PREMIS event of type `creation` to link the TIFF and ALTO XML files to the PDF file. With this event, the two representations containing the TIFF and the ALTO XML files MUST receive the PREMIS linking object role `source` and the representation containing the PDF file MUST receive the PREMIS linking object role `outcome`. See the [section about PREMIS events]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#adding-provenance-of-representations) and [example 1 below](#example-transcription-event) for more information about the structure of PREMIS events.
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'preservation'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 <a id="example-transcription-event"></a>_Example 1: a PREMIS transcription event (linking the TIFF and ALTO XML files)_
 
@@ -655,7 +253,10 @@ root_directory
 
 ### Representation METS
 
-- If the files in a representation each correspond with a single page (e.g. the TIFF and ALTO XML files, since each of these files MUST correspond to a single page), the corresponding `<div/>` elements in the structural map MUST contain an `@ORDER` attribute that indicates the sequence of the pages. Additionally, each `<div/>` element that corresponds to a file representing a page MUST have a `@TYPE` attribute that is set to `page`. See [example 3 below](#example-representation-mets) for more information.
+{% assign constraints = rep_constraints | where_exp: "c",
+"c.Section == 'mets'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 <a id="example-representation-mets"></a>_Example 3: the structural map of a representation METS, with `@TYPE` and `@ORDER` attributes_
 
@@ -693,12 +294,10 @@ root_directory
 
 ### Representation Preservation Metadata
 
-- If ALTO XML files are present in the SIP, the `preservation/premis.xml` files of the representation containing the TIFF files and of the representation containing the ALTO XML files MUST contain a PREMIS relationship to establish a link between the two.
-  - In the case of the representation with the TIFF files, this PREMIS relationship MUST be of type `derivation` and of subtype `is source of`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/iso`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is shown in [example 4 below](#example-premis-issourceof).
-  - In the case of the representation with the ALTO XML files, this PREMIS relationship MUST be of type `derivation` and of subtype `has source`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is shown in [example 5 below](#example-premis-hassource).
-- If a PDF file is present in the SIP, the `preservation/premis.xml` files of all three representations (i.e. of the TIFF files, of the ALTO XML file and of the PDF file) MUST contain a PREMIS relationship to establish a link between the three.
-  - In the case of the representations with the TIFF and ALTO XML files, this PREMIS relationship MUST be of type `derivation` and of subtype `is source of`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/iso`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is similar to [example 4 shown below](#example-premis-issourceof).
-  - In the case of the representation with the PDF file, this PREMIS relationship MUST be of type `derivation` and of subtype `has source`. The `@valueURI` attribute of the `<premis:relationshipType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/der`. The `@valueURI` attribute of the `<premis:relationshipSubType>` element MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss`. Finally, a `<premis:relatedEventIdentifier/>` element MUST be present that refers to the relevant event (in this case a transcription event) defined in the `preservation/premis.xml` file of the package level. This is similar to [example 5 below](#example-premis-hassource), the difference being that the relationship will mostly entail multiple `<premis:relatedObjectIdentifier/>` elements since the PDF is derived from all TIFF and ALTO XML files together.
+{% assign constraints = rep_constraints | where_exp: "c",
+"c.Section == 'preservation'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 <a id="example-premis-issourceof"></a>_Example 4: a PREMIS `is source of` relationship_
 

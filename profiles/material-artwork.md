@@ -6,6 +6,7 @@ grand_parent:  2.1
 nav_order:    3
 nav_exclude:  false
 ---
+{% assign ma_constraints = site.data.2_1._data.MATERIAL_ARTWORK_PROFILE %}
 
 # Profile: Material artwork 
 
@@ -140,33 +141,31 @@ root_directory
 
 ### General
 
-- There MUST be exactly one IE at the root. There MAY be other sub-IE's that are part of the root IE or other sub-IE's (e.g. to describe panels of a triptych individually).
-- There MUST be at least one representation, but there MAY be multiple: either containing different captures or resolutions of the same IE or representing a different IE.
-- Each representation MUST contain at least one file. 
-- Preservation metadata MUST be limited to the PREMIS metadata schema.
-- There MUST be preservation metadata at the package level in the `preservation/premis.xml` file.
-- There MUST be preservation metadata at the representation level in the `preservation/premis.xml` file.
-- Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
-  - The value of element `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm` MUST be set to `MD5`.
-  - The value of attribute `premis:premis/premis:object[@xsi:type="premis:file"]/premis:objectCharacteristics/premis:fixity/premis:messageDigestAlgorithm/@valueURI` MUST be set to `"http://id.loc.gov/vocabulary/preservation/cryptographicHashFunctions/md5"`.
+{% assign constraints = ma_constraints | where_exp: "c",
+"c.Section == 'general'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
+
+Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
+
+{% assign constraints = ma_constraints | where_exp: "c",
+"c.Section == 'md5'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### Package METS
 
-- The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/2.1/material-artwork`.
-- The `TYPE` attribute in the `METS.xml` file MUST be set to
-  - `Photographs - Digital` (for 2D objects) or
-  - `Scanned 3D Objects (output from photogrammetry scanning)` (for 3D objects).
-- The `mets/dmdSec/mdRef/@MDTYPE` attribute MUST be set to `OTHER` and `mets/dmdSec/mdRef/@OTHERMDTYPE` attribute must be set to `DC+SCHEMA`.
-  
+{% assign constraints = ma_constraints | where_exp: "c",
+"c.Section == 'mets'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### Descriptive Metadata
 
-- A descriptive metadata file `descriptive/dc+schema.xml` describing the IE MUST be present at the package level.
-- A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level (e.g. to indicate diverting licenses). 
-- Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [SCHEMA](http://schema.org) elements outlined in the [basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/basic.md %}#dc-requirements).
-- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) and [SCHEMA](http://schema.org) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
-- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
-- The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
+{% assign constraints = ma_constraints | where_exp: "c",
+"c.Section == 'descriptive'" %}
+
+{% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### Validation
 
