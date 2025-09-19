@@ -292,7 +292,7 @@
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "descriptive",
     "XPath": "",
-    "Description": "Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.",
+    "Description": "Some descriptive metadata elements of datatype [String](../2_terminology#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.",
     "Cardinality": "",
     "Datatype": "",
     "Name": "",
@@ -339,7 +339,7 @@
     "XPath": "`metadata/dcterms:title[@xml:lang=*]`",
     "Description": "A name given to the Intellectual Entity. The `title` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Title",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -354,7 +354,7 @@
     "XPath": "`metadata/dcterms:alternative[@xml:lang=*]`",
     "Description": "An alternative to the main title given to the Intellectual Entity.The `alternative` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Alternative title",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -369,7 +369,7 @@
     "XPath": "`metadata/dcterms:identifier`",
     "Description": "An unambiguous and unique reference to the Intellectual Entity/Entities present in the SIP.This identifier MUST be used to establish a link between the `dc+schema.xml` file and the relevant PREMIS object in the `preservation/premis.xml` file.",
     "Cardinality": "1..1",
-    "Datatype": "[ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#id)",
+    "Datatype": "[ID](../2_terminology#id)",
     "Name": "Identifier",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -384,7 +384,7 @@
     "XPath": "`metadata/dcterms:extent`",
     "Description": "Duration in time of the Intellectual Entity.",
     "Cardinality": "0..1",
-    "Datatype": "[XML Schema duration]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#xsd-duration)",
+    "Datatype": "[XML Schema duration](../2_terminology#xsd-duration)",
     "Name": "Duration",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -399,7 +399,7 @@
     "XPath": "`metadata/dcterms:available`",
     "Description": "The moment that the Intellectual Entity became available.",
     "Cardinality": "0..1",
-    "Datatype": "[XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#xsd-datetime)",
+    "Datatype": "[XML Schema datetime](../2_terminology#xsd-datetime)",
     "Name": "Available",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -414,7 +414,7 @@
     "XPath": "`metadata/dcterms:description[@xml:lang=*]`",
     "Description": "An account of the Intellectual Entity. The `description` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Description",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -429,7 +429,7 @@
     "XPath": "`metadata/dcterms:abstract[@xml:lang=*]`",
     "Description": "A long description of the Intellectual Entity.The `abstract` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Abstract",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -444,7 +444,7 @@
     "XPath": "`metadata/dcterms:created`",
     "Description": "Creation date of the Intellectual Entity.",
     "Cardinality": "1..1",
-    "Datatype": "[EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf)",
+    "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "Creation date",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -459,7 +459,7 @@
     "XPath": "`metadata/dcterms:issued`",
     "Description": "Date of formal issuance of the Intellectual Entity.",
     "Cardinality": "0..1",
-    "Datatype": "[EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf)",
+    "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "Date issued",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -474,7 +474,7 @@
     "XPath": "`metadata/dcterms:publisher`",
     "Description": "A publisher of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@schema:roleName`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Publisher",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -489,7 +489,7 @@
     "XPath": "`metadata/dcterms:contributor`",
     "Description": "A contributor to the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@schema:roleName`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Contributor",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -504,7 +504,7 @@
     "XPath": "`metadata/dcterms:creator`",
     "Description": "An author or creator of the Intellectual Entity. This element is an alias for `metadata/schema:creator` without the attribute `@schema:roleName`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Creator",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -519,7 +519,7 @@
     "XPath": "`metadata/dcterms:spatial`",
     "Description": "Spatial coverage information on the Intellectual Entity",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Spatial",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -534,7 +534,7 @@
     "XPath": "`metadata/dcterms:temporal`",
     "Description": "Temporal coverage information on the Intellectual Entity",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Temporal",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -549,7 +549,7 @@
     "XPath": "`metadata/dcterms:subject[@xml:lang=*]`",
     "Description": "Subjects or keywords related to the Intellectual Entity. If the element is present, the applied language MUST be provided by a `@xml:lang` attribute (see requirements above) and there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Subject",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -564,7 +564,7 @@
     "XPath": "`metadata/dcterms:language`",
     "Description": "The language that the Intellectual Entity is in.",
     "Cardinality": "0..*",
-    "Datatype": "[BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#bcp47)",
+    "Datatype": "[BCP47](../2_terminology#bcp47)",
     "Name": "Language",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -579,7 +579,7 @@
     "XPath": "`metadata/dcterms:license`",
     "Description": "A legal document giving official permission to meemoo, end users of the meemoo platforms, or any other user, to do something with the Intellectual Entity.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "License",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -594,7 +594,7 @@
     "XPath": "`metadata/dcterms:rightsHolder[@xml:lang=*]`",
     "Description": "The person or ogranization that holds the copyright to the Intellectual Entity. The `rightsHolder` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Rights holder",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -609,7 +609,7 @@
     "XPath": "`metadata/dcterms:rights[@xml:lang=*]`",
     "Description": "A copyright notice on the Intellectual Entity. The `rights` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Rights",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -624,7 +624,7 @@
     "XPath": "`metadata/dcterms:type`",
     "Description": "The classification of this Intellectual Entity .",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Type",
     "Obligation": "MUST",
     "Vocabulary": "`Audio`, `DVD`, `DVDChapter`, `Film`, `Image`, `NewspaperIssue`, `NewspaperIssuePage`, `Video`, `SilentFilm`, `SoundFilm`"
@@ -639,7 +639,7 @@
     "XPath": "`metadata/dcterms:format`",
     "Description": "The format of this Intellectual Entity .",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Format",
     "Obligation": "MUST",
     "Vocabulary": "`audio`, `video`, `film`, `paper`, `newspaper`, `newspaperpage`, `videofragment`, `audiofragment`, `image`"
@@ -699,7 +699,7 @@
     "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor)/@schema:roleName`",
     "Description": "The role with which the creator, publisher, or contributor was involved in creating, publishing or contributing to the digitally reproduced artwork.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Role creator, publisher, or contributor",
     "Obligation": "MUST",
     "Vocabulary": "See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3)."
@@ -714,7 +714,7 @@
     "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor)/schema:name[@xml:lang=*]`",
     "Description": "The name of the creator, publisher, or contributor. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name creator, publisher, or contributor",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -729,7 +729,7 @@
     "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor)/schema:birthDate`",
     "Description": "The creator, publisher, or contributor's date of birth.",
     "Cardinality": "0..1",
-    "Datatype": "[EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf)",
+    "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "Birth date creator, publisher, or contributor",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -744,7 +744,7 @@
     "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor)/schema:deathDate`",
     "Description": "The creator, publisher, or contributor's date of death.",
     "Cardinality": "0..1",
-    "Datatype": "[EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf)",
+    "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "Death date creator, publisher, or contributor",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -819,24 +819,7 @@
     "XPath": "`metadata/(schema:height|schema:width|schema:depth|schema:weight)/schema:value`",
     "Description": "The height, width, depth, or weight measurement value.",
     "Cardinality": "1..1",
-    "Datatype": "[Float]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#float)",
-    "Name": "Value",
-    "Obligation": "MUST",
-    "Vocabulary": ""
-  },
-  {
-    "ID": "BACP56",
-    "EARK_ID": "",
-    "Type": "Element",
-    "Level": "Package",
-    "Path": "/metadata/descriptive/dc+schema.xml",
-    "Section": "schema",
-    "XPath": "`metadata/(schema:height|schema:width|schema:depth)/schema:unitCode`",
-    "Description": "The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes).",
-    "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
-    "Name": "Unit Code",
-    "Obligation": "SHOULD",
+    "Datatype": "[Float](../2_terminology..Vocabulary..Element...xml..:width.. given..vocabulary..Datatype.. ",
     "Vocabulary": "`MMT`, `CMT`, `MTR`"
   },
   {
@@ -849,7 +832,7 @@
     "XPath": "`metadata/schema:weight/schema:unitCode`",
     "Description": "The unit of weight measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes), which MUST be set to `KGM` (kilograms).",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Unit Code",
     "Obligation": "SHOULD",
     "Vocabulary": "`KGM`"
@@ -864,7 +847,7 @@
     "XPath": "`metadata/(schema:height|schema:width|schema:depth)/schema:unitText`",
     "Description": "A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Unit Text",
     "Obligation": "MUST",
     "Vocabulary": "`mm`, `cm`, `m`"
@@ -879,7 +862,7 @@
     "XPath": "`metadata/schema:weight/schema:unitText`",
     "Description": "A string or text indicating the unit of the weight measurement value, which MUST be set to `kg` (kilograms). Useful if you cannot provide a standard unit code for `schema:unitCode`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Unit Text",
     "Obligation": "MUST",
     "Vocabulary": "`kg`"
@@ -894,7 +877,7 @@
     "XPath": "`metadata/schema:artMedium[@xml:lang=*]`",
     "Description": "The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Art medium",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -909,7 +892,7 @@
     "XPath": "`metadata/schema:artform[@xml:lang=*]`",
     "Description": "The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Artform",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -924,7 +907,7 @@
     "XPath": "`metadata/schema:creditText[@xml:lang=*]`",
     "Description": "Text that can be used to credit person(s) and/or organization(s) associated with this Intellectual Entity.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Credit text",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -939,7 +922,7 @@
     "XPath": "`metadata/schema:genre[@xml:lang=*]`",
     "Description": "Genre of this Intellectual Entity. The `genre` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Genre",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -969,7 +952,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:Episode]/schema:name[@xml:lang=*]`",
     "Description": "The name of the episode. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name episode",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -999,7 +982,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:ArchiveComponent]/schema:name[@xml:lang=*]`",
     "Description": "The name of the archive. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name archive",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1029,7 +1012,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:name[@xml:lang=*]`",
     "Description": "The name of the series. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name series",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1044,7 +1027,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:position`",
     "Description": "The number of the series.",
     "Cardinality": "0..1",
-    "Datatype": "[Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer)",
+    "Datatype": "[Integer](../2_terminology#integer)",
     "Name": "Number series",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -1071,10 +1054,10 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "schema",
-    "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart/schema:name[@xml:lang=*]`",
+    "XPath": "`metadata/schema:isPartOf[@xsi:typeschema:CreativeWorkSeries]/schema:hasPart/schema:name[@xml:lang=*]`",
     "Description": "The name of the subseries. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "",
     "Name": "Name subseries",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1104,7 +1087,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:BroadcastEvent]/schema:name[@xml:lang=*]`",
     "Description": "The name of the broadcast. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name broadcast event",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1134,7 +1117,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:name[@xml:lang=*]`",
     "Description": "The name of the season. The `name` term MAY only be used multiple times when it uses a different language. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). If the element is present, there MUST always be an entry in Dutch with `@xml:lang` set to `nl`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name season",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1149,7 +1132,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:seasonNumber`",
     "Description": "Position of the season within an ordered group of seasons.",
     "Cardinality": "0..1",
-    "Datatype": "[Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer)",
+    "Datatype": "[Integer](../2_terminology#integer)",
     "Name": "Number season",
     "Obligation": "MAY",
     "Vocabulary": ""

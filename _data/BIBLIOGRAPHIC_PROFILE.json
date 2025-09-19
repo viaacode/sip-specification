@@ -264,7 +264,7 @@
     "Section": "mods",
     "Description": "This attribute indicates which version of MODS is being used.It MUST be set to `3.7` to indicate conformance with MODS v3.7.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS version attribute",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -279,7 +279,7 @@
     "Section": "modsIdentifier",
     "Description": "A unique identifier for the written work.This identifier MUST be shared with the relevant PREMIS object in the `preservation/premis.xml` file.This metadata element MUST NOT contain any attributes.",
     "Cardinality": "1..1",
-    "Datatype": "[ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#id)",
+    "Datatype": "[ID](../2_terminology#id)",
     "Name": "MODS identifier element",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -294,7 +294,7 @@
     "Section": "modsIdentifier",
     "Description": "This element contains a persistent identifier for the record that describes the written work, which typically originates from the source application. The record identifier is different from the identifier that identifies the written work itself, which is denoted by `mods:identifier`.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS record identifier",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -324,7 +324,7 @@
     "Section": "modsTitle",
     "Description": "This element contains the title of the written work.Its parent element (``) MUST NOT contain a `@type` attribute.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS title element",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -354,7 +354,7 @@
     "Section": "modsAlternativeTitle",
     "Description": "This attribute indicates the alternative type of title. Its value MUST be set to `alternative`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS title type attribute",
     "Obligation": "MUST",
     "Vocabulary": "`alternative`"
@@ -369,7 +369,7 @@
     "Section": "modsAlternativeTitle",
     "Description": "This attribute contains the subtype for any alternative title.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS alternative title other type attribute",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -384,7 +384,7 @@
     "Section": "modsAlternativeTitle",
     "Description": "This element contains an alternative title of the written work.Its parent element (``) MUST contain the `@type` attribute set to `alternative`.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS title element",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -414,7 +414,7 @@
     "Section": "modsLanguage",
     "Description": "This element contains the language code of the language that the work is written in.",
     "Cardinality": "0..1",
-    "Datatype": "[BCP47]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#bcp47)",
+    "Datatype": "[BCP47](../2_terminology#bcp47)",
     "Name": "MODS language code element",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -429,7 +429,7 @@
     "Section": "modsLanguage",
     "Description": "This element contains the name of the language that the work is written in.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS language text element",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -444,7 +444,7 @@
     "Section": "modsDescription",
     "Description": "This element indicates which type of resource is being described.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS type of resource element",
     "Obligation": "MUST",
     "Vocabulary": "`Newspaper Edition`, `Notated music`, `Text`"
@@ -459,7 +459,7 @@
     "Section": "modsDescription",
     "Description": "When present and its value is set to `yes`, this attribute indicates that the resource is in handwriting or typescript.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS type manuscript",
     "Obligation": "MAY",
     "Vocabulary": "`yes`"
@@ -474,7 +474,7 @@
     "Section": "modsDescription",
     "Description": "This element contains a summary or description of the content of the written work.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS abstract element",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -489,7 +489,7 @@
     "Section": "modsDescription",
     "Description": "This element contains a term or terms that designate a category characterizing a particular style, form, or content of the written work, such as artistic, musical, literary composition, etc.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS genre element",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -504,7 +504,7 @@
     "Section": "modsDescription",
     "Description": "The name of an authoritative list of terms whose values are controlled.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS genre authority attribute",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -519,7 +519,7 @@
     "Section": "modsDescription",
     "Description": "The URI for the authoritative list (as described above for `/mods:mods/mods:genre/@authority`).",
     "Cardinality": "0..1",
-    "Datatype": "[URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri)",
+    "Datatype": "[URI](../2_terminology#uri)",
     "Name": "MODS genre authority uri attribute",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -549,7 +549,7 @@
     "Section": "modsDescription",
     "Description": "A term or phrase representing the primary topic(s) on which the written work is focused.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS topic element",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -564,7 +564,7 @@
     "Section": "modsDescription",
     "Description": "This element MAY be used to add any licensing info needed. It MUST contain the `@type` attribute, with its value set to `license`.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "License element",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -609,7 +609,7 @@
     "Section": "modsName",
     "Description": "The family name of a person associated with the written work.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Family name of a person",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -624,7 +624,7 @@
     "Section": "modsName",
     "Description": "The given name of a person associated with the written work.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Given name of a person",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -639,7 +639,7 @@
     "Section": "modsName",
     "Description": "The full name of a person associated with the written work.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name of a person",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -654,7 +654,7 @@
     "Section": "modsName",
     "Description": "The name of a company or organization associated with the written work.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Name of a company or organization",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -669,7 +669,7 @@
     "Section": "modsName",
     "Description": "Designates the relationship (role) of the person or organization to the written work.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "Role of a person",
     "Obligation": "SHOULD",
     "Vocabulary": "See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3)."
@@ -699,7 +699,7 @@
     "Section": "modsOrigin",
     "Description": "This attribute specifies the type of event that should be associated with the originInfo. This attribute is not required, but if present, its value MUST be set to `publication`, meaning that the origin info is about when the written work was published.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS issuance date element",
     "Obligation": "MUST",
     "Vocabulary": "`publication`"
@@ -729,7 +729,7 @@
     "Section": "modsOrigin",
     "Description": "This element contains the date the written work was created. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.",
     "Cardinality": "1..1",
-    "Datatype": "[EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf)",
+    "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "MODS creation date element",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -744,7 +744,7 @@
     "Section": "modsOrigin",
     "Description": "This element contains the date the written work was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.",
     "Cardinality": "1..1",
-    "Datatype": "[EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf)",
+    "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "MODS issuance date element",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -759,7 +759,7 @@
     "Section": "modsOrigin",
     "Description": "This element contains a term that designates how the written work was issued.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS issuance element",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -789,7 +789,7 @@
     "Section": "modsOrigin",
     "Description": "This element is used to express place in a textual form.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS place term text element",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -804,7 +804,7 @@
     "Section": "modsOrigin",
     "Description": "This element is used to express place in a coded form.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS place term code element",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -819,7 +819,7 @@
     "Section": "modsOrigin",
     "Description": "The name of an authoritative list of terms whose values are controlled.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS place term code authority attribute",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -834,7 +834,7 @@
     "Section": "modsOrigin",
     "Description": "The URI for the authoritative list (as described above for `/mods:mods/mods:originInfo/mods:place/mods:placeTerm[@type=\"code\"]/@authority`).",
     "Cardinality": "0..1",
-    "Datatype": "[URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri)",
+    "Datatype": "[URI](../2_terminology#uri)",
     "Name": "MODS place term code authority uri attribute",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -864,7 +864,7 @@
     "Section": "modsPhysical",
     "Description": "This element contains a description of the condition of the written work or the statement of responsibility of the written work.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS physical description note element",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -892,9 +892,9 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/mods.xml",
     "Section": "modsPhysical",
-    "Description": "This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements.For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer).",
+    "Description": "This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements.For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer](../2_terminology#integer).",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS extent element",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -909,7 +909,7 @@
     "Section": "modsPhysical",
     "Description": "This attribute indicates the physical dimension that is described.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS extent element unit attribute",
     "Obligation": "MUST",
     "Vocabulary": "`cm`, `mm`, `sheets`, `pages`"
@@ -924,7 +924,7 @@
     "Section": "modsPhysical",
     "Description": "This element denotes the physical presentation of the written work, including the physical form, medium or material.",
     "Cardinality": "0..*",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS form element",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -939,7 +939,7 @@
     "Section": "modsPhysical",
     "Description": "This attribute denotes the particular type of physical presentation that is being described, such as the physical form, the medium or the material.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS form type attribute",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -954,7 +954,7 @@
     "Section": "modsPhysical",
     "Description": "The name of an authoritative list of terms whose values are controlled.",
     "Cardinality": "1..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS form authority attribute",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -969,7 +969,7 @@
     "Section": "modsPhysical",
     "Description": "The URI for the authoritative list (as described above for `/mods:mods/mods:physicalDescription/mods:form/@authority`).",
     "Cardinality": "0..1",
-    "Datatype": "[URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri)",
+    "Datatype": "[URI](../2_terminology#uri)",
     "Name": "MODS form authority uri attribute",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -999,7 +999,7 @@
     "Section": "modsRelated",
     "Description": "This element contains the main local identifier of another object to which it is related. The `@type` attribute MUST be set to `MEEMOO-LOCAL-ID`, while the attribute of its parent element (i.e. ``) MUST NOT be set .",
     "Cardinality": "1..1",
-    "Datatype": "[ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#id)",
+    "Datatype": "[ID](../2_terminology#id)",
     "Name": "related item identifier",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1029,7 +1029,7 @@
     "Section": "modsSeries",
     "Description": "This element contains the number of the series in which the written work was published. The `@type` attribute of its parent element (i.e. ``) MUST be set to `series`.",
     "Cardinality": "0..1",
-    "Datatype": "[Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer)",
+    "Datatype": "[Integer](../2_terminology#integer)",
     "Name": "series number",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -1044,7 +1044,7 @@
     "Section": "modsSeries",
     "Description": "This element contains the number of the series in which the written work was published. The `@type` attribute of its parent element (i.e. ``) MUST be set to `series`.",
     "Cardinality": "0..1",
-    "Datatype": "[Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#integer)",
+    "Datatype": "[Integer](../2_terminology#integer)",
     "Name": "page number",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -1059,7 +1059,7 @@
     "Section": "modsSeries",
     "Description": "This element contains the Abraham identifier taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham identifier refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham identifier.This element MUST contain the `@type` attribute, with its value set to `abraham_id`. The `@type` attribute of its parent element (i.e. ``) MUST be set to `series`.",
     "Cardinality": "0..1",
-    "Datatype": "[ID]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#id)",
+    "Datatype": "[ID](../2_terminology#id)",
     "Name": "Abraham ID",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -1074,7 +1074,7 @@
     "Section": "modsSeries",
     "Description": "This element contains the Abraham URI taken from the [Abraham Belgian Newspaper Catalog](https://krantencatalogus.be). Note that an Abraham URI refers to newspaper titles rather than newspaper editions; multiple editions can therefore share the same Abraham URI.This element MUST contain the `@type` attribute, with its value set to `abraham_uri`. The `@type` attribute of its parent element (i.e. ``) MUST be set to `series`. Note that the Abraham URI contains the Abraham identifier.",
     "Cardinality": "0..1",
-    "Datatype": "[URI]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#uri)",
+    "Datatype": "[URI](../2_terminology#uri)",
     "Name": "Abraham URI",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -1089,7 +1089,7 @@
     "Section": "modsSeries",
     "Description": "This element contains the title of the series.Its parent element (``) MUST NOT contain any attributes.",
     "Cardinality": "0..1",
-    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS relatedItem title element",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -1104,7 +1104,7 @@
     "Section": "modsSeries",
     "Description": "This element contains the date the series was issued. Its value MUST be EDTF-compliant, as indicated by the `@encoding` attribute which MUST be set to `edtf`.",
     "Cardinality": "0..1",
-    "Datatype": "[EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#edtf)",
+    "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "MODS relatedItem issuance date element",
     "Obligation": "MAY",
     "Vocabulary": ""
