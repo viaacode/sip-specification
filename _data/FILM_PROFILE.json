@@ -437,7 +437,7 @@
   {
     "ID": "FICP29",
     "EARK_ID": "",
-    "XPath": "`premis:significantPropertiesExtension/hasip:storedAt/(hasip:imageReel|hasip:audioReel)/hasip:material`",
+    "XPath": "`premis:significantPropertiesExtension/hasip:storedAt/(hasip:physicalCarrier|hasip:imageReel|hasip:audioReel)/hasip:material`",
     "Level": "Package",
     "Path": "/metadata/preservation/premis.xml",
     "Section": "significantPropertiesExtension",
