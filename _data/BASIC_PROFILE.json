@@ -988,6 +988,21 @@
     "Vocabulary": ""
   },
   {
+    "ID": "BACP71",
+    "EARK_ID": "",
+    "Type": "Element",
+    "Level": "Package",
+    "Path": "/metadata/descriptive/dc+schema.xml",
+    "Section": "schema",
+    "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:ArchiveComponent]/schema:hasPart[@xsi:type=schema:ArchiveComponent]`",
+    "Description": "Indicates a subarchive that is part of this archive component.",
+    "Cardinality": "0..*",
+    "Datatype": "",
+    "Name": "Has subarchive",
+    "Obligation": "MAY",
+    "Vocabulary": ""
+  },
+  {
     "ID": "BACP68",
     "EARK_ID": "",
     "Type": "Element",
@@ -1039,7 +1054,7 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "schema",
-    "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart`",
+    "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:hasPart[@xsi:type=schema:CreativeWorkSeries]`",
     "Description": "Indicates a subseries that is part of this series.",
     "Cardinality": "0..*",
     "Datatype": "",
