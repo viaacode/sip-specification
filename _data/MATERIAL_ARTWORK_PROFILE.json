@@ -172,7 +172,7 @@
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "descriptive",
     "Type": "General",
-    "Description": "Some descriptive metadata elements of datatype [String](../2_terminology#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.",
+    "Description": "Some descriptive metadata elements of datatype [String](../2_terminology#lang-strings) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.",
     "Obligation": "MUST"
   },
   {
