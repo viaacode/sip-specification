@@ -3,8 +3,8 @@
 | <a id="{{ constraint.ID }}">#{{ constraint.ID }}</a> | {{ constraint.Type }}<br>{{ constraint.XPath }} |
 |-----------------------|-----------|
 | Name | {{ constraint.Name }} |
-| Description | {{ constraint.Description }} |{% if constraint.Datatype %}
-| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary %}
+| Description | {{ constraint.Description }} |{% if constraint.Datatype != "" %}
+| Datatype | {{ constraint.Datatype }} |{% endif %}{% if constraint.Vocabulary != "" %}
 | Vocabulary | {{ constraint.Vocabulary }} |{% endif %}
 | Cardinality | {{ constraint.Cardinality }} |
 | Obligation | {{ constraint.Obligation }} |
