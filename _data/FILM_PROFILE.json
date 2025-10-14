@@ -503,7 +503,7 @@
     "Section": "significantPropertiesExtension",
     "Type": "Element",
     "Description": "",
-    "Cardinality": "1..*",
+    "Cardinality": "0..1",
     "Datatype": "Information needed to retrieve a physical item from its physical storage location or a file from the storage system, or to access a bitstream within a file.",
     "Name": "Storage location value",
     "Obligation": "MAY",
