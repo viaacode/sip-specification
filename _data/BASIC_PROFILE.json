@@ -594,7 +594,7 @@
     "XPath": "`metadata/dcterms:rightsHolder[@xml:lang=*]`",
     "Description": "The person or ogranization that holds the copyright to the Intellectual Entity.",
     "Cardinality": "0..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Rights holder",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -609,7 +609,7 @@
     "XPath": "`metadata/dcterms:rights[@xml:lang=*]`",
     "Description": "A copyright notice on the Intellectual Entity.",
     "Cardinality": "0..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Rights",
     "Obligation": "SHOULD",
     "Vocabulary": ""
@@ -714,7 +714,7 @@
     "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor)/schema:name[@xml:lang=*]`",
     "Description": "The name of the creator, publisher, or contributor.",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Name creator, publisher, or contributor",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -922,7 +922,7 @@
     "XPath": "`metadata/schema:genre[@xml:lang=*]`",
     "Description": "Genre of this Intellectual Entity.",
     "Cardinality": "0..*",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Genre",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -952,7 +952,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:Episode]/schema:name[@xml:lang=*]`",
     "Description": "The name of the episode.",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Name episode",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -982,7 +982,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:ArchiveComponent]/schema:name[@xml:lang=*]`",
     "Description": "The name of the archive.",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Name archive",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1027,7 +1027,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeries]/schema:name[@xml:lang=*]`",
     "Description": "The name of the series.",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Name series",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1072,7 +1072,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:typeschema:CreativeWorkSeries]/schema:hasPart/schema:name[@xml:lang=*]`",
     "Description": "The name of the subseries.",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Name subseries",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1102,7 +1102,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:BroadcastEvent]/schema:name[@xml:lang=*]`",
     "Description": "The name of the broadcast.",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Name broadcast event",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -1132,7 +1132,7 @@
     "XPath": "`metadata/schema:isPartOf[@xsi:type=schema:CreativeWorkSeason]/schema:name[@xml:lang=*]`",
     "Description": "The name of the season.",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Name season",
     "Obligation": "MUST",
     "Vocabulary": ""
