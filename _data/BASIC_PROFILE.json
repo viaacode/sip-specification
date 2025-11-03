@@ -592,7 +592,7 @@
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "dcterms",
     "XPath": "`metadata/dcterms:rightsHolder[@xml:lang=*]`",
-    "Description": "The person or ogranization that holds the copyright to the Intellectual Entity.",
+    "Description": "The person or organization that holds the copyright to the Intellectual Entity.",
     "Cardinality": "0..*",
     "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Rights holder",
