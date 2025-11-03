@@ -413,10 +413,10 @@
     "Section": "dcterms",
     "XPath": "`metadata/dcterms:description[@xml:lang=*]`",
     "Description": "An account of the Intellectual Entity.",
-    "Cardinality": "1..*",
+    "Cardinality": "0..*",
     "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Description",
-    "Obligation": "MUST",
+    "Obligation": "SHOULD",
     "Vocabulary": ""
   },
   {
