@@ -531,10 +531,10 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "dcterms",
-    "XPath": "`metadata/dcterms:temporal`",
+    "XPath": "`metadata/dcterms:temporal[@xml:lang=*]`",
     "Description": "Temporal coverage information on the Intellectual Entity",
     "Cardinality": "0..*",
-    "Datatype": "[String](../2_terminology#string)",
+    "Datatype": "[Language String](../2_terminology#lang-strings)",
     "Name": "Temporal",
     "Obligation": "MAY",
     "Vocabulary": ""
