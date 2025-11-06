@@ -922,7 +922,7 @@
     "XPath": "`metadata/schema:genre[@xml:lang=*]`",
     "Description": "Genre of this Intellectual Entity.",
     "Cardinality": "0..*",
-    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Language String](../2_terminology#lang-strings)",
     "Name": "Genre",
     "Obligation": "MAY",
     "Vocabulary": ""
