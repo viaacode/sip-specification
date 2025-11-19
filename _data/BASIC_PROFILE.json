@@ -609,7 +609,7 @@
     "XPath": "`metadata/dcterms:rights[@xml:lang=*]`",
     "Description": "A copyright notice on the Intellectual Entity.",
     "Cardinality": "0..*",
-    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
+    "Datatype": "[Language string](../2_terminology#lang-strings)",
     "Name": "Rights",
     "Obligation": "SHOULD",
     "Vocabulary": ""
