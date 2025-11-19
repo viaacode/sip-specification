@@ -819,7 +819,24 @@
     "XPath": "`metadata/(schema:height|schema:width|schema:depth|schema:weight)/schema:value`",
     "Description": "The height, width, depth, or weight measurement value.",
     "Cardinality": "1..1",
-    "Datatype": "[Float](../2_terminology..Vocabulary..Element...xml..:width.. given..vocabulary..Datatype.. ",
+    "Datatype": "[Float]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#float)",
+    "Name": "Value",
+    "Obligation": "MUST",
+    "Vocabulary": ""
+  },
+  {
+    "ID": "BACP56",
+    "EARK_ID": "",
+    "Type": "Element",
+    "Level": "Package",
+    "Path": "/metadata/descriptive/dc+schema.xml",
+    "Section": "schema",
+    "XPath": "`metadata/(schema:height|schema:width|schema:depth)/schema:unitCode`",
+    "Description": "The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes).",
+    "Cardinality": "0..1",
+    "Datatype": "[String]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}#string)",
+    "Name": "Unit Code",
+    "Obligation": "SHOULD",
     "Vocabulary": "`MMT`, `CMT`, `MTR`"
   },
   {
