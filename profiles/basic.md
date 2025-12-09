@@ -6,7 +6,7 @@ grand_parent:  2.1
 nav_order:    1
 nav_exclude:  false
 ---
-{% assign basic_constraints = site.data.2_1._data.BASIC_PROFILE %}
+{% assign basic_constraints = site.data["2_1"]._data.BASIC_PROFILE %}
 
 # Profile: Basic 
 

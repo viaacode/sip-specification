@@ -6,7 +6,7 @@ grand_parent:  2.1
 nav_order:    2
 nav_exclude:  false
 ---
-{% assign bib_constraints = site.data.2_1._data.BIBLIOGRAPHIC_PROFILE %}
+{% assign bib_constraints = site.data["2_1"]._data.BIBLIOGRAPHIC_PROFILE %}
 
 # Profile: Bibliographic 
 

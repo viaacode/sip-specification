@@ -7,7 +7,7 @@ nav_order:    1
 nav_exclude:  false
 ---
 
-{% assign package_constraints = site.data.2_1._data.GENERAL | where_exp: "c",
+{% assign package_constraints = site.data["2_1"]._data.GENERAL | where_exp: "c",
 "c.Level == 'Package'" %}
 
 # Package level
