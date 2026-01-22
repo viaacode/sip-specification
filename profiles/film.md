@@ -76,28 +76,28 @@ root_directory
 
 ### General
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'general'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
 Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'md5'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### Package METS
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'mets'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
 ### Package Descriptive Metadata
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'descriptive'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
@@ -107,7 +107,7 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 The addition of a separate PREMIS representation for the carrier(s) (i.e. the carrier representation) leads to a number of additional requirements in the package `premis.xml` file.
 The section below outlines the high level requirements, while the section [Describing a carrier within the carrier representation](#describing-a-carrier-within-the-carrier-representation) contains a more detailed discussion of the possibilities offered by the carrier representation.
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'preservation'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
@@ -180,7 +180,7 @@ premis:premis
 
 #### General requirements
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'summary'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
@@ -189,14 +189,14 @@ premis:premis
 
 #### Premis.xml
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'premis'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}                                                                                                                             
 
 The following elements paths are relative to the `<premis:significantPropertiesExtension>` element.
 
-{% assign constraints = site.data.2_1._data.FILM_PROFILE | where_exp: "c",
+{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
 "c.Section == 'significantPropertiesExtension'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
