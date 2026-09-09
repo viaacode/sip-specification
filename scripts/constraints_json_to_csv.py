@@ -8,7 +8,7 @@ from pathlib import Path
 
 def main():
     if len(sys.argv) not in (3,):
-        sys.exit("Usage: python3 scripts/json_to_google_sheet_csv.py <input.json|input_dir> <output.csv|output_dir>")
+        sys.exit("Usage: python3 scripts/constraints_json_to_csv.py <input.json|input_dir> <output.csv|output_dir>")
 
     source = Path(sys.argv[1])
     target = Path(sys.argv[2])
