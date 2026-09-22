@@ -1,0 +1,29 @@
+name: Export CSV
+
+on:
+  push:
+    paths:
+      - "_data/**"
+      - ".github/workflows/export-csv.yml"
+      - "scripts/constraints_json_to_csv.py"
+  pull_request:
+    paths:
+      - "_data/**"
+      - ".github/workflows/export-csv.yml"
+      - "scripts/constraints_json_to_csv.py"
+  workflow_dispatch:
+
+jobs:
+  export-csv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate CSV files
+        run: python3 scripts/constraints_json_to_csv.py _data csv
+
+      - name: Upload CSV files
+        uses: actions/upload-artifact@v4
+        with:
+          name: constraints-csv
+          path: csv/*.csv
