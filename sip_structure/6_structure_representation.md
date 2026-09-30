@@ -354,7 +354,7 @@ A representation-level `premis.xml` MAY contain rights statements, reuse conditi
 The following fragment uses the representation UUID from the example above:
 
 ```xml
-<premis:rights>
+<premis:rights xmlns:premis="http://www.loc.gov/premis/v3">
   <premis:rightsStatement>
     <premis:rightsStatementIdentifier>
       <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
