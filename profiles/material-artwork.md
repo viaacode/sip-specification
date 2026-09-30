@@ -176,7 +176,7 @@ The XML files that are required by this profile can be validated using the follo
 | File | Format | XML Schema |
 | `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
-| `dc+schema.xml` | Dublin Core with Schema.org | dc+schema.xsd (not yet available) |
+| `dc+schema.xml` | Dublin Core with Schema.org and meemoo rights-agent terms | dc+schema.xsd (not yet available) |
 
 ## Use Cases
 
