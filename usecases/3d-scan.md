@@ -52,10 +52,10 @@ The metadata record can contain the following information:
 - the date the sculpture was created;
 - the dimensions of the sculpture;
 - the name, birthdate and deathdate of the author;
-- a list of meemoo licenses;
+- a rights statement, reuse condition, and access policy;
 - some keywords
 - the md5 checksums of the media files;
-- rights credits
+- rights-related agents
 - ...
 
 Some of the metadata above is supplied in English and Dutch.
@@ -166,9 +166,9 @@ root_directory
 In total, the SIP contains 12 metadata files:
 
 |`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
-|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
+|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including its rights statement and access policy and any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_*/metadata/descriptive/dc+schema.xml`| Descriptive metadata about about each of the 5 representations at the _representation level_. |
-|`data/representations/representation_*/metadata/preservation/premis.xml`| Preservation metadata about each of the 5 representations and 14 files residing at the _representation level_. |
+|`data/representations/representation_*/metadata/preservation/premis.xml`| Preservation metadata about each of the 5 representations and 14 files residing at the _representation level_; representation 2 also records its reuse condition and access policy. |
 
 ### /data/metadata/descriptive/dc+schema.xml
 
@@ -209,9 +209,6 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
   <dcterms:subject xml:lang="en">scan</dcterms:subject>
   <dcterms:subject xml:lang="en">sculpture</dcterms:subject>
 
-  <!-- rights note -->
-  <dcterms:rights xml:lang="en">public domain</dcterms:rights>
-
   <!-- creator -->
   <schema:creator schema:roleName="auteur">
     <schema:name>Walter Pompe</schema:name>
@@ -251,7 +248,7 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
 
 ### data/metadata/preservation/premis.xml
 
-The `premis.xml` of the package level describes the IE and the relationships with its representations.
+The `premis.xml` of the package level describes the IE, its rights statement and access policy, and the relationships with its representations.
 It also contains a digitization event that details how the different files were created and by who.
 
 Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) in order to link the PREMIS IE object to its description.
@@ -367,6 +364,30 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
         <premis:agentType>organization</premis:agentType>
     </premis:agent>
 
+    <premis:rights>
+      <premis:rightsStatement>
+        <premis:rightsStatementIdentifier>
+          <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+          <premis:rightsStatementIdentifierValue>https://creativecommons.org/publicdomain/mark/1.0/</premis:rightsStatementIdentifierValue>
+        </premis:rightsStatementIdentifier>
+        <premis:rightsBasis authority="rightsBasis" authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis" valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/oth">other</premis:rightsBasis>
+        <premis:otherRightsInformation>
+          <premis:otherRightsBasis authority="dcterms" authorityURI="http://purl.org/dc/terms/" valueURI="http://purl.org/dc/terms/RightsStatement">rightsstatement</premis:otherRightsBasis>
+        </premis:otherRightsInformation>
+        <premis:linkingObjectIdentifier>
+          <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+          <premis:linkingObjectIdentifierValue>uuid-645392be-fa36-40fe-92e7-16c9fa60fe46</premis:linkingObjectIdentifierValue>
+        </premis:linkingObjectIdentifier>
+      </premis:rightsStatement>
+      <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/">
+        <odrl:Policy uid="https://data.hetarchief.be/id/policy/3d-scan"
+                     type="http://www.w3.org/ns/odrl/2/Agreement">
+          <odrl:asset uid="uuid-645392be-fa36-40fe-92e7-16c9fa60fe46" relation="http://www.w3.org/ns/odrl/2/target"/>
+          <odrl:permission uid="https://data.hetarchief.be/id/rights/publiek-metadata-uitgebreid-raadplegen"/>
+        </odrl:Policy>
+      </premis:rightsExtension>
+    </premis:rights>
+
 </premis:premis>
 ```
 
@@ -458,7 +479,7 @@ It also describes the various relationships between these objects:
 ### data/representations/representation_2/metadata/descriptive/dc+schema.xml
 
 The `dc+schema.xml` of the representation level describes the Representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
-It contains minimal metadata such as a title and some licenses.
+It contains minimal descriptive metadata such as a title. Representation-specific reuse conditions and access policy are recorded in the representation's `premis.xml`.
 
 The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file in the representation folder (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}#shareduuidinfo) for more information).
 
@@ -471,17 +492,13 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
 
     <dcterms:title>ARCHIVERINGSCOPIE OBJ</dcterms:title>
 
-    <!-- licenses -->
-    <dcterms:license>CC_BY-NC-ND-CONTENT</dcterms:license>
-    <dcterms:license>CP-website</dcterms:license>
-
 </metadata>
 ```
 
 
 ### data/representations/representation_2/metadata/preservation/premis.xml
 
-The `premis.xml` file of the second representation describes a couple of PREMIS objects:
+The `premis.xml` file of the second representation describes its reuse condition and access policy and a couple of PREMIS objects:
 
 1. the representation;
 2. the files `qv3bz95m19_ARCH_OBJ.OBJ`, `qv3bz95m19_ARCH_MTL.MTL`, `qv3bz95m19_ARCH_TIFF_COLOR.TIFF`;
@@ -646,6 +663,31 @@ It also describes the various relationships between these objects:
     </premis:relationship>
 
   </premis:object>
+
+  <premis:rights>
+    <premis:rightsStatement>
+      <premis:rightsStatementIdentifier>
+        <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+        <premis:rightsStatementIdentifierValue>https://creativecommons.org/licenses/by-nc-nd/4.0/</premis:rightsStatementIdentifierValue>
+      </premis:rightsStatementIdentifier>
+      <premis:rightsBasis authority="rightsBasis" authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis" valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/lic">license</premis:rightsBasis>
+      <premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+        <premis:linkingObjectIdentifierValue>uuid-7f16cfda-21ff-11ed-a277-7e92631d7d27</premis:linkingObjectIdentifierValue>
+      </premis:linkingObjectIdentifier>
+    </premis:rightsStatement>
+    <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/"
+                            xmlns:haRig="https://data.hetarchief.be/ns/rights/">
+      <odrl:Policy uid="https://data.hetarchief.be/id/policy/3d-scan-representation-2"
+                   type="http://www.w3.org/ns/odrl/2/Agreement">
+        <odrl:asset uid="uuid-7f16cfda-21ff-11ed-a277-7e92631d7d27" relation="http://www.w3.org/ns/odrl/2/target"/>
+        <odrl:permission uid="https://data.hetarchief.be/id/rights/onderzoek-materiaal-volledig-raadplegen"/>
+        <odrl:prohibition>
+          <haRig:isMotivatedBy>contractual-agreements</haRig:isMotivatedBy>
+        </odrl:prohibition>
+      </odrl:Policy>
+    </premis:rightsExtension>
+  </premis:rights>
 
 </premis:premis>
 
