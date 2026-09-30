@@ -67,6 +67,8 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
+Rights-related descriptive agents, including rights holders, owners, licence distributors, performers, and producers, remain in `dc+schema.xml`. Rights statements, reuse conditions, and access policy MUST be recorded in PREMIS at the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) or [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), as applicable. The deprecated `dcterms:rights` and `dcterms:license` elements SHOULD NOT be used for new SIPs.
+
 {: .important }
 For elements that require the `@xml:lang` attribute, it is still necessary to supply an element with `@xml:lang` set to `nl` even if there is no Dutch content available (e.g., the original title is in English or French and no translation was ever made, or the title is the same in both languages). In that case, a title in another language can be copied as if it were Dutch. 
 
@@ -116,6 +118,8 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 <?xml version='1.0' encoding='UTF-8'?>
 <metadata xmlns="https://data.hetarchief.be/id/sip/2.1/basic" 
       xmlns:dcterms="http://purl.org/dc/terms/" 
+      xmlns:schema="https://schema.org/"
+      xmlns:haRig="https://data.hetarchief.be/ns/rights/"
       xmlns:xs="http://www.w3.org/2001/XMLSchema/" 
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xmlns:edtf="http://id.loc.gov/datatypes/edtf/">
@@ -133,6 +137,12 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
   <!-- multiple keywords about the resource -->
   <dcterms:subject xml:lang="nl">Cat</dcterms:subject>
   <dcterms:subject xml:lang="nl">Felis Catus Flamens</dcterms:subject>
+
+  <!-- rights-related agents remain descriptive metadata -->
+  <dcterms:rightsHolder>Example Rights Foundation</dcterms:rightsHolder>
+  <haRig:owner>
+    <schema:name xml:lang="nl">Voorbeeldmuseum</schema:name>
+  </haRig:owner>
 
 
 </metadata>   
