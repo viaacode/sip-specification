@@ -578,17 +578,6 @@ It also describes the various relationships between these objects:
     </premis:relationship>
   </premis:object>
 
-    <!-- relationship between file and its representation -->
-    <premis:relationship>
-      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType">is included in</premis:relationshipSubType>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-    </premis:relationship>
-
-  </premis:object>
   <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
