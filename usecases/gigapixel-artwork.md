@@ -42,10 +42,10 @@ The metadata record can contain the following information:
 - the date the work was created;
 - the dimensions of the work;
 - the name, birthdate and deathdate of the artist;
-- a list of meemoo licenses;
+- a rights statement and access policy;
 - some keywords;
 - the md5 checksums of the media files;
-- rights credits;
+- rights-related agents;
 - ...
 
 Some of the metadata above is supplied in both English and Dutch.
@@ -157,7 +157,7 @@ root_directory
 In total, the SIP contains 13 metadata files:
 
 |`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema. |
-|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
+|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including its rights statement and access policy and any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF file residing at the _representation level_. |
 |`data/representations/representation_2/metadata/preservation/premis.xml`| Preservation metadata about the second representation and TIFF file residing at the _representation level_. |
 |`data/representations/representation_3/metadata/preservation/premis.xml`| Preservation metadata about the third representation and TIFF file residing at the _representation level_. |
@@ -197,9 +197,6 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
     Anoniem (Anoniem Leuvens Meester)
   </dcterms:creator>
 
-  <!-- rights note -->
-  <dcterms:rights xml:lang="en">public domain</dcterms:rights>
-
   <!-- dimensions -->
   <schema:height>
     <schema:value>123,4</schema:value>
@@ -220,7 +217,7 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
 
 ### data/metadata/preservation/premis.xml
 
-The `premis.xml` of the package level describes the IE and the relationships with its representations.
+The `premis.xml` of the package level describes the IE, its rights statement and access policy, and the relationships with its representations.
 It also contains a digitization event that details how the TIFF files were created and by whom.
 
 Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) element in order to link the PREMIS IE object to its description.
@@ -356,6 +353,30 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
             <schema:affiliation>Rik Klein Gotink fotografie</schema:affiliation>
         </premis:agentExtension>
     </premis:agent>
+
+    <premis:rights>
+      <premis:rightsStatement>
+        <premis:rightsStatementIdentifier>
+          <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+          <premis:rightsStatementIdentifierValue>https://creativecommons.org/publicdomain/mark/1.0/</premis:rightsStatementIdentifierValue>
+        </premis:rightsStatementIdentifier>
+        <premis:rightsBasis authority="rightsBasis" authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis" valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/oth">other</premis:rightsBasis>
+        <premis:otherRightsInformation>
+          <premis:otherRightsBasis authority="dcterms" authorityURI="http://purl.org/dc/terms/" valueURI="http://purl.org/dc/terms/RightsStatement">rightsstatement</premis:otherRightsBasis>
+        </premis:otherRightsInformation>
+        <premis:linkingObjectIdentifier>
+          <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+          <premis:linkingObjectIdentifierValue>uuid-cd5bb5e4-fb6c-4e28-8c61-d924a903aafb</premis:linkingObjectIdentifierValue>
+        </premis:linkingObjectIdentifier>
+      </premis:rightsStatement>
+      <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/">
+        <odrl:Policy uid="https://data.hetarchief.be/id/policy/gigapixel-artwork"
+                     type="http://www.w3.org/ns/odrl/2/Agreement">
+          <odrl:asset uid="uuid-cd5bb5e4-fb6c-4e28-8c61-d924a903aafb" relation="http://www.w3.org/ns/odrl/2/target"/>
+          <odrl:permission uid="https://data.hetarchief.be/id/rights/publiek-materiaal-volledig-raadplegen"/>
+        </odrl:Policy>
+      </premis:rightsExtension>
+    </premis:rights>
 
 </premis:premis>
 ```

@@ -41,10 +41,10 @@ The metadata record can contain the following information:
 - the date the painting was created;
 - the dimensions of the painting;
 - the name, birthdate and deathdate of the artist;
-- a list of meemoo licenses;
+- a rights statement, reuse condition, and access policy;
 - some keywords;
 - the md5 checksums of the media files;
-- rights credits;
+- rights-related agents;
 - ...
 
 Some of the metadata above is supplied in both English and Dutch.
@@ -139,8 +139,8 @@ root_directory
 In total, the SIP contains 12 metadata files:
 
 |`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema. |
-|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
-|`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF files residing at the _representation level_. |
+|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including the IE-wide rights statement and access policy and any PREMIS events related to the SIP/package/representations. |
+|`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF files residing at the _representation level_, including its reuse condition and access policy. |
 |`data/representations/representation_2/metadata/preservation/premis.xml`| Preservation metadata about the second representation and TIFF files residing at the _representation level_. |
 |`data/representations/representation_3/metadata/preservation/premis.xml`| Preservation metadata about the third representation and TIFF files residing at the _representation level_. |
 |`data/representations/representation_4/metadata/preservation/premis.xml`| Preservation metadata about the fourth representation and TIFF files residing at the _representation level_. |
@@ -175,9 +175,6 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
   <dcterms:subject xml:lang="nl">religie</dcterms:subject>
   <dcterms:subject xml:lang="nl">Christus</dcterms:subject>
 
-  <!-- rights note -->
-  <dcterms:rights xml:lang="en">public domain</dcterms:rights>
-
   <!-- creator -->
   <schema:creator schema:roleName="auteur">
     <schema:name>Anthony van Dyck</schema:name>
@@ -206,7 +203,7 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
 
 ### data/metadata/preservation/premis.xml
 
-The `premis.xml` of the package level describes the IE and the relationships with its representations.
+The `premis.xml` of the package level describes the IE, its rights statement and access policy, and the relationships with its representations.
 It also contains a digitization event that details how the TIFF files were created and by whom.
 
 Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) element in order to link the PREMIS IE object to its description.
@@ -326,13 +323,38 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
         </premis:agentExtension>
     </premis:agent>
 
+    <!-- rights statement and access policy for the IE -->
+    <premis:rights>
+      <premis:rightsStatement>
+        <premis:rightsStatementIdentifier>
+          <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+          <premis:rightsStatementIdentifierValue>https://creativecommons.org/publicdomain/mark/1.0/</premis:rightsStatementIdentifierValue>
+        </premis:rightsStatementIdentifier>
+        <premis:rightsBasis authority="rightsBasis" authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis" valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/oth">other</premis:rightsBasis>
+        <premis:otherRightsInformation>
+          <premis:otherRightsBasis authority="dcterms" authorityURI="http://purl.org/dc/terms/" valueURI="http://purl.org/dc/terms/RightsStatement">rightsstatement</premis:otherRightsBasis>
+        </premis:otherRightsInformation>
+        <premis:linkingObjectIdentifier>
+          <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+          <premis:linkingObjectIdentifierValue>uuid-2767ce00-0b91-4eb8-80fb-e6f293f19675</premis:linkingObjectIdentifierValue>
+        </premis:linkingObjectIdentifier>
+      </premis:rightsStatement>
+      <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/">
+        <odrl:Policy uid="https://data.hetarchief.be/id/policy/2d-artwork"
+                     type="http://www.w3.org/ns/odrl/2/Agreement">
+          <odrl:asset uid="uuid-2767ce00-0b91-4eb8-80fb-e6f293f19675" relation="http://www.w3.org/ns/odrl/2/target"/>
+          <odrl:permission uid="https://data.hetarchief.be/id/rights/publiek-materiaal-volledig-raadplegen"/>
+        </odrl:Policy>
+      </premis:rightsExtension>
+    </premis:rights>
+
 </premis:premis>
 ```
 
 ### data/representations/representation_1/metadata/descriptive/dc+schema.xml
 
 The `dc+schema.xml` of the representation level describes the representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
-It contains minimal metadata about licenses that might divert from the IE's license.
+It contains only descriptive metadata; the representation-specific reuse condition and access policy are recorded in the representation's `premis.xml`.
 
 The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
 
@@ -343,16 +365,12 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
     <!-- linking id between dc and premis -->
     <dcterms:identifier>uuid-187DA428-6BA1-4EB7-B786-CD4AF85A02B1</dcterms:identifier>
 
-    <!-- licenses -->
-    <dcterms:license>CC_BY-NC-ND-CONTENT</dcterms:license>
-    <dcterms:license>CP-website</dcterms:license>
-
 </metadata>
 ```
 
 ### data/representations/representation_1/metadata/preservation/premis.xml
 
-The `premis.xml` file of the first representation describes two PREMIS objects:
+The `premis.xml` file of the first representation describes its reuse condition and access policy and two PREMIS objects:
 
 1. the representation;
 2. the TIFF file `7m03z1634f_overzichtsopname_metlijst_tiff.tiff`;
@@ -432,6 +450,33 @@ It also describes the various relationships between these objects:
     </premis:relationship>
 
   </premis:object>
+
+  <!-- representation-specific reuse condition and access policy -->
+  <premis:rights>
+    <premis:rightsStatement>
+      <premis:rightsStatementIdentifier>
+        <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+        <premis:rightsStatementIdentifierValue>https://creativecommons.org/licenses/by-nc-nd/4.0/</premis:rightsStatementIdentifierValue>
+      </premis:rightsStatementIdentifier>
+      <premis:rightsBasis authority="rightsBasis" authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis" valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/lic">license</premis:rightsBasis>
+      <premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+        <premis:linkingObjectIdentifierValue>uuid-187DA428-6BA1-4EB7-B786-CD4AF85A02B1</premis:linkingObjectIdentifierValue>
+      </premis:linkingObjectIdentifier>
+    </premis:rightsStatement>
+    <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/"
+                            xmlns:haRig="https://data.hetarchief.be/ns/rights/">
+      <odrl:Policy uid="https://data.hetarchief.be/id/policy/2d-artwork-representation-1"
+                   type="http://www.w3.org/ns/odrl/2/Agreement">
+        <odrl:asset uid="uuid-187DA428-6BA1-4EB7-B786-CD4AF85A02B1" relation="http://www.w3.org/ns/odrl/2/target"/>
+        <odrl:permission uid="https://data.hetarchief.be/id/rights/publiek-metadata-uitgebreid-raadplegen"/>
+        <odrl:prohibition>
+          <haRig:isMotivatedBy>contractual-agreements</haRig:isMotivatedBy>
+          <haRig:note>The full-resolution reproduction is not publicly downloadable.</haRig:note>
+        </odrl:prohibition>
+      </odrl:Policy>
+    </premis:rightsExtension>
+  </premis:rights>
 
 </premis:premis>
 ```
@@ -515,17 +560,6 @@ It also describes the various relationships between these objects:
     </premis:relationship>
   </premis:object>
 
-    <!-- relationship between file and its representation -->
-    <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is included in</premis:relationshipSubType>
-      <premis:relatedObjectIdentifier>
-        <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
-        <premis:relatedObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:relatedObjectIdentifierValue>
-      </premis:relatedObjectIdentifier>
-    </premis:relationship>
-
-  </premis:object>
   <premis:object xsi:type="premis:file">
 
     <premis:objectIdentifier>
