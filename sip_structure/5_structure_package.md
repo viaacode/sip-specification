@@ -456,6 +456,102 @@ The table below gives an overview of the different relationship types that can b
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
+#### Describing rights and access-policy
+
+A package-level `premis.xml` MAY describe rights for both Intellectual Entities and representations. Representation-specific statements and policies MAY instead be placed in the relevant representation's `premis.xml`, but metadata for the same target and purpose MUST NOT be duplicated at both levels.
+
+Each `premis:rightsStatement` identifies either a rights statement or a reuse condition. Its `premis:rightsStatementIdentifierType` MUST be `URI`, and its value MUST be a URI from the authoritative [RightsStatements.org statements](https://rightsstatements.org/page/1.0/) or [Creative Commons licences and public-domain tools](https://creativecommons.org/share-your-work/cclicenses/), including meemoo's non-public reuse condition where applicable.
+
+For a rights statement, `premis:rightsBasis` MUST be `other`, with the `rightsBasis` authority and the LoC `oth` value URI. It MUST be followed by `premis:otherRightsInformation`: `premis:otherRightsBasis` has the fixed value `rightsstatement` and DCTERMS authority attributes, while an optional `premis:otherRightsNote` MAY record contractual restrictions. For a reuse condition, `premis:rightsBasis` MUST be `license`, with the LoC `lic` value URI. `premis:otherRightsInformation` and `premis:linkingObjectIdentifier` are siblings of `premis:rightsBasis`, as required by PREMIS.
+
+Every statement MUST link to its target IE or representation using a `premis:linkingObjectIdentifier` of type `UUID`; the value MUST match an object identifier already used in the package. An access policy is expressed as one `odrl:Policy` inside `premis:rightsExtension`. Its `odrl:asset` target MUST likewise match the target object UUID. The policy MAY contain the URI-based permissions and prohibitions shown below. Every prohibition MUST have one or more `haRig:isMotivatedBy` values and MAY have one `haRig:note`.
+
+```xml
+<premis:premis xmlns:premis="http://www.loc.gov/premis/v3"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               version="3.0">
+  <premis:rights>
+    <!-- rights statement for the IE -->
+    <premis:rightsStatement>
+      <premis:rightsStatementIdentifier>
+        <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+        <premis:rightsStatementIdentifierValue>https://rightsstatements.org/vocab/InC/1.0/</premis:rightsStatementIdentifierValue>
+      </premis:rightsStatementIdentifier>
+      <premis:rightsBasis authority="rightsBasis"
+          authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis"
+          valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/oth">other</premis:rightsBasis>
+      <premis:otherRightsInformation>
+        <premis:otherRightsBasis authority="dcterms"
+            authorityURI="http://purl.org/dc/terms/"
+            valueURI="http://purl.org/dc/terms/RightsStatement">rightsstatement</premis:otherRightsBasis>
+        <premis:otherRightsNote>Use is subject to the digitisation agreement.</premis:otherRightsNote>
+      </premis:otherRightsInformation>
+      <premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+        <premis:linkingObjectIdentifierValue>uuid-948e2213-ca54-459c-8c87-5818adeb9444</premis:linkingObjectIdentifierValue>
+      </premis:linkingObjectIdentifier>
+    </premis:rightsStatement>
+
+    <!-- reuse condition for the representation -->
+    <premis:rightsStatement>
+      <premis:rightsStatementIdentifier>
+        <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+        <premis:rightsStatementIdentifierValue>https://creativecommons.org/publicdomain/zero/1.0/</premis:rightsStatementIdentifierValue>
+      </premis:rightsStatementIdentifier>
+      <premis:rightsBasis authority="rightsBasis"
+          authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis"
+          valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/lic">license</premis:rightsBasis>
+      <premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+        <premis:linkingObjectIdentifierValue>uuid-541292c3-223a-4b80-b747-66bc86ff4a89</premis:linkingObjectIdentifierValue>
+      </premis:linkingObjectIdentifier>
+    </premis:rightsStatement>
+
+    <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/"
+                            xmlns:haRig="https://data.hetarchief.be/ns/rights/">
+      <odrl:Policy uid="https://data.hetarchief.be/id/policy/example"
+                   type="http://www.w3.org/ns/odrl/2/Agreement">
+        <odrl:asset uid="uuid-541292c3-223a-4b80-b747-66bc86ff4a89"
+                    relation="http://www.w3.org/ns/odrl/2/target"/>
+        <odrl:permission uid="https://data.hetarchief.be/id/rights/onderwijs-materiaal-deels-raadplegen"/>
+        <odrl:permission uid="https://data.hetarchief.be/id/rights/onderwijs-metadata-beperkt-raadplegen"/>
+        <odrl:prohibition>
+          <haRig:isMotivatedBy>gdpr-privacy</haRig:isMotivatedBy>
+          <haRig:note>Public access is prohibited because personal data is present.</haRig:note>
+        </odrl:prohibition>
+      </odrl:Policy>
+    </premis:rightsExtension>
+  </premis:rights>
+</premis:premis>
+```
+
+The allowed access-permission identifiers are:
+
+- `onderwijs-materiaal-volledig-raadplegen`
+- `onderwijs-metadata-beperkt-raadplegen`
+- `onderwijs-materiaal-deels-raadplegen`
+- `onderzoek-materiaal-volledig-raadplegen`
+- `onderzoek-metadata-uitgebreid-raadplegen`
+- `intramuros-materiaal-volledig-raadplegen`
+- `intramuros-metadata-uitgebreid-raadplegen`
+- `tussencontentpartners-metadata-uitgebreid-raadplegen`
+- `tussencontentpartners-materiaal-volledig-raadplegen`
+- `publiek-metadata-beperkt-raadplegen`
+- `publiek-metadata-uitgebreid-raadplegen`
+- `publiek-materiaal-volledig-raadplegen`
+- `publiek-materiaal-deels-raadplegen`
+- `publiek-materiaal-volledig-downloaden`
+
+Each value is appended to `https://data.hetarchief.be/id/rights/` to form the permission URI. The allowed prohibition motivations are:
+
+- `contractual-agreements`
+- `portrait-right`
+- `gdpr-privacy`
+- `legally-determined`
+- `ethics`
+- `work-product`
+- `internal-policy`
+
 #### Adding provenance of representations
 
 If desired, a representation's provenance trail can be added to the preservation metadata using PREMIS events and agents.
