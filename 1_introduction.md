@@ -21,7 +21,9 @@ One level higher, the _package level_, embodies the represented content or [_int
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
-Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), and [PREMIS](https://www.loc.gov/standards/premis/).
+Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [Schema.org](https://schema.org/), [PREMIS](https://www.loc.gov/standards/premis/), and [ODRL 2.2](https://www.w3.org/TR/odrl-model/).
+
+Rights-related descriptive agents remain in `dc+schema.xml`. Rights statements and reuse conditions are expressed with PREMIS, while meemoo's access policy is expressed with ODRL inside the PREMIS rights extension. See [Describing rights and access-policy]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the complete model and controlled values.
 
 The meemoo SIP specification itself cannot be used for actual ingest in the meemoo archive.
 Depending on the type of content, specific mappings are required for ingest.
@@ -46,6 +48,7 @@ To fully understand the basics of this specification, it is advised to be famili
 | <a id="dcterms"></a>DCTERMS      | [Dublin Core Metadata Initiative Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)|
 | <a id="premis"></a>PREMIS       | [PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/)|
 | <a id="schema"></a>Schema       | [Schema.org](https://schema.org/)|
+| <a id="odrl"></a>ODRL 2.2       | [ODRL Information Model 2.2](https://www.w3.org/TR/odrl-model/)|
 | <a id="mods"></a>MODS       | [Metadata Object Description Schema](https://www.loc.gov/standards/mods/)|
 
 Metadata elements from these standards are described throughout this specification using tables such as the one below. 
