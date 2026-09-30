@@ -347,6 +347,38 @@ The table below gives an overview of the different relationship types that can b
 | From Representation to File | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`includes`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc) | [`is included in`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi) | A representation includes one or more file objects |
 | From File to Representation | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`is included in`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi) | [`includes`](http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc) | A file is included in a representation |
 
+#### Describing rights and access-policy
+
+A representation-level `premis.xml` MAY contain rights statements, reuse conditions, and access policy that apply to that representation. Every `premis:linkingObjectIdentifier` and ODRL policy target MUST use the UUID of the representation defined in the same file. The same metadata MAY instead be centralized in the package-level `premis.xml`, but a statement or policy for the same target and purpose MUST NOT be duplicated at both levels. See the [package-level rights and access-policy guidance]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the shared model, controlled values, and complete example.
+
+The following fragment uses the representation UUID from the example above:
+
+```xml
+<premis:rights>
+  <premis:rightsStatement>
+    <premis:rightsStatementIdentifier>
+      <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+      <premis:rightsStatementIdentifierValue>https://creativecommons.org/licenses/by/4.0/</premis:rightsStatementIdentifierValue>
+    </premis:rightsStatementIdentifier>
+    <premis:rightsBasis authority="rightsBasis"
+        authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis"
+        valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/lic">license</premis:rightsBasis>
+    <premis:linkingObjectIdentifier>
+      <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+      <premis:linkingObjectIdentifierValue>uuid-541292c3-223a-4b80-b747-66bc86ff4a89</premis:linkingObjectIdentifierValue>
+    </premis:linkingObjectIdentifier>
+  </premis:rightsStatement>
+  <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/">
+    <odrl:Policy uid="https://data.hetarchief.be/id/policy/representation-example"
+                 type="http://www.w3.org/ns/odrl/2/Agreement">
+      <odrl:asset uid="uuid-541292c3-223a-4b80-b747-66bc86ff4a89"
+                  relation="http://www.w3.org/ns/odrl/2/target"/>
+      <odrl:permission uid="https://data.hetarchief.be/id/rights/publiek-materiaal-volledig-raadplegen"/>
+    </odrl:Policy>
+  </premis:rightsExtension>
+</premis:rights>
+```
+
 ***Requirements***
 
 {% assign constraints = rep_constraints | where_exp: "c",
