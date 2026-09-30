@@ -10,6 +10,12 @@ nav_exclude:  false
 # Terminology
 
 <dl>
+    <dt>Access permission</dt>
+    <dd>A meemoo decision permitting a defined form of access to an object. It is represented by an ODRL permission in the PREMIS rights extension.</dd>
+    <dt>Access policy</dt>
+    <dd>A set of meemoo decisions about how an object may be made available. It is represented as an ODRL policy containing access permissions and prohibitions inside the PREMIS rights extension.</dd>
+    <dt>Access restriction/prohibition</dt>
+    <dd>A meemoo decision prohibiting access to an object for one or more stated motivations. It is represented by an ODRL prohibition in the PREMIS rights extension and is distinct from the object's copyright status or reuse terms.</dd>
     <dt>Administrative metadata</dt>
     <dd>Metadata about the origin of content, e.g. which Content Partner delivered the SIP to meemoo.</dd>
     <dt>Content</dt>
@@ -36,6 +42,10 @@ nav_exclude:  false
     <dd>A set of files (including metadata) needed for a complete rendition of an IE. Note that an IE can be represented by multiple representations (e.g. a high quality representation and a low quality representation).</dd>
     <dt>Representation METS</dt>
     <dd>The metadata file conforming to the <a href="https://www.loc.gov/standards/mets/mets.xsd">METS standard</a> situated at one of the different representation directories of the representation level of the SIP (e.g. at <code>/data/representation/representation_1/METS.xml</code>)</dd>
+    <dt>Reuse condition/licence</dt>
+    <dd>A legal instrument that states the conditions under which an Intellectual Entity or representation may be reused. It is identified by URI in a PREMIS rights statement whose rights basis is <code>license</code>.</dd>
+    <dt>Rights statement</dt>
+    <dd>A standardized statement about the copyright and related-rights status of an Intellectual Entity or representation. It is identified by URI in a PREMIS rights statement whose rights basis is <code>other</code>.</dd>
     <dt>Sidecar</dt>
     <dd>An alternative term for a file exclusively containing metadata.</dd>
     <dt>Structural metadata</dt>
