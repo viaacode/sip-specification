@@ -139,7 +139,7 @@
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "descriptive",
     "Type": "General",
-    "Description": "A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level. Representation-specific rights statements, reuse conditions, and access policy MUST be recorded in that representation's `premis.xml`, or MAY be centralized in the package-level `premis.xml` without duplication.",
+    "Description": "A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level. Representation-specific rights statements, reuse conditions, and access policy MUST be recorded in that representation's `premis.xml` or in the package-level `premis.xml`; they MAY occur at both levels. When declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence.",
     "Obligation": "MAY"
   },
   {

@@ -167,7 +167,7 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
-The Basic-profile `dc+schema.xml` requirements apply to descriptive metadata, including rights-related agents. They do not make the deprecated `dcterms:rights` or `dcterms:license` elements the preferred model. Rights statements, reuse conditions, and access policy belong in PREMIS: they MAY be centralized in the [package-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) or placed in the applicable [representation-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), but MUST NOT be duplicated for the same target and purpose.
+The Basic-profile `dc+schema.xml` requirements apply to descriptive metadata, including rights-related agents. They do not make the deprecated `dcterms:rights` or `dcterms:license` elements the preferred model. Rights statements, reuse conditions, and access policy belong in PREMIS: they MAY be centralized in the [package-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy), placed in the applicable [representation-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), or recorded at both levels. When declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence.
 
 ### Validation
 

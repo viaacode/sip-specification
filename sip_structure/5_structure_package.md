@@ -458,11 +458,13 @@ The table below gives an overview of the different relationship types that can b
 
 #### Describing rights and access-policy
 
-A package-level `premis.xml` MAY describe rights for both Intellectual Entities and representations. Representation-specific statements and policies MAY instead be placed in the relevant representation's `premis.xml`, but metadata for the same target and purpose MUST NOT be duplicated at both levels.
+A package-level `premis.xml` MAY describe rights for both Intellectual Entities and representations. Representation-specific statements and policies MAY also be placed in the relevant representation's `premis.xml`. When metadata for the same target and purpose occurs at both levels and conflicts, the representation-level statement or policy takes precedence.
 
 Each `premis:rights` entity MUST contain at least one rights-status statement and exactly one rights extension with an access policy. Additional reuse-condition statements are optional. Every `premis:rightsStatement` identifies either a rights-status statement or a reuse condition. Its `premis:rightsStatementIdentifierType` MUST be `URI`, and its value MUST come from the applicable controlled vocabulary.
 
 For a rights statement, `premis:rightsBasis` MUST be `other`, with the `rightsBasis` authority and the LoC `oth` value URI. It MUST be followed by `premis:otherRightsInformation`: `premis:otherRightsBasis` has the fixed value `rightsstatement` and DCTERMS authority attributes, while an optional `premis:otherRightsNote` MAY record contractual restrictions. For a reuse condition, `premis:rightsBasis` MUST be `license`, with the LoC `lic` value URI. `premis:otherRightsInformation` and `premis:linkingObjectIdentifier` are siblings of `premis:rightsBasis`, as required by PREMIS.
+
+When conflicting reuse conditions apply to the same object, the strictest condition takes precedence. From most to least strict, the order is: non-public licence, CC BY-NC-ND, CC BY-ND, CC BY-NC-SA, CC BY-NC, CC BY-SA, CC BY, and CC0.
 
 Every statement MUST link to its target IE or representation using a `premis:linkingObjectIdentifier` of type `UUID`; the value MUST match an object identifier already used in the package. An access policy is expressed as one `odrl:Policy` inside `premis:rightsExtension`. Its `odrl:asset` target MUST likewise match the target object UUID. The policy MAY contain the URI-based permissions and prohibitions shown below. Every prohibition MUST have one or more `haRig:isMotivatedBy` values and MAY have one `haRig:note`.
 
