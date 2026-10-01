@@ -220,6 +220,8 @@ The identifier in the `<dcterms:identifier/>` element is used to link the `dc+sc
 The `premis.xml` of the package level describes the IE, its rights statement and access policy, and the relationships with its representations.
 It also contains a digitization event that details how the TIFF files were created and by whom.
 
+The Public Domain Mark records that the original artwork has no known copyright restrictions. The ODRL permission serves a different purpose: it records meemoo's decision that the public may consult the complete material.
+
 Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) element in order to link the PREMIS IE object to its description.
 
 ```xml

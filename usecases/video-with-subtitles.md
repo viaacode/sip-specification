@@ -37,7 +37,7 @@ The metadata record can contain the following information:
 - a custom identifier by the CP;
 - a list of keywords;
 - the original filename;
-- an access policy;
+- a rights statement and access policy;
 - the date the episode was created;
 - the date the episode was aired;
 - the md5 checksum of the media file.
@@ -90,7 +90,7 @@ subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6
 In total, the SIP contains 3 metadata files:
 
 | `/data/metadata/descriptive/dc+schema.xml` | Descriptive metadata about the IE residing at the _Package level_. |
-| `/data/metadata/preservation/premis.xml` | Preservation metadata about the IE and its access policy residing at the _Package level_. |
+| `/data/metadata/preservation/premis.xml` | Preservation metadata about the IE, its rights statement and access policy residing at the _Package level_. |
 | `/data/representations/representation_1/metadata/preservation/premis.xml` | Preservation metadata about the representation and files residing at the _Representation level_. |
 
 ### /data/metadata/descriptive/dc+schema.xml
@@ -130,7 +130,8 @@ Note that the identifier is used to link the `dc+schema.xml` file to the corresp
 
 ### /data/metadata/preservation/premis.xml
 
-The `premis.xml` of the package level describes the IE, its relationship with its representation, and the access policy that replaces the legacy `VIAA-PUBLIEK-METADATA-LTD` value.
+The `premis.xml` of the package level describes the IE, its relationship with its representation, and its rights status and access policy. The legacy `VIAA-PUBLIEK-METADATA-LTD` value is replaced by the URI-based `publiek-metadata-beperkt-raadplegen` permission: the public may consult a limited metadata set, but the value makes no statement about access to the audiovisual material itself.
+The CNE rights statement records that the copyright status has not been evaluated. Copyright status and access are independent: the access permission records meemoo's dissemination decision and does not imply that the item is free of copyright.
 It also contains an example of an additional identifier added by the CP.
 
 Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier>` in the `descriptive/dc+schema.xml` file in order to link the two files together.
@@ -162,8 +163,22 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 
   </premis:object>
 
-  <!-- legacy VIAA-PUBLIEK-METADATA-LTD expressed as a URI-based access permission -->
+  <!-- rights status and legacy VIAA-PUBLIEK-METADATA-LTD access policy -->
   <premis:rights>
+    <premis:rightsStatement>
+      <premis:rightsStatementIdentifier>
+        <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+        <premis:rightsStatementIdentifierValue>https://rightsstatements.org/vocab/CNE/1.0/</premis:rightsStatementIdentifierValue>
+      </premis:rightsStatementIdentifier>
+      <premis:rightsBasis authority="rightsBasis" authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis" valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/oth">other</premis:rightsBasis>
+      <premis:otherRightsInformation>
+        <premis:otherRightsBasis authority="dcterms" authorityURI="http://purl.org/dc/terms/" valueURI="http://purl.org/dc/terms/RightsStatement">rightsstatement</premis:otherRightsBasis>
+      </premis:otherRightsInformation>
+      <premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+        <premis:linkingObjectIdentifierValue>uuid-f58ece94-f050-4b5b-b383-bba83393eaff</premis:linkingObjectIdentifierValue>
+      </premis:linkingObjectIdentifier>
+    </premis:rightsStatement>
     <premis:rightsExtension xmlns:odrl="http://www.w3.org/ns/odrl/2/">
       <odrl:Policy uid="https://data.hetarchief.be/id/policy/video-with-subtitles"
                    type="http://www.w3.org/ns/odrl/2/Agreement">
