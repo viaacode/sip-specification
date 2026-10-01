@@ -251,6 +251,8 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
 The `premis.xml` of the package level describes the IE, its rights statement and access policy, and the relationships with its representations.
 It also contains a digitization event that details how the different files were created and by who.
 
+The Public Domain Mark records that the original sculpture has no known copyright restrictions. The ODRL permission is independent of that copyright status and records meemoo's decision that the public may consult extended metadata.
+
 Note that the identifier in the `<premis:objectIdentifier>` element is shared with the `<dcterms:identifier/>` (in the `descriptive/dc+schema.xml` file) in order to link the PREMIS IE object to its description.
 
 ```xml
@@ -498,7 +500,9 @@ The identifier is used to link the `dc+schema.xml` file to the corresponding PRE
 
 ### data/representations/representation_2/metadata/preservation/premis.xml
 
-The `premis.xml` file of the second representation describes its reuse condition and access policy and a couple of PREMIS objects:
+The `premis.xml` file of the second representation describes its rights status, reuse condition and access policy and a couple of PREMIS objects:
+
+The Public Domain Mark repeats the rights status of the original sculpture. CC BY-NC-ND defines how the digital scan may be reused, while the ODRL policy separately permits researchers to consult the complete material and records that contractual agreements impose an access restriction.
 
 1. the representation;
 2. the files `qv3bz95m19_ARCH_OBJ.OBJ`, `qv3bz95m19_ARCH_MTL.MTL`, `qv3bz95m19_ARCH_TIFF_COLOR.TIFF`;
@@ -665,6 +669,20 @@ It also describes the various relationships between these objects:
   </premis:object>
 
   <premis:rights>
+    <premis:rightsStatement>
+      <premis:rightsStatementIdentifier>
+        <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
+        <premis:rightsStatementIdentifierValue>https://creativecommons.org/publicdomain/mark/1.0/</premis:rightsStatementIdentifierValue>
+      </premis:rightsStatementIdentifier>
+      <premis:rightsBasis authority="rightsBasis" authorityURI="http://id.loc.gov/vocabulary/preservation/rightsBasis" valueURI="http://id.loc.gov/vocabulary/preservation/rightsBasis/oth">other</premis:rightsBasis>
+      <premis:otherRightsInformation>
+        <premis:otherRightsBasis authority="dcterms" authorityURI="http://purl.org/dc/terms/" valueURI="http://purl.org/dc/terms/RightsStatement">rightsstatement</premis:otherRightsBasis>
+      </premis:otherRightsInformation>
+      <premis:linkingObjectIdentifier>
+        <premis:linkingObjectIdentifierType>UUID</premis:linkingObjectIdentifierType>
+        <premis:linkingObjectIdentifierValue>uuid-7f16cfda-21ff-11ed-a277-7e92631d7d27</premis:linkingObjectIdentifierValue>
+      </premis:linkingObjectIdentifier>
+    </premis:rightsStatement>
     <premis:rightsStatement>
       <premis:rightsStatementIdentifier>
         <premis:rightsStatementIdentifierType>URI</premis:rightsStatementIdentifierType>
