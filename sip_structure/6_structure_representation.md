@@ -349,7 +349,7 @@ The table below gives an overview of the different relationship types that can b
 
 #### Describing rights and access-policy
 
-A representation-level `premis.xml` MAY contain rights statements, reuse conditions, and access policy that apply to that representation. When a `premis:rights` entity is used, it MUST contain at least one rights-status statement and exactly one rights extension with an access policy. Every `premis:linkingObjectIdentifier` and ODRL policy target MUST use the UUID of the representation defined in the same file. See the [package-level rights and access-policy guidance]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the shared model, controlled values, and complete example.
+A representation-level `premis.xml` MAY contain rights statements, reuse conditions, and access policy that apply to that representation. The same metadata MAY also occur in the package-level `premis.xml`; when declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence. When a `premis:rights` entity is used, it MUST contain at least one rights-status statement and exactly one rights extension with an access policy. Every `premis:linkingObjectIdentifier` and ODRL policy target MUST use the UUID of the representation defined in the same file. See the [package-level rights and access-policy guidance]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the shared model, controlled values, conflict rules, and complete example.
 
 The following fragment uses the representation UUID from the example above:
 
