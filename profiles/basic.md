@@ -139,7 +139,9 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
   <dcterms:subject xml:lang="nl">Felis Catus Flamens</dcterms:subject>
 
   <!-- rights-related agents remain descriptive metadata -->
-  <dcterms:rightsHolder>Example Rights Foundation</dcterms:rightsHolder>
+  <schema:copyrightHolder>
+    <schema:name xml:lang="nl">Example Rights Foundation</schema:name>
+  </schema:copyrightHolder>
   <haRig:owner>
     <schema:name xml:lang="nl">Voorbeeldmuseum</schema:name>
   </haRig:owner>

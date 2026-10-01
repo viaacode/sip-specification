@@ -118,7 +118,9 @@ Note that the identifier is used to link the `dc+schema.xml` file to the corresp
   <dcterms:issued xsi:type="edtf:EDTF-level1">XXXX</dcterms:issued>
 
   <dcterms:publisher>the publisher of the episode</dcterms:publisher>
-  <dcterms:rightsHolder>the rights owner</dcterms:rightsHolder>
+  <schema:copyrightHolder>
+    <schema:name xml:lang="nl">the rights owner</schema:name>
+  </schema:copyrightHolder>
 
   <dcterms:subject xml:lang="nl">Keyword 1</dcterms:subject>
   <dcterms:subject xml:lang="nl">Keyword 2</dcterms:subject>

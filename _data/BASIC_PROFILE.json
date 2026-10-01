@@ -592,13 +592,14 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "dcterms",
-    "XPath": "`metadata/dcterms:rightsHolder`",
+    "XPath": "`metadata/dcterms:rightsHolder[@xml:lang=*]`",
     "Description": "The person or organization that holds the copyright to the Intellectual Entity.",
-    "Cardinality": "1..*",
-    "Datatype": "",
+    "Cardinality": "0..*",
+    "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
     "Name": "Rights holder",
-    "Obligation": "MUST",
-    "Vocabulary": ""
+    "Obligation": "SHOULD",
+    "Vocabulary": "",
+    "Deprecated": "Yes"
   },
   {
     "ID": "BACP41",
@@ -704,7 +705,7 @@
     "Datatype": "[String](../2_terminology#string) or [URI](../2_terminology#uri)",
     "Name": "Agent role",
     "Obligation": "MAY",
-    "Vocabulary": "See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3)."
+    "Vocabulary": "`archivist``architect``arranger``author``choreographer``filmmaker``composer``set-designer``documentary-maker``photographer``photography``interviewee``graphic-designer``interviewer``costume-designer``artist``creator``editor``production-house``director``reporter``screenwriter``writer``soundtrack``translator``videographer``executor``actor``dancer``conductor``musician``narrator``producer``co-producer``publisher``present``advisor``depicted``absent``librarian``artistic-director``assistant``lighting``contributor``cameraman``commentator``digitization-partner``distributor``dramaturg``exhibitor``manufacturer``sound``soundman``makeup-artist``news-anchor``announcer``researcher``recipient``client``press-agency``post-production``sponsor``technical-advisor``excused``chairman`"
   },
   {
     "ID": "BACP48",
@@ -713,7 +714,7 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "schema",
-    "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor|schema:performer|schema:producer|haRig:broadcastingOrganization|haRig:licenseDistributor|haRig:owner)/schema:name[@xml:lang=*]`",
+    "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor|schema:performer|schema:producer|schema:copyrightHolder|haRig:broadcastingOrganization|haRig:licenseDistributor|haRig:owner)/schema:name[@xml:lang=*]`",
     "Description": "The name of the thing, person, or organization. The name MAY occur more than once only in different languages. Every name MUST have an `xml:lang` attribute and, when the agent is present, a Dutch name with `xml:lang=\"nl\"` MUST be supplied.",
     "Cardinality": "1..*",
     "Datatype": "[Unique language strings](../2_terminology#unique-lang-strings)",
@@ -728,8 +729,8 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "schema",
-    "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor|schema:performer|schema:producer)/schema:birthDate`",
-    "Description": "The birth date of the thing, person, or organization acting as creator, publisher, contributor, performer, or producer.",
+    "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor|schema:performer|schema:producer|schema:copyrightHolder)/schema:birthDate`",
+    "Description": "The birth date of the thing, person, or organization acting as creator, publisher, contributor, performer, producer, or copyright holder.",
     "Cardinality": "0..1",
     "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "Agent birth date",
@@ -743,8 +744,8 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "schema",
-    "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor|schema:performer|schema:producer)/schema:deathDate`",
-    "Description": "The death date of the thing, person, or organization acting as creator, publisher, contributor, performer, or producer.",
+    "XPath": "`metadata/(schema:creator|schema:publisher|schema:contributor|schema:performer|schema:producer|schema:copyrightHolder)/schema:deathDate`",
+    "Description": "The death date of the thing, person, or organization acting as creator, publisher, contributor, performer, producer, or copyright holder.",
     "Cardinality": "0..1",
     "Datatype": "[EDTF](../2_terminology#edtf)",
     "Name": "Agent death date",
@@ -1243,6 +1244,21 @@
     "Cardinality": "0..*",
     "Datatype": "",
     "Name": "Owner",
+    "Obligation": "MAY",
+    "Vocabulary": ""
+  },
+  {
+    "ID": "BACP84",
+    "EARK_ID": "",
+    "Type": "Element",
+    "Level": "Package",
+    "Path": "/metadata/descriptive/dc+schema.xml",
+    "Section": "schema",
+    "XPath": "`metadata/schema:copyrightHolder`",
+    "Description": "A person or organization that holds the copyright to the Intellectual Entity.",
+    "Cardinality": "0..*",
+    "Datatype": "",
+    "Name": "Copyright holder",
     "Obligation": "MAY",
     "Vocabulary": ""
   }
