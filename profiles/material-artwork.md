@@ -2,7 +2,7 @@
 layout:       default
 title:        Material artwork
 parent:       Profiles
-grand_parent:  2.1
+grand_parent:  3.0
 nav_order:    3
 nav_exclude:  false
 ---
@@ -16,7 +16,7 @@ This includes photographic registration of 2D artworks, such as paintings or dra
 This content profile specifies how to package different media files (e.g., TIFF, JPEG, OBJ or MTL), their metadata and the relationships between them in a meemoo SIP package.
 It also allows extensions to the descriptive metadata using [Schema.org](https://schema.org).
 
-**Permalink:** <https://data.hetarchief.be/id/sip/2.1/material-artwork>
+**Permalink:** <https://data.hetarchief.be/id/sip/3.0/material-artwork>
 
 ## Example Directory structure
 
@@ -167,14 +167,14 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
-The Basic-profile `dc+schema.xml` requirements apply to descriptive metadata, including rights-related agents. They do not make the deprecated `dcterms:rights` or `dcterms:license` elements the preferred model. Rights statements, reuse conditions, and access policy belong in PREMIS: they MAY be centralized in the [package-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy), placed in the applicable [representation-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), or recorded at both levels. When declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence.
+The Basic-profile `dc+schema.xml` requirements apply to descriptive metadata, including rights-related agents. They do not make the deprecated `dcterms:rights` or `dcterms:license` elements the preferred model. Rights statements, reuse conditions, and access policy belong in PREMIS: they MAY be centralized in the [package-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy), placed in the applicable [representation-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), or recorded at both levels. When declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence.
 
 ### Validation
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core with Schema.org and meemoo rights-agent terms | dc+schema.xsd (not yet available) |
 

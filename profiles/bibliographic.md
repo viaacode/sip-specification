@@ -2,7 +2,7 @@
 layout:       default
 title:        Bibliographic
 parent:       Profiles
-grand_parent:  2.1
+grand_parent:  3.0
 nav_order:    2
 nav_exclude:  false
 ---
@@ -14,7 +14,7 @@ The bibliographic profile supports the ingest of digitised written works consist
 This profile dictates how the media files (in formats such as TIFF, ALTO XML and PDF), their metadata, and the relationships between them, should be expressed and organized.
 It applies the [MODS XML metadata schema](https://www.loc.gov/standards/mods/) for descriptive metadata.
 
-**Permalink:** <https://data.hetarchief.be/id/sip/2.1/bibliographic>
+**Permalink:** <https://data.hetarchief.be/id/sip/3.0/bibliographic>
 
 ## Example Directory structure
 
@@ -354,7 +354,7 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `mods.xml` | MODS v3.7 | [mods-3-7.xsd](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) |
 

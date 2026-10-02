@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Terminology
-parent:       2.1
+parent:       3.0
 grand_parent:  SIP Specification
 nav_order:    2
 nav_exclude:  false
@@ -85,5 +85,5 @@ In the context of noting metadata values, the following data types are mentioned
 | <a id="iso3166"></a>ISO 3166| An ISO 3166 country code as defined by [ISO](https://www.iso.org/iso-3166-country-codes.html). An online list is available for browsing on [the ISO Online Browsing Platform](https://www.iso.org/obp/ui/#search/code/).  |
 
 <small>
-Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/3_core-concepts.md %}).
+Continue to [Core Concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/3_core-concepts.md %}).
 </small>

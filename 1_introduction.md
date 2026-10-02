@@ -1,7 +1,7 @@
 ---
 layout:       default
 title:        Introduction
-parent:       2.1
+parent:       3.0
 grand_parent:  SIP Specification 
 nav_order:    1
 nav_exclude:  false
@@ -23,7 +23,7 @@ Metadata can occur at every SIP level to add administrative, structural, descrip
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
 Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [Schema.org](https://schema.org/), [PREMIS](https://www.loc.gov/standards/premis/), and [ODRL 2.2](https://www.w3.org/TR/odrl-model/).
 
-Rights-related descriptive agents remain in `dc+schema.xml`. Rights statements and reuse conditions are expressed with PREMIS, while meemoo's access policy is expressed with ODRL inside the PREMIS rights extension. See [Describing rights and access-policy]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the complete model and controlled values.
+Rights-related descriptive agents remain in `dc+schema.xml`. Rights statements and reuse conditions are expressed with PREMIS, while meemoo's access policy is expressed with ODRL inside the PREMIS rights extension. See [Describing rights and access-policy]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the complete model and controlled values.
 
 The meemoo SIP specification itself cannot be used for actual ingest in the meemoo archive.
 Depending on the type of content, specific mappings are required for ingest.
@@ -84,5 +84,5 @@ The cardinality is expressed with syntax from the [Unified Modeling Language](ht
 | `m..n`       | At least m but no more than n instances.                                         |
 
 <small>
-Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/2_terminology.md %}).
+Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/2_terminology.md %}).
 </small>

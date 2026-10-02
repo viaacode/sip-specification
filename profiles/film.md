@@ -2,7 +2,7 @@
 layout:       default
 title:        Film
 parent:       Profiles
-grand_parent:  2.1
+grand_parent:  3.0
 nav_order:    4
 nav_exclude:  false
 ---
@@ -12,7 +12,7 @@ nav_exclude:  false
 The film profile supports the ingest of digitised film stored on one or more image and/or audio reels. 
 This profile dictates how the media files (in file formats such as MKV, MOV, JPEG and PDF), their metadata, and the relationships between them, should be expressed and organized.
 
-It mainly applies the [DCTERMS metadata schema](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) for descriptive metadata and allows extensions using [Schema.org](https://schema.org), thereby resembling the [Basic profile](https://data.hetarchief.be/id/sip/2.1/basic). 
+It mainly applies the [DCTERMS metadata schema](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) for descriptive metadata and allows extensions using [Schema.org](https://schema.org), thereby resembling the [Basic profile](https://data.hetarchief.be/id/sip/3.0/basic). 
 
 Its additions lie in the introduction of a separate PREMIS representation to denote the physical carrier(s) (a so-called 'carrier representation') and custom film-specific metadata (using a `<premis:significantPropertiesExtension>` element in the package PREMIS file) to describe physical aspects of this/these carrier(s).
 
@@ -24,7 +24,7 @@ Please note that, as a result, the carrier representation as such is not reflect
 | From IE to carrier | [`structural`](http://id.loc.gov/vocabulary/preservation/relationshipType/str) | [`has carrier copy`](https://data.hetarchief.be/ns/object/hasCarrierCopy) | [`is carrier copy of`](https://data.hetarchief.be/ns/object/isCarrierCopyOf) | A IE is represented by a carrier representation. |
 
 
-**Permalink:** <https://data.hetarchief.be/id/sip/2.1/film>
+**Permalink:** <https://data.hetarchief.be/id/sip/3.0/film>
 
 ## Example Directory structure
 
@@ -357,7 +357,7 @@ _Example 4_ below contains an illustration of a simplified carrier representatio
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core with Schema.org | dc+schema.xsd (not yet available) |
 

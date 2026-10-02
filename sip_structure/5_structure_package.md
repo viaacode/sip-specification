@@ -2,7 +2,7 @@
 layout:       default
 title:        Package level
 parent:       Structure
-grand_parent:  2.1
+grand_parent:  3.0
 nav_order:    1
 nav_exclude:  false
 ---
@@ -119,7 +119,7 @@ The various requirements are listed in the table below.
       OBJID="uuid-fae4ef8f-5954-4602-9a1e-0d6eb83f3727"
       TYPE="Photographs – Digital"
       PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml"
-      csip:CONTENTINFORMATIONTYPE="OTHER" csip:OTHERCONTENTINFORMATIONTYPE="https://data.hetarchief.be/id/sip/2.1/basic" 
+      csip:CONTENTINFORMATIONTYPE="OTHER" csip:OTHERCONTENTINFORMATIONTYPE="https://data.hetarchief.be/id/sip/3.0/basic" 
       xsi:schemaLocation="https://www.w3.org./1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd  http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd ">
 
 
@@ -317,7 +317,7 @@ The `/descriptive` directory contains descriptive metadata about the IE(s) at th
 This descriptive metadata is stored in different XML files, depending on the number of IE(s) present in the SIP.
 Examples are `mods.xml` and `dc+schema.xml`.
 These files apply a certain metadata schema, such as [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) or [MODS](https://www.loc.gov/standards/mods/).
-The concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/index.md %}).
+The concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/profiles/index.md %}).
 
 ### /preservation (directory)
 
@@ -642,5 +642,5 @@ The `/representations` directory contains a separate directory for each represen
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
 <small>
-Continue to [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}).
+Continue to [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/6_structure_representation.md %}).
 </small>
