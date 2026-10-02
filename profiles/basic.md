@@ -6,7 +6,8 @@ grand_parent:  3.0
 nav_order:    1
 nav_exclude:  true
 ---
-{% assign basic_constraints = site.data["2_1"]._data.BASIC_PROFILE %}
+{% assign basic_constraints = site.data["3_0"]._data.BASIC_PROFILE | where_exp: "c",
+"c.Status != 'deprecated'" %}
 
 # Profile: Basic 
 

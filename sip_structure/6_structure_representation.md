@@ -7,8 +7,8 @@ nav_order:    2
 nav_exclude:  true
 ---
 
-{% assign rep_constraints = site.data["2_1"]._data.GENERAL | where_exp: "c",
-"c.Level == 'Representation'" %}
+{% assign rep_constraints = site.data["3_0"]._data.GENERAL | where_exp: "c",
+"c.Level == 'Representation' and c.Status != 'deprecated'" %}
 
 # Representation level
 {: .no_toc }

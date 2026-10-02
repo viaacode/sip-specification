@@ -7,8 +7,8 @@ nav_order:    1
 nav_exclude:  true
 ---
 
-{% assign package_constraints = site.data["2_1"]._data.GENERAL | where_exp: "c",
-"c.Level == 'Package'" %}
+{% assign package_constraints = site.data["3_0"]._data.GENERAL | where_exp: "c",
+"c.Level == 'Package' and c.Status != 'deprecated'" %}
 
 # Package level
 {: .no_toc }
@@ -554,6 +554,20 @@ Each value is appended to `https://data.hetarchief.be/id/rights/` to form the pe
 - `work-product`
 - `internal-policy`
 
+***Requirements rights***
+
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'premisRights'" %}
+
+{% include_relative _constraints.liquid constraints = constraints %}
+
+***Requirements access-policy***
+
+{% assign constraints = package_constraints | where_exp: "c",
+"c.Section == 'premisPolicy'" %}
+
+{% include_relative _constraints.liquid constraints = constraints %}
+
 #### Adding provenance of representations
 
 If desired, a representation's provenance trail can be added to the preservation metadata using PREMIS events and agents.
@@ -624,6 +638,8 @@ TODO: figure out the IDs
 ...
 </premis:premis>
 ```
+
+***Requirements***
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'premisEvent'" %}
