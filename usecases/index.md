@@ -4,7 +4,7 @@ title:        Use cases
 parent:       3.0
 grand_parent:  SIP Specification 
 nav_order:    6
-nav_exclude:  false
+nav_exclude:  true
 has_children: true
 ---
 

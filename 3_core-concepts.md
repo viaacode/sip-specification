@@ -4,7 +4,7 @@ title:        Core concepts
 parent:       3.0
 grand_parent:  SIP Specification 
 nav_order:    3
-nav_exclude:  false
+nav_exclude:  true
 ---
 
 # Core Concepts

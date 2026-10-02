@@ -4,7 +4,7 @@ title:        Single file
 parent:       Use cases
 grand_parent:  3.0
 nav_order:    1
-nav_exclude:  false
+nav_exclude:  true
 has_children: false
 sip_profile: Basic
 ---

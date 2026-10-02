@@ -4,7 +4,7 @@ title:        Terminology
 parent:       3.0
 grand_parent:  SIP Specification
 nav_order:    2
-nav_exclude:  false
+nav_exclude:  true
 ---
 
 # Terminology

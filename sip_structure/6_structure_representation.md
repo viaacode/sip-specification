@@ -4,7 +4,7 @@ title:        Representation level
 parent:       Structure
 grand_parent:  3.0
 nav_order:    2
-nav_exclude:  false
+nav_exclude:  true
 ---
 
 {% assign rep_constraints = site.data["2_1"]._data.GENERAL | where_exp: "c",
