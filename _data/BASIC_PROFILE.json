@@ -583,7 +583,7 @@
     "Name": "License",
     "Obligation": "SHOULD",
     "Vocabulary": "",
-    "Deprecated": "Yes"
+    "Status": "deprecated"
   },
   {
     "ID": "BACP40",
@@ -599,7 +599,7 @@
     "Name": "Rights holder",
     "Obligation": "SHOULD",
     "Vocabulary": "",
-    "Deprecated": "Yes"
+    "Status": "deprecated"
   },
   {
     "ID": "BACP41",
@@ -615,7 +615,7 @@
     "Name": "Rights",
     "Obligation": "SHOULD",
     "Vocabulary": "",
-    "Deprecated": "Yes"
+    "Status": "deprecated"
   },
   {
     "ID": "BACP42",

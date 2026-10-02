@@ -7,7 +7,8 @@ nav_order:    2
 nav_exclude:  true
 ---
 
-{% assign bib_constraints = site.data["2_1"]._data.BIBLIOGRAPHIC_PROFILE %}
+{% assign bib_constraints = site.data["3_0"]._data.BIBLIOGRAPHIC_PROFILE | where_exp: "c",
+"c.Status != 'deprecated'" %}
 
 ## Profile: Bibliographic
 
