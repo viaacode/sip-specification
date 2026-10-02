@@ -95,7 +95,7 @@
     "Path": "/METS.xml",
     "Section": "mets",
     "Type": "General",
-    "Description": "The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/2.1/material-artwork`.",
+    "Description": "The `csip:CONTENTINFORMATIONTYPE` attribute MUST be set to `OTHER` and the `csip:OTHERCONTENTINFORMATIONTYPE` attribute MUST be set to `https://data.hetarchief.be/id/sip/3.0/material-artwork`.",
     "Obligation": "MUST"
   },
   {
@@ -150,7 +150,7 @@
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "descriptive",
     "Type": "General",
-    "Description": "Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [Schema.org](https://schema.org/), and meemoo rights-agent elements outlined in the [basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/basic.md %}#dc-requirements).",
+    "Description": "Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [Schema.org](https://schema.org/), and meemoo rights-agent elements outlined in the [basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/profiles/basic.md %}#dc-requirements).",
     "Obligation": "MUST"
   },
   {
@@ -161,7 +161,7 @@
     "Path": "/metadata/descriptive/dc+schema.xml",
     "Section": "descriptive",
     "Type": "General",
-    "Description": "DCTERMS, Schema.org, and meemoo rights-agent metadata MUST follow the [Basic-profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.",
+    "Description": "DCTERMS, Schema.org, and meemoo rights-agent metadata MUST follow the [Basic-profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.",
     "Obligation": "MUST"
   },
   {

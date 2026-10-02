@@ -2,7 +2,7 @@
 layout:       default
 title:        Basic
 parent:       Profiles
-grand_parent:  2.1
+grand_parent:  3.0
 nav_order:    1
 nav_exclude:  false
 ---
@@ -12,7 +12,7 @@ nav_exclude:  false
 
 The basic profile supports simple cases consisting of a single media file accompanied by limited metadata.
 
-**Permalink:** <https://data.hetarchief.be/id/sip/2.1/basic>
+**Permalink:** <https://data.hetarchief.be/id/sip/3.0/basic>
 
 ## Example Directory structure
 
@@ -67,7 +67,7 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
-Rights-related descriptive agents, including rights holders, owners, licence distributors, performers, and producers, remain in `dc+schema.xml`. Rights statements, reuse conditions, and access policy MUST be recorded in PREMIS at the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) or [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), as applicable. The deprecated `dcterms:rights` and `dcterms:license` elements SHOULD NOT be used for new SIPs.
+Rights-related descriptive agents, including rights holders, owners, licence distributors, performers, and producers, remain in `dc+schema.xml`. Rights statements, reuse conditions, and access policy MUST be recorded in PREMIS at the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) or [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), as applicable. The deprecated `dcterms:rights` and `dcterms:license` elements SHOULD NOT be used for new SIPs.
 
 {: .important }
 For elements that require the `@xml:lang` attribute, it is still necessary to supply an element with `@xml:lang` set to `nl` even if there is no Dutch content available (e.g., the original title is in English or French and no translation was ever made, or the title is the same in both languages). In that case, a title in another language can be copied as if it were Dutch. 
@@ -98,7 +98,7 @@ For elements that require the `@xml:lang` attribute, it is still necessary to su
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
 | File | Format | XML Schema |
-| `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
+| `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core (custom schema) | [dc_basic.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc_basic.xsd)<br>_depends on: [edtf.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/edtf.xsd), [dcterms.xsd](https://github.com/viaacode/sipin-sip-validator/blob/main/app/resources/xsd/dcterms.xsd), [dcmitype.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dcmitype.xsd), [dc.xsd](https://raw.githubusercontent.com/viaacode/sipin-sip-validator/main/app/resources/xsd/dc.xsd)_|
 
@@ -116,7 +116,7 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<metadata xmlns="https://data.hetarchief.be/id/sip/2.1/basic" 
+<metadata xmlns="https://data.hetarchief.be/id/sip/3.0/basic" 
       xmlns:dcterms="http://purl.org/dc/terms/" 
       xmlns:schema="https://schema.org/"
       xmlns:haRig="https://data.hetarchief.be/ns/rights/"
