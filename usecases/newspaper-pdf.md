@@ -4,7 +4,7 @@ title:        Newspaper edition (with PDF)
 parent:       Use cases
 grand_parent:  3.0
 nav_order:    3
-nav_exclude:  false
+nav_exclude:  true
 has_children: false
 sip_profile:  Bibliographic
 ---

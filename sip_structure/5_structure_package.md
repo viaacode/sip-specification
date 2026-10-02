@@ -4,7 +4,7 @@ title:        Package level
 parent:       Structure
 grand_parent:  3.0
 nav_order:    1
-nav_exclude:  false
+nav_exclude:  true
 ---
 
 {% assign package_constraints = site.data["2_1"]._data.GENERAL | where_exp: "c",

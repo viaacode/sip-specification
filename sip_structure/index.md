@@ -4,7 +4,7 @@ title:        Structure
 parent:       3.0
 grand_parent:  SIP Specification 
 nav_order:    4
-nav_exclude:  false
+nav_exclude:  true
 has_children: true
 ---
 

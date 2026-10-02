@@ -4,7 +4,7 @@ title:        Film
 parent:       Profiles
 grand_parent:  3.0
 nav_order:    4
-nav_exclude:  false
+nav_exclude:  true
 ---
 
 # Profile: Film 

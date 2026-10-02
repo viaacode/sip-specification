@@ -4,7 +4,7 @@ title:        Material artwork
 parent:       Profiles
 grand_parent:  3.0
 nav_order:    3
-nav_exclude:  false
+nav_exclude:  true
 ---
 {% assign ma_constraints = site.data["2_1"]._data.MATERIAL_ARTWORK_PROFILE %}
 
