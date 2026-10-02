@@ -8,8 +8,12 @@ nav_exclude:  true
 ---
 
 {% assign rep_constraints = site.data["3_0"]._data.GENERAL | where_exp: "c",
+<<<<<<< HEAD
 "c.Level == 'Representation'" | where_exp: "c",
 "c.Status != 'deprecated'" %}
+=======
+"c.Level == 'Representation' and c.Status != 'deprecated'" %}
+>>>>>>> 1e139a4 (Fix constraints)
 
 # Representation level
 {: .no_toc }
