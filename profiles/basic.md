@@ -1,13 +1,11 @@
 ---
-layout:       default
 title:        Basic
-parent:       Profiles
-grand_parent:  3.0
 nav_order:    1
-nav_exclude:  true
 ---
-{% assign basic_constraints = site.data["3_0"]._data.BASIC_PROFILE | where_exp: "c",
-"c.Status != 'deprecated'" %}
+{% from "docs/diginstroom/sip/3.0/profiles/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/3.0/profiles/_list_constraints.j2" import render_constraints as render_constraint_list %}
+
+{% set basic_constraints = sip_3_0_basic %}
 
 # Profile: Basic 
 
@@ -42,57 +40,50 @@ root_directory
 
 ### General
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'general'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "general") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'md5'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "md5") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package METS
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### <span id="dc-requirements"></span>Descriptive metadata
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'descriptive'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "descriptive") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
-Rights-related descriptive agents, including rights holders, owners, licence distributors, performers, and producers, remain in `dc+schema.xml`. Rights statements, reuse conditions, and access policy MUST be recorded in PREMIS at the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) or [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), as applicable. The deprecated `dcterms:rights` and `dcterms:license` elements SHOULD NOT be used for new SIPs.
+Rights-related descriptive agents, including rights holders, owners, licence distributors, performers, and producers, remain in `dc+schema.xml`. Rights statements, reuse conditions, and access policy MUST be recorded in PREMIS at the [package level](../sip_structure/5_structure_package.md#describing-rights-and-access-policy) or [representation level](../sip_structure/6_structure_representation.md#describing-rights-and-access-policy), as applicable. The deprecated `dcterms:rights` and `dcterms:license` elements SHOULD NOT be used for new SIPs.
 
-{: .important }
-For elements that require the `@xml:lang` attribute, it is still necessary to supply an element with `@xml:lang` set to `nl` even if there is no Dutch content available (e.g., the original title is in English or French and no translation was ever made, or the title is the same in both languages). In that case, a title in another language can be copied as if it were Dutch. 
+!!! important
+    For elements that require the `@xml:lang` attribute, it is still necessary to supply an element with `@xml:lang` set to `nl` even if there is no Dutch content available (e.g., the original title is in English or French and no translation was ever made, or the title is the same in both languages). In that case, a title in another language can be copied as if it were Dutch.
 
 #### Root element
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'metadata'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "metadata") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### DCMI Terms elements
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'dcterms'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "dcterms") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Schema.org elements
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'schema'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "schema") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### Validation
 
@@ -155,7 +146,8 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+- [Single file](../usecases/single-file.md)
+- [Video file with subtitles](../usecases/video-with-subtitles.md)
 
 ---
 
