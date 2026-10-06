@@ -1,11 +1,6 @@
 ---
-layout:       default
 title:        Newspaper edition (with PDF)
-parent:       Use cases
-grand_parent:  1.1
 nav_order:    3
-nav_exclude:  false
-has_children: false
 sip_profile:  Newspaper
 ---
 # Use Case: a newspaper edition digitised per page (with PDF)
@@ -18,7 +13,7 @@ The following use case describes how to package a newspaper edition digitised pe
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**Newspaper SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/newspaper.md %}).
+It uses the [**Newspaper SIP profile**](../profiles/newspaper.md).
 
 A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/newspaper_tiff_alto_pdf_ebe47259-8f23-4a2d-bf49-55ae1d855393/).
 
@@ -135,7 +130,7 @@ In total, the SIP contains 6 metadata files:
 The `dc.xml` of the package level describes the IE using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here](../sip_structure/5_structure_package.md#shareduuidinfo) for more information).
 
 Note that, as opposed to the `mods.xml` file, the `dc.xml` file is optional according to the newspaper SIP profile.
 
@@ -167,7 +162,7 @@ Note that, as opposed to the `mods.xml` file, the `dc.xml` file is optional acco
 The `mods.xml` of the package level describes the IE using [the MODS metadata schema](https://www.loc.gov/standards/mods/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here](../sip_structure/5_structure_package.md#shareduuidinfo)).
 
 Note that only a subset of MODS elements are obligatory in the newspaper SIP profile.
 The examples below and in the sample mentioned earlier therefore only serve as an illustration of possible elements rather than as an exhaustive list of obligatory elements.

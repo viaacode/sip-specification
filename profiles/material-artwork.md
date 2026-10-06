@@ -1,10 +1,6 @@
 ---
-layout:       default
 title:        Material artwork
-parent:       Profiles
-grand_parent:  1.1
 nav_order:    3
-nav_exclude:  false
 ---
 # Profile: Material artwork 
 
@@ -175,9 +171,9 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the IE MUST be present at the package level.
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level (eg. to indicate diverting licenses). 
 - Descriptive metadata in `descriptive/dc+schema.xml` MUST apply the DCTERMS metadata schema and MAY also apply the [SCHEMA](http://schema.org) metadata schema (see below).
-- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
+- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) metadata MUST follow the [basic profile requirements](basic.md#dc-requirements) regarding the use of elements and attributes.
 - The [SCHEMA](http://schema.org) metadata in `descriptive/dc+schema.xml` MUST be limited to the elements and attributes outlined below.
-- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
+- Some descriptive metadata elements of datatype [String](../2_terminology.md#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
 - The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
 | Element | `metadata/schema:creator` |
@@ -191,7 +187,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Role creator |
 | Description | The role with which the creator/author was involved in creating the digitally reproduced artwork.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -199,7 +195,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Name creator |
 | Description | The name of the creator.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -207,7 +203,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Birth date creator |
 | Description | The creator's date of birth.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF](../2_terminology.md#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -215,7 +211,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Death date creator |
 | Description | The creator's date of death.  |
-| Datatype | [EDTF]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#edtf) |
+| Datatype | [EDTF](../2_terminology.md#edtf) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -252,7 +248,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Value |
 | Description | The height, width, depth, or weight measurement value. |
 | Cardinality | 1..1 |
-| Datatype | [Float]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#float) |
+| Datatype | [Float](../2_terminology.md#float) |
 | Obligation | MUST |
 
 | Element | `metadata/(schema:height|schema:width|schema:depth)/schema:unitCode` |
@@ -260,7 +256,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Unit Code |
 | Description | The unit of length measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes). |
 | Vocabulary | `MMT`, `CMT`, `MTR` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -269,7 +265,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Unit Code |
 | Description | The unit of weight measurement given using the [UN/CEFACT Common Code (3 characters)](http://wiki.goodrelations-vocabulary.org/Documentation/UN/CEFACT_Common_Codes), which MUST be set to `KGM` (kilograms). |
 | Vocabulary | `KGM` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -278,7 +274,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Unit Text |
 | Description | A string or text indicating the unit of the height or width measurement value. Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `mm`, `cm`, `m` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -287,7 +283,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 | Name | Unit Text |
 | Description | A string or text indicating the unit of the weight measurement value, which MUST be set to `kg` (kilograms). Useful if you cannot provide a standard unit code for `schema:unitCode`.  |
 | Vocabulary | `kg` |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -295,7 +291,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Art medium |
 | Description | The material used to create the physical artwork, e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -303,7 +299,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Artform |
 | Description | The type of artform, e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc. The applied language MUST be provided by a `@xml:lang` attribute (see requirements above). There MUST always be an entry in Dutch with `@xml:lang` set to `nl`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -318,7 +314,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Name episode |
 | Description | The name of the episode. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -333,7 +329,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Name archive |
 | Description | The name of the archive.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -348,7 +344,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Name series |
 | Description | The name of the series.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -356,7 +352,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Number series |
 | Description | The number of the series.  |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Datatype | [Integer](../2_terminology.md#integer) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -371,7 +367,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Name subseries  |
 | Description | The name of the subseries.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -386,7 +382,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Name broadcast event |
 | Description |  The name of the broadcast. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -401,7 +397,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Name season |
 | Description |  The name of the season. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -409,7 +405,7 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 |-----------------------|-----------|
 | Name | Number season |
 | Description |  Position of the season within an ordered group of seasons. |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/2_terminology.md %}#integer) |
+| Datatype | [Integer](../2_terminology.md#integer) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -426,4 +422,6 @@ The XML files that are required by this profile can be validated using the follo
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+- [Two-dimensional artwork](../usecases/2d-artwork.md)
+- [Gigapixel artwork](../usecases/gigapixel-artwork.md)
+- [Scan of a three-dimensional artwork](../usecases/3d-scan.md)
