@@ -1,11 +1,6 @@
 ---
-layout:       default
 title:        Newspaper edition (with PDF)
-parent:       Use cases
-grand_parent:  2.1
 nav_order:    3
-nav_exclude:  false
-has_children: false
 sip_profile:  Bibliographic
 ---
 
@@ -19,7 +14,7 @@ The following use case describes how to package a newspaper edition digitised pe
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**Bibliographic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/bibliographic.md %}).
+It uses the [**Bibliographic SIP profile**](../profiles/bibliographic.md).
 
 A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/newspaper_tiff_alto_pdf_ebe47259-8f23-4a2d-bf49-55ae1d855393/).
 
@@ -130,7 +125,7 @@ In total, the SIP contains 6 metadata files:
 The `mods.xml` of the package level describes the IE using [the MODS metadata schema](https://www.loc.gov/standards/mods/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here](../sip_structure/5_structure_package.md#shareduuidinfo)).
 
 Note that only a subset of MODS elements are obligatory in the newspaper SIP profile.
 The examples below and in the sample mentioned earlier therefore only serve as an illustration of possible elements rather than as an exhaustive list of obligatory elements.

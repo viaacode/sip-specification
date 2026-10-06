@@ -1,23 +1,18 @@
 ---
-layout:       default
 title:        Package level
-parent:       Structure
-grand_parent:  2.1
 nav_order:    1
-nav_exclude:  false
 ---
+{% from "docs/diginstroom/sip/2.1/sip_structure/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/2.1/sip_structure/_list_constraints.j2" import render_constraints as render_constraint_list %}
 
-{% assign package_constraints = site.data["2_1"]._data.GENERAL | where_exp: "c",
-"c.Level == 'Package'" %}
+
+{% set package_constraints = sip_2_1_general | selectattr("Level", "equalto", "Package") | list %}
 
 # Package level
-{: .no_toc }
 
 ## Table of contents
-{: .no_toc .text-delta }
 
 1. TOC
-{:toc}
 
 The package level is the top level of the meemoo SIP and consists of at least a `METS.xml` file, a `/metadata` directory and a `/representations` directory.
 It contains information about the IE(s) of the SIP and the SIP as a whole.
@@ -46,10 +41,9 @@ uuid-e4eb34c0-4fc6-4395-b61c-0671f8e0b04c                     (= root directory)
 
 ***Requirements***
 
-{% assign general_constraints = package_constraints | where_exp: "c",
-"c.Path == '/'" %}
+{% set general_constraints = package_constraints | selectattr("Path", "equalto", "/") | list %}
 
-{% include_relative _list_constraints.liquid constraints = general_constraints %}
+{{ render_constraint_list(general_constraints) }}
 
 ## METS.xml (file)
 
@@ -57,10 +51,10 @@ uuid-e4eb34c0-4fc6-4395-b61c-0671f8e0b04c                     (= root directory)
 In the case of the meemoo SIP, the `METS.xml` file's main purpose is to act as an inventory of the files and directories contained within.
 Since it is situated at the package-level, it is also known as the _package METS file_.
 
-It should not be confused with the `METS.xml` files situated in their respective [representation folders](./6_structure_representation.html).
+It should not be confused with the `METS.xml` files situated in their respective [representation folders](./6_structure_representation.md).
 The package `METS.xml` file does not record the internal structure of the different representations in the `/representations` directory.
 It only references the different `METS.xml` files contained in each representation directory.
-Each of the `METS.xml` files at the [representation level](./6_structure_representation.html) references its own internal structure.
+Each of the `METS.xml` files at the [representation level](./6_structure_representation.md) references its own internal structure.
 
 ### Elements and internal references
 
@@ -134,10 +128,9 @@ The various requirements are listed in the table below.
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### \<metsHdr\> section
 
@@ -168,10 +161,9 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'metsHdr'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "metsHdr") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### \<dmdSec\> section
 
@@ -199,10 +191,9 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'dmdSec'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "dmdSec") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### \<amdSec\> section
 
@@ -223,10 +214,9 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'amdSec'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "amdSec") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### \<fileSec\> section
 
@@ -254,18 +244,15 @@ The listing of other representation files (i.e. metadata files and media files) 
 
 ***Requirements***
 
-{% assign fileSec_constraints = package_constraints | where_exp: "c",
-"c.Section == 'fileSec'" %}
+{% set fileSec_constraints = package_constraints | selectattr("Section", "equalto", "fileSec") | list %}
 
-{% assign constraints = fileSec_constraints | where_exp: "c",
-"c.Type == 'General'" %}
+{% set constraints = fileSec_constraints | selectattr("Type", "equalto", "General") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
-{% assign constraints = fileSec_constraints | where_exp: "c",
-"c.Path == '/METS.xml'" %}
+{% set constraints = fileSec_constraints | selectattr("Path", "equalto", "/METS.xml") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### \<structMap\> section
 
@@ -293,10 +280,9 @@ It provides links between elements and metadata files located elsewhere in the p
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'structMap'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "structMap") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 
 ## /metadata (directory)
@@ -306,10 +292,9 @@ It also contains preservation metadata about the SIP as a whole.
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'metadata'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "metadata") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### /descriptive (directory)
 
@@ -317,7 +302,7 @@ The `/descriptive` directory contains descriptive metadata about the IE(s) at th
 This descriptive metadata is stored in different XML files, depending on the number of IE(s) present in the SIP.
 Examples are `mods.xml` and `dc+schema.xml`.
 These files apply a certain metadata schema, such as [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) or [MODS](https://www.loc.gov/standards/mods/).
-The concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/profiles/index.md %}).
+The concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles](../profiles/index.md).
 
 ### /preservation (directory)
 
@@ -325,10 +310,9 @@ The `/preservation` directory contains preservation metadata about the IE(s) at 
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'preservation'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "preservation") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 The `premis.xml` file at the package-level contains preservation metadata about the IE(s) of the SIP, and about the SIP as a whole.
 It also contains any additional IDs related to the IE(s) of the SIP.
@@ -451,10 +435,9 @@ The table below gives an overview of the different relationship types that can b
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'premis'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "premis") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Adding provenance of representations
 
@@ -462,12 +445,12 @@ If desired, a representation's provenance trail can be added to the preservation
 In most cases, events are used to submit information about the digitization process that created the representations. 
 The use of events might be prohibited or enforced depending on the given content profile. 
 
-{: .note }
-The possible event types are limited and managed by a controlled list. This list is still under development and will be published in a future release of the specification.
-<!--
-TODO: Link to list of possible eventTypes
-TODO: figure out the IDs
--->
+!!! note
+    The possible event types are limited and managed by a controlled list. This list is still under development and will be published in a future release of the specification.
+    <!--
+    TODO: Link to list of possible eventTypes
+    TODO: figure out the IDs
+    -->
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -527,10 +510,9 @@ TODO: figure out the IDs
 </premis:premis>
 ```
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'premisEvent'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "premisEvent") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ## /representations (directory)
 
@@ -538,11 +520,10 @@ The `/representations` directory contains a separate directory for each represen
 
 ***Requirements***
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'representations'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "representations") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 <small>
-Continue to [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/6_structure_representation.md %}).
+Continue to [representation level](6_structure_representation.md).
 </small>

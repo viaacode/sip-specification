@@ -1,11 +1,10 @@
 ---
-layout:       default
 title:        Film
-parent:       Profiles
-grand_parent:  2.1
 nav_order:    4
-nav_exclude:  false
 ---
+{% from "docs/diginstroom/sip/2.1/profiles/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/2.1/profiles/_list_constraints.j2" import render_constraints as render_constraint_list %}
+
 
 # Profile: Film 
 
@@ -76,41 +75,36 @@ root_directory
 
 ### General
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'general'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "general") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'md5'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "md5") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package METS
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package Descriptive Metadata
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'descriptive'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "descriptive") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package Preservation Metadata
 
 The addition of a separate PREMIS representation for the carrier(s) (i.e. the carrier representation) leads to a number of additional requirements in the package `premis.xml` file.
 The section below outlines the high level requirements, while the section [Describing a carrier within the carrier representation](#describing-a-carrier-within-the-carrier-representation) contains a more detailed discussion of the possibilities offered by the carrier representation.
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'preservation'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "preservation") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 _Example 1: an example `<premis:object>` of a carrier representation together the relationships between the Intellectual Entity and the carrier representation_
 
@@ -180,26 +174,23 @@ premis:premis
 
 #### General requirements
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'summary'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "summary") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 <!-- <inLanguage>Silent Movie</inLanguage> -->
 
 #### Premis.xml
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'premis'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "premis") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}                                                                                                                             
+{{ render_constraint_details(constraints) }}
 
 The following elements paths are relative to the `<premis:significantPropertiesExtension>` element.
 
-{% assign constraints = site.data["2_1"]._data.FILM_PROFILE | where_exp: "c",
-"c.Section == 'significantPropertiesExtension'" %}
+{% set constraints = sip_2_1_film | selectattr("Section", "equalto", "significantPropertiesExtension") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 _Example 4_ below contains an illustration of a simplified carrier representation (preceded by its intellectual entity) and a registration event involving the carrier representation in the package `premis.xml` file:
 
@@ -364,5 +355,3 @@ The XML files that are required by this profile can be validated using the follo
 ## Use Cases
 
 Some use cases that implement this profile are:
-
-{% include _usecases.liquid  %}
