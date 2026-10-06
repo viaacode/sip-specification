@@ -1,10 +1,6 @@
 ---
-layout:       default
 title:        Material artwork
-parent:       Profiles
-grand_parent:  1.2
 nav_order:    3
-nav_exclude:  false
 ---
 
 # Profile: Material artwork 
@@ -171,9 +167,9 @@ root_directory
 
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the IE MUST be present at the package level.
 - A descriptive metadata file `descriptive/dc+schema.xml` describing the representation MAY be present at the representation level (eg. to indicate diverting licenses). 
-- Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [SCHEMA](http://schema.org) elements outlined in the [basic profile]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/basic.md %}#dc-requirements).
-- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) and [SCHEMA](http://schema.org) metadata MUST follow the [basic profile requirements]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/basic.md %}#dc-requirements) regarding the use of elements and attributes.
-- Some descriptive metadata elements of datatype [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
+- Descriptive metadata in `dc+schema.xml` MUST be limited to the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [SCHEMA](http://schema.org) elements outlined in the [basic profile](basic.md#dc-requirements).
+- The [DCTERMS](https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd) and [SCHEMA](http://schema.org) metadata MUST follow the [basic profile requirements](basic.md#dc-requirements) regarding the use of elements and attributes.
+- Some descriptive metadata elements of datatype [String](../2_terminology.md#string) MUST contain an attribute `@xml:lang` that indicates the language of the metadata element's value (in order to, for example, specify a title or description in multiple languages); these are indicated with `[@xml:lang=*]` in the table below. Other elements MUST NOT contain this attribute.
 - The value of the `@xml:lang` attribute MUST be a valid [IETF BCP 47 language tag](https://www.rfc-editor.org/info/bcp47)(see [here](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry) for a list). 
 
 ### Validation
@@ -189,4 +185,6 @@ The XML files that are required by this profile can be validated using the follo
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+- [Two-dimensional artwork](../usecases/2d-artwork.md)
+- [Gigapixel artwork](../usecases/gigapixel-artwork.md)
+- [Scan of a three-dimensional artwork](../usecases/3d-scan.md)
