@@ -1,13 +1,8 @@
 ---
-layout:       default
 title:        Introduction
-parent:       1.0
-grand_parent:  SIP Specification
 nav_order:    1
-nav_exclude:  false
 ---
-Retired
-{: .label .label-red }
+<span class="label label-red">Retired</span>
 # Introduction
 
 This document specifies the meemoo Submission Information Package (SIP), which describes how data and metadata should be packaged when delivered to meemoo for ingest.
@@ -20,7 +15,7 @@ The meemoo SIP uses a three-level hierarchical directory structure (_bag - packa
 A meemoo SIP is a valid [BagIt bag](https://www.rfc-editor.org/rfc/rfc8493.html) that contains a valid [E-ARK SIP](https://earksip.dilcis.eu/).
 
 At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
-One level higher, the _package_ directory _level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.html), such as the work that is being depicted.
+One level higher, the _package_ directory _level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.md), such as the work that is being depicted.
 Finally, the _bag_ directory _level_ bundles everything together for transport.
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
@@ -84,5 +79,5 @@ The cardinality is expressed with syntax from the [Unified Modeling Language](ht
 | `m..n`       | At least m but no more than n instances.                                         |
 
 <small>
-Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/1.0/2_terminology.md %}).
+Continue to [Terminology](2_terminology.md).
 </small>
