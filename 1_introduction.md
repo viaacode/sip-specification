@@ -1,10 +1,6 @@
 ---
-layout:       default
 title:        Introduction
-parent:       3.0
-grand_parent:  SIP Specification 
 nav_order:    1
-nav_exclude:  true
 ---
 
 
@@ -17,13 +13,13 @@ They are accompanied by metadata that is described in a variety of formats.
 Therefore, the current SIP specification was developed to standardize the delivery of (media) content and metadata by meemoo's content partners and increase scalability and sustainability.
 
 The meemoo SIP is a valid [E-ARK SIP](https://earksip.dilcis.eu/) and uses a two-level hierarchical directory structure (_package_ & _representation_) to aggregate and describe media assets, including video, audio, images, captions, etc. At the lowest directory level, the _representation level_, these assets are described in aggregate as digital representations.
-One level higher, the _package level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.html), such as the work that is being depicted.
+One level higher, the _package level_, embodies the represented content or [_intellectual entity_](./3_core-concepts.md), such as the work that is being depicted.
 
 Metadata can occur at every SIP level to add administrative, structural, descriptive, and preservation information about the data and its context.
 Examples are the author of a representation, the author of what the representation represents (i.e. the intellectual entity), or the creation date of a representation.
 Metadata are written down in XML files using the common vocabularies [METS](https://www.loc.gov/standards/mets), [DCMI Metadata Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), [Schema.org](https://schema.org/), [PREMIS](https://www.loc.gov/standards/premis/), and [ODRL 2.2](https://www.w3.org/TR/odrl-model/).
 
-Rights-related descriptive agents remain in `dc+schema.xml`. Rights statements and reuse conditions are expressed with PREMIS, while meemoo's access policy is expressed with ODRL inside the PREMIS rights extension. See [Describing rights and access-policy]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the complete model and controlled values.
+Rights-related descriptive agents remain in `dc+schema.xml`. Rights statements and reuse conditions are expressed with PREMIS, while meemoo's access policy is expressed with ODRL inside the PREMIS rights extension. See [Describing rights and access-policy](sip_structure/5_structure_package.md#describing-rights-and-access-policy) for the complete model and controlled values.
 
 The meemoo SIP specification itself cannot be used for actual ingest in the meemoo archive.
 Depending on the type of content, specific mappings are required for ingest.
@@ -84,5 +80,5 @@ The cardinality is expressed with syntax from the [Unified Modeling Language](ht
 | `m..n`       | At least m but no more than n instances.                                         |
 
 <small>
-Continue to [Terminology]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/2_terminology.md %}).
+Continue to [Terminology](2_terminology.md).
 </small>
