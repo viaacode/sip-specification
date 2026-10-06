@@ -8,7 +8,8 @@ nav_exclude:  true
 ---
 
 {% assign package_constraints = site.data["3_0"]._data.GENERAL | where_exp: "c",
-"c.Level == 'Package' and c.Status != 'deprecated'" %}
+"c.Level == 'Package'" | where_exp: "c",
+"c.Status != 'deprecated'" %}
 
 # Package level
 {: .no_toc }
