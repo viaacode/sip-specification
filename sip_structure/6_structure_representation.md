@@ -1,24 +1,18 @@
 ---
-layout:       default
 title:        Representation level
-parent:       Structure
-grand_parent:  3.0
 nav_order:    2
-nav_exclude:  true
 ---
+{% from "docs/diginstroom/sip/3.0/sip_structure/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/3.0/sip_structure/_list_constraints.j2" import render_constraints as render_constraint_list %}
 
-{% assign rep_constraints = site.data["3_0"]._data.GENERAL | where_exp: "c",
-"c.Level == 'Representation'" | where_exp: "c",
-"c.Status != 'deprecated'" %}
+
+{% set rep_constraints = sip_3_0_general | selectattr("Level", "equalto", "Representation") | list %}
 
 # Representation level
-{: .no_toc }
 
 ## Table of contents
-{: .no_toc .text-delta }
 
 1. TOC
-{:toc}
 
 The representation level consists of at least one representation directory (in the remainder of this text we will use `representation_1` as an example).
 Each representation directory contains information about the representation of (one of) the IE(s) of the package level, together with the media files making up the representation.
@@ -65,14 +59,13 @@ These two directories are ignored during ingest and will therefore not be archiv
 
 ***Requirements***
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Path == '/'" %}
+{% set constraints = rep_constraints | selectattr("Path", "equalto", "/") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ## METS.xml (file)
 
-The `METS.xml` file at the representation level (also known as the representation mets) generally follows the same structure and requirements as the package mets discussed in the section [package METS.xml](./5_structure_package.html#metsxml-file).
+The `METS.xml` file at the representation level (also known as the representation mets) generally follows the same structure and requirements as the package mets discussed in the section [package METS.xml](./5_structure_package.md#metsxml-file).
 
 ### Elements and internal references
 
@@ -127,10 +120,9 @@ A summary of all possible references and their obligation is given in the table 
 
 ***Requirements***
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### \<metsHdr\> section
 
@@ -142,10 +134,9 @@ A summary of all possible references and their obligation is given in the table 
 
 ***Requirements***
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'metsHdr'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "metsHdr") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### \<structMap\> section
 
@@ -166,10 +157,9 @@ Its requirements are very similar to the package level, however, instead of poin
 </structMap>
 ```
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'structMap'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "structMap") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ## /data (directory)
 
@@ -178,10 +168,9 @@ Depending on the use-case and the CP, these files can be digital pictures, video
 
 ***Requirements***
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'data'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "data") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ## /metadata (directory)
 
@@ -189,18 +178,17 @@ The `/metadata` directory contains both descriptive and preservation metadata ab
 
 ***Requirements***
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'metadata'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "metadata") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### /descriptive (directory)
 
 The `/descriptive` directory contains descriptive metadata about the representation.
 This descriptive metadata is stored in XML files, describing the specific representation of the SIP.
 
-Descriptive metadata at the represenation level follows the same requirements regarding metadata elements discussed in the [/descriptive section](./5_structure_package.html#descriptive-directory) of the package level.
-Hence, the concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/profiles/index.md %}).
+Descriptive metadata at the represenation level follows the same requirements regarding metadata elements discussed in the [/descriptive section](./5_structure_package.md#descriptive-directory) of the package level.
+Hence, the concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles](../profiles/index.md).
 
 ### /preservation (directory)
 
@@ -208,10 +196,9 @@ The `/preservation` directory contains preservation metadata about the represent
 
 ***Requirements***
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'preservation'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "preservation") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 The `premis.xml` file of the representation level contains preservation metadata about the representation and the media files of the representation level.
 It relies on the [PREMIS](https://www.loc.gov/standards/premis/) standard in order to provide basic preservation information such as checksums.
@@ -350,7 +337,7 @@ The table below gives an overview of the different relationship types that can b
 
 #### Describing rights and access-policy
 
-A representation-level `premis.xml` MAY contain rights statements, reuse conditions, and access policy that apply to that representation. The same metadata MAY also occur in the package-level `premis.xml`; when declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence. When a `premis:rights` entity is used, it MUST contain at least one rights-status statement and exactly one rights extension with an access policy. Every `premis:linkingObjectIdentifier` and ODRL policy target MUST use the UUID of the representation defined in the same file. See the [package-level rights and access-policy guidance]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy) for the shared model, controlled values, conflict rules, and complete example.
+A representation-level `premis.xml` MAY contain rights statements, reuse conditions, and access policy that apply to that representation. The same metadata MAY also occur in the package-level `premis.xml`; when declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence. When a `premis:rights` entity is used, it MUST contain at least one rights-status statement and exactly one rights extension with an access policy. Every `premis:linkingObjectIdentifier` and ODRL policy target MUST use the UUID of the representation defined in the same file. See the [package-level rights and access-policy guidance](5_structure_package.md#describing-rights-and-access-policy) for the shared model, controlled values, conflict rules, and complete example.
 
 The following fragment uses the representation UUID from the example above:
 
@@ -382,11 +369,10 @@ The following fragment uses the representation UUID from the example above:
 
 ***Requirements***
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'premis'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "premis") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 <small>
-Continue to [Profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/profiles/index.md %}).
+Continue to [Profiles](../profiles/index.md).
 </small>

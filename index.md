@@ -1,14 +1,43 @@
 ---
-layout:       default
-title:        3.0
-has_children: true
-parent:       SIP Specification
-nav_exclude:  true
+title:        "3.0"
 nav_order:    1
 ---
 # meemoo Submission Information Package (SIP) Specification
 
-{% include_relative _metadata.liquid  %}
+**Permalink:** <https://data.hetarchief.be/id/sip/3.0>
+
+<b>Status:</b> <span class="label label-yellow">Editor's Draft</span>
+
+**Version:** [3.0](index.md)
+
+**Previous version:** [2.1](/docs/diginstroom/sip/2.0/index.html)
+
+**Compliant with E-ARK SIP:** [v2.2.0](https://earksip.dilcis.eu/)
+
+**Published:**
+
+**Publisher:** [meemoo.be](http://meemoo.be)
+
+**Alternate formats:** [Web pages](index.md)<!--, [single-page HTML](), [PDF]()-->
+
+**Editors:** [Miel Vander Sande](mailto:miel.vandersande@meemoo.be), [Mattias Poppe](mailto:mattias.poppe@meemoo.be), [Milan Valadou](mailto:milan.valadou@meemoo.be), [Luca Soto De Graeve](mailto:luca.sotodegraeve@meemoo.be)
+
+<small>
+This specification is © 2026 [meemoo vzw](http://meemoo.be) and the meemoo SIP contributors.
+</small>
+
+<small>
+Licensed under the Apache License, Version 3.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at <http://www.apache.org/licenses/LICENSE-3.0>
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+</small>
+
+<small>
+The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [BCP 14](https://www.rfc-editor.org/info/bcp14) [[RFC2119]](https://datatracker.ietf.org/doc/html/rfc2119) [[RFC8174]](https://datatracker.ietf.org/doc/html/rfc8174) when, and only when, they appear in all capitals, as shown here.
+</small>
+
+!!! important
+    Except sections explicitly marked as informative, all guidelines, examples and notes in this specification are to be considered normative.
+
 
 ## Abstract
 
