@@ -1,22 +1,15 @@
 ---
-layout:       default
 title:        Package level
-parent:       Structure
-grand_parent:  1.2
 nav_order:    2
-nav_exclude:  false
 ---
 
 # Package level
-{: .no_toc }
 
 ## Table of contents
-{: .no_toc .text-delta }
 
 1. TOC
-{:toc}
 
-The package level is stored in the `/data` directory of the [bag](./4_structure_bag.html) and consists of at least a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
+The package level is stored in the `/data` directory of the [bag](./4_structure_bag.md) and consists of at least a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
 It contains information about the IE(s) of the SIP and the SIP as a whole.
 
 The package level may contain a `/documentation` and a `/schemas` directory.
@@ -58,10 +51,10 @@ root_directory
 In the case of the meemoo SIP, the `mets.xml` file's main purpose is to act as an inventory of the files and directories contained within.
 Since it is situated at the package-level, it is also known as the _package METS file_.
 
-It should not be confused with the `mets.xml` files situated in their respective [representation folders](./6_structure_representation.html).
+It should not be confused with the `mets.xml` files situated in their respective [representation folders](./6_structure_representation.md).
 The package `mets.xml` file does not record the internal structure of the different representations in the `/representations` directory.
 It only references the different `mets.xml` files contained in each `/representation_*` directory (where `*` is an integer indicating the number of different representations in the `/representation` directory).
-Each of the `mets.xml` files at the [representation level](./6_structure_representation.html) references its own internal structure.
+Each of the `mets.xml` files at the [representation level](./6_structure_representation.md) references its own internal structure.
 
 ### Elements and internal references
 
@@ -100,6 +93,8 @@ A summary of all possible references and their obligation is given in the table 
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title`](#structMap-csip-div-div-representations-fptr-fileid) | SHOULD | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) (or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.)  |
 | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 <!-- | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
+| | | |
+| --- | --- | --- |
 | [`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 <!-- | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
@@ -148,7 +143,7 @@ The various requirements are listed in the table below.
 |-----------------------|-----------|
 | Name | Package identifier |
 | Description | This is an ID for the METS document. For the package METS, this MUST be the same ID as the one used for the entire bag. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -156,7 +151,7 @@ The various requirements are listed in the table below.
 |-----------------------|-----------|
 | Name | Content category |
 | Description | This attribute MUST be set to declare the category of the content held in the SIP. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `Textual works – Print`<br>`Textual works – Digital`<br>`Textual works – Electronic Serials`<br>`Digital Musical Composition (score-based representations)`<br>`Musical Scores - Print`<br>`Musical Scores - Digital`<br>`Photographs – Print`<br>`Photographs – Digital`<br>`Other Graphic Images – Print`<br>`Other Graphic Images – Digital`<br>`Microforms`<br>`Audio – On Tangible Medium (digital or analog)`<br>`Audio – Media-independent (digital)`<br>`Motion Pictures – Digital and Physical Media`<br>`Video – File-based and Physical Media`<br>`Software`<br>`Software and Video Games`<br>`Email`<br>`Datasets`<br>`Geospatial Data`<br>`Geographic Information System (GIS) - Vector Data`<br>`GIS Raster and Georeferenced Images`<br>`GIS Vector and Raster Combined`<br>`Non-GIS Cartographic`<br>`2D and 3D Computer Aided Design`<br>`Design (schematics, architectural drawings) - Print`<br>`Scanned 3D Objects (output from photogrammetry scanning)`<br>`Databases`<br>`Websites`<br>`Web Archives`<br>`Collection`<br>`Event`<br>`Image`<br>`Interactive resource`<br>`Moving image`<br>`Sound`<br>`Still image`<br>`Text`<br>`Physical object`<br>`Service`<br>`Mixed`<br>`Other` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -165,7 +160,7 @@ The various requirements are listed in the table below.
 |-----------------------|-----------|
 | Name | Other content category |
 | Description | When the `mets/@TYPE` attribute is set to "OTHER", the `mets/@csip:OTHERTYPE` attribute SHOULD be used to declare the content category of the package representation not contained in the fixed vocabulary of the `@TYPE` attribute. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -173,7 +168,7 @@ The various requirements are listed in the table below.
 |-----------------------|-----------|
 | Name | Content information type specification |
 | Description | This attribute must have the value "OTHER". The value of the `mets/@csip:OTHERCONTENTINFORMATIONTYPE` attribute describes the value of the profile of the meemoo SIP. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -181,8 +176,8 @@ The various requirements are listed in the table below.
 | Attribute | `mets[@csip:CONTENTINFORMATIONTYPE="OTHER"]/@csip:OTHERCONTENTINFORMATIONTYPE` |
 |-----------------------|-----------|
 | Name | Other content information type specification |
-| Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.2/basic` for the basic content profile which can be found on [its content profile page]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/basic.md %}).<br>ote that the sample above has the value of the basic profile as an example. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri) |
+| Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.2/basic` for the basic content profile which can be found on [its content profile page](../profiles/basic.md).<br>ote that the sample above has the value of the basic profile as an example. |
+| Datatype | [URI](../2_terminology.md#uri) |
 | Vocabulary | `https://data.hetarchief.be/id/sip/1.2/basic`<br>`https://data.hetarchief.be/id/sip/1.2/bibliographic`<br>`https://data.hetarchief.be/id/sip/1.2/material-artwork` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -191,7 +186,7 @@ The various requirements are listed in the table below.
 |-----------------------|-----------|
 | Name | METS profile |
 | Description | The URL of the E-ARK METS profile that the SIP conforms with.<br>This URL MUST be set to [`https://earksip.dilcis.eu/profile/E-ARK-SIP.xml`](https://earksip.dilcis.eu/profile/E-ARK-SIP.xml) to indicate conformance with the E-ARK specification. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -199,7 +194,7 @@ The various requirements are listed in the table below.
 |-----------------------|-----------|
 | Name | Package name |
 | Description | An optional short text describing the contents of the package. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -243,7 +238,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Package creation datetime |
 | Description | This attribute records the date and time the SIP was created. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -251,7 +246,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Package last modification datetime |
 | Description | In case the SIP was modified since its creation, this attribute records the date and time of that modification.<br>This attribute MUST be present and filled in when the SIP has been modified since its creation datetime. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -259,7 +254,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Package status |
 | Description | A way of indicating the status of the SIP and to instruct meemoo on how to properly handle it.<br>If not set, the expected value is `NEW`.<br>Meemoo investigates the use of the `@RECORDSTATUS` attribute for future use cases such as e.g. a metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `NEW`<br>`SUPPLEMENT`<br>`REPLACEMENT`<br>`TEST`<br>`VERSION`<br>`DELETE`<br>`OTHER`|
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -268,7 +263,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | OAIS Package type information |
 | Description | The value of `@csip:OAISPACKAGETYPE` MUST be set to `SIP` to indicate to meemoo that the delivered content is a SIP meant for ingest. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `SIP` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -284,7 +279,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent role |
 | Description | The role of the SIP creator software agent.<br>This value MUST be set to `CREATOR`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `CREATOR` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -293,7 +288,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent type |
 | Description | The type of the SIP creator software agent.<br>This value MUST be set to `OTHER`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -302,7 +297,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent other type |
 | Description | A specification of the type of the SIP creator software agent, indicating it being software.<br>This value MUST be set to `SOFTWARE`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -310,7 +305,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent name |
 | Description | This element records the name of the software tool used to create the SIP. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -318,7 +313,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent additional information |
 | Description | The mandatory note element records the version of the software tool used to create the IP.<br>It MUST have a `@csip:NOTETYPE` attribute with the value `SOFTWARE VERSION`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -326,7 +321,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Classification of the SIP creator software agent additional information |
 | Description | The value of this attribute MUST be set to `SOFTWARE VERSION` to denote the software version of the software being used. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `SOFTWARE VERSION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -342,7 +337,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Archival creator agent role |
 | Description | The role of the person/people or CP responsible for the digital content.<br>This value MUST be set to `ARCHIVIST`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `ARCHIVIST` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -351,7 +346,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Archival creator agent type |
 | Description | The type of the archival creator agent. When the agent is a CP, this value MUST be set to `ORGANIZATION`.|
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `ORGANIZATION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -360,7 +355,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Archival creator agent name |
 | Description | The name of the CP that originally created the digital content being transferred. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -368,7 +363,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Archival creator agent additional information |
 | Description | The archival creator agent MAY have a note providing a unique identification code for the archival creator. |
-| Datatype | [OR-id]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#or-id) |
+| Datatype | [OR-id](../2_terminology.md#or-id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -376,7 +371,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Classification of the archival creator agent additional information |
 | Description | The archival creator agent note attribute value MUST be set to `IDENTIFICATIONCODE`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `IDENTIFICATIONCODE` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -392,7 +387,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Submitting agent role |
 | Description | The role of the CP responsible for creating and/or submitting the SIP. This value MUST be set to `CREATOR`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `CREATOR` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -401,7 +396,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Submitting agent type |
 | Description | The type of the submitting agent. When the agent is a CP, this value MUST be set to `ORGANIZATION`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `ORGANIZATION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -410,7 +405,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Submitting agent name |
 | Description | Name of the CP or individual submitting the SIP to meemoo. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -418,7 +413,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Submitting agent additional information |
 | Description | The submitting agent MUST have a note providing a unique identification code. |
-| Datatype | [OR-id]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#or-id) |
+| Datatype | [OR-id](../2_terminology.md#or-id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -426,7 +421,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Classification of the submitting agent agent additional information |
 | Description | This submitting agent note attribute value MUST be set to `IDENTIFICATIONCODE`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `IDENTIFICATIONCODE` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -442,7 +437,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Contact person agent role |
 | Description | The role of the contact person agent MUST be set to `CREATOR`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `CREATOR` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -451,7 +446,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Contact person agent type |
 | Description | The type of the contact person agent MUST be set to `INDIVIDUAL`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `INDIVIDUAL` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -460,7 +455,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Contact person agent name |
 | Description | Name of the contact person. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -468,7 +463,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Contact person agent additional information |
 | Description | The contact person agent MAY have one or more notes providing the actual contact information, such as an address, e-mail, telephone number... |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -483,7 +478,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Preservation agent role |
 | Description | The role of the preservation agent MUST be set to `PRESERVATION`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `PRESERVATION` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -492,7 +487,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Preservation agent type |
 | Description | The type of the preservation agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `ORGANIZATION`<br>`INDIVIDUAL`<br>`OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -501,7 +496,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Preservation agent name |
 | Description | Name of the preservation agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MAY |
 
@@ -509,7 +504,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Preservation agent additional information |
 | Description | The preservation agent MAY have a note providing a unique identification code. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -517,7 +512,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Classification of the preservation agent additional information |
 | Description | This preservation agent note attribute value MUST be set to `IDENTIFICATIONCODE`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Vocabulary | `IDENTIFICATIONCODE` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -526,7 +521,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Submission agreement |
 | Description | An optional reference to the submission agreement associated with the SIP.<br>When used, the `@TYPE` attribute MUST be set to `SUBMISSIONAGREEMENT`. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -534,7 +529,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Previous submission agreement |
 | Description | An optional reference to a previous submission agreement associated with the SIP.<br>When used, the `@TYPE` attribute MUST be set to `PREVIOUSSUBMISSIONAGREEMENT`. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -542,7 +537,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Archival reference code |
 | Description | An optional reference to indicate where in the archival hierarchy the package shall be placed in meemoo's archive.<br>When used, the `@TYPE` attribute MUST be set to `REFERENCECODE`. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -550,7 +545,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | Previous archival reference code |
 | Description | In cases where the SIP originates from other institutions maintaining a reference code structure, this element can be used to record these reference codes and therefore support the provenance of the package when a whole archival description is not submitted with the submission.<br>When used, the `@TYPE` attribute MUST be set to `PREVIOUSREFERENCECODE`. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 0..* |
 | Obligation | MAY |
 
@@ -591,7 +586,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Descriptive metadata section identifier |
 | Description | A unique identifier for the `dmdSec` used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -599,7 +594,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Descriptive metadata creation datetime |
 | Description | Creation date and time of the descriptive metadata referenced in this section. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -607,12 +602,13 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Status of the descriptive metadata |
 | Description | Describes the status of the `dmdSec` which is supported by the profile.<br>Meemoo investigates the use of the `@STATUS` attribute for future use cases such as e.g. a descriptive metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `CURRENT`<br>`SUPERSEDED` |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
 | Element | `mets/dmdSec/mdRef`
+| | |
 |-----------------------|-----------|
 | Name | Reference to the document with the descriptive metadata |
 | Description | Reference to the descriptive metadata file(s) located in the `/metadata/descriptive directory`. |
@@ -623,7 +619,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Type of locator |
 | Description | Indication of the locator type used to refer to the descriptive metadata file in the /metadata/descriptive directory.<br>It MUST always be used with the value `URL`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -631,7 +627,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Type of link |
 | Description | This attribute's value MUST be set to `simple`, in order to indicate a simple 'HTML-like' link. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -639,7 +635,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Resource location |
 | Description | Indication of the actual location of the descriptive metadata file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath.  |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -647,7 +643,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | Type of descriptive metadata |
 | Description | Specification of the type of metadata that is used in the externally located descriptive metadata file(s) in the `/metadata/descriptive` directory. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `MODS`<br>`DC`<br>`OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -656,7 +652,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | File mime type |
 | Description | The media/mime type of the referenced file. |
-| Datatype | [IANA mime type]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#mimetype) |
+| Datatype | [IANA mime type](../2_terminology.md#mimetype) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -664,7 +660,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | File size |
 | Description | Size of the referenced file; this MUST be in bytes. |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#integer) |
+| Datatype | [Integer](../2_terminology.md#integer) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -672,7 +668,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -680,7 +676,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | File checksum |
 | Description | The checksum of the referenced file. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -688,7 +684,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 |-----------------------|-----------|
 | Name | File checksum type |
 | Description | A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. This MUST be set to `MD5`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -729,7 +725,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Digital provenance metadata identifier |
 | Description | A unique identifier used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -737,7 +733,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Status of the digital provenance metadata |
 | Description | Describes the status of the `digiprovMD` which is supported by the profile.<br>Meemoo investigates the use of the `@STATUS` attribute for future use cases such as e.g. a preservation metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `CURRENT`<br>`SUPERSEDED` |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
@@ -753,7 +749,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Type of locator |
 | Description | Indication of the locator type used to refer to the preservation metadata file in the `/metadata/preservation` directory.<br>It MUST always be used with the value `URL`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -761,7 +757,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Type of link |
 | Description | This attribute's value MUST be set to `simple`, in order to indicate a simple 'HTML-like' link. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -769,7 +765,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Resource location |
 | Description | Indication of the actual location of the preservation metadata file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -777,7 +773,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Type of preservation metadata |
 | Description | Specification of the type of metadata that is used in the externally located preservation metadata file in the `/metadata/preservation directory`. The value MUST be set to `PREMIS`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `PREMIS` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -786,7 +782,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File mime type |
 | Description | The media/mime type of the referenced file. |
-| Datatype | [IANA mime type]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#mimetype) |
+| Datatype | [IANA mime type](../2_terminology.md#mimetype) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -794,7 +790,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File size |
 | Description | Size of the referenced file; this MUST be in bytes. |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#integer) |
+| Datatype | [Integer](../2_terminology.md#integer) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -802,7 +798,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -810,7 +806,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File checksum |
 | Description | The checksum of the referenced file. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -818,11 +814,12 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File checksum type |
 | Description | A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. This MUST be set to `MD5`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 <!-- | Element | `mets/amdSec/rightsMD` |
+| | |
 |-----------------------|-----------|
 | Name | Rights metadata |
 | Description | A simple rights statement may be used to describe general permissions for the package.<br><br>Individual representations SHOULD state their specific rights in their representation `mets.xml` file.<br>Standards for rights metadata include [RightsStatements.org](http://rightsstatements.org/), [Europeana rights statements info](https://pro.europeana.eu/page/available-rights-statements), [METS Rights Schema](https://github.com/mets/METS-Rights-Schema) and [PREMIS Rights Entities](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf#page=188).|
@@ -833,7 +830,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Rights metadata identifier |
 | Description | A unique identifier used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -841,7 +838,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Status of the rights metadata |
 | Description | Describes the status of the `rightsMD` which is supported by the profile.<br>Meemoo investigates the use of the `@STATUS` attribute for future use cases such as e.g. a rights metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `CURRENT`<br>`SUPERSEDED` |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
@@ -857,7 +854,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Type of locator |
 | Description | Indication of the locator type used to refer to the rights metadata file in the `/metadata/preservation` directory.<br>It MUST always be used with the value `URL`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -865,7 +862,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Type of link |
 | Description | This attribute's value MUST be set to `simple`, in order to indicate a simple 'HTML-like' link. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -873,7 +870,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Resource location |
 | Description | Indication of the actual location of the rights metadata file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -881,7 +878,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | Type of preservation metadata |
 | Description | Specification of the type of metadata that is used in the externally located rights metadata file in the `/metadata/preservation` directory. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `PREMIS`<br>`METSRIGHTS`<br>`OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -890,7 +887,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File mime type |
 | Description | The media/mime type of the referenced file. |
-| Datatype | [IANA mime type]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#mimetype) |
+| Datatype | [IANA mime type](../2_terminology.md#mimetype) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -898,7 +895,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File size |
 | Description | Size of the referenced file; this MUST be in bytes. |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#integer) |
+| Datatype | [Integer](../2_terminology.md#integer) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -906,7 +903,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -914,7 +911,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File checksum |
 | Description | The checksum of the referenced file. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -922,7 +919,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 |-----------------------|-----------|
 | Name | File checksum type |
 | Description | A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. This MUST be set to `MD5`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST | -->
 
@@ -967,7 +964,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File section identifier |
 | Description | A unique identifier for the file section used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -976,6 +973,8 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Name | Documentation file group |
 | Description | All documentation pertaining to the transferred content is placed in one or more file group elements with `mets/fileSec/fileGrp/@USE` attribute value “Documentation”. 
 <!--The content of this element MAY be empty.--> |
+| | |
+| --- | --- |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -984,6 +983,8 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Name | Schema file group |
 | Description | XML schemas used in the information package can be included in one or more file groups with `mets/fileSec/fileGrp/@USE` attribute value “Schemas”. 
 <!--The content of this element MAY be empty.--> |
+| | |
+| --- | --- |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -998,7 +999,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | Reference to administrative metadata |
 | Description | Reference to the ID of the corresponding administrative metadata section, in case an `amdSec` was used. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1019,7 +1020,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | Description of the use of the file group |
 | Description | The value in the `mets/fileSec/fileGrp/@USE` attribute is the name of the whole folder structure to the data, e.g. `representations/representation_1` or `documentation`. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1027,7 +1028,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File group identifier |
 | Description | A unique identifier for the file group. This is used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1042,7 +1043,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File identifier |
 | Description | A unique identifier for the file. This is used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1050,7 +1051,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File mimetype |
 | Description | The media/mime type of the referenced file. |
-| Datatype | [IANA mime type]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#mimetype) |
+| Datatype | [IANA mime type](../2_terminology.md#mimetype) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1058,7 +1059,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File size |
 | Description | Size of the referenced file; this MUST be in bytes. |
-| Datatype | [Integer]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#integer) |
+| Datatype | [Integer](../2_terminology.md#integer) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1066,7 +1067,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File creation datetime |
 | Description | The creation date and time of the referenced file. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1074,7 +1075,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File checksum |
 | Description | The checksum of the referenced file. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1082,7 +1083,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File checksum type |
 | Description | A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. This MUST be set to `MD5`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1090,7 +1091,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File original identification |
 | Description | If an identifier for the file was supplied by the CP it can be recorded in this attribute. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1098,7 +1099,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File reference to administrative metadata |
 | Description | If an `amdSec` (with `@ID` attribute) was provided, this attribute allows to reference it. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1106,7 +1107,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 |-----------------------|-----------|
 | Name | File reference to descriptive metadata |
 | Description | If a `dmdSec` (with `@ID` attribute) was provided, this attribute allows to reference it. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1120,14 +1121,14 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Attribute | `mets/fileSec/fileGrp/file/FLocat[@LOCTYPE='URL']` |
 |-----------------------|-----------|
 | Name | Type of locator |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
 | Attribute | `mets/fileSec/fileGrp/file/FLocat[@xlink:type='simple']` |
 |-----------------------|-----------|
 | Name | Type of link |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1136,7 +1137,9 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Name | Resource location |
 | Description | Indication of the actual location of the referenced file.
 As indicated by the @LOCTYPE attribute, this filepath MUST be a URL type filepath. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| | |
+| --- | --- |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1177,7 +1180,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Type of structural description |
 | Description | The `mets/structMap/@TYPE` attribute MUST take the value `PHYSICAL`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1185,7 +1188,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Name of the structural description |
 | Description | This value MUST be set to `CSIP` in order to be compliant with the E-ARK Common Specification for Information Packages. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1193,7 +1196,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Structural description identifier |
 | Description | A unique identifier for the structural description. This can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1208,7 +1211,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Main structural division identifier |
 | Description | A unique identifier for the main `div` element. This can be used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1216,7 +1219,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division |
 | Description | The metadata referenced in the administrative and/or descriptive metadata section is described in the structural map with one sub division. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1224,7 +1227,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division identifier |
 | Description | A unique identifier for the metadata `div` element. This can be used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1232,7 +1235,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division label |
 | Description | The metadata `div` element’s `@LABEL` attribute value MUST be `Metadata`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1240,7 +1243,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division references administrative metadata |
 | Description | The administrative metadata division should reference all current administrative metadata sections.<br>All `amdSec` elements with `@STATUS='CURRENT'` SHOULD be referenced by their identifier, `@ID`. <br> The current `amdSec` elements' `@ID`s are recorded in the `div[@LABEL='Metadata']/@ADMID` attribute in a space delimited list. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -1248,7 +1251,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Metadata division references descriptive metadata |
 | Description | The descriptive metadata division should reference all current descriptive metadata sections.<br>All `dmdSec` elements with `@STATUS='CURRENT'` SHOULD be referenced by their identifier, `@ID`. <br> The current `dmdSec` elements' `@ID`s are recorded in the `div[@LABEL='Metadata']/@DMDID` attribute in a space delimited list. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -1256,7 +1259,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Documentation division |
 | Description | The documentation referenced in the file section file groups is described in the structural map with one sub division. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -1264,7 +1267,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Documentation division identifier |
 | Description | A unique identifier for the documentation `div` element. This can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1272,7 +1275,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Documentation division label |
 | Description | The documentation `div` element’s `@LABEL` attribute value MUST be `Documentation`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1287,7 +1290,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Documentation file group reference pointer |
 | Description | A unique identifier to the `Documentation` file group. This can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1295,7 +1298,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Schema division |
 | Description | The schemas referenced in the file section file groups are described in the structural map within a single sub-division. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 
@@ -1303,7 +1306,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Schema division identifier |
 | Description | A unique identifier to the `Schemas` file group. This can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1311,7 +1314,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Schema division label |
 | Description | The schemas `div` element’s `@LABEL` attribute value MUST be `Schemas`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1326,7 +1329,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Schema file group reference |
 | Description | A unique identifier to the `Schemas` file group. This can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1341,7 +1344,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Representations division identifier |
 | Description | A unique identifier that can be used for internal package references. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1349,7 +1352,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Representations division label |
 | Description | The package’s representation division `div` element `@LABEL` attribute value must be the path to the representation level `mets.xml` file starting with the value `Representations` followed by the main folder name, e.g. `Representations/representation_1`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1364,7 +1367,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Representations division file references |
 | Description | The file group containing the files described in the package are referenced via the relevant file group identifier. |
-| Datatype | [ID]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#id) |
+| Datatype | [ID](../2_terminology.md#id) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1372,7 +1375,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Resource location |
 | Description | Indication of the actual location of the `mets.xml` file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath.<br>One SHOULD use the relative location of the file in this URL. |
-| Datatype | [URL]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#url) |
+| Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1380,7 +1383,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Type of link |
 | Description | This attribute's value MUST be set to `simple`, in order to indicate a simple 'HTML-like' link. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1388,7 +1391,7 @@ It provides links between elements and metadata files located elsewhere in the p
 |-----------------------|-----------|
 | Name | Type of locator |
 | Description | Indication of the locator type used to refer to the representation mets.xml files of the different representation levels.<br>It MUST always be used with the value `URL`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1407,7 +1410,7 @@ The `/descriptive` directory contains descriptive metadata about the IE(s) at th
 This descriptive metadata is stored in different XML files, depending on the number of IE(s) present in the SIP.
 Examples are `mods.xml` and `dc+schema.xml`.
 These files apply a certain metadata schema, such as [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) or [MODS](https://www.loc.gov/standards/mods/).
-The concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/index.md %}).
+The concrete requirements of descriptive metadata files and the applied metadata schemas are defined by the [content profiles](../profiles/index.md).
 
 ### /preservation (directory)
 
@@ -1583,8 +1586,8 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Object identifier type |
 | Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type `UUID` MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc+schema.xml` file, if any is present. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list]({{ site.baseurl }}{% link docs/metadata/viaa/algemeen.md %}#mogelijke-sleutels). |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels). |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1592,7 +1595,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Object identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS object. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) (depending on the value of the `premis:objectIdentifierType`) |
+| Datatype | [String](../2_terminology.md#string) (depending on the value of the `premis:objectIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1607,7 +1610,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship type |
 | Description | A high-level categorization of the nature of the relationship.<br><br>This element's value MUST be set to `structural` when expressing the relationship between one IE and another or between the IE object and one of its representations. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `structural` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1616,7 +1619,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship type authority attribute |
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship types. Its value MUST be set to `relationshipType`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
@@ -1624,7 +1627,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship type authority URI |
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType`. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri) |
+| Datatype | [URI](../2_terminology.md#uri) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
@@ -1632,7 +1635,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship type value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `structural` relationship type is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipType/str`. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri); fixed vocabulary |
+| Datatype | [URI](../2_terminology.md#uri); fixed vocabulary |
 | Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipType/str` |
 | Cardinality | 0..1 |
 | Obligation | MUST |
@@ -1641,7 +1644,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship subtype |
 | Description | A detailed categorization of the nature of the relationship.<br><br>In the case of the `premis.xml` file of the package level, this element's value MUST be set to `is represented by` when expressing the relationship between the IE object and one of its representations.<br><br>When multiple IEs are used in the SIP, this element's value MUST be set to `generalizes` when the relationship is expressed from the side of the main IE (i.e. the main IE is the subject of the relationship); when the relationship is expressed from the side of one of the subIEs (i.e. one of the subIEs is the subject of the relationship), this element's value MUST be set to `specializes`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `is represented by`<br>`generalizes`<br>`specializes` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1650,7 +1653,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship subtype authority attribute |
 | Description | This attribute indicates the name of the authority/controlled vocabulary that is being used for the different relationship subtypes. Its value MUST be set to `relationshipSubType`. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
@@ -1658,7 +1661,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship subtype authority URI |
 | Description | This attribute references the URI that contains the authority/controlled vocabulary. Its value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType`. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri) |
+| Datatype | [URI](../2_terminology.md#uri) |
 | Cardinality | 0..1 |
 | Obligation | MUST |
 
@@ -1666,7 +1669,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Relationship subtype value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `is represented by` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`.<br>If the `has part` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`.<br>If the `is part of` relationship subtype is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri); fixed vocabulary |
+| Datatype | [URI](../2_terminology.md#uri); fixed vocabulary |
 | Vocabulary | `http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp`<br>`http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp` |
 | Cardinality | 0..1 |
 | Obligation | MUST |
@@ -1682,7 +1685,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Related object identifier type |
 | Description | The type of the PREMIS related object identifier being used. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1691,7 +1694,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Related object identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS related object. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) (depending on the value of the `premis:relatedObjectIdentifierType`) |
+| Datatype | [String](../2_terminology.md#string) (depending on the value of the `premis:relatedObjectIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1701,12 +1704,12 @@ If desired, a representation's provenance trail can be added to the preservation
 In most cases, events are used to submit information about the digitization process that created the representations. 
 The use of events might be prohibited or enforced depending on the given content profile. 
 
-{: .note }
-The possible event types are limited and managed by a controlled list. This list is still under development and will be published in a future release of the specification.
-<!--
-TODO: Link to list of possible eventTypes
-TODO: figure out the IDs
--->
+!!! note
+    The possible event types are limited and managed by a controlled list. This list is still under development and will be published in a future release of the specification.
+    <!--
+    TODO: Link to list of possible eventTypes
+    TODO: figure out the IDs
+    -->
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1784,7 +1787,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Event identifier type |
 | Description | The type of the PREMIS event identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS event. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1793,7 +1796,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Event identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS event. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) (depending on the value of the `premis:eventIdentifierType`) |
+| Datatype | [String](../2_terminology.md#string) (depending on the value of the `premis:eventIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1808,7 +1811,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Event datetime  |
 | Description | The moment on which the event occurred. |
-| Datatype | [XML Schema datetime]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#xsd-datetime) |
+| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1823,7 +1826,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Event detail  |
 | Description | Additional information as unstructured text. Multiple details should be recorded in independent `premis:eventDetailInformation` containers instead of repeating the `premis:eventDetail` element. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1838,7 +1841,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Event outcome  |
 | Description | This element categorizes the outcome of the event in terms of success or failure. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS event outcome`](https://id.loc.gov/vocabulary/preservation/eventOutcome.html)) |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS event outcome`](https://id.loc.gov/vocabulary/preservation/eventOutcome.html)) |
 | Vocabulary | `fail`<br>`success`<br>`warning` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1847,7 +1850,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Event outcome value URI  |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the event outcome is `fail`, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventOutcome/fai`.<br>If the event outcome is `success`, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventOutcome/suc`.<br> If the event outcome is `warning`, this attribut's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventOutcome/war`.|
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri); fixed vocabulary |
+| Datatype | [URI](../2_terminology.md#uri); fixed vocabulary |
 | Vocabulary | `http://id.loc.gov/vocabulary/preservation/eventOutcome/fai`<br>`http://id.loc.gov/vocabulary/preservation/eventOutcome/suc`<br>`http://id.loc.gov/vocabulary/preservation/eventOutcome/war` |
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -1863,7 +1866,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking agent identifier type |
 | Description | The type of the agent identifier being used. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
 | Vocabulary | `UUID`<br>`MEEMOO-OR-ID` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1872,7 +1875,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking agent identifier value |
 | Description | The actual value that makes up the identifier of the agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) (depending on the value of the `premis:linkingAgentIdentifierType`) |
+| Datatype | [String](../2_terminology.md#string) (depending on the value of the `premis:linkingAgentIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1880,7 +1883,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking agent role |
 | Description | The role that the agent played in relation to the event. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS Event Related Agent Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole))  |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS Event Related Agent Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole))  |
 | Vocabulary | `authorizer`<br>`executing program`<br>`implementer`<br>`validator`<br><br>`player`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1889,7 +1892,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking agent role value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `authorizer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut`.<br>If the `executing program` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe`.<br>If the `implementer` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp`.<br>If the `validator` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/val` |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri); fixed vocabulary |
+| Datatype | [URI](../2_terminology.md#uri); fixed vocabulary |
 | Vocabulary | `http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/aut`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/exe`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/imp`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedAgentRole/val` |
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -1905,8 +1908,8 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking object identifier type |
 | Description | The type of the object identifier that the event is being linked to. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list]({{ site.baseurl }}{% link docs/metadata/viaa/algemeen.md %}#mogelijke-sleutels). |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels). |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1914,7 +1917,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking object identifier value |
 | Description | The actual value that makes up the identifier of the linked representation. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) (depending on the value of the `premis:linkingObjectIdentifierType`) |
+| Datatype | [String](../2_terminology.md#string) (depending on the value of the `premis:linkingObjectIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1922,7 +1925,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking object role |
 | Description | The role that the object played in relation to the event.  |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary from [`PREMIS Event Related Object Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole))  |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary from [`PREMIS Event Related Object Role`](http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole))  |
 | Vocabulary | `source`<br>`outcome` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1931,7 +1934,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Linking agent role value URI |
 | Description | This attribute references the URI that contains the specific entry from the authority/controlled vocabulary.<br><br>If the `outcome` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out`.<br>If the `source` role is being used, this attribute's value MUST be set to `http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou`. |
-| Datatype | [URI]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#uri); fixed vocabulary |
+| Datatype | [URI](../2_terminology.md#uri); fixed vocabulary |
 | Vocabulary | `http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/sou`<br>`http://id.loc.gov/vocabulary/preservation/eventRelatedObjectRole/out` |
 | Cardinality | 0..1 |
 | Obligation | MAY |
@@ -1954,7 +1957,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Agent identifier type |
 | Description | The type of the PREMIS agent identifier being used.<br><br>At least one identifier of type UUID MUST be defined in order to provide a unique identifier for each PREMIS agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
 | Vocabulary | `UUID`<br>`ID`<br>... |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1963,7 +1966,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Agent identifier value |
 | Description | The actual value that makes up the identifier of the PREMIS agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) (depending on the value of the `premis:agentIdentifierType`) |
+| Datatype | [String](../2_terminology.md#string) (depending on the value of the `premis:agentIdentifierType`) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1971,7 +1974,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Agent name |
 | Description | The name of the agent. |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string) |
+| Datatype | [String](../2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1979,7 +1982,7 @@ TODO: figure out the IDs
 |-----------------------|-----------|
 | Name | Agent type |
 | Description | The type of agent, such as a specific type of organization (e.g. CP) or a specific type of hardware (e.g. video player). |
-| Datatype | [String]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/2_terminology.md %}#string); fixed vocabulary from [PREMIS Agent Type](https://id.loc.gov/vocabulary/preservation/agentType.html) |
+| Datatype | [String](../2_terminology.md#string); fixed vocabulary from [PREMIS Agent Type](https://id.loc.gov/vocabulary/preservation/agentType.html) |
 | Vocabulary | `person`<br>`organization`<br>`hardware`<br>`software` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -2001,5 +2004,5 @@ The `/representations` directory contains a separate `/representation_*` (where 
 - The different subdirectories in the `/representations` directory MUST be named `/representation_*`, with `*` being a positive integer that is incremented by 1 for each additional representation in the `/representations` directory.
 
 <small>
-Continue to [representation level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/6_structure_representation.md %}).
+Continue to [representation level](6_structure_representation.md).
 </small>

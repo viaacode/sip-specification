@@ -1,11 +1,6 @@
 ---
-layout:       default
 title:        Two-dimensional artwork
-parent:       Use cases
-grand_parent:  1.2
 nav_order:    5
-nav_exclude:  false
-has_children: false
 sip_profile:  Material artwork
 ---
 
@@ -19,7 +14,7 @@ It includes:
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**material-artwork SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/profiles/material-artwork.md %}).
+It uses the [**material-artwork SIP profile**](../profiles/material-artwork.md).
 
 A full sample SIP can be viewed [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/2D_fa307608-35c3-11ed-9243-7e92631d7d27/).
 
@@ -27,6 +22,8 @@ A full sample SIP can be viewed [here](https://github.com/viaacode/documentation
 
 The following content is provided for packaging:
 
+| | |
+| --- | --- |
 | `7m03z1634f_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' with the frame included. |
 | `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' without the frame. |
 | `7m03z1634f_stitch_tiff.tif` | A stitched very high-resolution image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
@@ -55,8 +52,10 @@ Since the metadata only describes a single artwork, we can consider it as the si
 
 We can distinguish a couple of file sets (in the TIFF file format) that represent the painting in some manner: an overview with frame, an overview without frame, a stitched high-resolution image, a high-resolution image in parts, and a camera calibration target recording.
 
-Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/3_core-concepts.md %}):
+Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts](../3_core-concepts.md):
 
+| | |
+| --- | --- |
 |_Intellectual Entity_|the painting 'The lamentation over the Dead Christ' |
 |_Representation 1_| the access copy of the painting with frame |
 |_Representation 2_| the access copy of the painting without frame |
@@ -141,6 +140,8 @@ root_directory
 
 In total, the SIP contains 12 metadata files:
 
+| | |
+| --- | --- |
 |`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF files residing at the _representation level_. |
@@ -154,7 +155,7 @@ In total, the SIP contains 12 metadata files:
 The `dc+schema.xml` of the package level describes the IE using [the DCTERMS]((https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)) and the [Schema](schema.org/) metadata models.
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance, and additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
 
-The identifier in the `<dcterms:identifier/>` element is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier in the `<dcterms:identifier/>` element is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here](../sip_structure/5_structure_package.md#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -337,7 +338,7 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
 The `dc+schema.xml` of the representation level describes the representation using [the DCTERMS metadata schema](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
 It contains minimal metadata about licenses that might divert from the IE's license.
 
-The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}#shareduuidinfo) for more information).
+The identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here](../sip_structure/5_structure_package.md#shareduuidinfo) for more information).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>

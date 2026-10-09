@@ -1,20 +1,13 @@
 ---
-layout:       default
 title:        Bag level
-parent:       Structure
-grand_parent:  1.2
 nav_order:    1
-nav_exclude:  false
 ---
 
 # Bag level
-{: .no_toc }
 
 ## Table of contents
-{: .no_toc .text-delta }
 
 1. TOC
-{:toc}
 
 The bag is the top level of the meemoo SIP and is essentially a wrapper around a SIP submitted by a CP for ingest in the meemoo archive.
 It is a compressed directory that conforms to the [BagIt 1.0 specification (RFC 8493)](https://www.rfc-editor.org/rfc/rfc8493.html).
@@ -101,7 +94,7 @@ Tag-File-Character-Encoding: UTF-8
 
 The `/data` directory contains the content of the bag divided across a number of different files and directories.
 Each `/data` directory MUST contain exactly one package, consisting of the combination of a `mets.xml` file, a `/metadata` directory and a `/representations` directory.
-See the [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}) for more information and the requirements of the `/data` directory.
+See the [package level](5_structure_package.md) for more information and the requirements of the `/data` directory.
 
 ***Example***
 
@@ -119,5 +112,5 @@ root_directory
 ```
 
 <small>
-Continue to [package level]({{ site.baseurl }}{% link docs/diginstroom/sip/1.2/sip_structure/5_structure_package.md %}).
+Continue to [package level](5_structure_package.md).
 </small>
