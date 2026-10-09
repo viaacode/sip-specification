@@ -413,6 +413,8 @@ https://earkcsip.dilcis.eu/. Later nog toevoegen indien nodig?
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
+| | | |
+| --- | --- | --- |
 | File | Format | XML Schema |
 | `mets.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
