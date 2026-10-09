@@ -1,13 +1,11 @@
 ---
-layout:       default
 title:        Bibliographic
-parent:       Profiles
-grand_parent:  3.0
 nav_order:    2
-nav_exclude:  true
 ---
-{% assign bib_constraints = site.data["3_0"]._data.BIBLIOGRAPHIC_PROFILE | where_exp: "c",
-"c.Status != 'deprecated'" %}
+{% from "docs/diginstroom/sip/3.0/profiles/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/3.0/profiles/_list_constraints.j2" import render_constraints as render_constraint_list %}
+
+{% set bib_constraints = sip_3_0_bibliographic %}
 
 # Profile: Bibliographic 
 
@@ -61,123 +59,105 @@ root_directory
 
 ## Requirements
 
-{% assign package_constraints = bib_constraints | where_exp: "c",
-"c.Level == 'Package'" %}
+{% set package_constraints = bib_constraints | selectattr("Level", "equalto", "Package") | list %}
 
-{% assign rep_constraints = bib_constraints | where_exp: "c",
-"c.Level == 'Representation'" %}
+{% set rep_constraints = bib_constraints | selectattr("Level", "equalto", "Representation") | list %}
 
 ### General
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'general'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "general") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'md5'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "md5") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package METS
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package Descriptive Metadata
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'descriptive'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "descriptive") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 #### General information
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'mods'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "mods") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### The main identifiers
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsIdentifier'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsIdentifier") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Information on the main title 
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsTitle'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsTitle") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Information on alternative titles
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsAlternativeTitle'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsAlternativeTitle") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Information on language
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsLanguage'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsLanguage") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### General description of the written work
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsDescription'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsDescription") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Information on people or organizations related to the written work
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsName'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsName") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Information on the written work's origin
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsOrigin'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsOrigin") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Information on the written work's physical characteristics
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsPhysical'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsPhysical") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Related items
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsRelated'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsRelated") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Information on the work series
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsSeries'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "modsSeries") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### Package Preservation Metadata
 
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'preservation'" %}
+{% set constraints = package_constraints | selectattr("Section", "equalto", "preservation") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 <a id="example-transcription-event"></a>_Example 1: a PREMIS transcription event (linking the TIFF and ALTO XML files)_
 
@@ -254,10 +234,9 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 ### Representation METS
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 <a id="example-representation-mets"></a>_Example 3: the structural map of a representation METS, with `@TYPE` and `@ORDER` attributes_
 
@@ -295,10 +274,9 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 ### Representation Preservation Metadata
 
-{% assign constraints = rep_constraints | where_exp: "c",
-"c.Section == 'preservation'" %}
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "preservation") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 <a id="example-premis-issourceof"></a>_Example 4: a PREMIS `is source of` relationship_
 
@@ -354,6 +332,8 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
+| | | |
+| --- | --- | --- |
 | File | Format | XML Schema |
 | `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
@@ -363,4 +343,5 @@ The XML files that are required by this profile can be validated using the follo
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+- [Newspaper edition (with PDF)](../usecases/newspaper-pdf.md)
+- [Newspaper edition (without PDF)](../usecases/newspaper.md)

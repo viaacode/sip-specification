@@ -1,13 +1,11 @@
 ---
-layout:       default
 title:        Material artwork
-parent:       Profiles
-grand_parent:  3.0
 nav_order:    3
-nav_exclude:  true
 ---
-{% assign ma_constraints = site.data["3_0"]._data.MATERIAL_ARTWORK_PROFILE | where_exp: "c",
-"c.Status != 'deprecated'" %}
+{% from "docs/diginstroom/sip/3.0/profiles/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/3.0/profiles/_list_constraints.j2" import render_constraints as render_constraint_list %}
+
+{% set ma_constraints = sip_3_0_material_artwork %}
 
 # Profile: Material artwork 
 
@@ -142,38 +140,36 @@ root_directory
 
 ### General
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'general'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "general") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'md5'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "md5") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package METS
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Descriptive Metadata
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'descriptive'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "descriptive") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
-The Basic-profile `dc+schema.xml` requirements apply to descriptive metadata, including rights-related agents. They do not make the deprecated `dcterms:rights` or `dcterms:license` elements the preferred model. Rights statements, reuse conditions, and access policy belong in PREMIS: they MAY be centralized in the [package-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#describing-rights-and-access-policy), placed in the applicable [representation-level `premis.xml`]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/6_structure_representation.md %}#describing-rights-and-access-policy), or recorded at both levels. When declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence.
+The Basic-profile `dc+schema.xml` requirements apply to descriptive metadata, including rights-related agents. They do not make the deprecated `dcterms:rights` or `dcterms:license` elements the preferred model. Rights statements, reuse conditions, and access policy belong in PREMIS: they MAY be centralized in the [package-level `premis.xml`](../sip_structure/5_structure_package.md#describing-rights-and-access-policy), placed in the applicable [representation-level `premis.xml`](../sip_structure/6_structure_representation.md#describing-rights-and-access-policy), or recorded at both levels. When declarations for the same target and purpose conflict, the representation-level statement or policy takes precedence.
 
 ### Validation
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
+| | | |
+| --- | --- | --- |
 | File | Format | XML Schema |
 | `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
@@ -183,4 +179,6 @@ The XML files that are required by this profile can be validated using the follo
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+- [Two-dimensional artwork](../usecases/2d-artwork.md)
+- [Gigapixel artwork](../usecases/gigapixel-artwork.md)
+- [Scan of a three-dimensional artwork](../usecases/3d-scan.md)

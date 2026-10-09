@@ -1,11 +1,6 @@
 ---
-layout:       default
 title:        Video file with subtitles
-parent:       Use cases
-grand_parent:  3.0
 nav_order:    2
-nav_exclude:  true
-has_children: false
 sip_profile:  Basic
 ---
 
@@ -17,7 +12,7 @@ The following use case describes how to package
 - a subtitle file; and
 - some basic descriptive metadata.
 
-It uses the [**Basic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/profiles/basic.md %}).
+It uses the [**Basic SIP profile**](../profiles/basic.md).
 
 A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6/).
 
@@ -25,6 +20,8 @@ A full sample SIP can be downloaded [here](https://github.com/viaacode/documenta
 
 The following content is provided for packaging:
 
+| | |
+| --- | --- |
 | `broadcaster_news_20220516.mp4` | The essence: a video file in the MPEG4 media format containing a recording of a news episode on May 16th, 2022.  |
 | `broadcaster_news_20220516.srt` | The collateral: a file containing subtitles in the [SubRip subtitle file format](https://www.matroska.org/technical/subtitles.html#srt-subtitles). |
 | `metadata.xml` | A metadata record describing the contents of the media file. |
@@ -50,6 +47,8 @@ Since the metadata record only deals with the news episode, we can appoint it as
 Only one version of the recording was supplied, hence there is only one representation of the episode, which in turn contains the `broadcaster_news_20220516.mp4` file. 
 Because `broadcaster_news_20220516.srt` depends on `broadcaster_news_20220516.mp4` and has little meaning without it, it is not considered as a seperate representation, but included in the same representation.
 
+| | |
+| --- | --- |
 | _Intellectual Entity_ | the news episode on May 16th, 2022  |
 | _Representation_ | the archive master |
 | _File_ | the files `broadcaster_news_20220516.mp4` and `broadcaster_news_20220516.srt` |
@@ -89,6 +88,8 @@ subtitles_d3e1a978-3dd8-4b46-9314-d9189a1c94c6
 
 In total, the SIP contains 3 metadata files:
 
+| | |
+| --- | --- |
 | `/data/metadata/descriptive/dc+schema.xml` | Descriptive metadata about the IE residing at the _Package level_. |
 | `/data/metadata/preservation/premis.xml` | Preservation metadata about the IE, its rights statement and access policy residing at the _Package level_. |
 | `/data/representations/representation_1/metadata/preservation/premis.xml` | Preservation metadata about the representation and files residing at the _Representation level_. |
@@ -98,7 +99,7 @@ In total, the SIP contains 3 metadata files:
 The `dc+schema.xml` of the package level describes the IE using the DCTERMS metadata schema.
 It contains minimal metadata such as a title, an identifier, a creation and an issued datetime...
 
-Note that the identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here]({{ site.baseurl }}{% link docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+Note that the identifier is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here](../sip_structure/5_structure_package.md#shareduuidinfo)).
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
