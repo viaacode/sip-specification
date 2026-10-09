@@ -15,6 +15,8 @@ A full sample SIP can be downloaded [here](https://github.com/viaacode/documenta
 
 The following content is provided for packaging:
 
+| | |
+| --- | --- |
 | `D523F963.jpg` | The media file: an image in the JPEG media format containing a photo taken in January 2022 depicting a cat lying on a sofa. |
 | `metadata.xml` | A metadata record describing the contents of the essence. |
 
@@ -29,6 +31,8 @@ Since the metadata record is only about one thing (i.e. the photograph), we can 
 Only one version of the image was supplied (i.e. the media file in the JPEG media format), hence there is only one representation.
 This representation contains the `D523F963.jpg` file.
 
+| | |
+| --- | --- |
 | _Intellectual Entity_ | photograph taken in January 2022 depicting a cat  |
 | _Representation_ | the archive master |
 | _File_ | the media file `D523F963.jpg` |
@@ -67,6 +71,8 @@ basic_deec5d89-3024-4cbd-afcd-e18af4ad33ec
 
 In total, the SIP contains 3 metadata files:
 
+| | |
+| --- | --- |
 | `/data/metadata/descriptive/dc+schema.xml` | Descriptive metadata about the IE residing on _Package level_. |
 | `/data/metadata/preservation/premis.xml` | Preservation metadata about the IE residing on _Package level_. |
 | `/data/representations/representation_1/metadata/preservation/premis.xml` | Preservation metadata about the representation and files residing on _Representation level_. |

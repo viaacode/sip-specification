@@ -26,6 +26,8 @@ A full sample SIP can be viewed [here](https://github.com/viaacode/documentation
 
 The following content is provided for packaging:
 
+| | |
+| --- | --- |
 | `qv3bz95m19_ARCH_STL.STL` | A binary 3D model of the sculpture 'The Roman She-Wolf with Romulus and Remus' targeted at 3D printing.  |
 | `qv3bz95m19_ARCH_OBJ.OBJ` | A high-resolution polygon file containing a scan of the sculpture 'The Roman She-Wolf with Romulus and Remus'. |
 | `qv3bz95m19_ARCH_MTL.MTL` | A companion file for the high-resolution OBJ file.  |
@@ -63,6 +65,8 @@ We can distinguish a couple of file sets that represent the sculpture in some ma
 
 Since each set of files can have a meaning on its own, they are split into separate representations. This results in the following application of the [core concepts](../3_core-concepts.md):
 
+| | |
+| --- | --- |
 |_Intellectual Entity_| the sculpture 'The Roman She-Wolf with Romulus and Remus' |
 |_Representation 1_| the model of the sculpture for 3D printing |
 |_Representation 2_| the archive master: a high-polygon representation of the sculpture |
@@ -160,6 +164,8 @@ root_directory
 
 In total, the SIP contains 12 metadata files:
 
+| | |
+| --- | --- |
 |`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the DCTERMS metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including its rights statement and access policy and any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_*/metadata/descriptive/dc+schema.xml`| Descriptive metadata about about each of the 5 representations at the _representation level_. |
