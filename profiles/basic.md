@@ -1,12 +1,11 @@
 ---
-layout:       default
 title:        Basic
-parent:       Profiles
-grand_parent:  2.1
 nav_order:    1
-nav_exclude:  false
 ---
-{% assign basic_constraints = site.data["2_1"]._data.BASIC_PROFILE %}
+{% from "docs/diginstroom/sip/2.1/profiles/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/2.1/profiles/_list_constraints.j2" import render_constraints as render_constraint_list %}
+
+{% set basic_constraints = sip_2_1_basic %}
 
 # Profile: Basic 
 
@@ -41,60 +40,55 @@ root_directory
 
 ### General
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'general'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "general") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'md5'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "md5") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package METS
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### <span id="dc-requirements"></span>Descriptive metadata
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'descriptive'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "descriptive") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
-{: .important }
-For elements that require the `@xml:lang` attribute, it is still necessary to supply an element with `@xml:lang` set to `nl` even if there is no Dutch content available (e.g., the original title is in English or French and no translation was ever made, or the title is the same in both languages). In that case, a title in another language can be copied as if it were Dutch. 
+!!! important
+    For elements that require the `@xml:lang` attribute, it is still necessary to supply an element with `@xml:lang` set to `nl` even if there is no Dutch content available (e.g., the original title is in English or French and no translation was ever made, or the title is the same in both languages). In that case, a title in another language can be copied as if it were Dutch.
 
 #### Root element
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'metadata'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "metadata") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### DCMI Terms elements
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'dcterms'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "dcterms") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 #### Schema.org elements
 
-{% assign constraints = basic_constraints | where_exp: "c",
-"c.Section == 'schema'" %}
+{% set constraints = basic_constraints | selectattr("Section", "equalto", "schema") | list %}
 
-{% include_relative _constraints.liquid constraints = constraints %}
+{{ render_constraint_details(constraints) }}
 
 ### Validation
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
+| | | |
+| --- | --- | --- |
 | File | Format | XML Schema |
 | `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
@@ -142,7 +136,8 @@ Please note that additional IDs must be dealt with in the `preservation/premis.x
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+- [Single file](../usecases/single-file.md)
+- [Video file with subtitles](../usecases/video-with-subtitles.md)
 
 ---
 

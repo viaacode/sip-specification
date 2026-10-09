@@ -277,7 +277,7 @@
     "Path": "/metadata/preservation/premis.xml",
     "Section": "preservation",
     "Type": "General",
-    "Description": "The following relationships MUST be present between the `<premis:object>` of the intellectual entity and that of the carrier representation (see also [Overview of relevant PREMIS relationships]({{ site.baseurl }}{% link docs/diginstroom/sip/2.1/sip_structure/5_structure_package.md %}#premis-relationships) for more information): <ul><li>A structural `<premis:relationship>`  of type 'has carrier copy';</li><li>A structural `<premis:relationship>`  of type 'is carrier copy of'.</li></ul>",
+    "Description": "The following relationships MUST be present between the `<premis:object>` of the intellectual entity and that of the carrier representation (see also [Overview of relevant PREMIS relationships](../sip_structure/5_structure_package.md#premis-relationships) for more information): <ul><li>A structural `<premis:relationship>`  of type 'has carrier copy';</li><li>A structural `<premis:relationship>`  of type 'is carrier copy of'.</li></ul>",
     "Cardinality": "",
     "Datatype": "",
     "Name": "",
@@ -399,7 +399,7 @@
     "Type": "Element",
     "Description": "The identifier of the physical carrier",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#string)",
+    "Datatype": "[String](../2_terminology.md#string)",
     "Name": "Identifier",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -414,7 +414,7 @@
     "Type": "Element",
     "Description": "The physical medium on which the Object is stored (e.g., magnetic tape, hard disk, CD-ROM, DVD).",
     "Cardinality": "1..1",
-    "Datatype": "[String](../2_terminology#string)",
+    "Datatype": "[String](../2_terminology.md#string)",
     "Name": "Storage medium",
     "Obligation": "MUST",
     "Vocabulary": ""
@@ -429,7 +429,7 @@
     "Type": "Element",
     "Description": "The aspect ratio of the reel. Not to be confused with the aspect ratio of the digitized film.",
     "Cardinality": "0..1",
-    "Datatype": "[String](../2_terminology#string)",
+    "Datatype": "[String](../2_terminology.md#string)",
     "Name": "Aspect ratio",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -444,7 +444,7 @@
     "Type": "Element",
     "Description": "The base material that makes up the carrier.",
     "Cardinality": "0..1",
-    "Datatype": "[String](../2_terminology#string)",
+    "Datatype": "[String](../2_terminology.md#string)",
     "Name": "Material",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -459,7 +459,7 @@
     "Type": "Element",
     "Description": "Any preservation problems encountered during the digitization of the film.",
     "Cardinality": "0..*",
-    "Datatype": "[String](../2_terminology#string)",
+    "Datatype": "[String](../2_terminology.md#string)",
     "Name": "Preservation problem",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -519,7 +519,7 @@
     "Type": "Element",
     "Description": "The stock type refers to the specific kind of film material used—such as negative, positive, interpositive, or internegative—each designed for a particular stage of image/sound capture, duplication, or projection.",
     "Cardinality": "0..1",
-    "Datatype": "[String](../2_terminology#string)",
+    "Datatype": "[String](../2_terminology.md#string)",
     "Name": "Stock type",
     "Obligation": "MAY",
     "Vocabulary": ""
@@ -534,7 +534,7 @@
     "Type": "Element",
     "Description": "Indication of the coloring of the image reel.",
     "Cardinality": "0..*",
-    "Datatype": "[String](../2_terminology#string); fixed vocabulary",
+    "Datatype": "[String](../2_terminology.md#string); fixed vocabulary",
     "Name": "Coloring type",
     "Obligation": "MAY",
     "Vocabulary": "`BandW`, `Color`, `Colorized`, `Composite`, `UnknownColorType`"
@@ -579,7 +579,7 @@
     "Type": "Element",
     "Description": "The language the open captions are in.",
     "Cardinality": "0..*",
-    "Datatype": "[BCP47](../2_terminology#bcp47)",
+    "Datatype": "[BCP47](../2_terminology.md#bcp47)",
     "Name": "Open captions language",
     "Obligation": "MAY",
     "Vocabulary": ""

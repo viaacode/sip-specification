@@ -1,12 +1,11 @@
 ---
-layout:       default
 title:        Material artwork
-parent:       Profiles
-grand_parent:  2.1
 nav_order:    3
-nav_exclude:  false
 ---
-{% assign ma_constraints = site.data["2_1"]._data.MATERIAL_ARTWORK_PROFILE %}
+{% from "docs/diginstroom/sip/2.1/profiles/_constraints.j2" import render_constraints as render_constraint_details %}
+{% from "docs/diginstroom/sip/2.1/profiles/_list_constraints.j2" import render_constraints as render_constraint_list %}
+
+{% set ma_constraints = sip_2_1_material_artwork %}
 
 # Profile: Material artwork 
 
@@ -141,36 +140,34 @@ root_directory
 
 ### General
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'general'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "general") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'md5'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "md5") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Package METS
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'mets'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "mets") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Descriptive Metadata
 
-{% assign constraints = ma_constraints | where_exp: "c",
-"c.Section == 'descriptive'" %}
+{% set constraints = ma_constraints | selectattr("Section", "equalto", "descriptive") | list %}
 
-{% include_relative _list_constraints.liquid constraints = constraints %}
+{{ render_constraint_list(constraints) }}
 
 ### Validation
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
+| | | |
+| --- | --- | --- |
 | File | Format | XML Schema |
 | `METS.xml` | METS v1.12.1 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
@@ -180,4 +177,6 @@ The XML files that are required by this profile can be validated using the follo
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+- [Two-dimensional artwork](../usecases/2d-artwork.md)
+- [Gigapixel artwork](../usecases/gigapixel-artwork.md)
+- [Scan of a three-dimensional artwork](../usecases/3d-scan.md)
