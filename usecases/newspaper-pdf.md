@@ -22,6 +22,8 @@ A full sample SIP can be downloaded [here](https://github.com/viaacode/documenta
 
 The following content is provided for packaging:
 
+| | |
+| --- | --- |
 | `18950101_0001.tiff`<br>`18950101_0002.tiff`<br>`18950101_0003.tiff` | The essence: 3 image files in the TIFF media format representing 3 digitised newspaper pages from a newspaper edition issued on 01/01/1895. |
 | `18950101_0001.xml`<br>`18950101_0002.xml`<br>`18950101_0003.xml` | The essence: 3 XML files in the ALTO XML media format representing the textual content of 3 digitised newspaper pages from a newspaper edition issued on 01/01/1895. |
 | `18950101.pdf` | The essence: 1 PDF file representing both the pages and textual content of an entire newspaper edition issued on 01/01/1895. Note that this is a combination of the TIFF and ALTO XML files mentioned above: both the pages as well as the text from the pages are represented visually as well as made searchable (i.e. the OCR is integrated in the PDF). |
@@ -49,6 +51,8 @@ We can distinguish between three sets of files representing the newspaper editio
 
 Since each set of files can have a meaning on its own (i.e. one could focus solely on the TIFF files to get an idea of what the pages looked liked or one could want to only look at the ALTO XML files to read the contents of the pages without the lay-out of the page itself), three separate representations can be made: one representation containing the TIFF files, one representation containing the ALTO XML files and one representation containing the PDF file.
 
+| | |
+| --- | --- |
 |_Intellectual Entity_|the newspaper edition issued on January 1st, 1895|
 |_Representation 1_|a visual representation of the newspaper edition containing image files|
 |_Representation 2_|a textual representation of the newspaper edition containing text files|
@@ -114,6 +118,8 @@ root_directory
 
 In total, the SIP contains 6 metadata files:
 
+| | |
+| --- | --- |
 |`data/metadata/descriptive/mods.xml`|Descriptive metadata about the IE residing at the _package level_ using the MODS metadata schema.|
 |`data/metadata/preservation/premis.xml`|Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations.|
 |`data/representations/representation_1/metadata/preservation/premis.xml`|Preservation metadata about the representation and TIFF files residing at the _representation level_.|

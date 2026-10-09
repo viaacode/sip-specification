@@ -89,6 +89,8 @@ Rights-related descriptive agents, including rights holders, owners, licence dis
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
+| | | |
+| --- | --- | --- |
 | File | Format | XML Schema |
 | `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
