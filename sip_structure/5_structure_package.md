@@ -93,6 +93,8 @@ A summary of all possible references and their obligation is given in the table 
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title`](#structMap-csip-div-div-representations-fptr-fileid) | SHOULD | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) (or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.)  |
 | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 <!-- | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
+| | | |
+| --- | --- | --- |
 | [`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 <!-- | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
@@ -171,6 +173,7 @@ The various requirements are listed in the table below.
 | Obligation | MUST |
 
  | Attribute | `mets[@csip:CONTENTINFORMATIONTYPE="OTHER"]/@csip:OTHERCONTENTINFORMATIONTYPE` |
+| | |
 |-----------------------|-----------|
 | Name | Other content information type specification |
 | Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.0/basic` for the basic content profile which can be found on [its content profile page](../profiles/basic.md).<br>Note that the sample above has the value of the basic profile as an example. |
@@ -605,6 +608,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 | Obligation | SHOULD |
 
 | Element | `mets/dmdSec/mdRef`
+| | |
 |-----------------------|-----------|
 | Name | Reference to the document with the descriptive metadata |
 | Description | Reference to the descriptive metadata file(s) located in the `/metadata/descriptive directory`. |
@@ -815,6 +819,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 | Obligation | MUST |
 
 <!-- | Element | `mets/amdSec/rightsMD` |
+| | |
 |-----------------------|-----------|
 | Name | Rights metadata |
 | Description | A simple rights statement may be used to describe general permissions for the package.<br><br>Individual representations SHOULD state their specific rights in their representation `mets.xml` file.<br>Standards for rights metadata include [RightsStatements.org](http://rightsstatements.org/), [Europeana rights statements info](https://pro.europeana.eu/page/available-rights-statements), [METS Rights Schema](https://github.com/mets/METS-Rights-Schema) and [PREMIS Rights Entities](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf#page=188).|
@@ -968,6 +973,8 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Name | Documentation file group |
 | Description | All documentation pertaining to the transferred content is placed in one or more file group elements with `mets/fileSec/fileGrp/@USE` attribute value “Documentation”. 
 <!--The content of this element MAY be empty.--> |
+| | |
+| --- | --- |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -976,6 +983,8 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Name | Schema file group |
 | Description | XML schemas used in the information package can be included in one or more file groups with `mets/fileSec/fileGrp/@USE` attribute value “Schemas”. 
 <!--The content of this element MAY be empty.--> |
+| | |
+| --- | --- |
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
@@ -1128,6 +1137,8 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Name | Resource location |
 | Description | Indication of the actual location of the referenced file.
 As indicated by the @LOCTYPE attribute, this filepath MUST be a URL type filepath. |
+| | |
+| --- | --- |
 | Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
