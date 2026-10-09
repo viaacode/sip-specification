@@ -22,6 +22,8 @@ It uses the [**material-artwork SIP profile**](../profiles/material-artwork.md).
 
 The following content is provided for packaging:
 
+| | |
+| --- | --- |
 | `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of an 'Uur- en kalenderwijzerplaat' with the frame included. |
 | `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat' without the frame. |
 | `cf9j41p15z_stitch_bigtiff.tiff` | A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'. |
@@ -54,6 +56,8 @@ We can distinguish a couple of file sets (in the TIFF or PSB file format) that r
 
 Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts](../3_core-concepts.md):
 
+| | |
+| --- | --- |
 |_Intellectual Entity_|the 'Uur- en kalenderwijzerplaat' |
 |_Representation 1_| the access copy of the painting with frame |
 |_Representation 2_| the access copy of the painting without frame |
@@ -152,6 +156,8 @@ root_directory
 
 In total, the SIP contains 13 metadata files:
 
+| | |
+| --- | --- |
 |`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema. |
 |`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
 |`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF file residing at the _representation level_. |
