@@ -220,12 +220,8 @@ _Example 4_ below contains an illustration of a simplified carrier representatio
 
         <!-- relationship between the IE and its carrier representation -->
         <premis:relationship>
-            <premis:relationshipType authority="relationshipType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-            <premis:relationshipSubType authority="relationshipSubType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is
+            <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+            <premis:relationshipSubType authority="relationshipSubType">is
                 represented
                 by</premis:relationshipSubType>
             <premis:relatedObjectIdentifier>
@@ -283,12 +279,8 @@ _Example 4_ below contains an illustration of a simplified carrier representatio
 
         <!-- relationship between the carrier representation and its IE -->
         <premis:relationship>
-            <premis:relationshipType authority="relationshipType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-            <premis:relationshipSubType authority="relationshipSubType"
-                authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType"
-                valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">
+            <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+            <premis:relationshipSubType authority="relationshipSubType">
                 represents</premis:relationshipSubType>
             <premis:relatedObjectIdentifier>
                 <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>

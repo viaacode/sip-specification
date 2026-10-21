@@ -123,8 +123,8 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     </premis:objectIdentifier>
 
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is represented by</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:relatedObjectIdentifierValue>
@@ -161,8 +161,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between representation and its files -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">includes</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-945a16cd-eeb6-4a4c-95bb-4656a9f0909d</premis:relatedObjectIdentifierValue>
@@ -171,8 +171,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between representation and its IE/subIE -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-a0a5329c-4ad1-4607-9f6e-ce980d90b992</premis:relatedObjectIdentifierValue>
@@ -209,8 +209,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between file and its representation -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is included in</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is included in</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-4e475706-2752-4f77-9069-1f71c0e22572</premis:relatedObjectIdentifierValue>
