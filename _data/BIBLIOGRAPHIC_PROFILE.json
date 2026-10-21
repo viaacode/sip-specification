@@ -1132,7 +1132,7 @@
     "Level": "Representation",
     "Path": "/metadata/preservation/premis.xml",
     "Section": "mets",
-    "Description": "If the files in a representation each correspond with a single page (e.g. the TIFF and ALTO XML files, since each of these files MUST correspond to a single page), the corresponding `<div/>` elements in the structural map MUST contain an `@ORDER` attribute that indicates the sequence of the pages. Additionally, each `<div/>` element that corresponds to a file representing a page MUST have a `@TYPE` attribute that is set to `page`. See [example 3 below](#example-representation-mets) for more information.",
+    "Description": "If the files in a representation each correspond with a single page (e.g. the TIFF and ALTO XML files, since each of these files MUST correspond to a single page), the corresponding `<div/>` elements in the structural map MUST contain an `@ORDER` attribute that indicates the sequence of the pages. Additionally, each `<div/>` element that corresponds to a file representing a page MUST have a `@TYPE` attribute that is set to `page`. Each file representing a page MUST be placed in its own `<fileGrp/>` element in the `fileSec`, and the `<fptr/>` element inside the `<div/>` of that page MUST reference the `@ID` of that file group. See [example 3 below](#example-representation-mets) for more information.",
     "Cardinality": "",
     "Datatype": "",
     "Name": "",
