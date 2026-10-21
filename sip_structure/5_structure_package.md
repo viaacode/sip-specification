@@ -361,8 +361,8 @@ On the package level, the preservation metadata is used to express
 
     <!-- relationship between the main IE and the nested IEs -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/hsp">has part</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">has part</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-948e2213-ca54-459c-8c87-5818adeb9444</premis:relatedObjectIdentifierValue>
@@ -385,8 +385,8 @@ On the package level, the preservation metadata is used to express
 
     <!-- relationship between nested IE1 and the main IE -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp">is part of</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is part of</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:relatedObjectIdentifierValue>
@@ -395,8 +395,8 @@ On the package level, the preservation metadata is used to express
 
     <!-- relationship between nested IE1 and its representation -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is represented by</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-541292c3-223a-4b80-b747-66bc86ff4a89</premis:relatedObjectIdentifierValue>
@@ -415,8 +415,8 @@ On the package level, the preservation metadata is used to express
 
     <!-- relationship between nested IE2 and the main IE -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isp">is part of</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is part of</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-b21a86aa-97a3-4f7b-a9f5-4d330af641c0</premis:relatedObjectIdentifierValue>
@@ -425,8 +425,8 @@ On the package level, the preservation metadata is used to express
 
     <!-- relationship between nested IE2 and its representation -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is represented by</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-de83045d-3b0f-4161-9f96-40079af0d480</premis:relatedObjectIdentifierValue>
