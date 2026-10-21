@@ -6,9 +6,10 @@ grand_parent:  2.1
 nav_order:    2
 nav_exclude:  false
 ---
+
 {% assign bib_constraints = site.data["2_1"]._data.BIBLIOGRAPHIC_PROFILE %}
 
-# Profile: Bibliographic 
+## Profile: Bibliographic
 
 The bibliographic profile supports the ingest of digitised written works consisting of multiple bounded or unbounded pages predominately containing handwritten or printed text, such as books, magazines, manuscripts, letters, notated music or newspapers. They are often described and maintained by libraries.
 This profile dictates how the media files (in formats such as TIFF, ALTO XML and PDF), their metadata, and the relationships between them, should be expressed and organized.
@@ -16,7 +17,7 @@ It applies the [MODS XML metadata schema](https://www.loc.gov/standards/mods/) f
 
 **Permalink:** <https://data.hetarchief.be/id/sip/2.1/bibliographic>
 
-## Example Directory structure
+### Example Directory structure
 
 ```plaintext
 root_directory
@@ -58,7 +59,7 @@ root_directory
             └── premis.xml
 ```
 
-## Requirements
+### Requirements
 
 {% assign package_constraints = bib_constraints | where_exp: "c",
 "c.Level == 'Package'" %}
@@ -66,7 +67,7 @@ root_directory
 {% assign rep_constraints = bib_constraints | where_exp: "c",
 "c.Level == 'Representation'" %}
 
-### General
+#### General
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'general'" %}
@@ -80,98 +81,98 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
-### Package METS
+#### Package METS
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'mets'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
-### Package Descriptive Metadata
+#### Package Descriptive Metadata
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'descriptive'" %}
 
 {% include_relative _list_constraints.liquid constraints = constraints %}
 
-#### General information
+##### General information
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'mods'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### The main identifiers
+##### The main identifiers
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsIdentifier'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Information on the main title 
+##### Information on the main title
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsTitle'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Information on alternative titles
+##### Information on alternative titles
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsAlternativeTitle'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Information on language
+##### Information on language
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsLanguage'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### General description of the written work
+##### General description of the written work
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsDescription'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Information on people or organizations related to the written work
+##### Information on people or organizations related to the written work
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsName'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Information on the written work's origin
+##### Information on the written work's origin
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsOrigin'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Information on the written work's physical characteristics
+##### Information on the written work's physical characteristics
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsPhysical'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Related items
+##### Related items
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsRelated'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-#### Information on the work series
+##### Information on the work series
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'modsSeries'" %}
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-### Package Preservation Metadata
+#### Package Preservation Metadata
 
 {% assign constraints = package_constraints | where_exp: "c",
 "c.Section == 'preservation'" %}
@@ -182,7 +183,7 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 ```xml
 <premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
-    
+
     [...]
 
     <premis:event>
@@ -216,7 +217,7 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 ```xml
 <premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
-    
+
     [...]
 
     <premis:event>
@@ -245,13 +246,13 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
             <premis:linkingObjectRole>outcome</premis:linkingObjectRole>
         </premis:linkingObjectIdentifier>
     </premis:event>
-    
+
     [...]
 
 <premis:premis>
 ```
 
-### Representation METS
+#### Representation METS
 
 {% assign constraints = rep_constraints | where_exp: "c",
 "c.Section == 'mets'" %}
@@ -262,9 +263,28 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 ```xml
 <mets xmlns="http://www.loc.gov/METS/" xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" OBJID="representation_1" TYPE="Textual works - Print" PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml" xsi:schemaLocation="http://www.w3.org/1999/xlink http://www.w3.org/1999/xlink.xsd  http://www.loc.gov/METS/ https://www.loc.gov/standards/mets/mets.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd ">
-    
+
     [...]
-    
+
+    <!-- one file group per page -->
+    <fileSec ID="uuid-48ce5e4c-8e09-48d8-bfbf-f1091c5c8e50">
+        <fileGrp USE="data" ID="uuid-28486d80-7110-4132-b4ad-cc5a93d0f277">
+            <file ID="uuid-9850cb03-b1fd-4661-a4fb-e3dfcf25e9e5" MIMETYPE="image/tiff" [...]>
+                <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./data/18950101_0001.tiff" />
+            </file>
+        </fileGrp>
+        <fileGrp USE="data" ID="uuid-5383f79a-5600-4ca9-a0a6-a18c45502072">
+            <file ID="uuid-3309e853-bf0f-4d19-ae6a-5e14911e3662" MIMETYPE="image/tiff" [...]>
+                <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./data/18950101_0002.tiff" />
+            </file>
+        </fileGrp>
+        <fileGrp USE="data" ID="uuid-a3c42e9b-5d8c-4f20-be0d-141f65aaac3c">
+            <file ID="uuid-4ef96979-4abf-4af0-8156-d04fdd2ff7c3" MIMETYPE="image/tiff" [...]>
+                <FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="./data/18950101_0003.tiff" />
+            </file>
+        </fileGrp>
+    </fileSec>
+
     <structMap ID="uuid-04647bb4-f524-435b-b4bf-5fe7a926b9d4" TYPE="PHYSICAL" LABEL="CSIP">
         <div ID="uuid-74e4335c-1d24-42bc-bbd0-864bd216d99c" LABEL="representation_1">
             <div ID="uuid-60d4a0db-769c-42a9-8ef8-c395bb555803" LABEL="Metadata">
@@ -273,26 +293,26 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
                 </div>
             </div>
             <!-- order attributes for page order -->
-            <div ID="uuid-41bacec1-1d6c-467a-8020-7114115562a8" LABEL="Representations">
+            <div ID="uuid-41bacec1-1d6c-467a-8020-7114115562a8" LABEL="data">
                 <div ID="uuid-47e52361-8508-4ae1-ad8c-0e1f5382065e" TYPE="page" ORDER="1">
-                    <fptr FILEID="uuid-9850cb03-b1fd-4661-a4fb-e3dfcf25e9e5" />
+                    <fptr FILEID="uuid-28486d80-7110-4132-b4ad-cc5a93d0f277" />
                 </div>
-                <div ID="uuid-47e52361-8508-4ae1-ad8c-0e1f5382065e" TYPE="page" ORDER="2">
-                    <fptr FILEID="uuid-3309e853-bf0f-4d19-ae6a-5e14911e3662" />
+                <div ID="uuid-4b613d3c-2f2b-4b5b-a2fb-25b4e2dde24f" TYPE="page" ORDER="2">
+                    <fptr FILEID="uuid-5383f79a-5600-4ca9-a0a6-a18c45502072" />
                 </div>
                 <div ID="uuid-eebd6f2a-f06e-4c5f-9c52-fd58e784eaff" TYPE="page" ORDER="3">
-                    <fptr FILEID="uuid-4ef96979-4abf-4af0-8156-d04fdd2ff7c3" />
+                    <fptr FILEID="uuid-a3c42e9b-5d8c-4f20-be0d-141f65aaac3c" />
                 </div>
             </div>
         </div>
     </structMap>
-    
+
     [...]
 
 </mets>
 ```  
 
-### Representation Preservation Metadata
+#### Representation Preservation Metadata
 
 {% assign constraints = rep_constraints | where_exp: "c",
 "c.Section == 'preservation'" %}
@@ -328,7 +348,7 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 ```xml
 <premis:premis version="3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:premis="http://www.loc.gov/premis/v3" xsi:schemaLocation="http://www.loc.gov/premis/v3 https://www.loc.gov/standards/premis/premis.xsd">
-    
+
     [...]
 
     <premis:relationship>
@@ -343,13 +363,13 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
             <premis:relatedEventIdentifierValue>uuid-34ae79f8-a8e7-4768-a269-4d6d895662d6</premis:relatedEventIdentifierValue>
         </premis:relatedEventIdentifier>
     </premis:relationship>
-    
+
     [...]
 
 </premis:premis>
 ```
 
-### Validation
+#### Validation
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
@@ -358,8 +378,8 @@ The XML files that are required by this profile can be validated using the follo
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `mods.xml` | MODS v3.7 | [mods-3-7.xsd](https://www.loc.gov/standards/mods/v3/mods-3-7.xsd) |
 
-## Use Cases
+### Use Cases
 
 Some use cases that implement this profile are:
 
-{% include _usecases.liquid  %}
+{% include _usecases.liquid %}

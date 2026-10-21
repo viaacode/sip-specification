@@ -3815,7 +3815,7 @@
     "Path": "/METS.xml",
     "Section": "structMap",
     "XPath": "`/mets:mets/structMap[@LABEL='CSIP']/div/div[@LABEL='data']/fptr/@FILEID`",
-    "Description": "The pointer to the identifier for the `data` file group.This identifier MUST correspond to an identifier of a `file/@ID` attribute in the `fileSec` section of the METS file.",
+    "Description": "The pointer to the identifier for the `data` file group.This identifier MUST correspond to an identifier of a `fileGrp/@ID` attribute in the `fileSec` section of the METS file.",
     "Cardinality": "1..1",
     "Datatype": "[ID](../2_terminology#id)",
     "Name": "Content division file group references",
