@@ -151,8 +151,8 @@ Note that the identifier in the `<premis:objectIdentifier>` element is shared wi
     </premis:objectIdentifier>
 
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isr">is represented by</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is represented by</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-c84a4912-f10d-46a5-b513-e4c4e2eefb43</premis:relatedObjectIdentifierValue>
@@ -191,8 +191,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between representation and its files -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/inc">includes</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">includes</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-e84e46b4-faaf-478d-a238-31b7be5b7e98</premis:relatedObjectIdentifierValue>
@@ -205,8 +205,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between representation and its IE -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/rep">represents</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">represents</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-f58ece94-f050-4b5b-b383-bba83393eaff</premis:relatedObjectIdentifierValue>
@@ -242,8 +242,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between file and its representation -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is included in</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is included in</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-c84a4912-f10d-46a5-b513-e4c4e2eefb43</premis:relatedObjectIdentifierValue>
@@ -252,8 +252,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between the video file and the subtitles file -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/irq">is required by</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">dependency</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is required by</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-b3d4b82b-563d-4c14-8e12-23c8da858dd0</premis:relatedObjectIdentifierValue>
@@ -290,8 +290,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between file and its representation -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/str">structural</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/isi">is included in</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">structural</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">is included in</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-c84a4912-f10d-46a5-b513-e4c4e2eefb43</premis:relatedObjectIdentifierValue>
@@ -300,8 +300,8 @@ It also describes the various relationships between these objects:
 
     <!-- relationship between the subtitles file and the video file -->
     <premis:relationship>
-      <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/dep">dependency</premis:relationshipType>
-      <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/req">requires</premis:relationshipSubType>
+      <premis:relationshipType authority="relationshipType">dependency</premis:relationshipType>
+      <premis:relationshipSubType authority="relationshipSubType">requires</premis:relationshipSubType>
       <premis:relatedObjectIdentifier>
         <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
         <premis:relatedObjectIdentifierValue>uuid-e84e46b4-faaf-478d-a238-31b7be5b7e98</premis:relatedObjectIdentifierValue>

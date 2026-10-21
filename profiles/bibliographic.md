@@ -307,8 +307,8 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 [...]
 
     <premis:relationship>
-        <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/der">derivation</premis:relationshipType>
-        <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/iso">is source of</premis:relationshipSubType>
+        <premis:relationshipType authority="relationshipType">derivation</premis:relationshipType>
+        <premis:relationshipSubType authority="relationshipSubType">is source of</premis:relationshipSubType>
         <premis:relatedObjectIdentifier>
             <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
             <premis:relatedObjectIdentifierValue>uuid-3d2dfddb-6348-43b7-865d-ba9a12ef5c79</premis:relatedObjectIdentifierValue>
@@ -332,8 +332,8 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
     [...]
 
     <premis:relationship>
-        <premis:relationshipType authority="relationshipType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipType/der">derivation</premis:relationshipType>
-        <premis:relationshipSubType authority="relationshipSubType" authorityURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType" valueURI="http://id.loc.gov/vocabulary/preservation/relationshipSubType/hss">has source</premis:relationshipSubType>
+        <premis:relationshipType authority="relationshipType">derivation</premis:relationshipType>
+        <premis:relationshipSubType authority="relationshipSubType">has source</premis:relationshipSubType>
         <premis:relatedObjectIdentifier>
             <premis:relatedObjectIdentifierType>UUID</premis:relatedObjectIdentifierType>
             <premis:relatedObjectIdentifierValue>uuid-1711cd43-19d2-4d89-9259-17443fc7d75f</premis:relatedObjectIdentifierValue>
