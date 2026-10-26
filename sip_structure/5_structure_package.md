@@ -171,7 +171,6 @@ The various requirements are listed in the table below.
 | Obligation | MUST |
 
  | Attribute | `mets[@csip:CONTENTINFORMATIONTYPE="OTHER"]/@csip:OTHERCONTENTINFORMATIONTYPE` |
-| | |
 |-----------------------|-----------|
 | Name | Other content information type specification |
 | Description | This attribute is used to declare the Content Information Type Specification used when creating the SIP.<br>Meemoo uses this attribute to indicate which of meemoo's content profiles a SIP uses. Its value MUST be a valid URI which can be found on the different content profile pages, e.g. the URI `https://data.hetarchief.be/id/sip/1.0/basic` for the basic content profile which can be found on [its content profile page](../profiles/basic.md).<br>Note that the sample above has the value of the basic profile as an example. |
@@ -606,7 +605,6 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 | Obligation | SHOULD |
 
 | Element | `mets/dmdSec/mdRef`
-| | |
 |-----------------------|-----------|
 | Name | Reference to the document with the descriptive metadata |
 | Description | Reference to the descriptive metadata file(s) located in the `/metadata/descriptive directory`. |
@@ -816,110 +814,6 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
-<!-- | Element | `mets/amdSec/rightsMD` |
-| | |
-|-----------------------|-----------|
-| Name | Rights metadata |
-| Description | A simple rights statement may be used to describe general permissions for the package.<br><br>Individual representations SHOULD state their specific rights in their representation `mets.xml` file.<br>Standards for rights metadata include [RightsStatements.org](http://rightsstatements.org/), [Europeana rights statements info](https://pro.europeana.eu/page/available-rights-statements), [METS Rights Schema](https://github.com/mets/METS-Rights-Schema) and [PREMIS Rights Entities](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf#page=188).|
-| Cardinality | 0..* |
-| Obligation | MAY |
-
-| <a id="rightsMD-id"></a>Attribute | `mets/amdSec/rightsMD/@ID` |
-|-----------------------|-----------|
-| Name | Rights metadata identifier |
-| Description | A unique identifier used for internal package references.<br>It MUST be unique within the SIP. |
-| Datatype | [ID](../2_terminology.md#id) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/@STATUS` |
-|-----------------------|-----------|
-| Name | Status of the rights metadata |
-| Description | Describes the status of the `rightsMD` which is supported by the profile.<br>Meemoo investigates the use of the `@STATUS` attribute for future use cases such as e.g. a rights metadata update (i.e. ingest of metadata only with the goal of updating, adding or deleting existing metadata in meemoo's archive system). |
-| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
-| Vocabulary | `CURRENT`<br>`SUPERSEDED` |
-| Cardinality | 0..1 |
-| Obligation | SHOULD |
-
-| Element | `mets/amdSec/rightsMD/mdRef` |
-|-----------------------|-----------|
-| Name | Reference to the document with the rights metadata (when not embedded within the mets.xml file). |
-| Description | Reference to the rights metadata file(s) when located in the `/metadata/preservation` directory. |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef[@LOCTYPE='URL']` |
-|-----------------------|-----------|
-| Name | Type of locator |
-| Description | Indication of the locator type used to refer to the rights metadata file in the `/metadata/preservation` directory.<br>It MUST always be used with the value `URL`. |
-| Datatype | [String](../2_terminology.md#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef[@xlink:type='simple']` |
-|-----------------------|-----------|
-| Name | Type of link |
-| Description | This attribute's value MUST be set to `simple`, in order to indicate a simple 'HTML-like' link. |
-| Datatype | [String](../2_terminology.md#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef/@xlink:href` |
-|-----------------------|-----------|
-| Name | Resource location |
-| Description | Indication of the actual location of the rights metadata file.<br>As indicated by the `@LOCTYPE` attribute, this filepath MUST be a URL type filepath. |
-| Datatype | [URL](../2_terminology.md#url) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef/@MDTYPE` |
-|-----------------------|-----------|
-| Name | Type of preservation metadata |
-| Description | Specification of the type of metadata that is used in the externally located rights metadata file in the `/metadata/preservation` directory. |
-| Datatype | [String](../2_terminology.md#string); fixed vocabulary |
-| Vocabulary | `PREMIS`<br>`METSRIGHTS`<br>`OTHER` |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef/@MIMETYPE` |
-|-----------------------|-----------|
-| Name | File mime type |
-| Description | The media/mime type of the referenced file. |
-| Datatype | [IANA mime type](../2_terminology.md#mimetype) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef/@SIZE` |
-|-----------------------|-----------|
-| Name | File size |
-| Description | Size of the referenced file; this MUST be in bytes. |
-| Datatype | [Integer](../2_terminology.md#integer) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef/@CREATED` |
-|-----------------------|-----------|
-| Name | File creation datetime |
-| Description | The creation date and time of the referenced file. |
-| Datatype | [XML Schema datetime](../2_terminology.md#xsd-datetime) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef/@CHECKSUM` |
-|-----------------------|-----------|
-| Name | File checksum |
-| Description | The checksum of the referenced file. |
-| Datatype | [String](../2_terminology.md#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST |
-
-| Attribute | `mets/amdSec/rightsMD/mdRef/@CHECKSUMTYPE` |
-|-----------------------|-----------|
-| Name | File checksum type |
-| Description | A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. This MUST be set to `MD5`. |
-| Datatype | [String](../2_terminology.md#string) |
-| Cardinality | 1..1 |
-| Obligation | MUST | -->
 
 ### \<fileSec\> section
 
