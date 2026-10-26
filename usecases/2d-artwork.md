@@ -22,14 +22,29 @@ A full sample SIP can be viewed [here](https://github.com/viaacode/documentation
 
 The following content is provided for packaging:
 
-| | |
-| --- | --- |
-| `7m03z1634f_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' with the frame included. |
-| `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif` | An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' without the frame. |
-| `7m03z1634f_stitch_tiff.tif` | A stitched very high-resolution image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
-| `7m03z1634f_target_tiff.tif` | A reference image file in the TIFF file format for calibrating the photoregistration hardware. |
-| `7m03z1634f_deelopname1_tiff.tif`<br>`7m03z1634f_deelopname2_tiff.tif`<br>`...`<br>`7m03z1634f_deelopname9_tiff.tif` | A very high-resolution image split into multiple files in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'. |
-| `metadata.xml` | A metadata record describing the painting 'The lamentation over the Dead Christ'. |
+`7m03z1634f_overzichtsopname_metlijst_tiff.tiff`
+
+:   An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' with the frame included.
+
+`7m03z1634f_overzichtsopname_zonderlijst_tiff.tif`
+
+:   An image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ' without the frame.
+
+`7m03z1634f_stitch_tiff.tif`
+
+:   A stitched very high-resolution image file in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'.
+
+`7m03z1634f_target_tiff.tif`
+
+:   A reference image file in the TIFF file format for calibrating the photoregistration hardware.
+
+`7m03z1634f_deelopname1_tiff.tif`<br>`7m03z1634f_deelopname2_tiff.tif`<br>`...`<br>`7m03z1634f_deelopname9_tiff.tif`
+
+:   A very high-resolution image split into multiple files in the TIFF file format containing a photoregistration of the painting 'The lamentation over the Dead Christ'.
+
+`metadata.xml`
+
+:   A metadata record describing the painting 'The lamentation over the Dead Christ'.
 
 The metadata record can contain the following information:
 
@@ -54,19 +69,49 @@ We can distinguish a couple of file sets (in the TIFF file format) that represen
 
 Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts](../3_core-concepts.md):
 
-| | |
-| --- | --- |
-|_Intellectual Entity_|the painting 'The lamentation over the Dead Christ' |
-|_Representation 1_| the access copy of the painting with frame |
-|_Representation 2_| the access copy of the painting without frame |
-|_Representation 3_| the first archive master: a high-resolution stitched representation |
-|_Representation 4_| the second archive master: a high-resolution non-stitched representation|
-|_Representation 5_| the calibration result|
-|_Files (rep. 1)_|the TIFF file: `7m03z1634f_overzichtsopname_metlijst_tiff.tiff`|
-|_Files (rep. 2)_|the TIFF file: `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif`|
-|_Files (rep. 3)_|the TIFF file: `7m03z1634f_stitch_tiff.tif`|
-|_Files (rep. 4)_|the TIFF files: `7m03z1634f_deelopname1_tiff.tif`, `7m03z1634f_deelopname2_tiff.tif`, ..., `7m03z1634f_deelopname9_tiff.tif`|
-|_Files (rep. 5)_|the TIFF file: `7m03z1634f_target_tiff`|
+_Intellectual Entity_
+
+:   the painting 'The lamentation over the Dead Christ'
+
+_Representation 1_
+
+:   the access copy of the painting with frame
+
+_Representation 2_
+
+:   the access copy of the painting without frame
+
+_Representation 3_
+
+:   the first archive master: a high-resolution stitched representation
+
+_Representation 4_
+
+:   the second archive master: a high-resolution non-stitched representation
+
+_Representation 5_
+
+:   the calibration result
+
+_Files (rep. 1)_
+
+:   the TIFF file: `7m03z1634f_overzichtsopname_metlijst_tiff.tiff`
+
+_Files (rep. 2)_
+
+:   the TIFF file: `7m03z1634f_overzichtsopname_zonderlijst_tiff.tif`
+
+_Files (rep. 3)_
+
+:   the TIFF file: `7m03z1634f_stitch_tiff.tif`
+
+_Files (rep. 4)_
+
+:   the TIFF files: `7m03z1634f_deelopname1_tiff.tif`, `7m03z1634f_deelopname2_tiff.tif`, ..., `7m03z1634f_deelopname9_tiff.tif`
+
+_Files (rep. 5)_
+
+:   the TIFF file: `7m03z1634f_target_tiff`
 
 This case relies on the material-artwork profile because:
 
@@ -137,15 +182,33 @@ root_directory
 
 In total, the SIP contains 12 metadata files:
 
-| | |
-| --- | --- |
-|`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema. |
-|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including the IE-wide rights statement and access policy and any PREMIS events related to the SIP/package/representations. |
-|`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF files residing at the _representation level_, including its reuse condition and access policy. |
-|`data/representations/representation_2/metadata/preservation/premis.xml`| Preservation metadata about the second representation and TIFF files residing at the _representation level_. |
-|`data/representations/representation_3/metadata/preservation/premis.xml`| Preservation metadata about the third representation and TIFF files residing at the _representation level_. |
-|`data/representations/representation_4/metadata/preservation/premis.xml`| Preservation metadata about the fourth representation and TIFF files residing at the _representation level_. |
-|`data/representations/representation_5/metadata/preservation/premis.xml`| Preservation metadata about the fifth representation and TIFF files residing at the _representation level_. |
+`data/metadata/descriptive/dc+schema.xml`
+
+:   Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema.
+
+`data/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the IE residing at the _package level_, including the IE-wide rights statement and access policy and any PREMIS events related to the SIP/package/representations.
+
+`data/representations/representation_1/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the first representation and TIFF files residing at the _representation level_, including its reuse condition and access policy.
+
+`data/representations/representation_2/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the second representation and TIFF files residing at the _representation level_.
+
+`data/representations/representation_3/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the third representation and TIFF files residing at the _representation level_.
+
+`data/representations/representation_4/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the fourth representation and TIFF files residing at the _representation level_.
+
+`data/representations/representation_5/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the fifth representation and TIFF files residing at the _representation level_.
 
 ### /data/metadata/descriptive/dc+schema.xml
 
