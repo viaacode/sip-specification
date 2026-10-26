@@ -1,11 +1,6 @@
 ---
-layout:       default
 title:        Newspaper edition (without PDF)
-parent:       Use cases
-grand_parent:  2.0
 nav_order:    4
-nav_exclude:  false
-has_children: false
 sip_profile:  Bibliographic
 ---
 
@@ -19,7 +14,7 @@ The following use case describes how to package a newspaper edition digitised pe
 - basic descriptive metadata;
 - basic preservation metadata.
 
-It uses the [**Bibliographic SIP profile**]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/profiles/bibliographic.md %}).
+It uses the [**Bibliographic SIP profile**](../profiles/bibliographic.md).
 
 A full sample SIP can be downloaded [here](https://github.com/viaacode/documentation/tree/main/assets/sip_samples/newspaper_c44a0b0d-6e2f-4af2-9dab-3a9d447288d0/).
 
@@ -27,6 +22,8 @@ A full sample SIP can be downloaded [here](https://github.com/viaacode/documenta
 
 The following content is provided for packaging:
 
+| | |
+| --- | --- |
 | `18950101_0001.tiff`<br>`18950101_0002.tiff`<br>`18950101_0003.tiff` | The essence: 3 image files in the TIFF media format representing 3 digitised newspaper pages from a newspaper edition issued on 01/01/1895. |
 | `18950101_0001.xml`<br>`18950101_0002.xml`<br>`18950101_0003.xml` | The essence: 3 XML files in the ALTO XML media format representing the textual content of 3 digitised newspaper pages from a newspaper edition issued on 01/01/1895. |
 | `metadata.xml` | A metadata record describing the newspaper edition. |
@@ -53,6 +50,8 @@ We can distinguish between two sets of files representing the newspaper edition:
 
 Since each set of files can have a meaning on its own (i.e. one could focus solely on the TIFF files to get an idea of what the pages looked liked or one could want to only look at the ALTO XML files to read the contents of the pages without the lay-out of the page itself), two separate representations can be made: one representation containing the TIFF files and one representation containing the ALTO XML files.
 
+| | |
+| --- | --- |
 |_Intellectual Entity_|the newspaper edition issued on January 1st, 1895|
 |_Representation 1_|a visual representation of the newspaper edition containing image files|
 |_Representation 2_|a textual representation of the newspaper edition containing text files|
@@ -107,6 +106,8 @@ root_directory
 
 In total, the SIP contains 5 metadata files:
 
+| | |
+| --- | --- |
 |`data/metadata/descriptive/mods.xml`|Descriptive metadata about the IE residing at the _package level_ using the MODS metadata schema.|
 |`data/metadata/preservation/premis.xml`|Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations.|
 |`data/representations/representation_1/metadata/preservation/premis.xml`|Preservation metadata about the representation and TIFF files residing at the _representation level_.|
@@ -117,7 +118,7 @@ In total, the SIP contains 5 metadata files:
 The `mods.xml` of the package level describes the IE using [the MODS metadata schema](https://www.loc.gov/standards/mods/).
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance...
 
-The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here]({{ site.baseurl }}{% link docs/diginstroom/sip/2.0/sip_structure/5_structure_package.md %}#shareduuidinfo)).
+The identifier is used to link the `mods.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (this is similar to the use of `<dcterms:identifier/>` described [here](../sip_structure/5_structure_package.md#shareduuidinfo)).
 
 Note that only a subset of MODS elements are obligatory in the newspaper SIP profile.
 The examples below and in the sample mentioned earlier therefore only serve as an illustration of possible elements rather than as an exhaustive list of obligatory elements.
