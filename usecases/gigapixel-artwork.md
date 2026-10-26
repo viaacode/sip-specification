@@ -20,15 +20,33 @@ It uses the [**material-artwork SIP profile**](../profiles/material-artwork.md).
 
 The following content is provided for packaging:
 
-| | |
-| --- | --- |
-| `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of an 'Uur- en kalenderwijzerplaat' with the frame included. |
-| `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff` | An image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat' without the frame. |
-| `cf9j41p15z_stitch_bigtiff.tiff` | A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'. |
-| `cf9j41p15z_stitch_psb.psb` | A stitched very high-resolution image file in the Adobe Photoshop Large Document Format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'. |
-| `cf9j41p15z_target_tiff.tiff` | A reference image file in the TIFF file format for calibrating the photoregistration hardware. |
-| `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff` | A very high-resolution image split into multiple files in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'. |
-| `metadata.xml` | A metadata record describing the 'Uur- en kalenderwijzerplaat'. |
+`cf9j41p15z_overzichtsopname_metlijst_tiff.tiff`
+
+:   An image file in the TIFF file format containing a photoregistration of an 'Uur- en kalenderwijzerplaat' with the frame included.
+
+`cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff`
+
+:   An image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat' without the frame.
+
+`cf9j41p15z_stitch_bigtiff.tiff`
+
+:   A stiched very high-resolution image file in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'.
+
+`cf9j41p15z_stitch_psb.psb`
+
+:   A stitched very high-resolution image file in the Adobe Photoshop Large Document Format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'.
+
+`cf9j41p15z_target_tiff.tiff`
+
+:   A reference image file in the TIFF file format for calibrating the photoregistration hardware.
+
+`cf9j41p15z_Kolom1_deelopname1_tiff.tiff`<br>`cf9j41p15z_Kolom1_deelopname2_tiff.tiff`<br>`...`<br>`cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
+
+:   A very high-resolution image split into multiple files in the TIFF file format containing a photoregistration of the 'Uur- en kalenderwijzerplaat'.
+
+`metadata.xml`
+
+:   A metadata record describing the 'Uur- en kalenderwijzerplaat'.
 
 The metadata record can contain the following information:
 
@@ -54,21 +72,57 @@ We can distinguish a couple of file sets (in the TIFF or PSB file format) that r
 
 Since each set of files can have a meaning on its own (i.e. one could focus on one of the TIFF files to get an idea of what the painting looks like), they are split into separate representations. This results in the following application of the [core concepts](../3_core-concepts.md):
 
-| | |
-| --- | --- |
-|_Intellectual Entity_|the 'Uur- en kalenderwijzerplaat' |
-|_Representation 1_| the access copy of the painting with frame |
-|_Representation 2_| the access copy of the painting without frame |
-|_Representation 3_| the first archive master: a high-resolution stitched representation in TIFF format |
-|_Representation 4_| the second archive master: a high-resolution stitched representation in Adobe Photoshop Large Document Format |
-|_Representation 5_| the second archive master: a high-resolution non-stitched representation|
-|_Representation 6_| the calibration result|
-|_Files (rep. 1)_|the TIFF file: `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff`|
-|_Files (rep. 2)_|the TIFF file: `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff`|
-|_Files (rep. 3)_|the TIFF file: `cf9j41p15z_stitch_bigtiff.tiff` |
-|_Files (rep. 4)_|the PSB file: `cf9j41p15z_stitch_psb.psb`|
-|_Files (rep. 5)_|the TIFF files: `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`, `cf9j41p15z_Kolom1_deelopname2_tiff.tiff`, ..., `cf9j41p15z_Kolom5_deelopname6_tiff.tiff`|
-|_Files (rep. 6)_|the TIFF file: `cf9j41p15z_target_tiff.tiff`|
+_Intellectual Entity_
+
+:   the 'Uur- en kalenderwijzerplaat'
+
+_Representation 1_
+
+:   the access copy of the painting with frame
+
+_Representation 2_
+
+:   the access copy of the painting without frame
+
+_Representation 3_
+
+:   the first archive master: a high-resolution stitched representation in TIFF format
+
+_Representation 4_
+
+:   the second archive master: a high-resolution stitched representation in Adobe Photoshop Large Document Format
+
+_Representation 5_
+
+:   the second archive master: a high-resolution non-stitched representation
+
+_Representation 6_
+
+:   the calibration result
+
+_Files (rep. 1)_
+
+:   the TIFF file: `cf9j41p15z_overzichtsopname_metlijst_tiff.tiff`
+
+_Files (rep. 2)_
+
+:   the TIFF file: `cf9j41p15z_overzichtsopname_zonderlijst_tiff.tiff`
+
+_Files (rep. 3)_
+
+:   the TIFF file: `cf9j41p15z_stitch_bigtiff.tiff`
+
+_Files (rep. 4)_
+
+:   the PSB file: `cf9j41p15z_stitch_psb.psb`
+
+_Files (rep. 5)_
+
+:   the TIFF files: `cf9j41p15z_Kolom1_deelopname1_tiff.tiff`, `cf9j41p15z_Kolom1_deelopname2_tiff.tiff`, ..., `cf9j41p15z_Kolom5_deelopname6_tiff.tiff`
+
+_Files (rep. 6)_
+
+:   the TIFF file: `cf9j41p15z_target_tiff.tiff`
 
 This case relies on the material-artwork profile because:
 
@@ -157,16 +211,37 @@ root_directory
 
 In total, the SIP contains 13 metadata files:
 
-| | |
-| --- | --- |
-|`data/metadata/descriptive/dc+schema.xml`| Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema. |
-|`data/metadata/preservation/premis.xml`| Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations. |
-|`data/representations/representation_1/metadata/preservation/premis.xml`| Preservation metadata about the first representation and TIFF file residing at the _representation level_. |
-|`data/representations/representation_2/metadata/preservation/premis.xml`| Preservation metadata about the second representation and TIFF file residing at the _representation level_. |
-|`data/representations/representation_3/metadata/preservation/premis.xml`| Preservation metadata about the third representation and TIFF file residing at the _representation level_. |
-|`data/representations/representation_4/metadata/preservation/premis.xml`| Preservation metadata about the fourth representation and PSB file residing at the _representation level_. |
-|`data/representations/representation_5/metadata/preservation/premis.xml`| Preservation metadata about the fifth representation and TIFF files residing at the _representation level_. |
-|`data/representations/representation_6/metadata/preservation/premis.xml`| Preservation metadata about the sixth representation and TIFF file residing at the _representation level_. |
+`data/metadata/descriptive/dc+schema.xml`
+
+:   Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema.
+
+`data/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the IE residing at the _package level_, including any PREMIS events related to the SIP/package/representations.
+
+`data/representations/representation_1/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the first representation and TIFF file residing at the _representation level_.
+
+`data/representations/representation_2/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the second representation and TIFF file residing at the _representation level_.
+
+`data/representations/representation_3/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the third representation and TIFF file residing at the _representation level_.
+
+`data/representations/representation_4/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the fourth representation and PSB file residing at the _representation level_.
+
+`data/representations/representation_5/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the fifth representation and TIFF files residing at the _representation level_.
+
+`data/representations/representation_6/metadata/preservation/premis.xml`
+
+:   Preservation metadata about the sixth representation and TIFF file residing at the _representation level_.
 
 ### /data/metadata/descriptive/dc+schema.xml
 
