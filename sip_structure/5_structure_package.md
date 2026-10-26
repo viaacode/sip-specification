@@ -1131,8 +1131,6 @@ The listing of other representation files (i.e. metadata files and media files) 
 | Name | Resource location |
 | Description | Indication of the actual location of the referenced file.
 As indicated by the @LOCTYPE attribute, this filepath MUST be a URL type filepath. |
-| | |
-| --- | --- |
 | Datatype | [URL](../2_terminology.md#url) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
