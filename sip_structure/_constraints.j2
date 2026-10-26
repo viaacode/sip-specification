@@ -1,0 +1,12 @@
+{% macro render_constraints(constraints) -%}
+{% for constraint in constraints if constraint.Status is not defined or constraint.Status != "deprecated" %}
+| <a id="{{ constraint.ID }}">#{{ constraint.ID }}</a><br>{{ constraint.Type }} | {{ constraint.XPath }} |
+|-----------------------|-----------|
+| Name | {{ constraint.Name }} |
+| Description | {{ constraint.Description }} |
+{% if constraint.Datatype is defined and constraint.Datatype %}| Datatype | {{ constraint.Datatype }} |
+{% endif %}{% if constraint.Vocabulary is defined and constraint.Vocabulary %}| Vocabulary | {{ constraint.Vocabulary }} |
+{% endif %}| Cardinality | {{ constraint.Cardinality }} |
+| Obligation | {{ constraint.Obligation }} |
+{% endfor %}
+{%- endmacro %}
