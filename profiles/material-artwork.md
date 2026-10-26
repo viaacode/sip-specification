@@ -168,9 +168,8 @@ The Basic-profile `dc+schema.xml` requirements apply to descriptive metadata, in
 
 The XML files that are required by this profile can be validated using the following XML schema definitions:
 
-| | | |
-| --- | --- | --- |
 | File | Format | XML Schema |
+| --- | --- | --- |
 | `METS.xml` | METS v1.13.0 | [mets.xsd](https://www.loc.gov/standards/mets/mets.xsd) |
 | `premis.xml` | PREMIS v3.0 | [premis-v3-0.xsd](https://www.loc.gov/standards/premis/v3/premis-v3-0.xsd) |
 | `dc+schema.xml` | Dublin Core with Schema.org and meemoo rights-agent terms | dc+schema.xsd (not yet available) |
