@@ -877,7 +877,7 @@
     "Level": "Package",
     "Path": "/metadata/descriptive/mods.xml",
     "Section": "modsPhysical",
-    "Description": "This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages, the number of sheets, or its physical measurements.For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer](../2_terminology#integer).",
+    "Description": "This element is used to express a physical dimension of the written work indicated by the `@unit` attribute, such as the number of pages or its physical measurements.For expressing the physical size of the written work, the metric unit `cm` (centimeter) or `mm` (millimeter) is used; the value MUST be in the form `{width} X {height}`, with `{width}` and `{height}` being values of type [Integer](../2_terminology#integer).",
     "Cardinality": "0..*",
     "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS extent element",
@@ -897,7 +897,7 @@
     "Datatype": "[String](../2_terminology#string)",
     "Name": "MODS extent element unit attribute",
     "Obligation": "MUST",
-    "Vocabulary": "`cm`, `mm`, `sheets`, `pages`"
+    "Vocabulary": "`cm`, `mm`, `pages`"
   },
   {
     "ID": "BICP62",
