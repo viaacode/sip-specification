@@ -1,13 +1,8 @@
 ---
-layout:       default
 title:        Core concepts
-parent:       1.1
-grand_parent:  SIP Specification 
 nav_order:    3
-nav_exclude:  false
 ---
 # Core Concepts
-{: .no_toc }
 
 This section introduces the core concepts of the PREMIS data model, which are fundamental to the meemoo SIP.
 In essence, digital content is delivered as one of more (digital) _representations_ of an _intellectual entity_. 
@@ -19,7 +14,7 @@ These concepts are used throughout the remainder of this specification, and are 
   <figcaption>The PREMIS Object data model as adopted by the meemoo SIP.</figcaption>
 </figure>
 
-## Intellectual Entities, Representations and Files {#dfn-ie}
+## Intellectual Entities, Representations and Files { #dfn-ie }
 
 The [PREMIS Data Dictionary for Preservation Metadata](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf) defines an **Intellectual Entity** (henceforth IE) as 'a distinct intellectual or artistic creation that is considered to be relevant to a designated community in the context of digital preservation'.
 At meemoo, the IE embodies the intangible subject matter of the digital content; it is what users search for on the meemoo dissemination platforms.
@@ -51,7 +46,7 @@ Examples of these three concepts are given in the table below.
 
 A generic data model is necessary to ensure a scalable SIP design to current and future use cases.
 However, not every utilization of this model is allowed at ingest in the meemoo archive.
-Depending on the type of content, a specific mapping is required, which is captured in the different [content profiles]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/profiles/index.md %}).
+Depending on the type of content, a specific mapping is required, which is captured in the different [content profiles](profiles/index.md).
 A content profile determines
 
 - whether an IE is subdivided further into other IEs (i.e. nesting of IEs);
@@ -61,10 +56,10 @@ A content profile determines
 
 Content that is delivered to meemoo must therefore always be packaged in a meemoo SIP that adheres to a specific content profile.
 
-{: .important }
-Generally speaking, it is up to the content partner to decide what aspect of its collection is considered as an IE and what profile to use.
-Note that this decision may have an impact on the expressivity of the metadata (eg. the basic profile only supports descriptive metadata in the Dublin Core vocabulary), the dissemination of the SIP's content and, in particular, on how its content is rendered on e.g. meemoo's dissemination platforms.
-Typically, something that has individual descriptive metadata at the source (e.g. an entry in a collection registration or asset management system) and is expected to be distinguishable in search, should be viewed as an IE.
+!!! important
+    Generally speaking, it is up to the content partner to decide what aspect of its collection is considered as an IE and what profile to use.
+    Note that this decision may have an impact on the expressivity of the metadata (eg. the basic profile only supports descriptive metadata in the Dublin Core vocabulary), the dissemination of the SIP's content and, in particular, on how its content is rendered on e.g. meemoo's dissemination platforms.
+    Typically, something that has individual descriptive metadata at the source (e.g. an entry in a collection registration or asset management system) and is expected to be distinguishable in search, should be viewed as an IE.
 
 ## Example
 
@@ -81,5 +76,5 @@ We have one IE (i.e. the newspaper edition) and we can discern between three rep
 </figure>
 
 <small>
-Continue to [Structure]({{ site.baseurl }}{% link docs/diginstroom/sip/1.1/sip_structure/index.md %}).
+Continue to [Structure](sip_structure/index.md).
 </small>
