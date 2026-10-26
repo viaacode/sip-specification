@@ -93,8 +93,6 @@ A summary of all possible references and their obligation is given in the table 
 | [`mets/structMap[@LABEL='CSIP']/div/div[@LABEL='Representations/representation_*']/mptr/@xlink:title`](#structMap-csip-div-div-representations-fptr-fileid) | SHOULD | [`mets/fileSec/fileGrp/@ID`](#fileGrp-id) (or [`mets/fileSec/fileGrp/file/@ID`](#file-id) if allowed by the profile.)  |
 | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 <!-- | [`mets/fileSec/fileGrp/@ADMID`](#fileGrp-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
-| | | |
-| --- | --- | --- |
 | [`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 <!-- | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
