@@ -165,13 +165,6 @@ Only the MD5 hashing algorithm is allowed to compute the fixity, thus:
 
 {% include_relative _constraints.liquid constraints = constraints %}
 
-##### Information on the work series
-
-{% assign constraints = package_constraints | where_exp: "c",
-"c.Section == 'modsSeries'" %}
-
-{% include_relative _constraints.liquid constraints = constraints %}
-
 #### Package Preservation Metadata
 
 {% assign constraints = package_constraints | where_exp: "c",

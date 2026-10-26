@@ -169,10 +169,6 @@ The examples below and in the sample mentioned earlier therefore only serve as a
     <mods:geographic xml:lang="nl">Gent</mods:geographic>
     <mods:geographic xml:lang="fr">Gand</mods:geographic>
   </mods:subject>
-  <mods:relatedItem type="series">
-    <mods:identifier type="abraham_id" typeURI="https://anet.be">c:bnc:99999</mods:identifier>
-    <mods:identifier type="abraham_uri" typeURI="https://anet.be">https://anet.be/record/opacbnc/c:bnc:99999/N</mods:identifier>
-  </mods:relatedItem>
   <mods:physicalDescription>
     <mods:form>print</mods:form>
     <mods:extent unit="pages">3</mods:extent>
