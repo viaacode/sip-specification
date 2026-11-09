@@ -333,7 +333,7 @@ root_directory
 | Name | Role of a person |
 | Description | Designates the relationship (role) of the person or organization to the written work.  |
 | Datatype | [String](../2_terminology.md#string) |
-| Vocabulary | See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3).  |
+| Vocabulary | See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.md#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.md#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.md#mogelijke-sleutels-3).  |
 | Cardinality | 0..1 |
 | Obligation | SHOULD |
 

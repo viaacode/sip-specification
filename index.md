@@ -10,7 +10,7 @@ nav_order:    3
 
 **Version:** [1.2](index.md)
 
-**Previous version:** [1.1](/docs/diginstroom/sip/1.1/index.html)
+**Previous version:** [1.1](/docs/diginstroom/sip/1.1/index.md)
 
 **Published:**
 
