@@ -10,7 +10,7 @@ nav_order:    2
 
 **Version:** [2.0](index.md)
 
-**Previous version:** [1.2](/docs/diginstroom/sip/1.2/index.html)
+**Previous version:** [1.2](/docs/diginstroom/sip/1.2/index.md)
 
 **Compliant with E-ARK SIP:** [v2.2.0](https://earksip.dilcis.eu/)
 
