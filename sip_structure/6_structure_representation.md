@@ -527,7 +527,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Object identifier type |
 | Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type `UUID` MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc*.xml` file, if any is present. |
 | Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels). |
+| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.md#mogelijke-sleutels). |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -687,7 +687,7 @@ The table below gives an overview of the different relationship types that can b
 |-----------------------|-----------|
 | Name | Message digest |
 | Description | This element contains the actual value calculated message digest algorithm specified in the `premis:messageDigestAlgorithm` element. |
-| Datatype | [String](/docs/diginstroom/sip/1.1/2_terminology.html#string) |
+| Datatype | [String](/docs/diginstroom/sip/1.1/2_terminology.md#string) |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
