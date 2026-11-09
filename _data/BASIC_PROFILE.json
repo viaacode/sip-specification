@@ -702,7 +702,7 @@
     "Datatype": "[String](../2_terminology.md#string)",
     "Name": "Role creator, publisher, or contributor",
     "Obligation": "MUST",
-    "Vocabulary": "See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.html#mogelijke-sleutels-3)."
+    "Vocabulary": "See the lists of roles for [makers](https://developer.meemoo.be/docs/metadata/viaa/algemeen.md#mogelijke-sleutels-1), [contributors](https://developer.meemoo.be/docs/metadata/viaa/algemeen.md#bijdrager), and [publisher](https://developer.meemoo.be/docs/metadata/viaa/algemeen.md#mogelijke-sleutels-3)."
   },
   {
     "ID": "BACP48",
