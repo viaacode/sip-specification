@@ -5,9 +5,7 @@ nav_order:    3
 
 # Representation level
 
-## Table of contents
 
-1. TOC
 
 The representation level consists of at least one `/representation_*` directory (where `*` is a positive integer increasing by 1 for each additional representation).
 Each `/representation_*` directory contains information about the representation of (one of) the IE(s) of the package level, together with the media files making up the representation.
@@ -97,7 +95,7 @@ A summary of all possible references and their obligation is given in the table 
 <!-- | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) OR [`mets/amdSec/rightsMD/@ID`](#rightsMD-id) | -->
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 
-### \<mets\> section
+### `<mets>` section
 
 ***Example***
 
@@ -170,7 +168,7 @@ A summary of all possible references and their obligation is given in the table 
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-### \<metsHdr\> section
+### `<metsHdr>` section
 
 ***Example***
 
@@ -254,7 +252,7 @@ A summary of all possible references and their obligation is given in the table 
 | Cardinality | 0..1 |
 | Obligation | MAY |
 
-### \<dmdSec\> section
+### `<dmdSec>` section
 
 `dmdSec` section follows the same requirements, where possible, as the package `mets.xml` file.
 
@@ -272,7 +270,7 @@ See [amdSec Section](./5_structure_package.md#amdsec-section).
 
 See [fileSec Section](./5_structure_package.md#filesec-section).
 
-### \<structMap\> section
+### `<structMap>` section
 
 The `structMap` element outlines the hierarchical structure of the representation level of the SIP.
 Its requirements are very similar to the package level, however, instead of pointing to the contained representations, a `Representations` division points to the contained files. 
