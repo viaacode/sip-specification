@@ -373,6 +373,14 @@ The following fragment uses the representation UUID from the example above:
 
 {{ render_constraint_details(constraints) }}
 
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "premisRights") | list %}
+
+{{ render_constraint_details(constraints) }}
+
+{% set constraints = rep_constraints | selectattr("Section", "equalto", "premisPolicy") | list %}
+
+{{ render_constraint_details(constraints) }}
+
 <small>
 Continue to [Profiles](../profiles/index.md).
 </small>
