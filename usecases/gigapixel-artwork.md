@@ -213,7 +213,7 @@ In total, the SIP contains 13 metadata files:
 
 `data/metadata/descriptive/dc+schema.xml`
 
-:   Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](schema.org/) metadata schema.
+:   Descriptive metadata about the IE residing at the _package level_ using the [DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and [Schema](https://schema.org) metadata schema.
 
 `data/metadata/preservation/premis.xml`
 
@@ -245,7 +245,7 @@ In total, the SIP contains 13 metadata files:
 
 ### /data/metadata/descriptive/dc+schema.xml
 
-The `dc+schema.xml` of the package level describes the IE using [the DCTERMS]((https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)) and the [Schema](schema.org/) metadata models.
+The `dc+schema.xml` of the package level describes the IE using [the DCTERMS](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) and the [Schema](https://schema.org) metadata models.
 It contains minimal metadata such as a title, a description, an identifier, a date of creation and of issuance, and additional metadata such as the dimensions of the artwork, information about the artist, the art medium and the type of artwork.
 
 The identifier in the `<dcterms:identifier/>` element is used to link the `dc+schema.xml` file to the corresponding PREMIS object in the `preservation/premis.xml` file of the package level (see [here](../sip_structure/5_structure_package.md#shareduuidinfo) for more information).

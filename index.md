@@ -10,7 +10,7 @@ nav_order:    4
 
 **Version:** [1.1](index.md)
 
-**Previous version:** [1.0](/docs/diginstroom/sip/1.0/index.html)
+**Previous version:** [1.0](/docs/diginstroom/sip/1.0/index.md)
 
 **Published:** 2023-06-13
 

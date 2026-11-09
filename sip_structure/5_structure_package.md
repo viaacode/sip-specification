@@ -283,7 +283,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 |-----------------------|-----------|
 | Name | SIP creator software agent type |
 | Description | The type of the SIP creator software agent.<br>This value MUST be set to `OTHER`. |
-| Datatype | [String](/docs/diginstroom/sip/1.0/2_terminology.html#string) |
+| Datatype | [String](/docs/diginstroom/sip/1.0/2_terminology.md#string) |
 | Vocabulary | `OTHER` |
 | Cardinality | 1..1 |
 | Obligation | MUST |
@@ -1574,7 +1574,7 @@ The table below gives an overview of the different relationship types that can b
 | Name | Object identifier type |
 | Description | The type of the PREMIS object identifier being used.<br><br>At least one identifier of type `UUID` MUST be defined in order to provide a unique identifier for each PREMIS object.<br><br>This unique identifier is also used to link the concerned PREMIS object with the descriptive metadata in the `/metadata/descriptive/dc.xml` file, if any is present. |
 | Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels). |
+| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.md#mogelijke-sleutels). |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
@@ -1896,7 +1896,7 @@ The use of events might be prohibited or enforced depending on the given content
 | Name | Linking object identifier type |
 | Description | The type of the object identifier that the event is being linked to. |
 | Datatype | [String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html)) |
-| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels). |
+| Vocabulary | `UUID`<br>`MEEMOO-LOCAL-ID`<br>`MEEMOO-PID`<br>and all keys from [this list](/docs/metadata/viaa/algemeen.md#mogelijke-sleutels). |
 | Cardinality | 1..1 |
 | Obligation | MUST |
 
