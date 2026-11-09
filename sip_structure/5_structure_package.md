@@ -245,11 +245,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 
 {% set fileSec_constraints = package_constraints | selectattr("Section", "equalto", "fileSec") | list %}
 
-{% set constraints = fileSec_constraints | selectattr("Type", "equalto", "General") | list %}
-
-{{ render_constraint_list(constraints) }}
-
-{% set constraints = fileSec_constraints | selectattr("Path", "equalto", "/METS.xml") | list %}
+{% set constraints = fileSec_constraints %}
 
 {{ render_constraint_details(constraints) }}
 
