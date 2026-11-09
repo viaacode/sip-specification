@@ -10,9 +10,7 @@ nav_order:    2
 
 # Representation level
 
-## Table of contents
 
-1. TOC
 
 The representation level consists of at least one representation directory (in the remainder of this text we will use `representation_1` as an example).
 Each representation directory contains information about the representation of (one of) the IE(s) of the package level, together with the media files making up the representation.
@@ -95,7 +93,7 @@ A summary of all possible references and their obligation is given in the table 
 |[`mets/fileSec/fileGrp/file/@DMDID`](#fileGrp-file-dmdid) | MAY | [`mets/dmdSec/@ID`](#dmdSec-id) |
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 
-### \<mets\> section
+### `<mets>` section
 
 ***Example***
 
@@ -124,7 +122,7 @@ A summary of all possible references and their obligation is given in the table 
 
 {{ render_constraint_details(constraints) }}
 
-### \<metsHdr\> section
+### `<metsHdr>` section
 
 ***Example***
 
@@ -138,7 +136,7 @@ A summary of all possible references and their obligation is given in the table 
 
 {{ render_constraint_details(constraints) }}
 
-### \<structMap\> section
+### `<structMap>` section
 
 The `structMap` element outlines the hierarchical structure of the representation level of the SIP.
 Its requirements are very similar to the package level, however, instead of pointing to the contained representations, a `data` division points to the contained files. 

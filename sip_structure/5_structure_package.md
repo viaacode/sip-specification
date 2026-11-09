@@ -9,9 +9,7 @@ nav_order:    1
 
 # Package level
 
-## Table of contents
 
-1. TOC
 
 The package level is the top level of the meemoo SIP and consists of at least a `METS.xml` file, a `/metadata` directory and a `/representations` directory.
 It contains information about the IE(s) of the SIP and the SIP as a whole.
@@ -95,7 +93,7 @@ A summary of all possible references and their obligation is given in the table 
 | [`mets/fileSec/fileGrp/file/@ADMID`](#fileGrp-file-admid) | MAY | [`mets/amdSec/digiprovMD/@ID`](#digiprovMD-id) |
 
 
-### \<mets\> section
+### `<mets>` section
 
 This is the root element of the package METS file.
 It contains a number of XML schema namespaces together with a number of attributes to uniquely identify the package METS file and the type of data it lists.
@@ -131,7 +129,7 @@ The various requirements are listed in the table below.
 
 {{ render_constraint_details(constraints) }}
 
-### \<metsHdr\> section
+### `<metsHdr>` section
 
 This element contains administrative metadata about the SIP such as its creator and its creation software.
 It does so by using separate `agent` tags for every role in the SIPs creation and submission process.
@@ -164,7 +162,7 @@ It does so by using separate `agent` tags for every role in the SIPs creation an
 
 {{ render_constraint_details(constraints) }}
 
-### \<dmdSec\> section
+### `<dmdSec>` section
 
 The `dmdSec` element (short for 'descriptive metadata section') contains descriptive metadata about the IE(s) in the SIP.
 Descriptive metadata in the meemoo SIP MUST be contained in dedicated metadata files located in the `/metadata/descriptive` directory of the package level.
@@ -194,7 +192,7 @@ This means that the `dmdSec` MUST use `<mdRef>` elements to reference the extern
 
 {{ render_constraint_details(constraints) }}
 
-### \<amdSec\> section
+### `<amdSec>` section
 
 The `amdSec` element (short for 'administrative metadata section') contains preservation metadata about the IE(s) of the SIP and about the SIP as a whole.
 Preservation data in the meemoo SIP MUST be contained in dedicated metadata files located in the `metadata/preservation` directory of the package-level.
@@ -217,7 +215,7 @@ This means that the `amdSec` MUST use `<mdRef>` elements, contained in `<digipro
 
 {{ render_constraint_details(constraints) }}
 
-### \<fileSec\> section
+### `<fileSec>` section
 
 The `fileSec` element (short for 'file section') lists all files of the package level in the SIP.
 It contains references to the representation `METS.xml` files of the different representations, but does not list other files of those representations.
@@ -249,7 +247,7 @@ The listing of other representation files (i.e. metadata files and media files) 
 
 {{ render_constraint_details(constraints) }}
 
-### \<structMap\> section
+### `<structMap>` section
 
 The `structMap` element outlines the hierarchical structure of the package level of the SIP.
 It provides links between elements and metadata files located elsewhere in the package level.
