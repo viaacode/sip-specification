@@ -5,9 +5,7 @@ nav_order:    5
 <span class="label label-red">Retired</span>
 # Bag level
 
-## Table of contents
 
-1. TOC
 
 The bag is the top level of the meemoo SIP and is essentially a wrapper around a SIP submitted by a CP for ingest in the meemoo archive.
 It is a compressed directory that conforms to the [BagIt 1.0 specification (RFC 8493)](https://www.rfc-editor.org/rfc/rfc8493.html).
