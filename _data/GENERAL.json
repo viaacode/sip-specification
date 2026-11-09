@@ -2711,7 +2711,7 @@
     "Datatype": "[String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html))",
     "Name": "Object identifier type",
     "Obligation": "MUST",
-    "Vocabulary": "`UUID``MEEMOO-LOCAL-ID``MEEMOO-PID`and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels).",
+    "Vocabulary": "`UUID``MEEMOO-LOCAL-ID``MEEMOO-PID`and all keys from [this list](/docs/metadata/viaa/algemeen.md#mogelijke-sleutels).",
     "Covered by XSD": "Yes",
     "Cardinality XSD": ""
   },
@@ -3170,7 +3170,7 @@
     "Datatype": "[String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html))",
     "Name": "Linking object identifier type",
     "Obligation": "MUST",
-    "Vocabulary": "`UUID``MEEMOO-LOCAL-ID``MEEMOO-PID`and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels).",
+    "Vocabulary": "`UUID``MEEMOO-LOCAL-ID``MEEMOO-PID`and all keys from [this list](/docs/metadata/viaa/algemeen.md#mogelijke-sleutels).",
     "Covered by XSD": "Yes",
     "Cardinality XSD": ""
   },
@@ -4020,7 +4020,7 @@
     "Datatype": "[String](../2_terminology.md#string); fixed vocabulary (e.g. [`PREMIS standard identifiers`](https://id.loc.gov/vocabulary/identifiers.html))",
     "Name": "Object identifier type",
     "Obligation": "MUST",
-    "Vocabulary": "`UUID``MEEMOO-LOCAL-ID`and all keys from [this list](/docs/metadata/viaa/algemeen.html#mogelijke-sleutels).",
+    "Vocabulary": "`UUID``MEEMOO-LOCAL-ID`and all keys from [this list](/docs/metadata/viaa/algemeen.md#mogelijke-sleutels).",
     "Covered by XSD": "Yes",
     "Cardinality XSD": ""
   },
@@ -4100,7 +4100,7 @@
     "Path": "/metadata/preservation/premis.xml",
     "Section": "premis",
     "XPath": "`/premis:premis/premis:object/premis:relationship/premis:relationshipSubType`",
-    "Description": "A detailed categorization of the nature of the relationship (see also the [overview of relevant PREMIS relationships](/docs/diginstroom/sip/3.0/sip_structure/5_structure_package.html#premis-relationships)).In the case of the `premis.xml` file of the representation level, this element's value MUST be set to `represents` when expressing the relationship between a representation and the IE it represents.When the representation is a master copy or a mezzanine copy of the IE, this element's value MAY instead be set to `is master copy of` or `is mezzanine copy of` respectively.When expressing the relationship between a representation and a file, this element's value MUST be set to `includes` when this relationship is expressed from the side of the representation (i.e. the representation is the subject of the relationship); when this relationship is expressed from the side of the file (i.e. the file is the subject of the relationship), this element's value MUST be set to `is included in`.",
+    "Description": "A detailed categorization of the nature of the relationship (see also the [overview of relevant PREMIS relationships](/docs/diginstroom/sip/3.0/sip_structure/5_structure_package.md#premis-relationships)).In the case of the `premis.xml` file of the representation level, this element's value MUST be set to `represents` when expressing the relationship between a representation and the IE it represents.When the representation is a master copy or a mezzanine copy of the IE, this element's value MAY instead be set to `is master copy of` or `is mezzanine copy of` respectively.When expressing the relationship between a representation and a file, this element's value MUST be set to `includes` when this relationship is expressed from the side of the representation (i.e. the representation is the subject of the relationship); when this relationship is expressed from the side of the file (i.e. the file is the subject of the relationship), this element's value MUST be set to `is included in`.",
     "Cardinality": "1..1",
     "Datatype": "[String](../2_terminology.md#string); fixed vocabulary",
     "Name": "Relationship subtype",
