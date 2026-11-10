@@ -1,0 +1,5 @@
+{% macro render_constraints(constraints) -%}
+{% for constraint in constraints if constraint.Status is not defined or constraint.Status != "deprecated" %}
+| <a id="{{ constraint.ID }}">#{{ constraint.ID }}</a> | {{ constraint.Description }} |
+{% endfor %}
+{%- endmacro %}
